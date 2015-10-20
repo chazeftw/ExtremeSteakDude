@@ -23,7 +23,7 @@
         <Button x:Name="Continue" Content="Continue" HorizontalAlignment="Left" Height="80" Margin="354,290,0,0" VerticalAlignment="Top" Width="550"/>
         <Button x:Name="HighScore" Content="HighScore" HorizontalAlignment="Left" Height="80" Margin="354,420,0,0" VerticalAlignment="Top" Width="550"/>
         <Button x:Name="Exit" Content="Exit" HorizontalAlignment="Left" Height="80" Margin="354,550,0,0" VerticalAlignment="Top" Width="550"/>
-        <Label x:Name="Title" Content="ExtremeSteakDude"  HorizontalAlignment="Center" Margin="577,63,583,0" VerticalAlignment="Top" Height="30" Width="112"/>
+        <Label x:Name="Title" Content="ExtremeSteakDude" FontSize="80" HorizontalAlignment="Center" Margin="297,10,303,0" VerticalAlignment="Top" Height="104" Width="672"/>
 
     </Grid>
 </Window>
