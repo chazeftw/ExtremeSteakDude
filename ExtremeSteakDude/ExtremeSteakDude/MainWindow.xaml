@@ -19,14 +19,10 @@
     </Window.Resources>
 
     <Grid x:Name="LayoutRoot">
-
-        <TextBlock FontSize="36"
-                   FontWeight="Bold"
-                   Foreground="Purple"
-                   Text="{Binding WelcomeTitle}"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"
-                   TextWrapping="Wrap" />
+        <Button x:Name="NewGame" Content="NewGame" HorizontalAlignment="Left" Height="80" Margin="362,139,0,0" VerticalAlignment="Top" Width="550"/>
+        <Button x:Name="Continue" Content="Continue" HorizontalAlignment="Left" Height="80" Margin="362,267,0,0" VerticalAlignment="Top" Width="550"/>
+        <Button x:Name="HighScore" Content="HighScore" HorizontalAlignment="Left" Height="80" Margin="362,404,0,0" VerticalAlignment="Top" Width="550"/>
+        <Button x:Name="Exit" Content="Exit" HorizontalAlignment="Left" Height="80" Margin="362,545,0,0" VerticalAlignment="Top" Width="550"/>
 
     </Grid>
 </Window>
