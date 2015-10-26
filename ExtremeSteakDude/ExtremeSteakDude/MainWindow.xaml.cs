@@ -16,5 +16,10 @@ namespace ExtremeSteakDude
             InitializeComponent();
             Closing += (s, e) => ViewModelLocator.Cleanup();
         }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            System.Environment.Exit(-1);
+        }
     }
 }

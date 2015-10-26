@@ -40,7 +40,7 @@
                 <SolidColorBrush Color="White" Opacity="0.2"/>
             </Button.Background>
         </Button>
-        <Button x:Name="Exit" Content="Exit" FontSize="50" HorizontalAlignment="Left" Height="80" Margin="354,550,0,0" VerticalAlignment="Top" Width="550" FontFamily="Franklin Gothic Medium" Opacity="0.3">
+        <Button x:Name="Exit" Content="Exit" FontSize="50" HorizontalAlignment="Left" Height="80" Margin="354,550,0,0" VerticalAlignment="Top" Width="550" FontFamily="Franklin Gothic Medium" Opacity="0.3" Click="Exit_Click">
             <Button.Background>
                 <SolidColorBrush Color="White" Opacity="0.2"/>
             </Button.Background>
