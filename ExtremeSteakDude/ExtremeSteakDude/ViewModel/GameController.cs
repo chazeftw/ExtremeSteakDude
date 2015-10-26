@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ExtremeSteakDude.
+using ExtremeSteakDude.ViewModel;
 
 namespace ExtremeSteakDude.ViewModel
 {

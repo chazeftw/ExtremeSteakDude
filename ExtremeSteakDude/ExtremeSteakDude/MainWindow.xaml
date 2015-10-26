@@ -8,7 +8,8 @@
         Height="720"
         Width="1280"
         Title="ExtremeSteakDude"
-        DataContext="{Binding Main, Source={StaticResource Locator}}">
+        DataContext="{Binding Main, Source={StaticResource Locator}}" 
+        ResizeMode="NoResize">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -18,12 +19,35 @@
         </ResourceDictionary>
     </Window.Resources>
 
+    <Window.Background>
+        <ImageBrush ImageSource="Levels/mainmenubg.jpg" />
+    </Window.Background>
+    
+
     <Grid x:Name="LayoutRoot">
-        <Button x:Name="NewGame" Content="NewGame" HorizontalAlignment="Center" Height="80" Margin="354,160,368,448" VerticalAlignment="Center" Width="550"/>
-        <Button x:Name="Continue" Content="Continue" HorizontalAlignment="Left" Height="80" Margin="354,290,0,0" VerticalAlignment="Top" Width="550"/>
-        <Button x:Name="HighScore" Content="HighScore" HorizontalAlignment="Left" Height="80" Margin="354,420,0,0" VerticalAlignment="Top" Width="550"/>
-        <Button x:Name="Exit" Content="Exit" HorizontalAlignment="Left" Height="80" Margin="354,550,0,0" VerticalAlignment="Top" Width="550"/>
-        <Label x:Name="Title" Content="ExtremeSteakDude" FontSize="80" HorizontalAlignment="Center" Margin="297,10,303,0" VerticalAlignment="Top" Height="104" Width="672"/>
+        <Button x:Name="NewGame" Content="NewGame" FontSize="50" HorizontalAlignment="Left" Height="80" Margin="354,160,0,0" VerticalAlignment="Top" Width="550" FontFamily="Franklin Gothic Medium" Opacity="0.3">
+            <Button.Background>
+                <SolidColorBrush Color="White" Opacity="0.2"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Continue" Content="Continue" FontSize="50" HorizontalAlignment="Left" Height="80" Margin="354,290,0,0" VerticalAlignment="Top" Width="550" FontFamily="Franklin Gothic Medium" Opacity="0.3">
+            <Button.Background>
+                <SolidColorBrush Color="White" Opacity="0.2"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="HighScore" Content="HighScore" FontSize="50" HorizontalAlignment="Left" Height="80" Margin="354,420,0,0" VerticalAlignment="Top" Width="550" FontFamily="Franklin Gothic Medium" Opacity="0.3">
+            <Button.Background>
+                <SolidColorBrush Color="White" Opacity="0.2"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Exit" Content="Exit" FontSize="50" HorizontalAlignment="Left" Height="80" Margin="354,550,0,0" VerticalAlignment="Top" Width="550" FontFamily="Franklin Gothic Medium" Opacity="0.3">
+            <Button.Background>
+                <SolidColorBrush Color="White" Opacity="0.2"/>
+            </Button.Background>
+        </Button>
 
     </Grid>
+
+
+
 </Window>
