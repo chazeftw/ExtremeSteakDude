@@ -9,6 +9,40 @@
              mc:Ignorable="d ignore">
     
     <Application.Resources>
+
+        <!-- Style for all buttons on this main menu -->
+        <Style TargetType="Button">
+            <!-- All standard properties below -->
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="FontSize" Value="50" />
+            <Setter Property="Background" Value="Gray"/>
+            <Setter Property="Opacity" Value="0.2"/>
+            <Setter Property="Height" Value="80"/>
+            <Setter Property="Width" Value="550"/>
+            <Setter Property="FontFamily" Value="Franklin Gothic Medium"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Cursor" Value="Hand"/>
+
+            <!-- Hover color animation below -->
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Duration="0:0:0.3" Storyboard.TargetProperty="Foreground.Color" To="Red" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Duration="0:0:0.3" Storyboard.TargetProperty="Foreground.Color" To="Black" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+
         <!--Global View Model Locator-->
         <vm:ViewModelLocator x:Key="Locator"
                              d:IsDataSource="True" />
