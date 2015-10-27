@@ -9,7 +9,8 @@ namespace ExtremeSteakDude.ViewModel
 {
     static class Const
     {
-        public static readonly int[] RESULUTION = { 1280, 720 };
+        public static readonly int HEIGHT = 720;
+        public static readonly int WIDTH = 1280;
         public static readonly int[] DEF_STARTPOS = { 100, 400 };
         public static readonly Map[] MAP =
             {
