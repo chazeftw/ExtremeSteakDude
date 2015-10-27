@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ExtremeSteakDude.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,9 +11,9 @@ namespace ExtremeSteakDude.ViewModel
     {
         public static readonly int[] RESULUTION = { 1280, 720 };
         public static readonly int[] DEF_STARTPOS = { 100, 400 };
-        public static readonly String[] MAP_PATH =
+        public static readonly Map[] MAP =
             {
-            "Levels/level_1_1.bmp"
+            new Map("Levels/level_1_1.bmp", 0,0)
             };
     }
 }
