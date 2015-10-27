@@ -13,14 +13,14 @@
 
     <!-- Setting the background the our mainmenubg.jpg -->
     <Window.Background>
-        <ImageBrush ImageSource="Levels/mainmenubg.jpg" />
+        <ImageBrush ImageSource="../Levels/mainmenubg.jpg" />
     </Window.Background>
 
     <Window.Resources>
 
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Skins/MainSkin.xaml" />
+                <ResourceDictionary Source="../Skins/MainSkin.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
