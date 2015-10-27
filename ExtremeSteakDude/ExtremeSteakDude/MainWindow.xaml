@@ -17,7 +17,7 @@
     </Window.Background>
 
     <Window.Resources>
-        <!-- Style for all buttons on this main menu-->
+        <!-- Style for all buttons on this main menu -->
         <Style TargetType="Button">
             <!-- All standard properties below -->
             <Setter Property="Foreground" Value="Black" />
