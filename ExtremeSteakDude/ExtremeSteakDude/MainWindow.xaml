@@ -11,41 +11,59 @@
         DataContext="{Binding Main, Source={StaticResource Locator}}" 
         ResizeMode="NoResize">
 
+    <!-- Setting the background the our mainmenubg.jpg -->
+    <Window.Background>
+        <ImageBrush ImageSource="Levels/mainmenubg.jpg" />
+    </Window.Background>
+
     <Window.Resources>
-        <ResourceDictionary>
+        <!-- Style for all buttons on this main menu-->
+        <Style TargetType="Button">
+            <!-- All standard properties below -->
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="FontSize" Value="50" />
+            <Setter Property="Background" Value="Gray"/>
+            <Setter Property="Opacity" Value="0.2"/>
+            <Setter Property="Height" Value="80"/>
+            <Setter Property="Width" Value="550"/>
+            <Setter Property="FontFamily" Value="Franklin Gothic Medium"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            
+            <!-- Hover color animation below -->
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Duration="0:0:0.3" Storyboard.TargetProperty="Foreground.Color" To="Red" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Duration="0:0:0.3" Storyboard.TargetProperty="Foreground.Color" To="Black" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+        
+        <!-- I have no idea what this is, probably from GalaSoft-->
+        <ResourceDictionary x:Key="resDic">
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Skins/MainSkin.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
 
-    <Window.Background>
-        <ImageBrush ImageSource="Levels/mainmenubg.jpg" />
-    </Window.Background>
-    
-
+    <!-- Grid for the buttons -->
     <Grid x:Name="LayoutRoot">
-        <Button x:Name="NewGame" Content="NewGame" FontSize="50" HorizontalAlignment="Left" Height="80" Margin="354,160,0,0" VerticalAlignment="Top" Width="550" FontFamily="Franklin Gothic Medium" Opacity="0.3">
-            <Button.Background>
-                <SolidColorBrush Color="White" Opacity="0.2"/>
-            </Button.Background>
-        </Button>
-        <Button x:Name="Continue" Content="Continue" FontSize="50" HorizontalAlignment="Left" Height="80" Margin="354,290,0,0" VerticalAlignment="Top" Width="550" FontFamily="Franklin Gothic Medium" Opacity="0.3">
-            <Button.Background>
-                <SolidColorBrush Color="White" Opacity="0.2"/>
-            </Button.Background>
-        </Button>
-        <Button x:Name="HighScore" Content="HighScore" FontSize="50" HorizontalAlignment="Left" Height="80" Margin="354,420,0,0" VerticalAlignment="Top" Width="550" FontFamily="Franklin Gothic Medium" Opacity="0.3">
-            <Button.Background>
-                <SolidColorBrush Color="White" Opacity="0.2"/>
-            </Button.Background>
-        </Button>
-        <Button x:Name="Exit" Content="Exit" FontSize="50" HorizontalAlignment="Left" Height="80" Margin="354,550,0,0" VerticalAlignment="Top" Width="550" FontFamily="Franklin Gothic Medium" Opacity="0.3" Click="Exit_Click">
-            <Button.Background>
-                <SolidColorBrush Color="White" Opacity="0.2"/>
-            </Button.Background>
-        </Button>
-
+        <Button x:Name="NewGame" Content="NewGame" Margin="354,160,0,0"/>
+        <Button x:Name="Continue" Content="Continue" Margin="354,290,0,0" />
+        <Button x:Name="HighScore" Content="HighScore" Margin="354,420,0,0" />
+        <Button x:Name="Exit" Content="Exit" Margin="354,550,0,0" Click="Exit_Click"/>
     </Grid>
 
 
