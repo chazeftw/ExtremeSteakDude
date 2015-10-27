@@ -10,21 +10,42 @@ namespace ExtremeSteakDude.Commands
    
     class UndoRedoController
     {
-        List<IUndoRedoCommand> undos;
-        List<IUndoRedoCommand> redos;
-        public bool isRedoable;
+        Stack<IUndoRedoCommand> undos;
+        Stack<IUndoRedoCommand> redos;
+
 
         public UndoRedoController()
         {
-            undos = new List<IUndoRedoCommand>();
-            redos = new List<IUndoRedoCommand>();
-            isRedoable = false;
+            undos = new Stack<IUndoRedoCommand>();
+            redos = new Stack<IUndoRedoCommand>();    
         }
 
-        public void AddAndExecuteCommand(RelayCommand command)
+        public bool CanUndo() => undos.Any();
+        public bool CanRedo() => redos.Any();
+        
+        public void AddAndExecute(IUndoRedoCommand command)
         {
-            
+            undos.Push(command);
+            redos.Clear();
+            command.Execute();
         }
+
+        public void Undo()
+        {
+            if (!undos.Any()) throw new InvalidOperationException();
+            var command = undos.Pop();
+            redos.Push(command);
+            command.Undo();
+        }
+
+        public void Redo()
+        {
+            if (!redos.Any()) throw new InvalidOperationException();
+            var command = redos.Pop();
+            undos.Push(command);
+            command.Execute();
+        }
+        
 
     }
 }
