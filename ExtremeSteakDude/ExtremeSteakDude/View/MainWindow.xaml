@@ -8,7 +8,7 @@
         Height="720"
         Width="1280"
         Title="ExtremeSteakDude"
-        DataContext="{Binding Main, Source={StaticResource Locator}}" 
+        DataContext="{Binding Main, Source={StaticResource Locator}}"
         ResizeMode="NoResize">
 
     <!-- Setting the background the our mainmenubg.jpg -->
@@ -26,12 +26,7 @@
     </Window.Resources>
 
     <!-- Grid for the buttons -->
-    <Grid x:Name="LayoutRoot">
-        <Button x:Name="NewGame" Content="NewGame" Margin="354,160,0,0"/>
-        <Button x:Name="Continue" Content="Continue" Margin="354,290,0,0" />
-        <Button x:Name="HighScore" Content="HighScore" Margin="354,420,0,0" Click="HighScore_Click" />
-        <Button x:Name="Exit" Content="Exit" Margin="354,550,0,0" Click="Exit_Click"/>
-    </Grid>
+    <Grid x:Name="LayoutRoot"/>
 
 
 

@@ -1,5 +1,8 @@
 ﻿using System.Windows;
 using ExtremeSteakDude.ViewModel;
+using ExtremeSteakDude.View;
+using System.Windows.Controls;
+using System;
 
 namespace ExtremeSteakDude
 {
@@ -14,23 +17,19 @@ namespace ExtremeSteakDude
         public MainWindow()
         {
             InitializeComponent();
+            this.Content = new MainMenu();
+            this.AddHandler(Button.ClickEvent, new RoutedEventHandler(aaas));
             Closing += (s, e) => ViewModelLocator.Cleanup();
         }
 
-        private void Exit_Click(object sender, RoutedEventArgs e)
+        private void aaas(object sender, RoutedEventArgs e)
         {
-            System.Environment.Exit(-1);
-        }
-
-        private void HighScore_Click(object sender, RoutedEventArgs e)
-        {
-            // Hide the main menu buttons
-            NewGame.Visibility = Visibility.Hidden;
-            Continue.Visibility = Visibility.Hidden;
-            HighScore.Visibility = Visibility.Hidden;
-            Exit.Visibility = Visibility.Hidden;
-
-            // Show highscores
+            var a = e.OriginalSource as Button;
+            if (a!=null && a.Name=="Back")
+            {
+                this.Content = new MainMenu();
+                e.Handled = true;
+            }
 
         }
     }
