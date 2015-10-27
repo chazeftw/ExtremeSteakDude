@@ -10,8 +10,6 @@ namespace ExtremeSteakDude.Commands
     {
         public void Execute()
         {
-
-
             throw new NotImplementedException();
         }
 
