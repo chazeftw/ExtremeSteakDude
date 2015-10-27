@@ -15,6 +15,7 @@ namespace ExtremeSteakDude.Model
         public static int vx { get; set; }
         public static int vy { get; set; }
 
+        public static bool inAir { get; set; }
  
     }
 }
