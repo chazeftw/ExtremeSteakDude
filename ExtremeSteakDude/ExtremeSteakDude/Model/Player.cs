@@ -6,21 +6,15 @@ using System.Threading.Tasks;
 
 namespace ExtremeSteakDude.Model
 {
-    class Player
+    static class Player
     {
-        int x { get; set; }
-        int y { get; set; }
-        int vx { get; set; }
-        int vy { get; set; }
+        // position
+        public static int x { get; set; }
+        public static int y { get; set; }
+        // vectors
+        public static int vx { get; set; }
+        public static int vy { get; set; }
 
-        public Player(int x, int y, int vx,int vy)
-        {
-            // position
-            this.x = x;
-            this.y = y;
-            // vectors
-            this.vx = vx;
-            this.vy = vy;
-        }
+ 
     }
 }

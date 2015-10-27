@@ -11,7 +11,8 @@ namespace ExtremeSteakDude.Model
         // Path of map image
         String path;
         // Start coordinates for player on this map
-        int startX, startY;
+        public int startX {get;}
+        public int startY { get; }
 
         public Map(String path, int startX, int startY)
         {
