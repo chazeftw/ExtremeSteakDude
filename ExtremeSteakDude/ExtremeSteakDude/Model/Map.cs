@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExtremeSteakDude.Model
 {
-    class Map
+    public class Map
     {
         // Path of map image
         String path;

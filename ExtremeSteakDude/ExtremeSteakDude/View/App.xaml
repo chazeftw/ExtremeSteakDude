@@ -1,22 +1,15 @@
-﻿<Window x:Class="ExtremeSteakDude.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:ignore="http://www.galasoft.ch/ignore"
-        mc:Ignorable="d ignore"
-        Height="720"
-        Width="1280"
-        Title="ExtremeSteakDude"
-        DataContext="{Binding Main, Source={StaticResource Locator}}" 
-        ResizeMode="NoResize">
+﻿<Application x:Class="ExtremeSteakDude.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:ExtremeSteakDude.ViewModel"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:ignore="http://www.galasoft.ch/ignore"
+             StartupUri="MainWindow.xaml"
+             mc:Ignorable="d ignore">
+    
+    <Application.Resources>
 
-    <!-- Setting the background the our mainmenubg.jpg -->
-    <Window.Background>
-        <ImageBrush ImageSource="Levels/mainmenubg.jpg" />
-    </Window.Background>
-
-    <Window.Resources>
         <!-- Style for all buttons on this main menu -->
         <Style TargetType="Button">
             <!-- All standard properties below -->
@@ -30,7 +23,7 @@
             <Setter Property="VerticalAlignment" Value="Top"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="Cursor" Value="Hand"/>
-            
+
             <!-- Hover color animation below -->
             <Style.Triggers>
                 <EventTrigger RoutedEvent="UIElement.MouseEnter">
@@ -49,23 +42,10 @@
                 </EventTrigger>
             </Style.Triggers>
         </Style>
-        
-        <!-- I have no idea what this is, probably from GalaSoft-->
-        <ResourceDictionary x:Key="resDic">
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Skins/MainSkin.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources>
 
-    <!-- Grid for the buttons -->
-    <Grid x:Name="LayoutRoot">
-        <Button x:Name="NewGame" Content="NewGame" Margin="354,160,0,0"/>
-        <Button x:Name="Continue" Content="Continue" Margin="354,290,0,0" />
-        <Button x:Name="HighScore" Content="HighScore" Margin="354,420,0,0" />
-        <Button x:Name="Exit" Content="Exit" Margin="354,550,0,0" Click="Exit_Click"/>
-    </Grid>
-
-
-
-</Window>
+        <!--Global View Model Locator-->
+        <vm:ViewModelLocator x:Key="Locator"
+                             d:IsDataSource="True" />
+    </Application.Resources>
+    
+</Application>
