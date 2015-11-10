@@ -56,7 +56,31 @@ namespace ExtremeSteakDude.ViewModel
 
         public void MoveRight()
         {
-             
+             if(Player.vx < 50)
+            {
+                if(50 - Player.vx <= 10)
+                {
+                    Player.vx = Player.vx + 10;
+                }else
+                {
+                    Player.vx = 50;
+                }
+            }
+        }
+
+        public void MoveLeft()
+        {
+            if (Player.vx > -50)
+            {
+                if (-50 - Player.vx >= -10)
+                {
+                    Player.vx = Player.vx - 10;
+                }
+                else
+                {
+                    Player.vx = -50;
+                }
+            }
         }
 
 
