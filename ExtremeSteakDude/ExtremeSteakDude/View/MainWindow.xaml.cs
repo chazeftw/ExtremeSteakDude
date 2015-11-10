@@ -18,11 +18,11 @@ namespace ExtremeSteakDude
         {
             InitializeComponent();
             this.Content = new MainMenu();
-            this.AddHandler(Button.ClickEvent, new RoutedEventHandler(aaas));
+            this.AddHandler(Button.ClickEvent, new RoutedEventHandler(MenuController));
             Closing += (s, e) => ViewModelLocator.Cleanup();
         }
 
-        private void aaas(object sender, RoutedEventArgs e)
+        private void MenuController(object sender, RoutedEventArgs e)
         {
             var a = e.OriginalSource as Button;
             if (a!=null && a.Name=="Back")

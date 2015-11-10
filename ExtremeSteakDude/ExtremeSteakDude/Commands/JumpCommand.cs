@@ -10,7 +10,7 @@ namespace ExtremeSteakDude.Commands
     {
         public void Execute()
         {
-            throw new NotImplementedException();
+            Model.Player.Jump();
         }
 
         public void Undo()

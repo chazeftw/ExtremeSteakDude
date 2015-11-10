@@ -25,8 +25,7 @@
         </ResourceDictionary>
     </Window.Resources>
 
-    <!-- Grid for the buttons -->
-    <Grid x:Name="LayoutRoot"/>
+    
 
 
 
