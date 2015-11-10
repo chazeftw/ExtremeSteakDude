@@ -39,7 +39,7 @@ namespace ExtremeSteakDude.View
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
-            System.Environment.Exit(-1);
+            System.Environment.Exit(0);
         }
 
         private void NewGame_Click(object sender, RoutedEventArgs e)

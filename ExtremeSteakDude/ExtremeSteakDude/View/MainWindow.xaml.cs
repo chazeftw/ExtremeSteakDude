@@ -19,7 +19,7 @@ namespace ExtremeSteakDude
             InitializeComponent();
             this.Content = new MainMenu();
             this.AddHandler(Button.ClickEvent, new RoutedEventHandler(MenuController));
-            Closing += (s, e) => ViewModelLocator.Cleanup();
+
         }
 
         private void MenuController(object sender, RoutedEventArgs e)
