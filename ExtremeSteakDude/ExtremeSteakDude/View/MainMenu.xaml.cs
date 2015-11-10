@@ -41,5 +41,17 @@ namespace ExtremeSteakDude.View
         {
             System.Environment.Exit(0);
         }
+
+        private void NewGame_Click(object sender, RoutedEventArgs e)
+        {
+            // Hide the main menu buttons
+            NewGame.Visibility = Visibility.Hidden;
+            Continue.Visibility = Visibility.Hidden;
+            HighScore.Visibility = Visibility.Hidden;
+            Exit.Visibility = Visibility.Hidden;
+
+            // Show highscores
+            this.Content = new MainGame();
+        }
     }
 }

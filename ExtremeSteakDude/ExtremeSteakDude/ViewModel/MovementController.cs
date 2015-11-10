@@ -3,16 +3,30 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ExtremeSteakDude.ViewModel
 {
     class MovementController
     {
+        public bool moveRight = false;
+        public bool moveLeft = false;
+        public bool jump = false;
+        public Timer moveTimer;
+
+
         public MovementController()
         {
-
+            moveTimer = new Timer(x => Move(), null, 0,50);
         }
+
+        private void Move()
+        {
+            Player.x = Player.x + Player.vx;
+            Player.y = Player.y + Player.vy;
+        }
+
         public static void Jump()
         {
             if (Player.inAir)
@@ -39,6 +53,12 @@ namespace ExtremeSteakDude.ViewModel
 
 
         }
+
+        public void MoveRight()
+        {
+             
+        }
+
 
         public static void WallSlide(bool orientation)
         {
