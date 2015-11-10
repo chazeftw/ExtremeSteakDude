@@ -14,7 +14,7 @@ namespace ExtremeSteakDude.ViewModel
         private XmlSerializer ser = new XmlSerializer(typeof(DataSet));
         private DataSet _HighScores;
 
-        HighScoreController()
+        public HighScoreController()
         {
             // Creates a DataSet; adds a table, two columns, and two rows.
             DataSet ds = new DataSet("Data");
