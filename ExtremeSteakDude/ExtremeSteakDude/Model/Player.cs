@@ -20,7 +20,10 @@ namespace ExtremeSteakDude.Model
         public static bool onWallRight { get; set; }
         public static bool onWallLeft { get; set; }
 
-        
+        internal static void Jump()
+        {
+            throw new NotImplementedException();
+        }
 
     }
 }
