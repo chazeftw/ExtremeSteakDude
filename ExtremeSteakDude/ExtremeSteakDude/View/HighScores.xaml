@@ -18,13 +18,10 @@
     
     <Grid>
         <Button x:Name="Back" Content="Back" HorizontalAlignment="Left" Margin="354,581,0,0" VerticalAlignment="Top" Width="517"/>
-        <TextBlock x:Name="Level1" Text="Level 1" FontSize="40" HorizontalAlignment="Left" Margin="213,138,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="Level1_Copy3" Text="Level 2" FontSize="40" HorizontalAlignment="Left" Margin="878,138,0,0" VerticalAlignment="Top"/>
+        <!--><TextBlock DataContext="{}" x:Name="{Binding }" Text="Level 1" FontSize="40" HorizontalAlignment="Left" Margin="213,138,0,0" VerticalAlignment="Top"/><!-->
+        <TextBlock x:Name="Level1_Copy3" Text="Level 2" FontSize="40" HorizontalAlignment="Left" Margin="874,138,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="TimeAndName"  Text="{Binding lv1}" FontSize="35" HorizontalAlignment="Left" Margin="118,206,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="TimeAndName_Copy" Content="TimeAndNameHere" FontSize="35" HorizontalAlignment="Left" Margin="784,201,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="TimeAndName_Copy1" Content="TimeAndNameHere" FontSize="35" HorizontalAlignment="Left" Margin="118,392,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="TimeAndName_Copy2" Content="TimeAndNameHere" FontSize="35" HorizontalAlignment="Left" Margin="468,499,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="TimeAndName_Copy3" Content="TimeAndNameHere" FontSize="35" HorizontalAlignment="Left" Margin="784,390,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="lv1Name" HorizontalAlignment="Left" Height="54" Margin="156,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="96" Text="dasda"/>
 
     </Grid>
 </UserControl>

@@ -4,14 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ignore="http://www.galasoft.ch/ignore"
-        mc:Ignorable="d ignore"
         Height="720"
         Width="1280"
         Title="ExtremeSteakDude"
-        DataContext="{Binding Main, Source={StaticResource Locator}}"
-        ResizeMode="NoResize">
-
+        xmlns:ViewModel="clr-namespace:ExtremeSteakDude.ViewModel"
+        >
+    <!-- DataContext="{Binding Main, Source={StaticResource Locator}}"
+        ResizeMode="NoResize"-->
     <!-- Setting the background the our mainmenubg.jpg -->
+    <Window.DataContext>
+        <ViewModel:MainViewModel />
+    </Window.DataContext>
+
     <Window.Background>
         <ImageBrush ImageSource="../Levels/mainmenubg.jpg" />
     </Window.Background>

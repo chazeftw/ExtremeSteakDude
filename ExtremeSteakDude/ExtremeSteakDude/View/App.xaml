@@ -43,9 +43,6 @@
             </Style.Triggers>
         </Style>
 
-        <!--Global View Model Locator-->
-        <vm:ViewModelLocator x:Key="Locator"
-                             d:IsDataSource="True" />
     </Application.Resources>
     
 </Application>
