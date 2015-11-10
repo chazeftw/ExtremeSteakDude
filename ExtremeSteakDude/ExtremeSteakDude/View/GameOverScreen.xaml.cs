@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace ExtremeSteakDude.View
 {
     /// <summary>
-    /// Interaction logic for GameOver.xaml
+    /// Interaction logic for GameOverScreen.xaml
     /// </summary>
-    public partial class GameOver : UserControl
+    public partial class GameOverScreen : UserControl
     {
-        public GameOver()
+        public GameOverScreen()
         {
             InitializeComponent();
         }
