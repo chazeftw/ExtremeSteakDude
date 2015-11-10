@@ -4,16 +4,23 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ExtremeSteakDude.View"
+             xmlns:vm ="clr-namespace:ExtremeSteakDude.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280">
+
+    <UserControl.DataContext>
+        <vm:HighScoreController>
+            
+        </vm:HighScoreController>
+        
+        
+    </UserControl.DataContext>
+    
     <Grid>
         <Button x:Name="Back" Content="Back" HorizontalAlignment="Left" Margin="354,581,0,0" VerticalAlignment="Top" Width="517"/>
-        <Label x:Name="Level1" Content="Level 1" FontSize="40" HorizontalAlignment="Left" Margin="213,138,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="Level1_Copy" Content="Level 5" FontSize="40" HorizontalAlignment="Left" Margin="558,431,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="Level1_Copy1" Content="Level 4" FontSize="40" HorizontalAlignment="Left" Margin="878,333,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="Level1_Copy2" Content="Level 3" FontSize="40" HorizontalAlignment="Left" Margin="213,333,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="Level1_Copy3" Content="Level 2" FontSize="40" HorizontalAlignment="Left" Margin="878,138,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="TimeAndName" Content="TimeAndNameHere" FontSize="35" HorizontalAlignment="Left" Margin="118,206,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Level1" Text="Level 1" FontSize="40" HorizontalAlignment="Left" Margin="213,138,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Level1_Copy3" Text="Level 2" FontSize="40" HorizontalAlignment="Left" Margin="878,138,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="TimeAndName"  Text="{Binding lv1}" FontSize="35" HorizontalAlignment="Left" Margin="118,206,0,0" VerticalAlignment="Top"/>
         <Label x:Name="TimeAndName_Copy" Content="TimeAndNameHere" FontSize="35" HorizontalAlignment="Left" Margin="784,201,0,0" VerticalAlignment="Top"/>
         <Label x:Name="TimeAndName_Copy1" Content="TimeAndNameHere" FontSize="35" HorizontalAlignment="Left" Margin="118,392,0,0" VerticalAlignment="Top"/>
         <Label x:Name="TimeAndName_Copy2" Content="TimeAndNameHere" FontSize="35" HorizontalAlignment="Left" Margin="468,499,0,0" VerticalAlignment="Top"/>

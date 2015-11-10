@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+        <Levels>
+          
+          <Level1>
+            <Holder>Rasmmus</Holder>
+            <Time>230</Time>
+          </Level1>
+          <Level2>
+            <Holder>Martin</Holder>
+            <Time>34</Time>
+          </Level2>
+        </Levels>
