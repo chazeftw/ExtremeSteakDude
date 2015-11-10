@@ -7,11 +7,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280">
     <Grid>
-        <Button x:Name="button" Content="Submit" HorizontalAlignment="Left" Margin="510,541,0,0" VerticalAlignment="Top" Width="263"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="71" Margin="402,418,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="50"  Width="480"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="458,346,0,0" TextWrapping="Wrap" Text="Enter your name" FontSize="50" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="471,170,0,0" TextWrapping="Wrap" Text="New highscore!" FontSize="50" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="519,230,0,0" TextWrapping="Wrap" Text="[Time here]" FontSize="50" VerticalAlignment="Top"/>
+        <Button x:Name="SubmitHighscoreButton" Content="Submit" HorizontalAlignment="Left" Margin="510,541,0,0" VerticalAlignment="Top" Width="263"/>
+        <TextBox x:Name="HighscoreNameInput" HorizontalAlignment="Left" Height="71" Margin="402,418,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="50"  Width="480"/>
+        <TextBlock x:Name="EnterName" HorizontalAlignment="Left" Margin="458,346,0,0" TextWrapping="Wrap" Text="Enter your name" FontSize="50" VerticalAlignment="Top"/>
+        <TextBlock x:Name="NewHighscoreText" HorizontalAlignment="Left" Margin="471,170,0,0" TextWrapping="Wrap" Text="New highscore!" FontSize="50" VerticalAlignment="Top"/>
+        <TextBlock x:Name="DisplayHighscore" HorizontalAlignment="Left" Margin="519,230,0,0" TextWrapping="Wrap" Text="[Time here]" FontSize="50" VerticalAlignment="Top"/>
 
     </Grid>
 </UserControl>
