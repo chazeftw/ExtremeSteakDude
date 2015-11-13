@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace ExtremeSteakDude.ViewModel
 {
-    class MovementController
-    {
+    class MovementController : IDisposable
+    { 
         public bool moveRight = false;
         public bool moveLeft = false;
         public bool jump = false;
@@ -22,6 +22,7 @@ namespace ExtremeSteakDude.ViewModel
         public MovementController()
         {
             moveTimer = new Timer(x => Move(), null, 0, 50);
+            
             urc = new UndoRedoController();
         }
 
@@ -68,6 +69,7 @@ namespace ExtremeSteakDude.ViewModel
                 if (jump)
                 {
                     Jump();
+                    jump = false;
                 }
 
                 
@@ -154,6 +156,11 @@ namespace ExtremeSteakDude.ViewModel
             Player.onWallRight = false;
             Player.onWallLeft = false;
             Player.vy = 0;
+        }
+
+        public void Dispose()
+        {
+            moveTimer.Dispose();
         }
     }
 }
