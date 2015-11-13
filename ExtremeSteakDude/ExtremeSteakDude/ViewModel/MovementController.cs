@@ -78,7 +78,7 @@ namespace ExtremeSteakDude.ViewModel
             }
           }
 
-        public static void Jump()
+        private static void Jump()
         {
             if (Player.inAir)
             {
@@ -105,7 +105,7 @@ namespace ExtremeSteakDude.ViewModel
 
         }
 
-        public void MoveRight()
+        private void MoveRight()
         {
              if(Player.vx < 50)
             {
@@ -119,7 +119,7 @@ namespace ExtremeSteakDude.ViewModel
             }
         }
 
-        public void MoveLeft()
+        private void MoveLeft()
         {
             if (Player.vx > -50)
             {
@@ -135,7 +135,7 @@ namespace ExtremeSteakDude.ViewModel
         }
 
 
-        public static void WallSlide(bool orientation)
+        private static void WallSlide(bool orientation)
         {
             if (orientation)
             {
@@ -148,7 +148,7 @@ namespace ExtremeSteakDude.ViewModel
             Player.vx = 0;
         }
 
-        public static void Land()
+        private static void Land()
         {
             Player.inAir = false;
             Player.onWallRight = false;
