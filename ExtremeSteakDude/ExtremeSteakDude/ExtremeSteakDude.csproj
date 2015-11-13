@@ -98,12 +98,12 @@
     <Compile Include="Commands\MoveRightCommand.cs" />
     <Compile Include="Commands\UndoRedoController.cs" />
     <Compile Include="Design\DesignDataService.cs" />
+    <Compile Include="Model\HighScores.cs" />
     <Compile Include="Model\DataItem.cs" />
     <Compile Include="Model\DataService.cs" />
     <Compile Include="Model\IDataService.cs" />
     <Compile Include="Model\Map.cs" />
     <Compile Include="Model\Player.cs" />
-    <Compile Include="ViewModel\HighScoreController.cs" />
     <Compile Include="ViewModel\Const.cs" />
     <Compile Include="ViewModel\GameController.cs" />
     <Compile Include="ViewModel\MovementController.cs" />
@@ -123,7 +123,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\HighScores.xaml">
+    <Page Include="View\HighScoresMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -148,8 +148,8 @@
     <Compile Include="View\NewHighscore.xaml.cs">
       <DependentUpon>NewHighscore.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\HighScores.xaml.cs">
-      <DependentUpon>HighScores.xaml</DependentUpon>
+    <Compile Include="View\HighScoresMenu.xaml.cs">
+      <DependentUpon>HighScoresMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>

@@ -7,9 +7,9 @@ using System.Data;
 using System.Xml.Serialization;
 using System.IO;
 
-namespace ExtremeSteakDude.ViewModel
+namespace ExtremeSteakDude.Model
 {
-    public class HighScoreController
+    public class HighScores
     {
 
 
