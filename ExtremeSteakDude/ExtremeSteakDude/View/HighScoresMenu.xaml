@@ -13,10 +13,10 @@
     
     <Grid>
         <Button x:Name="Back" Content="Back" HorizontalAlignment="Left" Margin="354,581,0,0" VerticalAlignment="Top" Width="517"/>
-        <!--><TextBlock DataContext="{}" x:Name="{Binding }" Text="Level 1" FontSize="40" HorizontalAlignment="Left" Margin="213,138,0,0" VerticalAlignment="Top"/><!-->
-        <TextBlock x:Name="Level1_Copy3" Text="Level 2" FontSize="40" HorizontalAlignment="Left" Margin="874,138,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="TimeAndName"  Text="{Binding lv1}" FontSize="35" HorizontalAlignment="Left" Margin="118,206,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="lv1Name" HorizontalAlignment="Left" Height="54" Margin="156,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="96" Text="dasda"/>
+        <TextBlock DataContext="{}" Name="Level1" Text="{Binding highScores.Score1}" FontSize="40" HorizontalAlignment="Left" Margin="213,138,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Level2" Text="Level 2" FontSize="40" HorizontalAlignment="Left" Margin="874,138,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="TimeAndName"  Text="{Binding highScores.Score1}" FontSize="35" HorizontalAlignment="Left" Margin="118,206,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="lv1Name" Text="{Binding Score1}" HorizontalAlignment="Left" Height="54" Margin="156,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="96"/>
 
     </Grid>
 </UserControl>
