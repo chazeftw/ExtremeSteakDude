@@ -13,7 +13,7 @@ namespace ExtremeSteakDude.Model
     {
 
 
-        private String _Name1;
+        private String _Name1="Dankmeister";
         private int _Score1=2;
         private String _Name2;
         private int _Score2;

@@ -3,9 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:ExtremeSteakDude.View"
-             xmlns:vm ="clr-namespace:ExtremeSteakDude.ViewModel"
-             xmlns:m ="clr-namespace:ExtremeSteakDude.Model"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280">
 
@@ -13,10 +10,10 @@
     
     <Grid>
         <Button x:Name="Back" Content="Back" HorizontalAlignment="Left" Margin="354,581,0,0" VerticalAlignment="Top" Width="517"/>
-        <TextBlock DataContext="{}" Name="Level1" Text="{Binding highScores.Score1}" FontSize="40" HorizontalAlignment="Left" Margin="213,138,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Level1" Text="Level1" FontSize="40" HorizontalAlignment="Left" Margin="213,138,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="Level2" Text="Level 2" FontSize="40" HorizontalAlignment="Left" Margin="874,138,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="TimeAndName"  Text="{Binding highScores.Score1}" FontSize="35" HorizontalAlignment="Left" Margin="118,206,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="lv1Name" Text="{Binding Score1}" HorizontalAlignment="Left" Height="54" Margin="156,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="96"/>
+        <TextBlock x:Name="TimeAndName1" Text="{Binding highScores.Score1}" FontSize="35" HorizontalAlignment="Left" Margin="118,206,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="TimeAndName2" Text="{Binding highScores.Name1}" HorizontalAlignment="Left" Height="54" Margin="156,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="96"/>
 
     </Grid>
 </UserControl>
