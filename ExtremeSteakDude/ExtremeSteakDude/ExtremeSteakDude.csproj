@@ -102,7 +102,9 @@
     <Compile Include="Model\DataItem.cs" />
     <Compile Include="Model\DataService.cs" />
     <Compile Include="Model\IDataService.cs" />
+    <Compile Include="Model\IMapNew.cs" />
     <Compile Include="Model\Map.cs" />
+    <Compile Include="Model\MapNew.cs" />
     <Compile Include="Model\Player.cs" />
     <Compile Include="ViewModel\Const.cs" />
     <Compile Include="ViewModel\GameController.cs" />
