@@ -103,10 +103,9 @@
     <Compile Include="Model\IDataService.cs" />
     <Compile Include="Model\Map.cs" />
     <Compile Include="Model\Player.cs" />
-    <Compile Include="ViewModel\HighScoreController.cs" />
     <Compile Include="ViewModel\Const.cs" />
     <Compile Include="ViewModel\GameController.cs" />
-    <Compile Include="ViewModel\MovementController.cs" />
+    <Compile Include="ViewModel\HighScoreController.cs" />
     <Compile Include="ViewModel\TestWindow.xaml.cs">
       <DependentUpon>TestWindow.xaml</DependentUpon>
     </Compile>
