@@ -9,8 +9,9 @@ namespace ExtremeSteakDude.Model
     public class Player
     {
         // position
-        public static int x { get; set; }
-        public static int y { get; set; }
+        public static int x { get; set; } = 596;
+        public static int y { get; set; } = 298;
+        
 
         // vectors
         public static int vx { get; set; }

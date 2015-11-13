@@ -1,7 +1,7 @@
 ﻿<Application x:Class="ExtremeSteakDude.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:vm="clr-namespace:ExtremeSteakDude.ViewModel"
+             xmlns:ViewModel="clr-namespace:ExtremeSteakDude.ViewModel"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:ignore="http://www.galasoft.ch/ignore"
@@ -15,6 +15,12 @@
         <DataTemplate DataType="{x:Type Model:HighScores}">
             <Canvas>
                 <View:HighScores/>
+            </Canvas>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type Model:Player}">
+            <Canvas>
+                <View:MainGame/>
             </Canvas>
         </DataTemplate>
 
