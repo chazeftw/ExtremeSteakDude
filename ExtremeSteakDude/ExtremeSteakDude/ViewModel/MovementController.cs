@@ -15,10 +15,9 @@ namespace ExtremeSteakDude.ViewModel
         public bool moveLeft = false;
         public bool jump = false;
         public bool isUndoMode = false;
-        public bool isUndo = true;
         private Timer moveTimer;
         private UndoRedoController urc;
-
+        
 
         public MovementController()
         {
@@ -30,15 +29,14 @@ namespace ExtremeSteakDude.ViewModel
         {
             if (isUndoMode)
             {
-                if(isUndo)
+                if(moveLeft)
                 {
-
+                    urc.Undo();  
                 }
-                else
+                else if(moveRight)
                 {
-
+                    urc.Redo();
                 }
-
             }
             else
             {
