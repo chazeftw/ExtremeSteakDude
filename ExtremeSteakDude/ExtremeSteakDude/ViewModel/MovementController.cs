@@ -78,7 +78,7 @@ namespace ExtremeSteakDude.ViewModel
             }
           }
 
-        private static void Jump()
+        private void Jump()
         {
             if (Player.inAir)
             {
