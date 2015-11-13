@@ -11,17 +11,45 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ExtremeSteakDude.Model;
 
 namespace ExtremeSteakDude.ViewModel
 {
     /// <summary>
     /// Interaction logic for GameWindow.xaml
     /// </summary>
-    public partial class GameWindow : Window
+    public partial class TestWindow : Window
     {
-        public GameWindow()
+        public Player Player { get; set; }
+
+        public TestWindow()
         {
             InitializeComponent();
+
+            DataContext = Player = new Player();
+        }
+
+        MovementController mc = new MovementController();
+
+        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Key.Left: mc.moveLeft = true; break;
+                case Key.Right: mc.moveRight = true; break;
+                case Key.Space: mc.jump = true; break;
+                case Key.Z: mc.isUndoMode = !mc.isUndoMode; break;
+            }
+        }
+
+        private void Window_PreviewKeyUp(object sender, KeyEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Key.Left: mc.moveLeft = false; break;
+                case Key.Right: mc.moveRight = false; break;
+                case Key.Space: mc.jump = false; break;
+            }
         }
     }
 }

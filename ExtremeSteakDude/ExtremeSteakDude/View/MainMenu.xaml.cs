@@ -51,7 +51,7 @@ namespace ExtremeSteakDude.View
             Exit.Visibility = Visibility.Hidden;
 
             // Show highscores
-            this.Content = new MainGame();
+            this.Content = new GameOver();
             //
         }
     }

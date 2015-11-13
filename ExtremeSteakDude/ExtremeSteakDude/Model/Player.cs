@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExtremeSteakDude.Model
 {
-    static class Player
+    public class Player
     {
         // position
         public static int x { get; set; }

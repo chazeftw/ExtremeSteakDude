@@ -17,7 +17,8 @@ namespace ExtremeSteakDude.ViewModel
             {
                 case Key.Left: mc.moveLeft = true; break;
                 case Key.Right: mc.moveRight = true; break;
-                case Key.Up: mc.jump = true; break;
+                case Key.Space: mc.jump = true; break;
+                case Key.Z: mc.isUndoMode = !mc.isUndoMode; break;
             }
         }
 
@@ -27,7 +28,7 @@ namespace ExtremeSteakDude.ViewModel
             {
                 case Key.Left: mc.moveLeft = false; break;
                 case Key.Right: mc.moveRight = false; break;
-                case Key.Up: mc.jump = false; break;
+                case Key.Space: mc.jump = false; break;
             }
         }
     }
