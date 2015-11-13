@@ -17,7 +17,7 @@ namespace ExtremeSteakDude.Commands
         public UndoRedoController()
         {
             undos = new Stack<IUndoRedoCommand>();
-            redos = new Stack<IUndoRedoCommand>();    
+            redos = new Stack<IUndoRedoCommand>();
         }
 
         public bool CanUndo() => undos.Any();
