@@ -11,6 +11,8 @@ namespace ExtremeSteakDude.ViewModel
         /// </summary>
         public const string WelcomeTitlePropertyName = "WelcomeTitle";
 
+        public HighScores highScores { get; set; }
+
         private string _welcomeTitle = string.Empty;
 
         /// <summary>
@@ -29,6 +31,8 @@ namespace ExtremeSteakDude.ViewModel
             }
         }
 
-        public MainViewModel() { }
+        public MainViewModel() {
+            highScores = new HighScores();
+        }
     }
 }
