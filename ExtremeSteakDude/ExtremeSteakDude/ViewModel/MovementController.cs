@@ -1,4 +1,5 @@
-﻿using ExtremeSteakDude.Model;
+﻿using ExtremeSteakDude.Commands;
+using ExtremeSteakDude.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,19 +14,71 @@ namespace ExtremeSteakDude.ViewModel
         public bool moveRight = false;
         public bool moveLeft = false;
         public bool jump = false;
-        public Timer moveTimer;
+        public bool isUndoMode = false;
+        public bool isUndo = true;
+        private Timer moveTimer;
+        private UndoRedoController urc;
 
 
         public MovementController()
         {
-            moveTimer = new Timer(x => Move(), null, 0,50);
+            moveTimer = new Timer(x => Move(), null, 0, 50);
+            urc = new UndoRedoController();
         }
 
         private void Move()
         {
-            Player.x = Player.x + Player.vx;
-            Player.y = Player.y + Player.vy;
-        }
+            if (isUndoMode)
+            {
+                if(isUndo)
+                {
+
+                }
+                else
+                {
+
+                }
+
+            }
+            else
+            {
+                if(moveLeft && !moveRight)
+                {
+                    MoveLeft();
+                }
+                else if(moveRight && !moveLeft)
+                {
+                    MoveRight();
+                }
+                else
+
+                if (Player.inAir)
+                {
+                    if(Player.vx > -50)
+                    {
+                        if (50 + Player.vy >= 10)
+                        {
+                            Player.vy = Player.vy - 10;
+                        }
+                        else
+                        {
+                            Player.vx = -50;
+                        }
+                    }
+                }
+
+                if (jump)
+                {
+                    Jump();
+                }
+
+                
+
+                urc.AddAndExecute(new MomentumCommand(Player.vx,Player.vy));
+
+                
+            }
+          }
 
         public static void Jump()
         {
