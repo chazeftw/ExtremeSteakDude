@@ -98,6 +98,7 @@
     <Compile Include="Commands\MoveRightCommand.cs" />
     <Compile Include="Commands\UndoRedoController.cs" />
     <Compile Include="Design\DesignDataService.cs" />
+    <Compile Include="Levels\lvl1.cs" />
     <Compile Include="Model\DataItem.cs" />
     <Compile Include="Model\DataService.cs" />
     <Compile Include="Model\IDataService.cs" />
