@@ -52,6 +52,7 @@ namespace ExtremeSteakDude.View
 
             // Show highscores
             this.Content = new MainGame();
+            //
         }
     }
 }
