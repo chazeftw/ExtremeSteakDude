@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExtremeSteakDude.Levels
 {
-    class lvl1 : Model.
+    class lvl1
     {
 
     }
