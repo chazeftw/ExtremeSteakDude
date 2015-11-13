@@ -94,6 +94,7 @@
     </ApplicationDefinition>
     <Compile Include="Commands\IUndoRedoCommand.cs" />
     <Compile Include="Commands\JumpCommand.cs" />
+    <Compile Include="Commands\MomentumCommand.cs" />
     <Compile Include="Commands\MoveLeftCommand.cs" />
     <Compile Include="Commands\MoveRightCommand.cs" />
     <Compile Include="Commands\UndoRedoController.cs" />
@@ -111,7 +112,6 @@
       <DependentUpon>TestWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Page Include="View\GameOverScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
