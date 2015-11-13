@@ -94,6 +94,7 @@
     </ApplicationDefinition>
     <Compile Include="Commands\IUndoRedoCommand.cs" />
     <Compile Include="Commands\JumpCommand.cs" />
+    <Compile Include="Commands\MomentumCommand.cs" />
     <Compile Include="Commands\MoveLeftCommand.cs" />
     <Compile Include="Commands\MoveRightCommand.cs" />
     <Compile Include="Commands\UndoRedoController.cs" />
@@ -106,6 +107,7 @@
     <Compile Include="Model\Player.cs" />
     <Compile Include="ViewModel\Const.cs" />
     <Compile Include="ViewModel\GameController.cs" />
+    <Compile Include="ViewModel\KeyboardController.cs" />
     <Compile Include="ViewModel\MovementController.cs" />
     <Compile Include="ViewModel\TestWindow.xaml.cs">
       <DependentUpon>TestWindow.xaml</DependentUpon>
