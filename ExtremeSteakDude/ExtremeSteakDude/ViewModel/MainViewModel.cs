@@ -1,14 +1,8 @@
-﻿using GalaSoft.MvvmLight;
-using ExtremeSteakDude.Model;
+﻿using ExtremeSteakDude.Model;
 
 namespace ExtremeSteakDude.ViewModel
 {
-    /// <summary>
-    /// This class contains properties that the main View can data bind to.
-    /// <para>
-    /// See http://www.mvvmlight.net
-    /// </para>
-    /// </summary>
+
     public class MainViewModel
     {
 
