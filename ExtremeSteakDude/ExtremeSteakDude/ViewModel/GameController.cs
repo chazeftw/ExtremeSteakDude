@@ -12,10 +12,7 @@ namespace ExtremeSteakDude.ViewModel
     {
         public void InitializeMap(int mapIndex)
         {
-            Player.vx = 0;
-            Player.vy = 0;
-            Player.x = Const.MAP[mapIndex].startX;
-            Player.y = Const.MAP[mapIndex].startY;
+            
 
         }
     }

@@ -2,13 +2,14 @@
 using System.Windows.Input;
 using ExtremeSteakDude.Model;
 using ExtremeSteakDude.ViewModel;
+using System;
 
 namespace ExtremeSteakDude.View
 {
     /// <summary>
     /// Interaction logic for MainGame.xaml
     /// </summary>
-    public partial class MainGame : UserControl
+    public partial class MainGame : UserControl, IDisposable
     {
 
         public Player p { get; set; }
@@ -19,6 +20,7 @@ namespace ExtremeSteakDude.View
 
             DataContext = p = new Player();
             mc = new MovementController(p);
+            System.Console.WriteLine("Hellob" + " " + p.x+ " " +p.y);
 
             InitializeComponent();
             
@@ -30,7 +32,7 @@ namespace ExtremeSteakDude.View
 
         private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            
+            System.Console.WriteLine("Hello");
             switch (e.Key)
             {
                 
@@ -49,6 +51,11 @@ namespace ExtremeSteakDude.View
                 case Key.Right: mc.moveRight = false; break;
                 case Key.Space: mc.jump = false; break;
             }
+        }
+
+        public void Dispose()
+        {
+            mc.Dispose();
         }
     }
 
