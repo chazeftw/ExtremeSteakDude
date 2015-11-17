@@ -3,39 +3,36 @@ using System.Windows.Input;
 using ExtremeSteakDude.Model;
 using ExtremeSteakDude.ViewModel;
 using System;
+using System.Windows;
+using System.Windows.Threading;
 
 namespace ExtremeSteakDude.View
 {
     /// <summary>
     /// Interaction logic for MainGame.xaml
     /// </summary>
-    public partial class MainGame : UserControl, IDisposable
+    public partial class MainGame : UserControl
     {
-
-        public Player p { get; set; }
         private MovementController mc;
-
+        private Player p;
         public MainGame()
         {
-
             DataContext = p = new Player();
             mc = new MovementController(p);
-            System.Console.WriteLine("Hellob" + " " + p.x+ " " +p.y);
-
             InitializeComponent();
-            
-            
-            
         }
 
-       
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            Keyboard.Focus(this);
+        }
 
-        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        private void Window_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             System.Console.WriteLine("Hello");
             switch (e.Key)
             {
-                
+                case Key.Enter: System.Console.WriteLine("dasdsdfgh"); p.x = 200; break;
                 case Key.Left: mc.moveLeft = true; break;
                 case Key.Right: mc.moveRight = true; break;
                 case Key.Space: mc.jump = true; break;
@@ -43,7 +40,7 @@ namespace ExtremeSteakDude.View
             }
         }
 
-        private void Window_PreviewKeyUp(object sender, KeyEventArgs e)
+        private void Window_PreviewKeyUp(object sender, System.Windows.Input.KeyEventArgs e)
         {
             switch (e.Key)
             {
@@ -53,11 +50,7 @@ namespace ExtremeSteakDude.View
             }
         }
 
-        public void Dispose()
-        {
-            mc.Dispose();
-        }
     }
 
 
-}
+    }

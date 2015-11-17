@@ -3,6 +3,8 @@ using ExtremeSteakDude.ViewModel;
 using ExtremeSteakDude.View;
 using System.Windows.Controls;
 using System;
+using System.Windows.Input;
+using ExtremeSteakDude.Model;
 
 namespace ExtremeSteakDude
 {
@@ -14,8 +16,12 @@ namespace ExtremeSteakDude
         /// <summary>
         /// Initializes a new instance of the MainWindow class.
         /// </summary>
+        /// 
+        
+
         public MainWindow()
         {
+            
             InitializeComponent();
             this.Content = new MainMenu();
             this.AddHandler(Button.ClickEvent, new RoutedEventHandler(MenuController));
@@ -32,5 +38,7 @@ namespace ExtremeSteakDude
             }
 
         }
+
+        
     }
 }
