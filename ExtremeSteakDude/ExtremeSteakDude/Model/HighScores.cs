@@ -13,19 +13,14 @@ namespace ExtremeSteakDude.Model
     {
 
 
-        private String _Name1="Dankmeister";
-        private int _Score1=2; 
-        private String _Name2;
-        private int _Score2;
+        private static String _Name1="Dankmeister";
+        private static int _Score1=2; 
+        private static String _Name2;
+        private static int _Score2;
         public enum levelenum {one, two };
-        private levelenum _level = levelenum.one;
-        public levelenum level
-        {
-            get; set;
-        }
 
 
-        public string Name
+        public static string Name
         {
             get {
                 switch (Player.level)
@@ -44,14 +39,14 @@ namespace ExtremeSteakDude.Model
             }
             set
             {
-                switch (_level)
+                switch (Player.level)
                 {
-                    case levelenum.one:
+                    case Player.levelenum.one:
                         {
                             _Name1 = value;
                             break;
                         }
-                    case levelenum.two:
+                    case Player.levelenum.two:
                         {
                             _Name2 = value;
                             break;
@@ -60,7 +55,7 @@ namespace ExtremeSteakDude.Model
                 }
             }
         }
-        public int Score
+        public static int Score
         {
             get
             {
@@ -96,7 +91,10 @@ namespace ExtremeSteakDude.Model
                 }
             }
         }
-
+        public static String Name1 { get { return _Name1; } set { _Name1 = value; } }
+        public static String Name2 {get { return _Name2; }set { _Name2 = value; }}
+        public static int Score1 { get { return _Score2; } set { _Score1 = value; } }
+        public static int Score2 { get { return _Score2; } set { _Score2 = value; } }
         /*
         private XmlSerializer ser = new XmlSerializer(typeof(DataSet));
         
