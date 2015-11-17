@@ -28,13 +28,13 @@ namespace ExtremeSteakDude.Model
         public string Name
         {
             get {
-                switch (_level)
+                switch (Player.level)
                 {
-                    case levelenum.one:
+                    case Player.levelenum.one:
                         {
                             return _Name1;
                         }
-                    case levelenum.two:
+                    case Player.levelenum.two:
                         {
                             return _Name2;
                         }
@@ -64,13 +64,13 @@ namespace ExtremeSteakDude.Model
         {
             get
             {
-                switch (_level)
+                switch (Player.level)
                 {
-                    case levelenum.one:
+                    case Player.levelenum.one:
                         {
                             return _Score1;
                         }
-                    case levelenum.two:
+                    case Player.levelenum.two:
                         {
                             return _Score2;
                         }
@@ -80,14 +80,14 @@ namespace ExtremeSteakDude.Model
             }
             set
             {
-                switch (_level)
+                switch (Player.level)
                 {
-                    case levelenum.one:
+                    case Player.levelenum.one:
                         {
                             _Score1 = value;
                             break;
                         }
-                    case levelenum.two:
+                    case Player.levelenum.two:
                         {
                             _Score2 = value;
                             break;

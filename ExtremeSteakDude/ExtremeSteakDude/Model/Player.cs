@@ -11,7 +11,7 @@ namespace ExtremeSteakDude.Model
 
         public enum levelenum { one, two };
         private levelenum _level = levelenum.one;
-        public levelenum level
+        public static levelenum level
         {
             get; set;
         }
