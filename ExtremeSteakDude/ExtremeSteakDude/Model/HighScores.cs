@@ -14,30 +14,87 @@ namespace ExtremeSteakDude.Model
 
 
         private String _Name1="Dankmeister";
-        private int _Score1=2;
+        private int _Score1=2; 
         private String _Name2;
         private int _Score2;
-
-        public string Name1
+        public enum levelenum {one, two };
+        private levelenum _level = levelenum.one;
+        public levelenum level
         {
-            get { return _Name1; }
-            set { _Name1 = value; }
-        }
-        public int Score1
-        {
-            get { return _Score1; }
-            set { _Score1 = value; }
+            get; set;
         }
 
-        public string Name2
+
+        public string Name
         {
-            get { return _Name2; }
-            set { _Name2 = value; }
+            get {
+                switch (Player.level)
+                {
+                    case Player.levelenum.one:
+                        {
+                            return _Name1;
+                        }
+                    case Player.levelenum.two:
+                        {
+                            return _Name2;
+                        }
+                        
+                }
+                return "";
+            }
+            set
+            {
+                switch (_level)
+                {
+                    case levelenum.one:
+                        {
+                            _Name1 = value;
+                            break;
+                        }
+                    case levelenum.two:
+                        {
+                            _Name2 = value;
+                            break;
+                        }
+
+                }
+            }
         }
-        public int Score2
+        public int Score
         {
-            get { return _Score2; }
-            set { _Score2 = value; }
+            get
+            {
+                switch (Player.level)
+                {
+                    case Player.levelenum.one:
+                        {
+                            return _Score1;
+                        }
+                    case Player.levelenum.two:
+                        {
+                            return _Score2;
+                        }
+
+                }
+                return 0;
+            }
+            set
+            {
+                switch (Player.level)
+                {
+                    case Player.levelenum.one:
+                        {
+                            _Score1 = value;
+                            break;
+                        }
+                    case Player.levelenum.two:
+                        {
+                            _Score2 = value;
+                            break;
+                        }
+
+                }
+            }
         }
 
         /*
