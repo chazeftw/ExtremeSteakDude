@@ -9,22 +9,18 @@ namespace ExtremeSteakDude.Model
     public class Player
     {
         // position
-        public static int x { get; set; } = 596;
-        public static int y { get; set; } = 298;
-        
+        public int x { get; set; } = 596;
+        public int y { get; set; } = 298;
+
 
         // vectors
-        public static int vx { get; set; }
-        public static int vy { get; set; }
+        public int vx { get; set; } = 0;
+        public int vy { get; set; } = 0;
 
-        public static bool inAir { get; set; }
-        public static bool onWallRight { get; set; }
-        public static bool onWallLeft { get; set; }
+        public bool inAir { get; set; } = false;
+        public bool onWallRight { get; set; } = false;
+        public bool onWallLeft { get; set; } = false;
 
-        internal static void Jump()
-        {
-            throw new NotImplementedException();
-        }
-
+        
     }
 }

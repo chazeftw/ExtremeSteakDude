@@ -15,12 +15,15 @@ namespace ExtremeSteakDude.ViewModel
         public bool moveLeft = false;
         public bool jump = false;
         public bool isUndoMode = false;
+        public Player p;
         private Timer moveTimer;
         private UndoRedoController urc;
         
 
         public MovementController()
         {
+            p = new Player();
+            System.Console.WriteLine("lolol");
             moveTimer = new Timer(x => Move(), null, 0, 50);
             
             urc = new UndoRedoController();
@@ -41,27 +44,27 @@ namespace ExtremeSteakDude.ViewModel
             }
             else
             {
-                if(moveLeft && !moveRight)
+                if(moveLeft && !moveRight && !(p.onWallLeft || p.onWallRight))
                 {
                     MoveLeft();
                 }
-                else if(moveRight && !moveLeft)
+                else if(moveRight && !moveLeft && !(p.onWallLeft || p.onWallRight))
                 {
                     MoveRight();
                 }
                 else
 
-                if (Player.inAir)
+                if (p.inAir)
                 {
-                    if(Player.vx > -50)
+                    if(p.vx > -50)
                     {
-                        if (50 + Player.vy >= 10)
+                        if (50 + p.vy >= 10)
                         {
-                            Player.vy = Player.vy - 10;
+                            p.vy = p.vy - 10;
                         }
                         else
                         {
-                            Player.vx = -50;
+                            p.vx = -50;
                         }
                     }
                 }
@@ -74,7 +77,7 @@ namespace ExtremeSteakDude.ViewModel
 
                 
 
-                urc.AddAndExecute(new MomentumCommand(Player.vx,Player.vy));
+                urc.AddAndExecute(new MomentumCommand(p.vx,p.vy));
 
                 
             }
@@ -82,26 +85,26 @@ namespace ExtremeSteakDude.ViewModel
 
         private void Jump()
         {
-            if (Player.inAir)
+            if (p.inAir)
             {
                 // do nothing
             }
-            else if (Player.onWallRight)
+            else if (p.onWallRight)
             {
-                Player.vx = -50;
-                Player.vy = 50;
-                Player.onWallRight = false;
+                p.vx = -50;
+                p.vy = 50;
+                p.onWallRight = false;
             }
-            else if (Player.onWallLeft)
+            else if (p.onWallLeft)
             {
-                Player.vx = 50;
-                Player.vy = 50;
-                Player.onWallLeft = false;
+                p.vx = 50;
+                p.vy = 50;
+                p.onWallLeft = false;
             }
             else
             {
-                Player.vy = 50;
-                Player.inAir = true;
+                p.vy = 50;
+                p.inAir = true;
             }
 
 
@@ -109,53 +112,53 @@ namespace ExtremeSteakDude.ViewModel
 
         private void MoveRight()
         {
-             if(Player.vx < 50)
+             if(p.vx < 50)
             {
-                if(50 - Player.vx <= 10)
+                if(50 - p.vx <= 10)
                 {
-                    Player.vx = Player.vx + 10;
+                    p.vx = p.vx + 10;
                 }else
                 {
-                    Player.vx = 50;
+                    p.vx = 50;
                 }
             }
         }
 
         private void MoveLeft()
         {
-            if (Player.vx > -50)
+            if (p.vx > -50)
             {
-                if (-50 - Player.vx >= -10)
+                if (-50 - p.vx >= -10)
                 {
-                    Player.vx = Player.vx - 10;
+                    p.vx = p.vx - 10;
                 }
                 else
                 {
-                    Player.vx = -50;
+                    p.vx = -50;
                 }
             }
         }
 
 
-        private static void WallSlide(bool orientation)
+        private void WallSlide(bool orientation)
         {
             if (orientation)
             {
-                Player.onWallRight = true;
+                p.onWallRight = true;
             }
             else
             {
-                Player.onWallLeft = true;
+                p.onWallLeft = true;
             }
-            Player.vx = 0;
+            p.vx = 0;
         }
 
-        private static void Land()
+        private void Land()
         {
-            Player.inAir = false;
-            Player.onWallRight = false;
-            Player.onWallLeft = false;
-            Player.vy = 0;
+            p.inAir = false;
+            p.onWallRight = false;
+            p.onWallLeft = false;
+            p.vy = 0;
         }
 
         public void Dispose()
