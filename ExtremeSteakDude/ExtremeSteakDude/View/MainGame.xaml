@@ -6,9 +6,7 @@
              xmlns:local="clr-namespace:ExtremeSteakDude.View"
              xmlns:ViewModel="clr-namespace:ExtremeSteakDude.ViewModel"
              mc:Ignorable="d" 
-             d:DesignHeight="720" d:DesignWidth="1280"
-             PreviewKeyDown="Window_PreviewKeyDown"
-             PreviewKeyUp="Window_PreviewKeyUp">
+             d:DesignHeight="720" d:DesignWidth="1280">
     <Canvas>
         <Image x:Name="player" HorizontalAlignment="Left" Height="32" Margin="0,0,0,0" VerticalAlignment="Top" Width="32" Source="/ExtremeSteakDude;component/Levels/meatboy.jpg" Canvas.Left="{Binding Player.x}" Canvas.Top="{Binding Player.y}"/>
     </Canvas>
