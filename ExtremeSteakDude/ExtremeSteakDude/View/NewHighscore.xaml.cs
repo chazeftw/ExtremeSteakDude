@@ -18,9 +18,9 @@ namespace ExtremeSteakDude.View
     /// <summary>
     /// Interaction logic for GameOver.xaml
     /// </summary>
-    public partial class GameOver : UserControl
+    public partial class NewHighscore : UserControl
     {
-        public GameOver()
+        public NewHighscore()
         {
             InitializeComponent();
         }

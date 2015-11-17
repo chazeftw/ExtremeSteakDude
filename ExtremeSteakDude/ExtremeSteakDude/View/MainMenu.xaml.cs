@@ -54,5 +54,17 @@ namespace ExtremeSteakDude.View
             this.Content = new MainGame();
             //
         }
+
+        private void Continue_Click(object sender, RoutedEventArgs e)
+        {
+            NewGame.Visibility = Visibility.Hidden;
+            Continue.Visibility = Visibility.Hidden;
+            HighScore.Visibility = Visibility.Hidden;
+            Exit.Visibility = Visibility.Hidden;
+
+            //Show Enter highscore screen
+            this.Content = new NewHighscore();
+            //
+        }
     }
 }
