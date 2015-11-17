@@ -11,6 +11,7 @@ namespace ExtremeSteakDude.Commands
     {
         int x; int y;
 
+
         public MomentumCommand(int x,int y)
         {
             this.y = y;

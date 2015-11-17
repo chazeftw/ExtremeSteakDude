@@ -24,6 +24,7 @@ namespace ExtremeSteakDude.View
 
         private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
         {
+            
             switch (e.Key)
             {
                 
