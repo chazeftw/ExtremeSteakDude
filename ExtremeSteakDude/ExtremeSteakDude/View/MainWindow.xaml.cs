@@ -25,7 +25,7 @@ namespace ExtremeSteakDude
         private void MenuController(object sender, RoutedEventArgs e)
         {
             var a = e.OriginalSource as Button;
-            if (a!=null && a.Name=="Back")
+            if (a!=null && (a.Name=="Back"||a.Name== "SkipButton"))
             {
                 this.Content = new MainMenu();
                 e.Handled = true;

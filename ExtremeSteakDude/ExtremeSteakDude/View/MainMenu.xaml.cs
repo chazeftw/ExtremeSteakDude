@@ -64,6 +64,7 @@ namespace ExtremeSteakDude.View
 
             //Show Enter highscore screen
             this.Content = new NewHighscore();
+            e.Handled = true;
             //
         }
     }
