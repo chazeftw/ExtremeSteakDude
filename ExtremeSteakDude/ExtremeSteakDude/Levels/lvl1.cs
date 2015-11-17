@@ -4,17 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
-using ExtremeSteakDude.ViewModel;
+using ExtremeSteakDude.Constants;
 
 namespace ExtremeSteakDude.Levels
 {
-    public static class lvl1
+    class lvl1
     {
-        readonly static int startX;
-        readonly static int startY;
-        static List<Rectangle> mapObjects = new List<Rectangle>(
-            new Rectangle(new Point(1,1),new Size(10))
-            );
+        int startX;
+        int startY;
+        List<Rectangle> mapObjects = new List<Rectangle>();
+
+        public lvl1()
+        {
+            this.startX = 50;
+            this.startY = 200;
+            Rectangle ground = new Rectangle(0, Const.HEIGHT - 100, Const.WIDTH, 100);
+            mapObjects.Add(ground);
+            Rectangle obstacle1 = new Rectangle(Const.WIDTH / 2, Const.HEIGHT - 150, 25, 50);
+            mapObjects.Add(obstacle1);
+            
+        }
 
         
 
