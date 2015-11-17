@@ -99,13 +99,14 @@
     <Compile Include="Commands\MoveRightCommand.cs" />
     <Compile Include="Commands\UndoRedoController.cs" />
     <Compile Include="Design\DesignDataService.cs" />
+    <Compile Include="Levels\lvl1.cs" />
     <Compile Include="Model\HighScores.cs" />
     <Compile Include="Model\DataItem.cs" />
     <Compile Include="Model\DataService.cs" />
     <Compile Include="Model\IDataService.cs" />
     <Compile Include="Model\Map.cs" />
     <Compile Include="Model\Player.cs" />
-    <Compile Include="ViewModel\Const.cs" />
+    <Compile Include="Constants\Const.cs" />
     <Compile Include="ViewModel\GameController.cs" />
     <Compile Include="ViewModel\KeyboardController.cs" />
     <Compile Include="ViewModel\MovementController.cs" />

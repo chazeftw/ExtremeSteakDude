@@ -11,16 +11,22 @@ namespace ExtremeSteakDude.View
     public partial class MainGame : UserControl
     {
 
-        public Player Player { get; set; }
+        public Player p { get; set; }
+        private MovementController mc;
 
         public MainGame()
         {
-            InitializeComponent();
 
-            DataContext = Player = new Player();
+            DataContext = p = new Player();
+            mc = new MovementController(p);
+
+            InitializeComponent();
+            
+            
+            
         }
 
-        MovementController mc = new MovementController();
+       
 
         private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
         {

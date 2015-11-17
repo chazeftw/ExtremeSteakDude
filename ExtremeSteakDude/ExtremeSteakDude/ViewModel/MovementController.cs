@@ -20,10 +20,9 @@ namespace ExtremeSteakDude.ViewModel
         private UndoRedoController urc;
         
 
-        public MovementController()
+        public MovementController(Player p)
         {
-            p = new Player();
-            System.Console.WriteLine("lolol");
+            this.p = p;
             moveTimer = new Timer(x => Move(), null, 0, 50);
             
             urc = new UndoRedoController();
