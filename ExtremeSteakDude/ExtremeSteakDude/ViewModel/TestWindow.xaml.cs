@@ -29,7 +29,7 @@ namespace ExtremeSteakDude.ViewModel
             DataContext = Player = new Player();
         }
 
-        MovementController mc = new MovementController();
+        MovementController mc = new MovementController(new Player());
 
         private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
         {

@@ -76,7 +76,7 @@ namespace ExtremeSteakDude.ViewModel
 
                 
 
-                urc.AddAndExecute(new MomentumCommand(p.vx,p.vy));
+                urc.AddAndExecute(new MomentumCommand(p,p.vx,p.vy));
 
                 
             }

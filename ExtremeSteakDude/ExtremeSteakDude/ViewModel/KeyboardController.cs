@@ -9,7 +9,7 @@ namespace ExtremeSteakDude.ViewModel
 {
     class KeyboardController
     {
-        MovementController mc = new MovementController();
+        MovementController mc = new MovementController(new Model.Player());
 
         private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
         {
