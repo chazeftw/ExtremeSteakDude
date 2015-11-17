@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ExtremeSteakDude.ViewModel;
 using ExtremeSteakDude.Model;
+using ExtremeSteakDude.Constants;
 
 namespace ExtremeSteakDude.ViewModel
 {
@@ -12,10 +13,11 @@ namespace ExtremeSteakDude.ViewModel
     {
         public void InitializeMap(int mapIndex)
         {
-            Player.vx = 0;
-            Player.vy = 0;
-            Player.x = Const.MAP[mapIndex].startX;
-            Player.y = Const.MAP[mapIndex].startY;
+            Player p1 = new Player();
+            p1.vx = 0;
+            p1.vy = 0;
+            p1.x = Const.MAP[mapIndex].startX;
+            p1.y = Const.MAP[mapIndex].startY;
 
         }
     }
