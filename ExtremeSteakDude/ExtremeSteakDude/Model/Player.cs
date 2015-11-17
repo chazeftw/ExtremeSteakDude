@@ -8,6 +8,13 @@ namespace ExtremeSteakDude.Model
 {
     public class Player
     {
+
+        public enum levelenum { one, two };
+        private levelenum _level = levelenum.one;
+        public levelenum level
+        {
+            get; set;
+        }
         // position
         public int x { get; set; } = 596;
         public int y { get; set; } = 298;
