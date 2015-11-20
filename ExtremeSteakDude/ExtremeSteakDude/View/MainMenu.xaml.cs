@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ExtremeSteakDude.Serialization;
 
 namespace ExtremeSteakDude.View
 {
@@ -27,14 +28,10 @@ namespace ExtremeSteakDude.View
 
         private void HighScore_Click(object sender, RoutedEventArgs e)
         {
-            // Hide the main menu buttons
-            NewGame.Visibility = Visibility.Hidden;
-            Continue.Visibility = Visibility.Hidden;
-            HighScore.Visibility = Visibility.Hidden;
-            Exit.Visibility = Visibility.Hidden;
-
             // Show highscores
-            this.Content = new HighScores();
+            XML xML = new XML();
+            this.Content = xML.HighScores;
+            e.Handled = true;
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -44,24 +41,13 @@ namespace ExtremeSteakDude.View
 
         private void NewGame_Click(object sender, RoutedEventArgs e)
         {
-            // Hide the main menu buttons
-            NewGame.Visibility = Visibility.Hidden;
-            Continue.Visibility = Visibility.Hidden;
-            HighScore.Visibility = Visibility.Hidden;
-            Exit.Visibility = Visibility.Hidden;
-
-            // Show highscores
-            this.Content = new MainGame();
+            this.Content = new LevelSelect();
+            e.Handled = true;
             //
         }
 
         private void Continue_Click(object sender, RoutedEventArgs e)
         {
-            NewGame.Visibility = Visibility.Hidden;
-            Continue.Visibility = Visibility.Hidden;
-            HighScore.Visibility = Visibility.Hidden;
-            Exit.Visibility = Visibility.Hidden;
-
             //Show Enter highscore screen
             this.Content = new NewHighscore();
             e.Handled = true;

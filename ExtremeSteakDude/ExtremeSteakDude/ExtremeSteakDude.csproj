@@ -99,6 +99,7 @@
     <Compile Include="Commands\MoveRightCommand.cs" />
     <Compile Include="Commands\UndoRedoController.cs" />
     <Compile Include="Design\DesignDataService.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Levels\lvl1.cs" />
     <Compile Include="Model\HighScores.cs" />
     <Compile Include="Model\DataItem.cs" />
@@ -108,15 +109,20 @@
     <Compile Include="Model\MapNew.cs" />
     <Compile Include="Model\Player.cs" />
     <Compile Include="Constants\Const.cs" />
+    <Compile Include="Serialization\SerializerXML.cs" />
+    <Compile Include="Serialization\XML.cs" />
     <Compile Include="ViewModel\CollisionDetector.cs" />
     <Compile Include="ViewModel\GameController.cs" />
-    <Compile Include="ViewModel\KeyboardController.cs" />
     <Compile Include="ViewModel\MovementController.cs" />
     <Compile Include="ViewModel\TestWindow.xaml.cs">
       <DependentUpon>TestWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Page Include="View\GameOverScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LevelSelect.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -146,6 +152,9 @@
     </Compile>
     <Compile Include="View\GameOverScreen.xaml.cs">
       <DependentUpon>GameOverScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LevelSelect.xaml.cs">
+      <DependentUpon>LevelSelect.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MainGame.xaml.cs">
       <DependentUpon>MainGame.xaml</DependentUpon>

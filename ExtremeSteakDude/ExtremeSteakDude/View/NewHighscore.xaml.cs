@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ExtremeSteakDude.Model;
+using ExtremeSteakDude.Serialization;
 
 namespace ExtremeSteakDude.View
 {
@@ -29,7 +30,12 @@ namespace ExtremeSteakDude.View
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
 
-            Model.HighScores.Name = HighscoreNameInput.Text;
+
+            XML xML = new XML();
+            Model.HighScores test = xML.HighScores;
+            test.Name = HighscoreNameInput.Text;
+
+            xML.HighScores = test;
             SubmitHighscoreButton.Visibility = Visibility.Hidden;
             HighscoreNameInput.Visibility = Visibility.Hidden;
             EnterName.Visibility = Visibility.Hidden;

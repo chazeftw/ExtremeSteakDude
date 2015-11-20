@@ -13,7 +13,7 @@ namespace ExtremeSteakDude.View
     /// <summary>
     /// Interaction logic for MainGame.xaml
     /// </summary>
-    public partial class MainGame : UserControl
+    public partial class MainGame : UserControl, IDisposable
     {
 
 
@@ -79,9 +79,14 @@ namespace ExtremeSteakDude.View
             }
         }
 
-        private void UserControl_Loaded_1(object sender, RoutedEventArgs e)
+        /*private void UserControl_Loaded_1(object sender, RoutedEventArgs e)
         {
 
+        }*/
+
+        public void Dispose()
+        {
+            mc.Dispose();
         }
     }
 
