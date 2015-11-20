@@ -73,15 +73,15 @@ namespace ExtremeSteakDude.ViewModel
                 }
                 if (p.inAir)
                 {
-                    if(p.vx > -10)
+                    if(p.vy < 15)
                     {
-                        if (10 + p.vy >= 3)
+                        if (15 - p.vy >= 3)
                         {
-                            p.vy = p.vy - 3;
+                            p.vy = p.vy +3 ;
                         }
                         else
                         {
-                            p.vx = -10;
+                            p.vy = 15;
                         }
                     }
                 }
@@ -120,7 +120,7 @@ namespace ExtremeSteakDude.ViewModel
             }
             else
             {
-                p.vy = 10;
+                p.vy = 50;
                 p.inAir = true;
             }
 
