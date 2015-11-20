@@ -5,6 +5,7 @@ using ExtremeSteakDude.ViewModel;
 using System;
 using System.Windows;
 using System.Windows.Threading;
+using System.ComponentModel;
 
 namespace ExtremeSteakDude.View
 {
@@ -13,14 +14,19 @@ namespace ExtremeSteakDude.View
     /// </summary>
     public partial class MainGame : UserControl
     {
+
+
         private MovementController mc;
         private Player p;
         public MainGame()
         {
             DataContext = p = new Player();
             mc = new MovementController(p);
+            
             InitializeComponent();
         }
+
+        
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
@@ -50,6 +56,10 @@ namespace ExtremeSteakDude.View
             }
         }
 
+        private void UserControl_Loaded_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
 

@@ -4,7 +4,6 @@ using ExtremeSteakDude.View;
 using System.Windows.Controls;
 using System;
 using System.Windows.Input;
-using ExtremeSteakDude.Model;
 
 namespace ExtremeSteakDude
 {
@@ -17,11 +16,10 @@ namespace ExtremeSteakDude
         /// Initializes a new instance of the MainWindow class.
         /// </summary>
         /// 
-        
-
+       
         public MainWindow()
         {
-            
+
             InitializeComponent();
             this.Content = new MainMenu();
             this.AddHandler(Button.ClickEvent, new RoutedEventHandler(MenuController));
@@ -31,7 +29,7 @@ namespace ExtremeSteakDude
         private void MenuController(object sender, RoutedEventArgs e)
         {
             var a = e.OriginalSource as Button;
-            if (a!=null && (a.Name=="Back"||a.Name== "SkipButton"))
+            if (a!=null && a.Name=="Back")
             {
                 this.Content = new MainMenu();
                 e.Handled = true;
@@ -39,6 +37,5 @@ namespace ExtremeSteakDude
 
         }
 
-        
     }
 }
