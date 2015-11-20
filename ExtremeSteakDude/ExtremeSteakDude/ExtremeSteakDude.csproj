@@ -107,6 +107,7 @@
     <Compile Include="Model\IDataService.cs" />
     <Compile Include="Model\Map.cs" />
     <Compile Include="Model\MapNew.cs" />
+    <Compile Include="Model\NotifyBase.cs" />
     <Compile Include="Model\Player.cs" />
     <Compile Include="Constants\Const.cs" />
     <Compile Include="Serialization\SerializerXML.cs" />
@@ -232,6 +233,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Levels\meatboyjump.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Levels\testbg.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

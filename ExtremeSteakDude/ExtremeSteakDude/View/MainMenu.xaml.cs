@@ -30,7 +30,7 @@ namespace ExtremeSteakDude.View
         {
             // Show highscores
             XML xML = new XML();
-            this.Content = xML.HighScores;
+            this.Content = new View.HighScores();
             e.Handled = true;
         }
 
