@@ -24,6 +24,7 @@ namespace ExtremeSteakDude.ViewModel
         private int fallspeed = 15;
         private int gravity = 5;
         private int jumpheight = 25;
+        private int tick = 25;
 
 
 
@@ -31,7 +32,7 @@ namespace ExtremeSteakDude.ViewModel
         public MovementController(Player p)
         {
             this.p = p;
-            moveTimer = new Timer(x => Move(), null, 0, 25);
+            moveTimer = new Timer(x => Move(), null, 0, tick);
             
             urc = new UndoRedoController();
         }
