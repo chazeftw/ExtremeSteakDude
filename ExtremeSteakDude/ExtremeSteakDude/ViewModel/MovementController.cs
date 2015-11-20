@@ -109,18 +109,18 @@ namespace ExtremeSteakDude.ViewModel
             else if (p.onWallRight)
             {
                 p.vx = -10;
-                p.vy = 10;
+                p.vy = -15;
                 p.onWallRight = false;
             }
             else if (p.onWallLeft)
             {
                 p.vx = 10;
-                p.vy = 10;
+                p.vy = -15;
                 p.onWallLeft = false;
             }
             else
             {
-                p.vy = -50;
+                p.vy = -15;
                 p.inAir = true;
             }
 
