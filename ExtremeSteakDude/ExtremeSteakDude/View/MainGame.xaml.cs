@@ -86,7 +86,7 @@ namespace ExtremeSteakDude.View
 
         public void Dispose()
         {
-            ((IDisposable)mc).Dispose();
+            mc.Dispose();
         }
     }
 

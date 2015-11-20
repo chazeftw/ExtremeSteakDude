@@ -99,6 +99,7 @@
     <Compile Include="Commands\MoveRightCommand.cs" />
     <Compile Include="Commands\UndoRedoController.cs" />
     <Compile Include="Design\DesignDataService.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Levels\lvl1.cs" />
     <Compile Include="Model\HighScores.cs" />
     <Compile Include="Model\DataItem.cs" />
