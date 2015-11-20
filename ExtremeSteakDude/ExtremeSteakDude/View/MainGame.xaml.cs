@@ -50,6 +50,7 @@ namespace ExtremeSteakDude.View
                     break;
                 case Key.Space:
                     mc.jump = true;
+                    // For jump animation
                     BitmapImage bm = new BitmapImage(new Uri("/ExtremeSteakDude;component/Levels/meatboyjump.jpg", UriKind.RelativeOrAbsolute));
                     player.Source = bm;
                     break;
@@ -71,6 +72,7 @@ namespace ExtremeSteakDude.View
                     break;
                 case Key.Space:
                     mc.jump = false;
+                    // For jump animation
                     BitmapImage bm = new BitmapImage(new Uri("/ExtremeSteakDude;component/Levels/meatboy.jpg", UriKind.RelativeOrAbsolute));
                     player.Source = bm;
                     break;
