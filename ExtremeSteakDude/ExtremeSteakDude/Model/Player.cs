@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 
 namespace ExtremeSteakDude.Model
 {
-    public class Player
+    public class Player : INotifyPropertyChanged
     {
         private int _x;
         private int _y;
         public enum levelenum {one ,two };
         public static levelenum level { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged(PropertyChangedEventArgs e)
         {
@@ -61,6 +63,6 @@ namespace ExtremeSteakDude.Model
         public bool onWallRight { get; set; } = false;
         public bool onWallLeft { get; set; } = false;
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        
     }
 }
