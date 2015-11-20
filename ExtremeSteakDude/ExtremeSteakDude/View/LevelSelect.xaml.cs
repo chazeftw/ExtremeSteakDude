@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ExtremeSteakDude.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,8 +28,12 @@ namespace ExtremeSteakDude.View
 
         private void level1_Click(object sender, RoutedEventArgs e)
         {
-            this.Content = new MainGame();
-            //this.Content = new LevelSelect();
+            this.Content = new MainGame(Player.levelenum.one);
+        }
+
+        private void level2_Click(object sender, RoutedEventArgs e)
+        {
+            this.Content = new MainGame(Player.levelenum.two);
         }
     }
 }
