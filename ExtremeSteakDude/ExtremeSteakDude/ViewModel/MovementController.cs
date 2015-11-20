@@ -52,10 +52,8 @@ namespace ExtremeSteakDude.ViewModel
                     MoveRight();
                 }
                 else
-                {
-                    if(Math.Abs(p.vx)>0)
-                    {
-                        if (p.vx < 4)
+                {                    
+                        if (p.vx < 4 && p.vx < 0)
                         {
                             p.vx = p.vx - 3;   
                         }
@@ -67,7 +65,6 @@ namespace ExtremeSteakDude.ViewModel
                         {
                             p.vx = 0;
                         }
-                    }
                 }
                 if (p.inAir)
                 {
