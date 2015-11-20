@@ -107,6 +107,8 @@
     <Compile Include="Model\Map.cs" />
     <Compile Include="Model\Player.cs" />
     <Compile Include="Constants\Const.cs" />
+    <Compile Include="Serialization\SerializerXML.cs" />
+    <Compile Include="Serialization\XML.cs" />
     <Compile Include="ViewModel\GameController.cs" />
     <Compile Include="ViewModel\KeyboardController.cs" />
     <Compile Include="ViewModel\MovementController.cs" />
@@ -219,6 +221,7 @@
   <ItemGroup>
     <Resource Include="Levels\meatboy.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
