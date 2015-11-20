@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ExtremeSteakDude.ViewModel"
         mc:Ignorable="d"
-        Title="GameWindow" Height="1280" Width="720"
+        Title="GameWindow" Height="720" Width="1280"
         PreviewKeyDown="Window_PreviewKeyDown"
         PreviewKeyUp="Window_PreviewKeyUp">
     <Grid>
-        <Image x:Name="map" HorizontalAlignment="Left" Height="1280" Margin="0,0,-6.4,-29.6" VerticalAlignment="Top" Width="720" Source="../Levels\level_1_1.bmp"/>
 
-        <Image x:Name="player" HorizontalAlignment="Left" Height="32" Margin="160,260,0,0" VerticalAlignment="Top" Width="32" Source="/ExtremeSteakDude;component/Levels/SMB first look.bmp"/>
-        
+        <Image x:Name="player" HorizontalAlignment="Left" Height="32" Margin="160,260,0,0" VerticalAlignment="Top" Width="32" Source="/ExtremeSteakDude;component/Levels/SMB first look.bmp" RenderTransformOrigin="0.425,3.425"/>
+        <Rectangle x:Name="ground" Fill="#FF6FC24F" HorizontalAlignment="Left" Height="100" Margin="0,590,-0.4,0" Stroke="Black" VerticalAlignment="Top" Width="1274"/>
+        <Rectangle x:Name="obstacle1" Fill="#FFF745FF" HorizontalAlignment="Left" Height="50" Margin="579,540,0,0" Stroke="Black" VerticalAlignment="Top" Width="50"/>
+
     </Grid>
 </Window>
