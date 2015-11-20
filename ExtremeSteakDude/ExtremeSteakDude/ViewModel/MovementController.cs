@@ -55,16 +55,16 @@ namespace ExtremeSteakDude.ViewModel
                 {
                     if (p.vx > 0)
                     {
-                        if (p.vx < 4)
+                        if (p.vx < 6)
                         {
                             p.vx = p.vx - 3;
                         }else
                         {
                             p.vx = 0;
                         }
-                    }else if (p.vx < -3)
+                    }else if (p.vx < -5)
                     {
-                        p.vx = p.vx + 3;
+                        p.vx = p.vx + 5;
                     }
                     else
                     {
@@ -75,13 +75,13 @@ namespace ExtremeSteakDude.ViewModel
                 {
                     if(p.vy < 15)
                     {
-                        if (15 - p.vy >= 3)
+                        if (15 - p.vy >= 5)
                         {
-                            p.vy = p.vy +3 ;
+                            p.vy = p.vy +5 ;
                         }
                         else
                         {
-                            p.vy = 15;
+                            p.vy = 25;
                         }
                     }
                 }
@@ -109,18 +109,18 @@ namespace ExtremeSteakDude.ViewModel
             else if (p.onWallRight)
             {
                 p.vx = -10;
-                p.vy = -15;
+                p.vy = -25;
                 p.onWallRight = false;
             }
             else if (p.onWallLeft)
             {
                 p.vx = 10;
-                p.vy = -15;
+                p.vy = -25;
                 p.onWallLeft = false;
             }
             else
             {
-                p.vy = -15;
+                p.vy = -25;
                 p.inAir = true;
             }
 
