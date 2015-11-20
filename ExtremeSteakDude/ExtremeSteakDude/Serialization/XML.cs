@@ -31,11 +31,18 @@ namespace ExtremeSteakDude.Serialization
          // of object that is being deserialized.
          XmlSerializer mySerializer =
          new XmlSerializer(typeof(HighScores));
-         // To read the file, create a FileStream.
+            // To read the file, create a FileStream.
+            try { 
          FileStream myFileStream =
          new FileStream("Highscores.xml", FileMode.Open);
-         // Call the Deserialize method and cast to the object type.
-         return (HighScores)mySerializer.Deserialize(myFileStream);
+                // Call the Deserialize method and cast to the object type.
+                return (HighScores)mySerializer.Deserialize(myFileStream);
+            }
+            catch(FileNotFoundException e)
+            {
+                return new HighScores();
+            }
+
      }
      
     }
