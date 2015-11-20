@@ -27,12 +27,8 @@ namespace ExtremeSteakDude.View
 
         private void level1_Click(object sender, RoutedEventArgs e)
         {
-            // Hide the main menu buttons
-            level1.Visibility = Visibility.Hidden;
-            level2.Visibility = Visibility.Hidden;
-            Back.Visibility = Visibility.Hidden;
-
             this.Content = new MainGame();
+            //this.Content = new LevelSelect();
         }
     }
 }
