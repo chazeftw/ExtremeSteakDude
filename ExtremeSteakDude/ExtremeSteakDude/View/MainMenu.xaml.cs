@@ -35,7 +35,9 @@ namespace ExtremeSteakDude.View
             Exit.Visibility = Visibility.Hidden;
 
             // Show highscores
-            this.Content = new HighScores();
+            XML xML = new XML();
+            this.Content = xML.HighScores;
+            e.Handled = true;
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -51,10 +53,9 @@ namespace ExtremeSteakDude.View
             HighScore.Visibility = Visibility.Hidden;
             Exit.Visibility = Visibility.Hidden;
 
-            // Show highscores
-            //XML xML = new XML();
-            //this.Content = xML.HighScores;
+
             this.Content = new LevelSelect();
+            e.Handled = true;
             //
         }
 

@@ -42,8 +42,8 @@ namespace ExtremeSteakDude.Serialization
                 // Call the Deserialize method and cast to the object type.
                 return hs;
             }
-            catch(FileNotFoundException e)
-            {
+            catch(FileNotFoundException)
+            {   
                 var myFile = File.Create("Highscores.xml");
                 myFile.Close();
                 Serialize(new HighScores());
