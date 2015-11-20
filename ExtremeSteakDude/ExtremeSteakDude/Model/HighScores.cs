@@ -17,7 +17,6 @@ namespace ExtremeSteakDude.Model
         private  int _Score1=2; 
         private  String _Name2;
         private  int _Score2;
-        public enum levelenum {one, two };
 
 
         public string Name
