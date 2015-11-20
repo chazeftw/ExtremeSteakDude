@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,6 @@ namespace ExtremeSteakDude.Model
 {
     public class Player
     {
-
         public enum levelenum { one, two };
         private levelenum _level = levelenum.one;
         public levelenum level
