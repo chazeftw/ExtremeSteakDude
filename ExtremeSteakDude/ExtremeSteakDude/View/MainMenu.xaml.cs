@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ExtremeSteakDude.Serialization;
 
 namespace ExtremeSteakDude.View
 {
@@ -51,7 +52,9 @@ namespace ExtremeSteakDude.View
             Exit.Visibility = Visibility.Hidden;
 
             // Show highscores
-            this.Content = new MainGame();
+            XML xML = new XML();
+            this.Content = xML.HighScores;
+            //this.Content = new MainGame();
             //
         }
 

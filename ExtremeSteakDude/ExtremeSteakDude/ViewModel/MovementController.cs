@@ -18,12 +18,21 @@ namespace ExtremeSteakDude.ViewModel
         public Player p;
         private Timer moveTimer;
         private UndoRedoController urc;
-        
+
+        private int movespeed = 20;
+        private int moveacc = 3;
+        private int fallspeed = 20;
+        private int gravity = 5;
+        private int jumpheight = 35;
+        private int tick = 25;
+
+
+
 
         public MovementController(Player p)
         {
             this.p = p;
-            moveTimer = new Timer(x => Move(), null, 0, 25);
+            moveTimer = new Timer(x => Move(), null, 0, tick);
             
             urc = new UndoRedoController();
         }
@@ -53,24 +62,43 @@ namespace ExtremeSteakDude.ViewModel
                 }
                 else
                 {
-
+                    if (p.vx > 0)
+                    {
+                        if (p.vx < moveacc+1)
+                        {
+                            p.vx = p.vx - moveacc;
+                        }else
+                        {
+                            p.vx = 0;
+                        }
+                    }else if (p.vx < -moveacc)
+                    {
+                        p.vx = p.vx + moveacc;
+                    }
+                    else
+                    {
+                        p.vx = 0;
+                    }
                 }
                 if (p.inAir)
                 {
-                    if(p.vx > -10)
+                    if(p.vy < fallspeed)
                     {
-                        if (10 + p.vy >= 3)
+                        if (15 - p.vy >= gravity)
                         {
-                            p.vy = p.vy - 3;
+                            p.vy = p.vy +gravity ;
                         }
                         else
                         {
-                            p.vx = -10;
+                            p.vy = fallspeed;
                         }
                     }
                 }
-
-                if (jump)
+                else if (p.vy != 0)
+                {
+                        Land();
+                }
+                else if (jump)
                 {
                     Jump();
                     jump = false;
@@ -92,19 +120,19 @@ namespace ExtremeSteakDude.ViewModel
             }
             else if (p.onWallRight)
             {
-                p.vx = -10;
-                p.vy = 10;
+                p.vx = -jumpheight;
+                p.vy = -jumpheight;
                 p.onWallRight = false;
             }
             else if (p.onWallLeft)
             {
-                p.vx = 10;
-                p.vy = 10;
+                p.vx = jumpheight;
+                p.vy = -jumpheight;
                 p.onWallLeft = false;
             }
             else
             {
-                p.vy = 10;
+                p.vy = -jumpheight;
                 p.inAir = true;
             }
 
@@ -113,29 +141,29 @@ namespace ExtremeSteakDude.ViewModel
 
         private void MoveRight()
         {
-             if(p.vx < 10)
+             if(p.vx < movespeed)
             {
-                if(10 - p.vx <= 10)
+                if(10 - p.vx <= moveacc)
                 {
-                    p.vx = p.vx + 10;
+                    p.vx = p.vx + moveacc;
                 }else
                 {
-                    p.vx = 10;
+                    p.vx = movespeed;
                 }
             }
         }
 
         private void MoveLeft()
         {
-            if (p.vx > -10)
+            if (p.vx > -movespeed)
             {
-                if (-10 - p.vx >= -3)
+                if (-10 - p.vx >= -moveacc)
                 {
-                    p.vx = p.vx - 3;
+                    p.vx = p.vx - moveacc;
                 }
                 else
                 {
-                    p.vx = -10;
+                    p.vx = -movespeed;
                 }
             }
         }

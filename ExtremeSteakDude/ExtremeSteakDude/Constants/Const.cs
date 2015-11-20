@@ -9,8 +9,10 @@ namespace ExtremeSteakDude.Constants
 {
     static class Const
     {
-        public static readonly int HEIGHT = 720;
-        public static readonly int WIDTH = 1280;
+        public static readonly int MAPHEIGHT = 720;
+        public static readonly int MAPWIDTH = 1280;
+        public static readonly int PLAYERHEIGHT = 32;
+        public static readonly int PLAYERWIDTH = 32;
         public static readonly int[] DEF_STARTPOS = { 100, 400 };
         public static readonly Map[] MAP =
             {
