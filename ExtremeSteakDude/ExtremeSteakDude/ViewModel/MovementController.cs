@@ -94,8 +94,11 @@ namespace ExtremeSteakDude.ViewModel
                         }
                     }
                 }
-
-                if (jump)
+                else if (p.vy != 0)
+                {
+                        Land();
+                }
+                else if (jump)
                 {
                     Jump();
                     jump = false;
