@@ -26,28 +26,36 @@ namespace ExtremeSteakDude.ViewModel
 
     private void CheckForCollision()
         {
+            bool topleft = false;
+            bool topright = false;
+            bool botleft = false;
+            bool botright = false;
             playerRec.X = mc.p.x;
             playerRec.Y = mc.p.y;
             foreach (Rectangle r in map.objects())
             {
-                if (!playerRec.IntersectsWith(r))
-                    continue;
-                else
-                {
-                    if (r.Contains(playerRec.Right, playerRec.Bottom)&& r.Contains(playerRec.Left,playerRec.Bottom))
-                        mc.p.inAir = false;
-
-                    if (r.Contains(playerRec.Right, playerRec.Bottom) && r.Contains(playerRec.Right, playerRec.Top))
-                        mc.p.onWallRight = true;
-
-                    if (r.Contains(playerRec.Left, playerRec.Bottom) && r.Contains(playerRec.Left, playerRec.Top))
-                        mc.p.onWallLeft = true;
-
-                    if (r.Contains(playerRec.Right, playerRec.Top) && r.Contains(playerRec.Right, playerRec.Bottom))
-                        mc.p.onWallRight = true;
-
-                }
+                // checking if players corners are in objects
+                if (r.Contains(playerRec.Left, playerRec.Top))
+                    topleft = true;
+                if (r.Contains(playerRec.Right, playerRec.Top))
+                    topright = true;
+                if (r.Contains(playerRec.Left, playerRec.Bottom))
+                    botleft = true;
+                if (r.Contains(playerRec.Right, playerRec.Bottom))
+                    botright = true;
             }
+            //Setting players parameters accordingly
+            if (botright && botleft)
+                mc.p.inAir = false;
+
+            if (botright && topright)
+                mc.p.onWallRight = true;
+
+            if (botleft && topleft)
+                mc.p.onWallLeft = true;
+
+            if (topright && botright)
+                mc.p.hitRoof = true;
         }
 
 
