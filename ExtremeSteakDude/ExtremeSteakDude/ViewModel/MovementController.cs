@@ -19,11 +19,11 @@ namespace ExtremeSteakDude.ViewModel
         private Timer moveTimer;
         private UndoRedoController urc;
 
-        private int movespeed = 15;
+        private int movespeed = 20;
         private int moveacc = 3;
-        private int fallspeed = 15;
+        private int fallspeed = 20;
         private int gravity = 5;
-        private int jumpheight = 25;
+        private int jumpheight = 35;
         private int tick = 25;
 
 
