@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ExtremeSteakDude.Model;
 
 namespace ExtremeSteakDude.View
 {
@@ -27,7 +28,9 @@ namespace ExtremeSteakDude.View
 
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
-           SubmitHighscoreButton.Visibility = Visibility.Hidden;
+
+            Model.HighScores.Name = HighscoreNameInput.Text;
+            SubmitHighscoreButton.Visibility = Visibility.Hidden;
             HighscoreNameInput.Visibility = Visibility.Hidden;
             EnterName.Visibility = Visibility.Hidden;
             NewHighscoreText.Visibility = Visibility.Hidden;
