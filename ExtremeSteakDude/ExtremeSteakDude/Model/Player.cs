@@ -14,6 +14,8 @@ namespace ExtremeSteakDude.Model
         public enum levelenum {one ,two };
         public static levelenum level { get; set; }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         protected void OnPropertyChanged(PropertyChangedEventArgs e)
         {
             PropertyChangedEventHandler handler = PropertyChanged;
@@ -61,6 +63,6 @@ namespace ExtremeSteakDude.Model
         public bool onWallRight { get; set; } = false;
         public bool onWallLeft { get; set; } = false;
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        
     }
 }
