@@ -120,7 +120,7 @@ namespace ExtremeSteakDude.ViewModel
             }
             else
             {
-                p.vy = 50;
+                p.vy = -50;
                 p.inAir = true;
             }
 
