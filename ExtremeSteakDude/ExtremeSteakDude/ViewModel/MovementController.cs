@@ -23,7 +23,7 @@ namespace ExtremeSteakDude.ViewModel
         public MovementController(Player p)
         {
             this.p = p;
-            moveTimer = new Timer(x => Move(), null, 0, 50);
+            moveTimer = new Timer(x => Move(), null, 0, 25);
             
             urc = new UndoRedoController();
         }
@@ -52,18 +52,20 @@ namespace ExtremeSteakDude.ViewModel
                     MoveRight();
                 }
                 else
+                {
 
+                }
                 if (p.inAir)
                 {
-                    if(p.vx > -50)
+                    if(p.vx > -10)
                     {
-                        if (50 + p.vy >= 10)
+                        if (10 + p.vy >= 3)
                         {
-                            p.vy = p.vy - 10;
+                            p.vy = p.vy - 3;
                         }
                         else
                         {
-                            p.vx = -50;
+                            p.vx = -10;
                         }
                     }
                 }
@@ -90,19 +92,19 @@ namespace ExtremeSteakDude.ViewModel
             }
             else if (p.onWallRight)
             {
-                p.vx = -50;
-                p.vy = 50;
+                p.vx = -10;
+                p.vy = 10;
                 p.onWallRight = false;
             }
             else if (p.onWallLeft)
             {
-                p.vx = 50;
-                p.vy = 50;
+                p.vx = 10;
+                p.vy = 10;
                 p.onWallLeft = false;
             }
             else
             {
-                p.vy = 50;
+                p.vy = 10;
                 p.inAir = true;
             }
 
@@ -111,29 +113,29 @@ namespace ExtremeSteakDude.ViewModel
 
         private void MoveRight()
         {
-             if(p.vx < 50)
+             if(p.vx < 10)
             {
-                if(50 - p.vx <= 10)
+                if(10 - p.vx <= 10)
                 {
                     p.vx = p.vx + 10;
                 }else
                 {
-                    p.vx = 50;
+                    p.vx = 10;
                 }
             }
         }
 
         private void MoveLeft()
         {
-            if (p.vx > -50)
+            if (p.vx > -10)
             {
-                if (-50 - p.vx >= -10)
+                if (-10 - p.vx >= -3)
                 {
-                    p.vx = p.vx - 10;
+                    p.vx = p.vx - 3;
                 }
                 else
                 {
-                    p.vx = -50;
+                    p.vx = -10;
                 }
             }
         }
