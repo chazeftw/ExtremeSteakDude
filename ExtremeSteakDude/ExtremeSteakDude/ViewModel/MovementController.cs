@@ -33,7 +33,6 @@ namespace ExtremeSteakDude.ViewModel
         {
             this.p = p;
             moveTimer = new Timer(x => Move(), null, 0, tick);
-            
             urc = new UndoRedoController();
         }
 
@@ -44,38 +43,33 @@ namespace ExtremeSteakDude.ViewModel
                 if(moveLeft)
                 {
                     urc.Undo();  
-                }
-                else if(moveRight)
+                }else if(moveRight)
                 {
                     urc.Redo();
                 }
-            }
-            else
-            {
-                if(moveLeft && !moveRight && !(p.onWallLeft || p.onWallRight))
+            }else
+            {   
+                if(moveLeft && !moveRight && !p.onWallLeft)
                 {
                     MoveLeft();
-                }
-                else if(moveRight && !moveLeft && !(p.onWallLeft || p.onWallRight))
+                }else if(moveRight && !moveLeft && !p.onWallRight)
                 {
                     MoveRight();
-                }
-                else
+                }else
                 {
                     if (p.vx > 0)
                     {
-                        if (p.vx < moveacc+1)
+                        if (p.vx < moveacc+1 && !p.onWallRight)
                         {
                             p.vx = p.vx - moveacc;
                         }else
                         {
                             p.vx = 0;
                         }
-                    }else if (p.vx < -moveacc)
+                    }else if (p.vx < -moveacc && !p.onWallLeft)
                     {
                         p.vx = p.vx + moveacc;
-                    }
-                    else
+                    }else
                     {
                         p.vx = 0;
                     }
@@ -87,28 +81,20 @@ namespace ExtremeSteakDude.ViewModel
                         if (15 - p.vy >= gravity)
                         {
                             p.vy = p.vy +gravity ;
-                        }
-                        else
+                        }else
                         {
                             p.vy = fallspeed;
                         }
                     }
-                }
-                else if (p.vy != 0)
+                }else if (p.vy != 0)
                 {
                         Land();
-                }
-                else if (jump)
+                }else if (jump)
                 {
                     Jump();
                     jump = false;
                 }
-
-                
-
                 urc.AddAndExecute(new MomentumCommand(p,p.vx,p.vy));
-
-                
             }
           }
 
@@ -117,20 +103,17 @@ namespace ExtremeSteakDude.ViewModel
             if (p.inAir)
             {
                 // do nothing
-            }
-            else if (p.onWallRight)
+            }else if (p.onWallRight)
             {
                 p.vx = -jumpheight;
                 p.vy = -jumpheight;
                 p.onWallRight = false;
-            }
-            else if (p.onWallLeft)
+            }else if (p.onWallLeft)
             {
                 p.vx = jumpheight;
                 p.vy = -jumpheight;
                 p.onWallLeft = false;
-            }
-            else
+            }else
             {
                 p.vy = -jumpheight;
                 p.inAir = true;
@@ -151,9 +134,7 @@ namespace ExtremeSteakDude.ViewModel
                     p.vx = movespeed;
                 }
             }
-        }
-
-        private void MoveLeft()
+        }private void MoveLeft()
         {
             if (p.vx > -movespeed)
             {
@@ -167,7 +148,6 @@ namespace ExtremeSteakDude.ViewModel
                 }
             }
         }
-
 
         private void WallSlide(bool orientation)
         {
