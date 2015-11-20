@@ -40,7 +40,10 @@ namespace ExtremeSteakDude.Commands
 
         public void Redo()
         {
-            if (!redos.Any()) throw new InvalidOperationException();
+            if (!redos.Any())
+            {
+                throw new InvalidOperationException();
+            }    
             var command = redos.Pop();
             undos.Push(command);
             command.Execute();

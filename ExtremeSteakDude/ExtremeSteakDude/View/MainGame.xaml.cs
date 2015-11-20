@@ -6,6 +6,7 @@ using System;
 using System.Windows;
 using System.Windows.Threading;
 using System.ComponentModel;
+using System.Windows.Media.Imaging;
 
 namespace ExtremeSteakDude.View
 {
@@ -38,11 +39,23 @@ namespace ExtremeSteakDude.View
             System.Console.WriteLine("Hello");
             switch (e.Key)
             {
-                case Key.Enter: System.Console.WriteLine("dasdsdfgh"); p.x = 200; break;
-                case Key.Left: mc.moveLeft = true; break;
-                case Key.Right: mc.moveRight = true; break;
-                case Key.Space: mc.jump = true; break;
-                case Key.Z: mc.isUndoMode = !mc.isUndoMode; break;
+                case Key.Enter:
+                    System.Console.WriteLine("dasdsdfgh"); p.x = 200;
+                    break;
+                case Key.Left:
+                    mc.moveLeft = true;
+                    break;
+                case Key.Right:
+                    mc.moveRight = true;
+                    break;
+                case Key.Space:
+                    mc.jump = true;
+                    BitmapImage bm = new BitmapImage(new Uri("/ExtremeSteakDude;component/Levels/meatboyjump.jpg", UriKind.RelativeOrAbsolute));
+                    player.Source = bm;
+                    break;
+                case Key.Z:
+                    mc.isUndoMode = !mc.isUndoMode;
+                    break;
             }
         }
 
@@ -50,9 +63,17 @@ namespace ExtremeSteakDude.View
         {
             switch (e.Key)
             {
-                case Key.Left: mc.moveLeft = false; break;
-                case Key.Right: mc.moveRight = false; break;
-                case Key.Space: mc.jump = false; break;
+                case Key.Left:
+                    mc.moveLeft = false;
+                    break;
+                case Key.Right:
+                    mc.moveRight = false;
+                    break;
+                case Key.Space:
+                    mc.jump = false;
+                    BitmapImage bm = new BitmapImage(new Uri("/ExtremeSteakDude;component/Levels/meatboy.jpg", UriKind.RelativeOrAbsolute));
+                    player.Source = bm;
+                    break;
             }
         }
 
