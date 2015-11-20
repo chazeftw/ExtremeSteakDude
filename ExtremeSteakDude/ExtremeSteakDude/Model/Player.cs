@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ExtremeSteakDude.Model
 {
-    public class Player
+    public class Player : INotifyPropertyChanged
     {
         private int _x;
         private int _y;
