@@ -52,19 +52,24 @@ namespace ExtremeSteakDude.ViewModel
                     MoveRight();
                 }
                 else
-                {                    
-                        if (p.vx < 4 && p.vx < 0)
+                {
+                    if (p.vx > 0)
+                    {
+                        if (p.vx < 4)
                         {
-                            p.vx = p.vx - 3;   
-                        }
-                        else if(p.vx > -4)
-                        {
-                            p.vx = p.vx + 3;
-                        }
-                        else
+                            p.vx = p.vx - 3;
+                        }else
                         {
                             p.vx = 0;
                         }
+                    }else if (p.vx < -3)
+                    {
+                        p.vx = p.vx + 3;
+                    }
+                    else
+                    {
+                        p.vx = 0;
+                    }
                 }
                 if (p.inAir)
                 {
