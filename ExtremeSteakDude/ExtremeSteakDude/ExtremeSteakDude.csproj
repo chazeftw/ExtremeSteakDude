@@ -120,6 +120,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\LevelSelect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainGame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -146,6 +150,9 @@
     </Compile>
     <Compile Include="View\GameOverScreen.xaml.cs">
       <DependentUpon>GameOverScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LevelSelect.xaml.cs">
+      <DependentUpon>LevelSelect.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MainGame.xaml.cs">
       <DependentUpon>MainGame.xaml</DependentUpon>

@@ -52,9 +52,9 @@ namespace ExtremeSteakDude.View
             Exit.Visibility = Visibility.Hidden;
 
             // Show highscores
-            XML xML = new XML();
-            this.Content = xML.HighScores;
-            //this.Content = new MainGame();
+            //XML xML = new XML();
+            //this.Content = xML.HighScores;
+            this.Content = new LevelSelect();
             //
         }
 
