@@ -33,13 +33,20 @@ namespace ExtremeSteakDude.Serialization
          new XmlSerializer(typeof(HighScores));
             // To read the file, create a FileStream.
             try { 
-         FileStream myFileStream =
-         new FileStream("Highscores.xml", FileMode.Open);
+                FileStream myFileStream =
+                new FileStream("Highscores.xml", FileMode.Open);
+
+                HighScores hs = (HighScores)mySerializer.Deserialize(myFileStream);
+
+                myFileStream.Close();
                 // Call the Deserialize method and cast to the object type.
-                return (HighScores)mySerializer.Deserialize(myFileStream);
+                return hs;
             }
             catch(FileNotFoundException e)
             {
+                var myFile = File.Create("Highscores.xml");
+                myFile.Close();
+                Serialize(new HighScores());
                 return new HighScores();
             }
 
