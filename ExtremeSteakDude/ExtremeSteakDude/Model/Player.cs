@@ -9,8 +9,8 @@ namespace ExtremeSteakDude.Model
 {
     public class Player : INotifyPropertyChanged
     {
-        private int _x;
-        private int _y;
+        private int _x = 500;
+        private int _y = 300;
         public enum levelenum {one ,two };
         public static levelenum level { get; set; }
 
