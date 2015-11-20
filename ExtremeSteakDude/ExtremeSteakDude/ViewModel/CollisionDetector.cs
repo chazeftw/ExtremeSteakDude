@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ExtremeSteakDude.Model;
 using System.Drawing;
-using ExtremeSteakDude.Model;
+
 
 namespace ExtremeSteakDude.ViewModel
 {
