@@ -59,7 +59,7 @@ namespace ExtremeSteakDude.Model
         public int vx { get; set; } = 0;
         public int vy { get; set; } = 0;
 
-        public bool inAir { get; set; } = true;
+        public bool inAir { get; set; } = false;
         public bool onWallRight { get; set; } = false;
         public bool onWallLeft { get; set; } = false;
 
