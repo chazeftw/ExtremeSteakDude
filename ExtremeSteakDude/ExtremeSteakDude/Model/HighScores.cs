@@ -7,13 +7,15 @@ using System.Data;
 using System.Xml.Serialization;
 using System.IO;
 
+using System.Windows.Media;
+
 namespace ExtremeSteakDude.Model
 {
-    public class HighScores
+    public class HighScores : NotifyBase
     {
 
 
-        private  String _Name1="Dankmeister";
+        private static String _Name1="Dankmeister";
         private  int _Score1=2; 
         private  String _Name2;
         private  int _Score2;
@@ -43,15 +45,18 @@ namespace ExtremeSteakDude.Model
                     case Player.levelenum.one:
                         {
                             _Name1 = value;
+                            NotifyPropertyChanged(() => Name2);
                             break;
                         }
                     case Player.levelenum.two:
                         {
                             _Name2 = value;
+                            NotifyPropertyChanged(() => Name2);
                             break;
                         }
 
                 }
+                NotifyPropertyChanged();
             }
         }
         public int Score
@@ -79,21 +84,24 @@ namespace ExtremeSteakDude.Model
                     case Player.levelenum.one:
                         {
                             _Score1 = value;
+                            NotifyPropertyChanged(() => Score1);
                             break;
                         }
                     case Player.levelenum.two:
                         {
                             _Score2 = value;
+                            NotifyPropertyChanged(() => Score2);
                             break;
                         }
 
                 }
+                NotifyPropertyChanged();
             }
         }
-        public  String Name1 { get { return _Name1; } set { _Name1 = value; } }
-        public  String Name2 {get { return _Name2; }set { _Name2 = value; }}
-        public  int Score1 { get { return _Score2; } set { _Score1 = value; } }
-        public  int Score2 { get { return _Score2; } set { _Score2 = value; } }
+        public  String Name1 { get { return _Name1; } set { _Name1 = value; NotifyPropertyChanged(); } }
+        public  String Name2 {get { return _Name2; }set { _Name2 = value; NotifyPropertyChanged(); } }
+        public  int Score1 { get { return _Score2; } set { _Score1 = value; NotifyPropertyChanged(); } }
+        public  int Score2 { get { return _Score2; } set { _Score2 = value; NotifyPropertyChanged(); } }
         /*
         private XmlSerializer ser = new XmlSerializer(typeof(DataSet));
         

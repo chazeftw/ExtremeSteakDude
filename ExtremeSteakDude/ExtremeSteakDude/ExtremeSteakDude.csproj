@@ -105,6 +105,7 @@
     <Compile Include="Model\DataService.cs" />
     <Compile Include="Model\IDataService.cs" />
     <Compile Include="Model\Map.cs" />
+    <Compile Include="Model\NotifyBase.cs" />
     <Compile Include="Model\Player.cs" />
     <Compile Include="Constants\Const.cs" />
     <Compile Include="Serialization\SerializerXML.cs" />
