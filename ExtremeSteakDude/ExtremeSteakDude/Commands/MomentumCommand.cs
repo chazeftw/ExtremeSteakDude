@@ -9,10 +9,11 @@ namespace ExtremeSteakDude.Commands
 {
     class MomentumCommand : IUndoRedoCommand
     {
-        int x; int y; Player p;
+        int x; int y; Player p; TimeSpan time;
 
-        public MomentumCommand(Player p, int x,int y)
+        public MomentumCommand(Player p, int x,int y,TimeSpan time)
         {
+            this.time = time;
             this.y = y;
             this.x = x;
             this.p = p;
@@ -22,12 +23,14 @@ namespace ExtremeSteakDude.Commands
         {
             p.x = p.x + x;
             p.y = p.y + y;
+            p.elapsedTime = time;
         }
 
         public void Undo()
         {
             p.x = p.x - x;
             p.y = p.y - y;
+            p.elapsedTime = time;
         }
     }
 }
