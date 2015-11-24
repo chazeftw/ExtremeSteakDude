@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Threading;
 using System.ComponentModel;
 using System.Windows.Media.Imaging;
+using System.Windows.Media;
 
 namespace ExtremeSteakDude.View
 {
@@ -19,11 +20,21 @@ namespace ExtremeSteakDude.View
 
         private MovementController mc;
         private Player p;
-        public MainGame()
+        public MainGame(Player.levelenum level)
         {
             DataContext = p = new Player();
             mc = new MovementController(p);
-            
+            Player.level = level;
+            if(level == Player.levelenum.one)
+            {
+                // Change background to according level
+                this.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Levels/level_1_1.bmp", UriKind.RelativeOrAbsolute)));
+            }
+            else if(level == Player.levelenum.two)
+            {
+                // Change background to according level
+                this.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Levels/level_1_1.bmp", UriKind.RelativeOrAbsolute)));
+            }
             InitializeComponent();
         }
 

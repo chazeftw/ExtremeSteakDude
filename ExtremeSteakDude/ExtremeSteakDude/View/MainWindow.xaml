@@ -17,7 +17,7 @@
     </Window.DataContext>
 
     <Window.Background>
-        <ImageBrush ImageSource="../Levels/mainmenubg.jpg" />
+        <ImageBrush x:Name="mainbg" ImageSource="../Levels/mainmenubg.jpg" />
     </Window.Background>
 
     <Window.Resources>

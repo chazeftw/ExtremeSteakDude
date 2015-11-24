@@ -1,4 +1,5 @@
 ﻿using ExtremeSteakDude.Model;
+using ExtremeSteakDude.Serialization;
 
 namespace ExtremeSteakDude.ViewModel
 {
@@ -32,7 +33,8 @@ namespace ExtremeSteakDude.ViewModel
         }
 
         public MainViewModel() {
-            highScores = new HighScores();
+            XML xml = new XML();
+            highScores = xml.HighScores;
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ExtremeSteakDude.Model
 {
-    abstract class MapNew:IMapNew
+    abstract class MapNew
     {
         
         public int startX { get; set; }
