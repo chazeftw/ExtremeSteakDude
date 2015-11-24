@@ -89,11 +89,7 @@ namespace ExtremeSteakDude.View
                     break;
             }
         }
-
-        /*private void UserControl_Loaded_1(object sender, RoutedEventArgs e)
-        {
-
-        }*/
+        
 
         public void Dispose()
         {
