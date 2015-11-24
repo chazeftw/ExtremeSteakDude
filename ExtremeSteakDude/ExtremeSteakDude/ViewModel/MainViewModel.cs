@@ -1,5 +1,8 @@
-﻿using ExtremeSteakDude.Model;
+﻿using ExtremeSteakDude.Commands;
+using ExtremeSteakDude.Model;
 using ExtremeSteakDude.Serialization;
+using GalaSoft.MvvmLight.Command;
+using System.Windows.Input;
 
 namespace ExtremeSteakDude.ViewModel
 {
@@ -13,8 +16,9 @@ namespace ExtremeSteakDude.ViewModel
         public const string WelcomeTitlePropertyName = "WelcomeTitle";
 
         public HighScores highScores { get; set; }
-
+        public ICommand SaveHighscore { get; }
         private string _welcomeTitle = string.Empty;
+        public string name {get; set;}
 
         /// <summary>
         /// Gets the WelcomeTitle property.
@@ -33,8 +37,19 @@ namespace ExtremeSteakDude.ViewModel
         }
 
         public MainViewModel() {
+
+            
             XML xml = new XML();
             highScores = xml.HighScores;
+
+
+            SaveHighscore = new RelayCommand(SaveHighScore);
+        }
+
+        private void SaveHighScore()
+        {
+            SaveHighScoreCommand Command = new SaveHighScoreCommand(highScores, new XML(), name, 0);
+            Command.Execute();
         }
     }
 }
