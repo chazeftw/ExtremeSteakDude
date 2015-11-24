@@ -8,6 +8,7 @@ using System.Windows.Threading;
 using System.ComponentModel;
 using System.Windows.Media.Imaging;
 using System.Windows.Media;
+using ExtremeSteakDude.Levels;
 
 namespace ExtremeSteakDude.View
 {
@@ -20,6 +21,7 @@ namespace ExtremeSteakDude.View
 
         private MovementController mc;
         private Player p;
+        private MapNew currentMap;
         public MainGame(Player.levelenum level)
         {
             DataContext = p = new Player();
@@ -28,13 +30,19 @@ namespace ExtremeSteakDude.View
             if(level == Player.levelenum.one)
             {
                 // Change background to according level
-                this.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Levels/level_1_1.bmp", UriKind.RelativeOrAbsolute)));
+                // this.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Levels/level_1_1.bmp", UriKind.RelativeOrAbsolute)));
+
+                this.currentMap = new lvl1();
+               
+                
             }
             else if(level == Player.levelenum.two)
             {
                 // Change background to according level
                 this.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Levels/level_1_1.bmp", UriKind.RelativeOrAbsolute)));
             }
+            p.x = currentMap.startX;
+            p.y = currentMap.startY;
             InitializeComponent();
         }
 
