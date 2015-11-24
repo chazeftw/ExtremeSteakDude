@@ -13,15 +13,12 @@ namespace ExtremeSteakDude.Levels
 {
     class lvl1:Model.MapNew
     {
-        int startX;
-        int startY;
-        Bitmap image;
         Graphics gr;
         List<Rectangle> mapObjects = new List<Rectangle>();
 
         public lvl1()
         {
-            Bitmap image = new Bitmap(Const.MAPWIDTH, Const.PLAYERHEIGHT);
+            Bitmap image = new Bitmap(Const.MAPWIDTH, Const.MAPHEIGHT);
             this.startX = 300;
             this.startY = 300;
             gr = Graphics.FromImage(image);
@@ -34,7 +31,7 @@ namespace ExtremeSteakDude.Levels
             SolidBrush darkSeaBrush = new SolidBrush(Color.DarkSeaGreen);
             gr.FillRectangle(darkSeaBrush, ground);
             mapObjects.Add(ground);
-            Rectangle obstacle1 = new Rectangle(Const.MAPWIDTH / 2, Const.MAPHEIGHT - 150, 25, 50);
+            Rectangle obstacle1 = new Rectangle(Const.MAPWIDTH / 2, Const.MAPHEIGHT - 150-Const.BORDER_THICKNESS, 25, 50);
             SolidBrush indianRedBrush = new SolidBrush(Color.IndianRed);
             gr.FillRectangle(indianRedBrush, obstacle1);
             mapObjects.Add(obstacle1);
@@ -42,7 +39,7 @@ namespace ExtremeSteakDude.Levels
             //borders
             Rectangle[] borders = new Rectangle[4];
             borders[0]= new Rectangle(0, 0, Const.BORDER_THICKNESS, Const.MAPHEIGHT);
-            borders[1] = new Rectangle(Const.MAPHEIGHT - Const.BORDER_THICKNESS, 0, Const.BORDER_THICKNESS, Const.MAPHEIGHT);
+            borders[1] = new Rectangle(Const.MAPWIDTH - Const.BORDER_THICKNESS, 0, Const.BORDER_THICKNESS, Const.MAPHEIGHT);
             borders[2] = new Rectangle(0, 0, Const.MAPWIDTH, Const.BORDER_THICKNESS);
             borders[3] = new Rectangle(0, Const.MAPHEIGHT - Const.BORDER_THICKNESS, Const.MAPWIDTH, Const.BORDER_THICKNESS);
             SolidBrush black = new SolidBrush(Color.Black);
@@ -56,8 +53,7 @@ namespace ExtremeSteakDude.Levels
 
            
         }
-
-        public static extern bool DeleteObject(IntPtr hObject);
+        
 
 
 
