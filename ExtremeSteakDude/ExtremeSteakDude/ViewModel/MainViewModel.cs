@@ -1,10 +1,12 @@
 ﻿using ExtremeSteakDude.Model;
 using ExtremeSteakDude.Serialization;
+using GalaSoft.MvvmLight;
+using System;
 
 namespace ExtremeSteakDude.ViewModel
 {
 
-    public class MainViewModel
+    public class MainViewModel : ViewModelBase
     {
 
         /// <summary>
@@ -22,6 +24,7 @@ namespace ExtremeSteakDude.ViewModel
         /// </summary>
         public string WelcomeTitle
         {
+
             get
             {
                 return _welcomeTitle;
@@ -33,6 +36,7 @@ namespace ExtremeSteakDude.ViewModel
         }
 
         public MainViewModel() {
+            Console.WriteLine("ugg");
             XML xml = new XML();
             highScores = xml.HighScores;
         }
