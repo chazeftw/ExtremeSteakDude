@@ -14,6 +14,11 @@ namespace ExtremeSteakDude.Model
         public enum levelenum { one, two };
         public static levelenum level { get; set; }
 
+        public string MeatboyImage
+        {
+            get { return "/ExtremeSteakDude;component/Levels/meatboy.jpg"; }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged(PropertyChangedEventArgs e)
