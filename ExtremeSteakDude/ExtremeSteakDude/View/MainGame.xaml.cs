@@ -8,6 +8,8 @@ using System.Windows.Threading;
 using System.ComponentModel;
 using System.Windows.Media.Imaging;
 using System.Windows.Media;
+using ExtremeSteakDude.Levels;
+using ExtremeSteakDude.HelperClasses;
 
 namespace ExtremeSteakDude.View
 {
@@ -16,6 +18,7 @@ namespace ExtremeSteakDude.View
     /// </summary>
     public partial class MainGame : UserControl
     {
+        MapNew currentlvl;
 
         public MainGame()
         {
@@ -23,6 +26,18 @@ namespace ExtremeSteakDude.View
         }
         public MainGame(Player.levelenum level)
         {
+            if(level == Player.levelenum.one)
+            {
+                currentlvl = new lvl1();
+            }
+
+            if(level == Player.levelenum.two)
+            {
+
+            }
+            BitmapImage bmi = new BitmapImage();
+            bmi = HelperClasses.BitmapConverter.BitmapToImageSource(currentlvl.image);
+            this.Background = new ImageBrush(bmi);
             InitializeComponent();
 
 
@@ -36,7 +51,7 @@ namespace ExtremeSteakDude.View
             Keyboard.Focus(this);
         }
 
- 
+
 
     }
 

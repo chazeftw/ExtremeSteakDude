@@ -11,9 +11,9 @@ namespace ExtremeSteakDude.Model
     {
         private int _x = 500;
         private int _y = 300;
-        private string _meatboyImage = "pack://application:,,,/Images/meatboy.jpg";
         private TimeSpan _elapsedTime;
 
+        private string _meatboyImage = "pack://application:,,,/Images/meatboy.jpg";
         public enum levelenum { one, two };
         public static levelenum level { get; set; }
 
