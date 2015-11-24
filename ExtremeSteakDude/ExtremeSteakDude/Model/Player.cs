@@ -31,12 +31,6 @@ namespace ExtremeSteakDude.Model
             }
         }
 
-
-
-
-
-
-
         public string MeatboyImage
         {
             get { return "pack://application:,,,/Images/meatboy.jpg"; }
