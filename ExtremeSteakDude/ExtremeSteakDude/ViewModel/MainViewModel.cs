@@ -86,6 +86,7 @@ namespace ExtremeSteakDude.ViewModel
 
         private void KeyDown(KeyEventArgs e)
         {
+            
             switch (e.Key)
             {
                 case Key.Enter:
