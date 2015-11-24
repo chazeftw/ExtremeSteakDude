@@ -8,6 +8,7 @@ using System.Windows.Threading;
 using System.ComponentModel;
 using System.Windows.Media.Imaging;
 using System.Windows.Media;
+using ExtremeSteakDude.Levels;
 
 namespace ExtremeSteakDude.View
 {
@@ -20,22 +21,22 @@ namespace ExtremeSteakDude.View
         public MainGame()
         {
             InitializeComponent();
-        }
+            }
         public MainGame(Player.levelenum level)
-        {
+            {
             InitializeComponent();
         }
 
-
+        
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             Keyboard.Focus(this);
         }
 
- 
+
 
     }
 
 
-}
+    }
