@@ -13,9 +13,7 @@
              FocusManager.IsFocusScope="True"
              >
 
-    <UserControl.DataContext>
-        <ViewModel:MainViewModel />
-    </UserControl.DataContext>
+
     
 
 
@@ -29,7 +27,7 @@
         
     </i:Interaction.Triggers>
 
-    <Grid>
-        <ItemsControl ItemsSource="{Binding player}"/>
-    </Grid>
+    <Canvas x:Name="meat" FocusManager.IsFocusScope="True">
+        <ItemsControl ItemsSource="{Binding players}"/>
+    </Canvas>
 </UserControl>
