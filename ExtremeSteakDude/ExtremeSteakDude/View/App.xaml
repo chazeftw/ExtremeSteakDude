@@ -21,6 +21,7 @@
         <DataTemplate DataType="{x:Type Model:Player}">
             <Canvas>
                 <!-- SOURCE SHOULD BE A BINDING AS WELL -->
+                <TextBlock x:Name="timer" FontSize="30"  Canvas.Left="1086" TextWrapping="Wrap" Text="{Binding stringTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Canvas.Top="106"/>
                 <Image x:Name="jesus" Height="32" Margin="0,0,0,0" Width="32" Source="{Binding meatboyImage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="{Binding x, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Canvas.Top="{Binding y, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             </Canvas>
         </DataTemplate>
