@@ -18,9 +18,10 @@ namespace ExtremeSteakDude.ViewModel
         public Player p;
         private Timer moveTimer;
         private UndoRedoController urc;
+        private System.Diagnostics.Stopwatch timer;
 
         private int movespeed = 20;
-        private int moveacc = 3;
+        private int moveacc = 8;
         private int fallspeed = 20;
         private int gravity = 5;
         private int jumpheight = 35;
@@ -32,8 +33,11 @@ namespace ExtremeSteakDude.ViewModel
         public MovementController(Player p)
         {
             this.p = p;
-            moveTimer = new Timer(x => Move(), null, 0, tick);
             urc = new UndoRedoController();
+            timer = new System.Diagnostics.Stopwatch();
+            moveTimer = new Timer(x => Move(), null, 0, tick);
+
+            
 
         }
 
@@ -41,6 +45,7 @@ namespace ExtremeSteakDude.ViewModel
         {
             if (isUndoMode)
             {
+                timer.Stop();
                 if(moveLeft)
                 {
                     urc.Undo();  
@@ -49,7 +54,11 @@ namespace ExtremeSteakDude.ViewModel
                     urc.Redo();
                 }
             }else
-            {   
+            {
+                if(timer.IsRunning == false) timer.Start();
+
+
+
                 if(moveLeft && !moveRight && !p.onWallLeft)
                 {
                     MoveLeft();
@@ -60,7 +69,7 @@ namespace ExtremeSteakDude.ViewModel
                 {
                     if (p.vx > 0)
                     {
-                        if (p.vx < moveacc+1 && !p.onWallRight)
+                        if (p.vx > moveacc+1 && !p.onWallRight)
                         {
                             p.vx = p.vx - moveacc;
                         }else
@@ -95,7 +104,7 @@ namespace ExtremeSteakDude.ViewModel
                     Jump();
                     jump = false;
                 }
-                urc.AddAndExecute(new MomentumCommand(p,p.vx,p.vy));
+                urc.AddAndExecute(new MomentumCommand(p,p.vx,p.vy,timer.Elapsed));
             }
           }
 

@@ -12,6 +12,8 @@ namespace ExtremeSteakDude.Model
         private int _x = 500;
         private int _y = 300;
         private string _meatboyImage = "pack://application:,,,/Images/meatboy.jpg";
+        private TimeSpan _elapsedTime;
+
         public enum levelenum { one, two };
         public static levelenum level { get; set; }
 
@@ -57,6 +59,19 @@ namespace ExtremeSteakDude.Model
         protected void OnPropertyChanged(string propertyName)
         {
             OnPropertyChanged(new PropertyChangedEventArgs(propertyName));
+        }
+
+        public TimeSpan elapsedTime
+        {
+            get { return _elapsedTime; }
+            set
+            {
+                if(value !=  _elapsedTime)
+                {
+                    _elapsedTime = value;
+                    OnPropertyChanged("elapsedTime");
+                }
+            }
         }
 
         // position

@@ -26,11 +26,6 @@ namespace ExtremeSteakDude.ViewModel
         public Player player;
         private BitmapImage map;
 
-        public ICommand MoveLeftCommand { get; }
-        public ICommand MoveRightCommand { get; }
-        public ICommand JumpCommand { get; }
-        public ICommand RedoModeCommand { get; }
-
         public ICommand KeyDownCommand { get; }
         public ICommand KeyUpCommand { get; }
 
@@ -50,7 +45,7 @@ namespace ExtremeSteakDude.ViewModel
         public string WelcomeTitle
         {
             get
-            {
+            { 
                 return _welcomeTitle;
             }
             set
@@ -75,11 +70,10 @@ namespace ExtremeSteakDude.ViewModel
 
         private void KeyDown(KeyEventArgs e)
         {
-                        System.Console.WriteLine(player.x);
             switch (e.Key)
             {
                 case Key.Enter:
-                    System.Console.WriteLine("dasdsdfgh");
+                    player = new Player();
                     break;
                 case Key.Left:
                     mc.moveLeft = true;
