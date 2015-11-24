@@ -61,7 +61,7 @@ namespace ExtremeSteakDude.ViewModel
             {
                 if (timer.IsRunning == false)
                 {
-                    try { offset = p.timeSpan; } catch(Exception e) { }
+                    try { offset = p.timeSpan; } catch(Exception) { }
                     timer.Restart();
                 }
 
