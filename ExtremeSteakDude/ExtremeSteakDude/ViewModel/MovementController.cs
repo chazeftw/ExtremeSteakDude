@@ -34,6 +34,7 @@ namespace ExtremeSteakDude.ViewModel
             this.p = p;
             moveTimer = new Timer(x => Move(), null, 0, tick);
             urc = new UndoRedoController();
+
         }
 
         private void Move()
