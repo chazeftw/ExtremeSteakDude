@@ -92,6 +92,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\SaveHighScoreCommand.cs" />
     <Compile Include="Commands\IUndoRedoCommand.cs" />
     <Compile Include="Commands\JumpCommand.cs" />
     <Compile Include="Commands\MomentumCommand.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="Commands\UndoRedoController.cs" />
     <Compile Include="Design\DesignDataService.cs" />
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="HelperClasses\BitmapConverter.cs" />
     <Compile Include="Levels\lvl1.cs" />
     <Compile Include="Model\HighScores.cs" />
     <Compile Include="Model\DataItem.cs" />
@@ -131,7 +133,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\NewHighscore.xaml">
+    <Page Include="View\NewHighscoreMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -160,8 +162,8 @@
     <Compile Include="View\MainGame.xaml.cs">
       <DependentUpon>MainGame.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\NewHighscore.xaml.cs">
-      <DependentUpon>NewHighscore.xaml</DependentUpon>
+    <Compile Include="View\NewHighscoreMenu.xaml.cs">
+      <DependentUpon>NewHighscoreMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\HighScoresMenu.xaml.cs">
       <DependentUpon>HighScoresMenu.xaml</DependentUpon>

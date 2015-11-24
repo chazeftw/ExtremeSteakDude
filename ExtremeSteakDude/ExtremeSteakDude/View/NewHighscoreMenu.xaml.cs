@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ExtremeSteakDude.Model;
 using ExtremeSteakDude.Serialization;
+using ExtremeSteakDude.ViewModel;
 
 namespace ExtremeSteakDude.View
 {
@@ -26,16 +27,19 @@ namespace ExtremeSteakDude.View
         {
             InitializeComponent();
         }
-
+        private void Skip_Click(object sender, RoutedEventArgs e)
+        {
+            //Show main menu screen
+            this.Content = new MainMenu();
+            e.Handled = true;
+            //
+        }
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
 
 
             XML xML = new XML();
-            Model.HighScores test = xML.HighScores;
-            test.Name = HighscoreNameInput.Text;
 
-            xML.HighScores = test;
             SubmitHighscoreButton.Visibility = Visibility.Hidden;
             HighscoreNameInput.Visibility = Visibility.Hidden;
             EnterName.Visibility = Visibility.Hidden;
@@ -43,7 +47,7 @@ namespace ExtremeSteakDude.View
             DisplayHighscore.Visibility = Visibility.Hidden;
             SkipButton.Visibility = Visibility.Hidden;
 
-            //Show Enter highscore screen
+            //Show main menu screen
             this.Content = new MainMenu();
             e.Handled = true;
             //
