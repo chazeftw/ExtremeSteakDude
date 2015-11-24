@@ -29,6 +29,7 @@ namespace ExtremeSteakDude.View
             {
                 // Change background to according level
                 this.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Levels/testbg.jpg", UriKind.RelativeOrAbsolute)));
+
             }
             else if(level == Player.levelenum.two)
             {
