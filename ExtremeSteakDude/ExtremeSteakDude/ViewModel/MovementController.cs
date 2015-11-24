@@ -1,4 +1,5 @@
 ﻿using ExtremeSteakDude.Commands;
+using ExtremeSteakDude.Levels;
 using ExtremeSteakDude.Model;
 using System;
 using System.Collections.Generic;
@@ -26,18 +27,27 @@ namespace ExtremeSteakDude.ViewModel
         private int gravity = 5;
         private int jumpheight = 35;
         private int tick = 25;
-
-       
-
+        private MapNew currentlvl;
+        private CollisionDetector coll;
 
         public MovementController(Player p)
         {
+            if (Player.level == Player.levelenum.one)
+            {
+                currentlvl = new lvl1();
+            }
+
+            if (Player.level == Player.levelenum.two)
+            {
+
+            }
+
+
             this.p = p;
             urc = new UndoRedoController();
             timer = new System.Diagnostics.Stopwatch();
             moveTimer = new Timer(x => Move(), null, 0, tick);
-
-            
+            coll = new CollisionDetector(this, currentlvl);
 
         }
 
@@ -55,7 +65,9 @@ namespace ExtremeSteakDude.ViewModel
                 }
             }else
             {
-                if(timer.IsRunning == false) timer.Start();
+                coll.CheckForCollision();
+
+                if (timer.IsRunning == false) timer.Start();
 
 
 
@@ -105,6 +117,7 @@ namespace ExtremeSteakDude.ViewModel
                     jump = false;
                 }
                 urc.AddAndExecute(new MomentumCommand(p,p.vx,p.vy,timer.Elapsed));
+                
             }
           }
 

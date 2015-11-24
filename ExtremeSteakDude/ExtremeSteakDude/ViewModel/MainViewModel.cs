@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using System;
+using ExtremeSteakDude.Levels;
 
 namespace ExtremeSteakDude.ViewModel
 {
@@ -26,7 +27,6 @@ namespace ExtremeSteakDude.ViewModel
         public ObservableCollection<Player> players { get; set; }
         public Player player;
         private BitmapImage map;
-
         public ICommand KeyDownCommand { get; }
         public ICommand KeyUpCommand { get; }
 
@@ -59,11 +59,12 @@ namespace ExtremeSteakDude.ViewModel
 
         public MainViewModel() {
 
-
+            
             players = new ObservableCollection<Player>();
             player = new Player();
             players.Add(player);
             mc = new MovementController(player);
+            
             KeyDownCommand = new RelayCommand<KeyEventArgs>(KeyDown);
             KeyUpCommand = new RelayCommand<KeyEventArgs>(KeyUp);
 

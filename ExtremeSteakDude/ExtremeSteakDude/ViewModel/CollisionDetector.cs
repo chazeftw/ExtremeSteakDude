@@ -24,7 +24,7 @@ namespace ExtremeSteakDude.ViewModel
             playerRec.Y = mc.p.y;
         }
 
-    private void CheckForCollision()
+    public void CheckForCollision()
         {
             bool topleft = false;
             bool topright = false;
@@ -32,7 +32,9 @@ namespace ExtremeSteakDude.ViewModel
             bool botright = false;
             playerRec.X = mc.p.x;
             playerRec.Y = mc.p.y;
-            foreach (Rectangle r in map.objects())
+            playerRec.Height = Constants.Const.PLAYERHEIGHT;
+            playerRec.Width = Constants.Const.PLAYERWIDTH;
+            foreach (Rectangle r in map.objectorinos)
             {
                 // checking if players corners are in objects
                 if (r.Contains(playerRec.Left, playerRec.Top))

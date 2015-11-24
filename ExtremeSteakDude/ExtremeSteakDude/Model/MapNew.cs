@@ -16,9 +16,6 @@ namespace ExtremeSteakDude.Model
 
         public Bitmap image { get; set; }
 
-        public List<Rectangle> objects()
-        {
-            throw new NotImplementedException();
-        }
+        public List<Rectangle> objectorinos = new List<Rectangle>();
     }
 }

@@ -14,7 +14,6 @@ namespace ExtremeSteakDude.Levels
     class lvl1:Model.MapNew
     {
         Graphics gr;
-        List<Rectangle> mapObjects = new List<Rectangle>();
 
         public lvl1()
         {
@@ -30,11 +29,11 @@ namespace ExtremeSteakDude.Levels
             Rectangle ground = new Rectangle(Const.BORDER_THICKNESS, Const.MAPHEIGHT - 100-Const.BORDER_THICKNESS, Const.MAPWIDTH-Const.BORDER_THICKNESS*2, 100);
             SolidBrush darkSeaBrush = new SolidBrush(Color.DarkSeaGreen);
             gr.FillRectangle(darkSeaBrush, ground);
-            mapObjects.Add(ground);
+            objectorinos.Add(ground);
             Rectangle obstacle1 = new Rectangle(Const.MAPWIDTH / 2, Const.MAPHEIGHT - 150-Const.BORDER_THICKNESS, 25, 50);
             SolidBrush indianRedBrush = new SolidBrush(Color.IndianRed);
             gr.FillRectangle(indianRedBrush, obstacle1);
-            mapObjects.Add(obstacle1);
+            objectorinos.Add(obstacle1);
 
             //borders
             Rectangle[] borders = new Rectangle[4];
@@ -44,11 +43,10 @@ namespace ExtremeSteakDude.Levels
             borders[3] = new Rectangle(0, Const.MAPHEIGHT - Const.BORDER_THICKNESS, Const.MAPWIDTH, Const.BORDER_THICKNESS);
             SolidBrush black = new SolidBrush(Color.Black);
             gr.FillRectangles(black, borders);
-            mapObjects.Add(borders[0]);
-            mapObjects.Add(borders[1]);
-            mapObjects.Add(borders[2]);
-            mapObjects.Add(borders[3]);
-
+            objectorinos.Add(borders[0]);
+            objectorinos.Add(borders[1]);
+            objectorinos.Add(borders[2]);
+            objectorinos.Add(borders[3]);
             this.image = image;
 
            
