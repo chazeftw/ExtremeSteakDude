@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -7,26 +8,13 @@ using System.Threading.Tasks;
 
 namespace ExtremeSteakDude.Model
 {
-    public class Player : INotifyPropertyChanged
+    public class Player : ObservableObject
     {
         private int _x = 500;
         private int _y = 300;
         public enum levelenum {one ,two };
         public static levelenum level { get; set; }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void OnPropertyChanged(PropertyChangedEventArgs e)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-                handler(this, e);
-        }
-
-        protected void OnPropertyChanged(string propertyName)
-        {
-            OnPropertyChanged(new PropertyChangedEventArgs(propertyName));
-        }
+    
 
         // position
         public int x
@@ -37,7 +25,7 @@ namespace ExtremeSteakDude.Model
                 if (value != _x)
                 {
                     _x = value;
-                    OnPropertyChanged("x");
+                    RaisePropertyChanged("x");
                 }
             }
         }
@@ -49,7 +37,7 @@ namespace ExtremeSteakDude.Model
                 if (value != _y)
                 {
                     _y = value;
-                    OnPropertyChanged("y");
+                    RaisePropertyChanged("y");
                 }
             }
         }
