@@ -29,7 +29,7 @@
         
     </i:Interaction.Triggers>
 
-    <Canvas x:Name="meat" FocusManager.IsFocusScope="True">
-        <ItemsControl ItemsSource="{Binding Player}"/>
-    </Canvas>
+    <Grid>
+        <ItemsControl ItemsSource="{Binding player}"/>
+    </Grid>
 </UserControl>
