@@ -5,16 +5,20 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ExtremeSteakDude.View"
              xmlns:ViewModel="clr-namespace:ExtremeSteakDude.ViewModel"
-             xmlns:MainViewModel="clr-namespace:ExtremeSteakDude.MainViewModel"
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280"
              Loaded = "UserControl_Loaded"
              FocusManager.IsFocusScope="True"
-             PreviewKeyDown="MainViewModel.Window_PreviewKeyDown"
-             PreviewKeyUp="MainViewModel.Window_PreviewKeyUp"
              >
+
+    <UserControl.DataContext>
+        <ViewModel:MainViewModel />
+    </UserControl.DataContext>
+    
+
+
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="KeyDown">
             <cmd:EventToCommand Command="{Binding DataContext.KeyDownCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
@@ -26,6 +30,6 @@
     </i:Interaction.Triggers>
 
     <Canvas x:Name="meat" FocusManager.IsFocusScope="True">
-        <Image x:Name="player" HorizontalAlignment="Left" Height="32" Margin="0,0,0,0" VerticalAlignment="Top" Width="32" Source="/ExtremeSteakDude;component/Levels/meatboy.jpg" Canvas.Left="{Binding x, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Canvas.Top="{Binding y, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <ItemsControl ItemsSource="{Binding Player}"/>
     </Canvas>
 </UserControl>

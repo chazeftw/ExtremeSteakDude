@@ -17,12 +17,16 @@ namespace ExtremeSteakDude.View
     public partial class MainGame : UserControl
     {
 
+        public MainGame()
+        {
+            InitializeComponent();
+        }
         public MainGame(Player.levelenum level)
         {
             InitializeComponent();
         }
 
-        
+
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
