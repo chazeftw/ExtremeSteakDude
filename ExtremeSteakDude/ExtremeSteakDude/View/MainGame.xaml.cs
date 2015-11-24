@@ -24,6 +24,9 @@ namespace ExtremeSteakDude.View
         public MainGame(Player.levelenum level)
         {
             InitializeComponent();
+
+
+
         }
 
 
