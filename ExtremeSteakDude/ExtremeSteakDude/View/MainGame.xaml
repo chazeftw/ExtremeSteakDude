@@ -20,10 +20,11 @@
         <i:EventTrigger EventName="KeyUp">
             <cmd:EventToCommand Command="{Binding DataContext.KeyUpCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
         </i:EventTrigger>
-        
+
     </i:Interaction.Triggers>
 
     <Canvas x:Name="meat" FocusManager.IsFocusScope="True">
         <ItemsControl ItemsSource="{Binding players}"/>
+        <TextBlock x:Name="timer" FontSize="30"  Canvas.Left="1086" TextWrapping="Wrap" Text="{Binding elapsedTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Canvas.Top="106"/>
     </Canvas>
 </UserControl>

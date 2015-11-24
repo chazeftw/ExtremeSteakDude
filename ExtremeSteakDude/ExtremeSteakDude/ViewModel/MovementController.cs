@@ -27,7 +27,7 @@ namespace ExtremeSteakDude.ViewModel
         private int jumpheight = 35;
         private int tick = 25;
 
-
+       
 
 
         public MovementController(Player p)
