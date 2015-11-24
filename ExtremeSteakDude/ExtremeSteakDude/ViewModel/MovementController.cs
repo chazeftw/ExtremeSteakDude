@@ -16,6 +16,8 @@ namespace ExtremeSteakDude.ViewModel
         public bool moveLeft = false;
         public bool jump = false;
         public bool isUndoMode = false;
+        private bool first = true;
+
         public Player p;
         private Timer moveTimer;
         private UndoRedoController urc;
@@ -52,13 +54,19 @@ namespace ExtremeSteakDude.ViewModel
         }
 
         private void Move()
+        {if (first && !jump && !moveRight && !moveLeft)
         {
+                return;
+            }
+            first = false;
+
             if (isUndoMode)
             {
                 timer.Stop();
                 if(moveLeft)
                 {
                     urc.Undo();  
+                    
                 }else if(moveRight)
                 {
                     urc.Redo();
@@ -116,8 +124,7 @@ namespace ExtremeSteakDude.ViewModel
                     Jump();
                     jump = false;
                 }
-                urc.AddAndExecute(new MomentumCommand(p,p.vx,p.vy,timer.Elapsed));
-                
+                urc.AddAndExecute(new MomentumCommand(p,p.vx,p.vy,timer.Elapsed+offset));
             }
           }
 

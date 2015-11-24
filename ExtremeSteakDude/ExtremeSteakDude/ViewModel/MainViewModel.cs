@@ -21,7 +21,7 @@ namespace ExtremeSteakDude.ViewModel
         /// </summary>
         public const string WelcomeTitlePropertyName = "WelcomeTitle";
 
-        public HighScores highScores { get; set; }
+        public ObservableCollection<HighScores> highScores { get; set; }
 
         private MovementController mc;
         public ObservableCollection<Player> players { get; set; }
@@ -32,7 +32,7 @@ namespace ExtremeSteakDude.ViewModel
 
 
 
-        public ICommand SaveHighscore { get; }
+        public ICommand SaveHighscoreCommand { get; }
         private string _welcomeTitle = string.Empty;
         public string name {get; set;}
 
@@ -58,8 +58,8 @@ namespace ExtremeSteakDude.ViewModel
         }
 
         public MainViewModel() {
-
-            
+            System.Console.WriteLine("HEY");
+            name = "Erir";
             players = new ObservableCollection<Player>();
             player = new Player();
             players.Add(player);
@@ -69,20 +69,24 @@ namespace ExtremeSteakDude.ViewModel
             KeyUpCommand = new RelayCommand<KeyEventArgs>(KeyUp);
 
             XML xml = new XML();
-            highScores = xml.HighScores;
+            highScores = new ObservableCollection<HighScores>();
+            highScores.Add(xml.HighScores);
 
 
-            SaveHighscore = new RelayCommand(SaveHighScore);
+            SaveHighscoreCommand = new RelayCommand(SaveHighScore);
+
         }
 
         private void SaveHighScore()
         {
+            Console.WriteLine("HEYsa");
             SaveHighScoreCommand Command = new SaveHighScoreCommand(highScores, new XML(), name, 0);
             Command.Execute();
         }
 
         private void KeyDown(KeyEventArgs e)
         {
+            
             switch (e.Key)
             {
                 case Key.Enter:

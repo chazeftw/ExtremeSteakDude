@@ -23,14 +23,14 @@ namespace ExtremeSteakDude.Commands
         {
             p.x = p.x + x;
             p.y = p.y + y;
-            p.elapsedTime = time;
+            p.setTimeElapsed(time);
         }
 
         public void Undo()
         {
             p.x = p.x - x;
             p.y = p.y - y;
-            p.elapsedTime = time;
+            p.setTimeElapsed(time);
         }
     }
 }

@@ -32,7 +32,7 @@ namespace ExtremeSteakDude.Commands
 
         public void Undo()
         {
-            if (!undos.Any()) throw new InvalidOperationException();
+            if (!undos.Any()) return;
             var command = undos.Pop();
             redos.Push(command);
             command.Undo();

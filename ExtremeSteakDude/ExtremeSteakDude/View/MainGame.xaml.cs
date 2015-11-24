@@ -39,6 +39,9 @@ namespace ExtremeSteakDude.View
             bmi = HelperClasses.BitmapConverter.BitmapToImageSource(currentlvl.image);
             this.Background = new ImageBrush(bmi);
             InitializeComponent();
+
+
+
         }
 
 
