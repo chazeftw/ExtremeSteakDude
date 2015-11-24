@@ -13,10 +13,6 @@
              FocusManager.IsFocusScope="True"
              >
 
-
-    
-
-
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="KeyDown">
             <cmd:EventToCommand Command="{Binding DataContext.KeyDownCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
