@@ -22,7 +22,8 @@ namespace ExtremeSteakDude.ViewModel
         public HighScores highScores { get; set; }
 
         private MovementController mc;
-        public ObservableObject player { get; set; }
+        public ObservableCollection<Player> players { get; set; }
+        public Player player;
         private BitmapImage map;
 
         public ICommand MoveLeftCommand { get; }
@@ -61,10 +62,10 @@ namespace ExtremeSteakDude.ViewModel
         public MainViewModel() {
 
 
-
-
+            players = new ObservableCollection<Player>();
             player = new Player();
-            mc = new MovementController((Player) player);
+            players.Add(player);
+            mc = new MovementController(player);
             KeyDownCommand = new RelayCommand<KeyEventArgs>(KeyDown);
             KeyUpCommand = new RelayCommand<KeyEventArgs>(KeyUp);
 
@@ -74,8 +75,7 @@ namespace ExtremeSteakDude.ViewModel
 
         private void KeyDown(KeyEventArgs e)
         {
-
-            System.Console.WriteLine("sdgfjgjhgf");
+                        System.Console.WriteLine(player.x);
             switch (e.Key)
             {
                 case Key.Enter:
