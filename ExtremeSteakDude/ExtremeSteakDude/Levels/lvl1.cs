@@ -13,23 +13,38 @@ namespace ExtremeSteakDude.Levels
     {
         int startX;
         int startY;
-        
+        Bitmap bitmap = new Bitmap(Const.MAPWIDTH, Const.PLAYERHEIGHT);
+        Graphics gr;
         List<Rectangle> mapObjects = new List<Rectangle>();
 
         public lvl1()
         {
             this.startX = 50;
             this.startY = 200;
+            gr = Graphics.FromImage(bitmap);
             Rectangle backGround = new Rectangle(0,0,Const.MAPWIDTH,Const.MAPHEIGHT);
-            SolidBrush bgBrush = new SolidBrush(Color.AliceBlue);
+            SolidBrush aliceBrush = new SolidBrush(Color.AliceBlue);
+            gr.FillRectangle(aliceBrush, backGround);
 
 
             Rectangle ground = new Rectangle(0, Const.MAPHEIGHT - 100, Const.MAPWIDTH, 100);
-            SolidBrush groundBrush = new SolidBrush(Color.DarkSeaGreen);
+            SolidBrush darkSeaBrush = new SolidBrush(Color.DarkSeaGreen);
+            gr.FillRectangle(darkSeaBrush, ground);
             mapObjects.Add(ground);
             Rectangle obstacle1 = new Rectangle(Const.MAPWIDTH / 2, Const.MAPHEIGHT - 150, 25, 50);
-            SolidBrush obstacleBrush = new SolidBrush(Color.IndianRed);
+            SolidBrush indianRedBrush = new SolidBrush(Color.IndianRed);
+            gr.FillRectangle(indianRedBrush, obstacle1);
             mapObjects.Add(obstacle1);
+
+            //borders
+            Rectangle[] borders = new Rectangle[4];
+            borders[0]= new Rectangle(0, 0, Const.BORDER_THICKNESS, Const.MAPHEIGHT);
+            borders[1] = new Rectangle(Const.MAPHEIGHT - Const.BORDER_THICKNESS, 0, Const.BORDER_THICKNESS, Const.MAPHEIGHT);
+            borders[2] = new Rectangle(0, 0, Const.MAPWIDTH, Const.BORDER_THICKNESS);
+            borders[3] = new Rectangle(0, Const.MAPHEIGHT - Const.BORDER_THICKNESS, Const.MAPWIDTH, Const.BORDER_THICKNESS);
+
+            SolidBrush black = new SolidBrush(Color.Black);
+            gr.FillRectangles(black, borders);
             
         }
 
