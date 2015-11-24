@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using ExtremeSteakDude.Constants;
+using System.Windows.Controls;
+using System.Windows;
 
 namespace ExtremeSteakDude.Levels
 {
@@ -13,14 +15,15 @@ namespace ExtremeSteakDude.Levels
     {
         int startX;
         int startY;
-        Bitmap image = new Bitmap(Const.MAPWIDTH, Const.PLAYERHEIGHT);
+        Bitmap image;
         Graphics gr;
         List<Rectangle> mapObjects = new List<Rectangle>();
 
         public lvl1()
         {
-            this.startX = 50;
-            this.startY = 200;
+            Bitmap image = new Bitmap(Const.MAPWIDTH, Const.PLAYERHEIGHT);
+            this.startX = 300;
+            this.startY = 300;
             gr = Graphics.FromImage(image);
             Rectangle backGround = new Rectangle(0,0,Const.MAPWIDTH,Const.MAPHEIGHT);
             SolidBrush aliceBrush = new SolidBrush(Color.AliceBlue);
@@ -49,10 +52,14 @@ namespace ExtremeSteakDude.Levels
             mapObjects.Add(borders[2]);
             mapObjects.Add(borders[3]);
 
-            
+            this.image = image;
+
+           
         }
 
-        
+        public static extern bool DeleteObject(IntPtr hObject);
+
+
 
     }
 }
