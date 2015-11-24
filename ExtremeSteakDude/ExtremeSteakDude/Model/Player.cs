@@ -11,10 +11,41 @@ namespace ExtremeSteakDude.Model
     {
         private int _x = 500;
         private int _y = 300;
+        private string _meatboyImage = "pack://application:,,,/Images/meatboy.jpg";
         private TimeSpan _elapsedTime;
 
         public enum levelenum { one, two };
         public static levelenum level { get; set; }
+
+
+        public string meatboyImage
+        {
+            get { return _meatboyImage; }
+            set
+            {
+                if (value != _meatboyImage)
+                {
+                    _meatboyImage = value;
+                    OnPropertyChanged("meatboyImage");
+                }
+            }
+        }
+
+
+
+
+
+
+
+        public string MeatboyImage
+        {
+            get { return "pack://application:,,,/Images/meatboy.jpg"; }
+        }
+
+        public string MeatboyImageJump
+        {
+            get { return "pack://application:,,,/Images/meatboyjump.jpg"; }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

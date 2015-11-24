@@ -10,9 +10,11 @@ namespace ExtremeSteakDude.Model
     abstract class MapNew
     {
         
-        public int startX { get; set; }
+        public int startX { get; }
 
-        public int startY { get; set; }
+        public int startY { get; }
+
+        public Bitmap image { get; }
 
         public List<Rectangle> objects()
         {

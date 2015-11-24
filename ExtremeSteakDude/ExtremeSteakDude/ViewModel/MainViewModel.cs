@@ -84,7 +84,8 @@ namespace ExtremeSteakDude.ViewModel
                 case Key.Space:
                     mc.jump = true;
                     // For jump animation
-                    BitmapImage bm = new BitmapImage(new Uri("/ExtremeSteakDude;component/Levels/meatboyjump.jpg", UriKind.RelativeOrAbsolute));
+                    BitmapImage bm = new BitmapImage(new Uri(player.MeatboyImageJump, UriKind.RelativeOrAbsolute));
+                    player.meatboyImage = player.MeatboyImageJump;
                     break;
                 case Key.Z:
                     mc.isUndoMode = !mc.isUndoMode;
@@ -105,8 +106,8 @@ namespace ExtremeSteakDude.ViewModel
                 case Key.Space:
                     mc.jump = false;
                     // For jump animation
-                    BitmapImage bm = new BitmapImage(new Uri("/ExtremeSteakDude;component/Levels/meatboy.jpg", UriKind.RelativeOrAbsolute));
-                   // player.Source = bm;
+                    BitmapImage bm = new BitmapImage(new Uri(player.MeatboyImageJump, UriKind.RelativeOrAbsolute));
+                    player.meatboyImage = player.MeatboyImage;
                     break;
             }
         }
