@@ -64,6 +64,7 @@ namespace ExtremeSteakDude.ViewModel
             player = new Player();
             players.Add(player);
             mc = new MovementController(player);
+            
             KeyDownCommand = new RelayCommand<KeyEventArgs>(KeyDown);
             KeyUpCommand = new RelayCommand<KeyEventArgs>(KeyUp);
 

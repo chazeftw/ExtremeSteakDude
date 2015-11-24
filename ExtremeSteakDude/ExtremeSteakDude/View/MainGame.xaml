@@ -25,6 +25,5 @@
 
     <Canvas x:Name="meat" FocusManager.IsFocusScope="True">
         <ItemsControl ItemsSource="{Binding players}"/>
-        <TextBlock x:Name="timer" FontSize="30"  Canvas.Left="1086" TextWrapping="Wrap" Text="{Binding elapsedTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Canvas.Top="106"/>
     </Canvas>
 </UserControl>
