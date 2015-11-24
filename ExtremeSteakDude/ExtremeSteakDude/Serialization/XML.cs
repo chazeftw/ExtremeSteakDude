@@ -34,7 +34,7 @@ namespace ExtremeSteakDude.Serialization
             // To read the file, create a FileStream.
             try { 
                 FileStream myFileStream =
-                new FileStream("Highscores.xml", FileMode.Open);
+                new FileStream(Directory.GetCurrentDirectory().ToString() + "Highscores.xml", FileMode.Open);
 
                 HighScores hs = (HighScores)mySerializer.Deserialize(myFileStream);
 
@@ -44,7 +44,7 @@ namespace ExtremeSteakDude.Serialization
             }
             catch(FileNotFoundException)
             {   
-                var myFile = File.Create("Highscores.xml");
+                var myFile = File.Create(Directory.GetCurrentDirectory().ToString() + "Highscores.xml");
                 myFile.Close();
                 Serialize(new HighScores());
                 return new HighScores();

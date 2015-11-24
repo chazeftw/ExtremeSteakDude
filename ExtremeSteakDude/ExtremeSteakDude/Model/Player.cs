@@ -11,8 +11,8 @@ namespace ExtremeSteakDude.Model
     {
         private int _x = 500;
         private int _y = 300;
-        private TimeSpan _elapsedTime;
-
+        public String stringTime { get; set; }
+        private TimeSpan _timeSpan;
         private string _meatboyImage = "pack://application:,,,/Images/meatboy.jpg";
         public enum levelenum { one, two };
         public static levelenum level { get; set; }
@@ -55,15 +55,16 @@ namespace ExtremeSteakDude.Model
             OnPropertyChanged(new PropertyChangedEventArgs(propertyName));
         }
 
-        public TimeSpan elapsedTime
+        public TimeSpan timeSpan
         {
-            get { return _elapsedTime; }
+            get { return _timeSpan; }
             set
             {
-                if(value !=  _elapsedTime)
+                if(value !=  _timeSpan)
                 {
-                    _elapsedTime = value;
-                    OnPropertyChanged("elapsedTime");
+                    _timeSpan = value;
+                    stringTime = ("" + _timeSpan.Minutes + ":" + _timeSpan.Seconds + ":" + _timeSpan.Milliseconds);
+                    OnPropertyChanged("stringTime");
                 }
             }
         }
@@ -93,7 +94,12 @@ namespace ExtremeSteakDude.Model
                 }
             }
         }
-
+        public void setTimeElapsed(TimeSpan time)
+        {
+            _timeSpan = time;
+            stringTime = ("" + time.Minutes+":"+time.Seconds+":"+time.Milliseconds);
+            OnPropertyChanged("stringTime");
+        }
 
         // vectors
         public int vx { get; set; } = 0;
