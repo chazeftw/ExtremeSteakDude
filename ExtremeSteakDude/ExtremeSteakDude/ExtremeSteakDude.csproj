@@ -215,7 +215,7 @@
     <Resource Include="Levels\SMB first look.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Levels\mainmenubg.jpg" />
+    <Resource Include="Images\mainmenubg.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.1">
@@ -230,13 +230,16 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Levels\meatboy.jpg" />
+    <Resource Include="Images\meatboy.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Levels\meatboyjump.jpg" />
+    <Resource Include="Images\meatboyjump.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Levels\testbg.jpg" />
+    <Resource Include="Images\testbg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Levels\level_1_1.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

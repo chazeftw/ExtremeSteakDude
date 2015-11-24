@@ -8,16 +8,16 @@
         Width="1280"
         Title="ExtremeSteakDude"
         xmlns:ViewModel="clr-namespace:ExtremeSteakDude.ViewModel"
+        ResizeMode="NoResize"
         >
-    <!-- DataContext="{Binding Main, Source={StaticResource Locator}}"
-        ResizeMode="NoResize"-->
+   
     <!-- Setting the background the our mainmenubg.jpg -->
     <Window.DataContext>
         <ViewModel:MainViewModel />
     </Window.DataContext>
 
     <Window.Background>
-        <ImageBrush x:Name="mainbg" ImageSource="../Levels/mainmenubg.jpg" />
+        <ImageBrush x:Name="mainbg" ImageSource="pack://application:,,,/Images/mainmenubg.jpg" />
     </Window.Background>
 
     <Window.Resources>

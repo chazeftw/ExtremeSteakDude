@@ -11,8 +11,35 @@ namespace ExtremeSteakDude.Model
     {
         private int _x = 500;
         private int _y = 300;
-        public enum levelenum {one ,two };
+        private TimeSpan _elapsedTime;
+
+        private string _meatboyImage = "pack://application:,,,/Images/meatboy.jpg";
+        public enum levelenum { one, two };
         public static levelenum level { get; set; }
+
+
+        public string meatboyImage
+        {
+            get { return _meatboyImage; }
+            set
+            {
+                if (value != _meatboyImage)
+                {
+                    _meatboyImage = value;
+                    OnPropertyChanged("meatboyImage");
+                }
+            }
+        }
+
+        public string MeatboyImage
+        {
+            get { return "pack://application:,,,/Images/meatboy.jpg"; }
+        }
+
+        public string MeatboyImageJump
+        {
+            get { return "pack://application:,,,/Images/meatboyjump.jpg"; }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -26,6 +53,19 @@ namespace ExtremeSteakDude.Model
         protected void OnPropertyChanged(string propertyName)
         {
             OnPropertyChanged(new PropertyChangedEventArgs(propertyName));
+        }
+
+        public TimeSpan elapsedTime
+        {
+            get { return _elapsedTime; }
+            set
+            {
+                if(value !=  _elapsedTime)
+                {
+                    _elapsedTime = value;
+                    OnPropertyChanged("elapsedTime");
+                }
+            }
         }
 
         // position
@@ -62,7 +102,8 @@ namespace ExtremeSteakDude.Model
         public bool inAir { get; set; } = false;
         public bool onWallRight { get; set; } = false;
         public bool onWallLeft { get; set; } = false;
+        public bool hitRoof { get; set; } = false;
 
-        
+
     }
 }
