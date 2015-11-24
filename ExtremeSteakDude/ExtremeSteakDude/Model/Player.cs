@@ -11,8 +11,13 @@ namespace ExtremeSteakDude.Model
     {
         private int _x = 500;
         private int _y = 300;
-        public enum levelenum {one ,two };
+        public enum levelenum { one, two };
         public static levelenum level { get; set; }
+
+        public string MeatboyImage
+        {
+            get { return "/ExtremeSteakDude;component/Levels/meatboy.jpg"; }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -64,6 +69,6 @@ namespace ExtremeSteakDude.Model
         public bool onWallLeft { get; set; } = false;
         public bool hitRoof { get; set; } = false;
 
-        
+
     }
 }
