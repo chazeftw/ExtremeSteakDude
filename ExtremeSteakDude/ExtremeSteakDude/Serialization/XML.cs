@@ -32,9 +32,10 @@ namespace ExtremeSteakDude.Serialization
          XmlSerializer mySerializer =
          new XmlSerializer(typeof(HighScores));
             // To read the file, create a FileStream.
-            try { 
+            try {
+                System.Console.WriteLine(Directory.GetCurrentDirectory().ToString());
                 FileStream myFileStream =
-                new FileStream(Directory.GetCurrentDirectory().ToString() + "Highscores.xml", FileMode.Open);
+                new FileStream(Directory.GetCurrentDirectory().ToString() + "\\Highscores.xml", FileMode.Open);
 
                 HighScores hs = (HighScores)mySerializer.Deserialize(myFileStream);
 
