@@ -36,7 +36,10 @@ namespace ExtremeSteakDude.ViewModel
         }
 
         public MainViewModel() {
-            Console.WriteLine("ugg");
+            
+
+
+
             XML xml = new XML();
             highScores = xml.HighScores;
         }
