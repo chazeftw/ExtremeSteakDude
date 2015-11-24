@@ -28,12 +28,12 @@ namespace ExtremeSteakDude.View
             if(level == Player.levelenum.one)
             {
                 // Change background to according level
-                this.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Levels/testbg.jpg", UriKind.RelativeOrAbsolute)));
+                this.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Levels/level_1_1.bmp", UriKind.RelativeOrAbsolute)));
             }
             else if(level == Player.levelenum.two)
             {
                 // Change background to according level
-                this.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Levels/testbg.jpg", UriKind.RelativeOrAbsolute)));
+                this.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Levels/level_1_1.bmp", UriKind.RelativeOrAbsolute)));
             }
             InitializeComponent();
         }
