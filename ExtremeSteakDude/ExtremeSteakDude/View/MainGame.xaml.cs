@@ -89,7 +89,7 @@ namespace ExtremeSteakDude.View
                     break;
             }
         }
-        
+
 
         public void Dispose()
         {

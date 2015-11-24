@@ -56,6 +56,8 @@ namespace ExtremeSteakDude.ViewModel
 
             if (topright && botright)
                 mc.p.hitRoof = true;
+
+            GC.Collect();
         }
 
 
