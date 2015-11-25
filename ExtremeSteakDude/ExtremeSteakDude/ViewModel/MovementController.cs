@@ -31,6 +31,7 @@ namespace ExtremeSteakDude.ViewModel
         private int tick = 25;
         private MapNew currentlvl;
         private CollisionDetector coll;
+        private TimeSpan offset;
 
         public MovementController(Player p)
         {

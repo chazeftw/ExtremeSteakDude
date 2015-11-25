@@ -17,5 +17,8 @@ namespace ExtremeSteakDude.Model
         public Bitmap image { get; set; }
 
         public List<Rectangle> objectorinos = new List<Rectangle>();
+
+        public List<Rectangle> lethalObjects = new List<Rectangle>();
+
     }
 }

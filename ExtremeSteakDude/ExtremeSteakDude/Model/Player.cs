@@ -17,7 +17,6 @@ namespace ExtremeSteakDude.Model
         public enum levelenum { one, two };
         public static levelenum level { get; set; }
 
-
         public string meatboyImage
         {
             get { return _meatboyImage; }
@@ -109,7 +108,7 @@ namespace ExtremeSteakDude.Model
         public bool onWallRight { get; set; } = false;
         public bool onWallLeft { get; set; } = false;
         public bool hitRoof { get; set; } = false;
-
+        public bool alive { get; set; } = true;
 
     }
 }

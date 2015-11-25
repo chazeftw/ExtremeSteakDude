@@ -24,16 +24,49 @@ namespace ExtremeSteakDude.ViewModel
             playerRec.Y = mc.p.y;
         }
 
+        //Checks for collision with normal objects and lethal objects. Sets players own variables accordingly
     public void CheckForCollision()
         {
             bool topleft = false;
             bool topright = false;
             bool botleft = false;
             bool botright = false;
+            // Creating a rectangle representation of the player, to check for collision with other rectangle objects
             playerRec.X = mc.p.x;
             playerRec.Y = mc.p.y;
             playerRec.Height = Constants.Const.PLAYERHEIGHT;
             playerRec.Width = Constants.Const.PLAYERWIDTH;
+
+            foreach(Rectangle r in map.lethalObjects)
+            {
+                // checking if players corners are in lethal objects
+                if (r.Contains(playerRec.Left, playerRec.Top))
+                    topleft = true;
+                if (r.Contains(playerRec.Right, playerRec.Top))
+                    topright = true;
+                if (r.Contains(playerRec.Left, playerRec.Bottom))
+                    botleft = true;
+                if (r.Contains(playerRec.Right, playerRec.Bottom))
+                    botright = true;
+                if(topleft || topright || botleft || botright)
+                {
+                    mc.p.alive = false;
+                    topleft = false;
+                    topright = false;
+                    botleft = false;
+                    botright = false;
+                    return;
+                }
+                topleft = false;
+                topright = false;
+                botleft = false;
+                botright = false;
+            }
+
+            // adding players vectors to squared coordinate, to check for the next frame, so that player doesn't end up stuck in an object
+            playerRec.X += mc.p.vx;
+            playerRec.Y += mc.p.vy;
+
             foreach (Rectangle r in map.objectorinos)
             {
                 // checking if players corners are in objects
@@ -49,13 +82,10 @@ namespace ExtremeSteakDude.ViewModel
             //Setting players parameters accordingly
             if (botright && botleft)
                 mc.p.inAir = false;
-
             if (botright && topright)
                 mc.p.onWallRight = true;
-
             if (botleft && topleft)
                 mc.p.onWallLeft = true;
-
             if (topright && botright)
                 mc.p.hitRoof = true;
 
