@@ -47,6 +47,10 @@ namespace ExtremeSteakDude.Levels
             objectorinos.Add(borders[1]);
             objectorinos.Add(borders[2]);
             objectorinos.Add(borders[3]);
+
+            //Goal
+            this.goal = new Rectangle(Const.MAPWIDTH - 300, Const.MAPHEIGHT - 300, 50, 50);
+            SolidBrush goal = new SolidBrush(Color.Chartreuse);
             this.image = image;
 
            

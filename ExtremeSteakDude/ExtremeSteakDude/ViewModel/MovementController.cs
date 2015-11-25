@@ -42,7 +42,7 @@ namespace ExtremeSteakDude.ViewModel
 
             if (Player.level == Player.levelenum.two)
             {
-
+                currentlvl = new lvl2();
             }
 
 

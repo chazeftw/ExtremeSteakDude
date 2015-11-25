@@ -24,20 +24,31 @@ namespace ExtremeSteakDude.ViewModel
             playerRec.Y = mc.p.y;
         }
 
-        //Checks for collision with normal objects and lethal objects. Sets players own variables accordingly
+    
+        //Checks for collision with normal objects, lethal objects and win object. Sets players own variables accordingly
     public void CheckForCollision()
         {
-            bool topleft = false;
-            bool topright = false;
-            bool botleft = false;
-            bool botright = false;
+            //Check for win
+            
+
             // Creating a rectangle representation of the player, to check for collision with other rectangle objects
             playerRec.X = mc.p.x;
             playerRec.Y = mc.p.y;
             playerRec.Height = Constants.Const.PLAYERHEIGHT;
             playerRec.Width = Constants.Const.PLAYERWIDTH;
 
-            foreach(Rectangle r in map.lethalObjects)
+            if (map.goal.IntersectsWith(playerRec))
+            {
+                mc.p.won = true;
+                return;
+            }
+
+            bool topleft = false;
+            bool topright = false;
+            bool botleft = false;
+            bool botright = false;
+
+            foreach (Rectangle r in map.lethalObjects)
             {
                 // checking if players corners are in lethal objects
                 if (r.Contains(playerRec.Left, playerRec.Top))

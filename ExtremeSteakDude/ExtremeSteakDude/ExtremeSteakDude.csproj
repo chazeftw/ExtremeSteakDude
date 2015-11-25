@@ -103,6 +103,7 @@
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="HelperClasses\BitmapConverter.cs" />
     <Compile Include="Levels\lvl1.cs" />
+    <Compile Include="Levels\lvl2.cs" />
     <Compile Include="Model\HighScores.cs" />
     <Compile Include="Model\DataItem.cs" />
     <Compile Include="Model\DataService.cs" />

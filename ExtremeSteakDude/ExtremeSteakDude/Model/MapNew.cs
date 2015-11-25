@@ -20,5 +20,6 @@ namespace ExtremeSteakDude.Model
 
         public List<Rectangle> lethalObjects = new List<Rectangle>();
 
+        public Rectangle goal;
     }
 }
