@@ -9,6 +9,7 @@ using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using System;
 using ExtremeSteakDude.Levels;
+using ExtremeSteakDude.View;
 
 namespace ExtremeSteakDude.ViewModel
 {
@@ -21,7 +22,7 @@ namespace ExtremeSteakDude.ViewModel
         /// </summary>
         public const string WelcomeTitlePropertyName = "WelcomeTitle";
 
-        public ObservableCollection<HighScores> highScores { get; set; }
+        public ObservableCollection<Model.HighScores> highScores { get; set; }
 
         private MovementController mc;
         public ObservableCollection<Player> players { get; set; }
@@ -69,7 +70,7 @@ namespace ExtremeSteakDude.ViewModel
             KeyUpCommand = new RelayCommand<KeyEventArgs>(KeyUp);
 
             XML xml = new XML();
-            highScores = new ObservableCollection<HighScores>();
+            highScores = new ObservableCollection<Model.HighScores>();
             highScores.Add(xml.HighScores);
 
 
@@ -106,6 +107,17 @@ namespace ExtremeSteakDude.ViewModel
                     break;
                 case Key.Z:
                     mc.isUndoMode = !mc.isUndoMode;
+                    break;
+                case Key.Escape:
+                    // Save the game
+                    // Save player position, timer, level, momemtum
+                    
+
+                    // Go to main menu
+                    //mc.isUndoMode = true;
+                    var main = App.Current.MainWindow as MainWindow;
+                    MainMenu mm = new MainMenu();
+                    main.Content = mm;
                     break;
             }
         }
