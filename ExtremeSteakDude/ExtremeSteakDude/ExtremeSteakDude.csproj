@@ -272,6 +272,12 @@
   <ItemGroup>
     <None Include="Resources\Meat_Feet_slow3.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\meatboy_invert.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\meatboy_front.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
