@@ -4,6 +4,7 @@ using ExtremeSteakDude.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -34,17 +35,22 @@ namespace ExtremeSteakDude.ViewModel
         private CollisionDetector coll;
         private TimeSpan offset;
         private CDC cdc;
+        private SoundController sc;
+
+        
 
         public MovementController(Player p)
         {
             if (Player.level == Player.levelenum.one)
             {
                 currentlvl = new lvl2();
+                Console.WriteLine("LEVEL ONE IN MC");
             }
 
             if (Player.level == Player.levelenum.two)
             {
                 currentlvl = new lvl2();
+                Console.WriteLine("LEVEL TWO IN MC");
             }
 
 
@@ -52,6 +58,7 @@ namespace ExtremeSteakDude.ViewModel
             urc = new UndoRedoController();
             timer = new System.Diagnostics.Stopwatch();
             moveTimer = new Timer(x => Move(), null, 0, tick);
+            sc = new SoundController();
             //coll = new CollisionDetector(this, currentlvl);
             cdc = new CDC(this, currentlvl);
 
@@ -89,7 +96,9 @@ namespace ExtremeSteakDude.ViewModel
                 if(moveLeft && !moveRight && !p.onWallLeft)
                 {
                     MoveLeft();
-                }else if(moveRight && !moveLeft && !p.onWallRight)
+                    
+                }
+                else if(moveRight && !moveLeft && !p.onWallRight)
                 {
                     MoveRight();
                 }else
@@ -156,7 +165,7 @@ namespace ExtremeSteakDude.ViewModel
 
         private void Jump()
         {
-
+            sc.playJumpSound();
             if (p.onWallRight && p.inAir)
             {
                 p.vx = -jumpheight;
@@ -178,7 +187,7 @@ namespace ExtremeSteakDude.ViewModel
 
         private void MoveRight()
         {
-             if(p.vx < movespeed)
+            if (p.vx < movespeed)
             {
                 if(10 - p.vx <= moveacc)
                 {
@@ -206,5 +215,6 @@ namespace ExtremeSteakDude.ViewModel
         {
             moveTimer.Dispose();
         }
+        
     }
 }

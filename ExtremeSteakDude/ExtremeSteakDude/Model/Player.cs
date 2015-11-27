@@ -14,8 +14,7 @@ namespace ExtremeSteakDude.Model
         private int _y = 100;
         public String stringTime { get; set; }
         private TimeSpan _timeSpan;
-        private string _meatboyImage = "pack://application:,,,/Images/meatboy.jpg";
-        private string _map = "pack://application:,,,/Levels/level_1_1.bmp";
+        private string _meatboyImage = "pack://application:,,,/Images/meatboy_front.jpg";
         public enum levelenum { one, two };
         public static levelenum level { get; set; }
 
@@ -32,9 +31,19 @@ namespace ExtremeSteakDude.Model
             }
         }
 
-        public string MeatboyImage
+        public string MeatboyImageFront
+        {
+            get { return "pack://application:,,,/Images/meatboy_front.jpg"; }
+        }
+
+        public string MeatboyImageRight
         {
             get { return "pack://application:,,,/Images/meatboy.jpg"; }
+        }
+
+        public string MeatboyImageLeft
+        {
+            get { return "pack://application:,,,/Images/meatboy_invert.jpg"; }
         }
 
         public string MeatboyImageJump

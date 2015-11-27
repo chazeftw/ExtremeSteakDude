@@ -119,6 +119,7 @@
     <Compile Include="ViewModel\CollisionDetector.cs" />
     <Compile Include="ViewModel\GameController.cs" />
     <Compile Include="ViewModel\MovementController.cs" />
+    <Compile Include="ViewModel\SoundController.cs" />
     <Compile Include="ViewModel\TestWindow.xaml.cs">
       <DependentUpon>TestWindow.xaml</DependentUpon>
     </Compile>
@@ -251,7 +252,35 @@
     <Resource Include="Images\background256_1.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Levels\level_1_1.jpg" />
+    <None Include="Resources\backgroundjpeg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Meat_Feet_slow0.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Meat_jumps0.wav" />
+    <None Include="Resources\Meat_jumps1.wav" />
+    <None Include="Resources\Meat_jumps2.wav" />
+    <None Include="Resources\Meat_jumps3.wav" />
+    <None Include="Resources\Meat_jumps4.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Meat_Feet_slow1.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Meat_Feet_slow2.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Meat_Feet_slow3.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\meatboy_invert.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\meatboy_front.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lossbg.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

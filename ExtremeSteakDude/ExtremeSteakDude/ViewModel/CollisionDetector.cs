@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ExtremeSteakDude.Model;
 using System.Drawing;
-
+using ExtremeSteakDude.Constants;
 
 namespace ExtremeSteakDude.ViewModel
 {
@@ -66,6 +66,7 @@ namespace ExtremeSteakDude.ViewModel
                     topright = false;
                     botleft = false;
                     botright = false;
+
                     return;
                 }
                 topleft = false;
@@ -89,22 +90,29 @@ namespace ExtremeSteakDude.ViewModel
                     botleft = true;
                 if (r.Contains(playerRec.Right, playerRec.Bottom))
                     botright = true;
+                
             }
             //Setting players parameters accordingly
             if (botright && botleft)
                 mc.p.inAir = false;
+            else
+                mc.p.inAir = true;
             if (botright && topright)
                 mc.p.onWallRight = true;
+            else
+                mc.p.onWallRight = false;
             if (botleft && topleft)
                 mc.p.onWallLeft = true;
+            else
+                mc.p.onWallLeft = false;
             if (topright && botright)
                 mc.p.hitRoof = true;
-            if (!(botleft && botright))
-                mc.p.inAir = true;
+            else
+                mc.p.hitRoof = false;
 
             GC.Collect();
         }
 
-
+        
     }
 }

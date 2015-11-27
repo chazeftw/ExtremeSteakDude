@@ -9,6 +9,10 @@ using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using System;
 using ExtremeSteakDude.Levels;
+using ExtremeSteakDude.View;
+using System.Media;
+using System.Windows.Media;
+using System.Collections;
 
 namespace ExtremeSteakDude.ViewModel
 {
@@ -21,7 +25,7 @@ namespace ExtremeSteakDude.ViewModel
         /// </summary>
         public const string WelcomeTitlePropertyName = "WelcomeTitle";
 
-        public ObservableCollection<HighScores> highScores { get; set; }
+        public ObservableCollection<Model.HighScores> highScores { get; set; }
 
         private MovementController mc;
         public ObservableCollection<Player> players { get; set; }
@@ -30,6 +34,8 @@ namespace ExtremeSteakDude.ViewModel
         public ICommand KeyDownCommand { get; }
         public ICommand KeyUpCommand { get; }
 
+        
+        
 
 
         public ICommand SaveHighscoreCommand { get; }
@@ -69,11 +75,13 @@ namespace ExtremeSteakDude.ViewModel
             KeyUpCommand = new RelayCommand<KeyEventArgs>(KeyUp);
 
             XML xml = new XML();
-            highScores = new ObservableCollection<HighScores>();
+            highScores = new ObservableCollection<Model.HighScores>();
             highScores.Add(xml.HighScores);
 
 
             SaveHighscoreCommand = new RelayCommand(SaveHighScore);
+
+            
 
         }
 
@@ -94,18 +102,33 @@ namespace ExtremeSteakDude.ViewModel
                     break;
                 case Key.Left:
                     mc.moveLeft = true;
+                    //BitmapImage bm1 = new BitmapImage(new Uri(player.MeatboyImageInvert, UriKind.RelativeOrAbsolute));
+                    player.meatboyImage = player.MeatboyImageLeft;
                     break;
                 case Key.Right:
                     mc.moveRight = true;
+                    player.meatboyImage = player.MeatboyImageRight;
                     break;
                 case Key.Space:
                     mc.jump = true;
                     // For jump animation
-                    BitmapImage bm = new BitmapImage(new Uri(player.MeatboyImageJump, UriKind.RelativeOrAbsolute));
+                    //BitmapImage bm = new BitmapImage(new Uri(player.MeatboyImageJump, UriKind.RelativeOrAbsolute));
                     player.meatboyImage = player.MeatboyImageJump;
+
                     break;
                 case Key.Z:
                     mc.isUndoMode = !mc.isUndoMode;
+                    break;
+                case Key.Escape:
+                    // Save the game
+                    // Save player position, timer, level, momemtum
+                    
+
+                    // Go to main menu
+                    //mc.isUndoMode = true;
+                    var main = App.Current.MainWindow as MainWindow;
+                    MainMenu mm = new MainMenu();
+                    main.Content = mm;
                     break;
             }
         }
@@ -116,15 +139,16 @@ namespace ExtremeSteakDude.ViewModel
             {
                 case Key.Left:
                     mc.moveLeft = false;
+                    player.meatboyImage = player.MeatboyImageLeft;
                     break;
                 case Key.Right:
                     mc.moveRight = false;
+                    player.meatboyImage = player.MeatboyImageRight;
                     break;
                 case Key.Space:
                     mc.jump = false;
                     // For jump animation
-                    BitmapImage bm = new BitmapImage(new Uri(player.MeatboyImageJump, UriKind.RelativeOrAbsolute));
-                    player.meatboyImage = player.MeatboyImage;
+                    player.meatboyImage = player.MeatboyImageFront;
                     break;
             }
         }
