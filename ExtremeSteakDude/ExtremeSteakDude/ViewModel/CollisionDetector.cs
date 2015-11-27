@@ -87,7 +87,7 @@ namespace ExtremeSteakDude.ViewModel
                     topright = true;
                 if (r.Contains(playerRec.Left, playerRec.Bottom))
                     botleft = true;
-                if (r.Contains(playerRec.Right, playerRec.Bottom))//switched top and bot on all
+                if (r.Contains(playerRec.Right, playerRec.Bottom))
                     botright = true;
             }
             //Setting players parameters accordingly
