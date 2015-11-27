@@ -122,18 +122,6 @@ namespace ExtremeSteakDude.Model
         public bool alive { get; set; } = true;
         public bool won { get; set; } = false;
 
-        public string Map
-        {
-            get
-            {
-                return _map;
-            }
-
-            set
-            {
-                _map = value;
-                OnPropertyChanged("map");
-            }
-        }
+       
     }
 }
