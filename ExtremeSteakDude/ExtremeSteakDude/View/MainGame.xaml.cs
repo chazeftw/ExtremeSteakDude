@@ -29,11 +29,13 @@ namespace ExtremeSteakDude.View
             if(level == Player.levelenum.one)
             {
                 currentlvl = new lvl1();
+                Player.level = Player.levelenum.one;
             }
 
             if(level == Player.levelenum.two)
             {
                 currentlvl = new lvl2();
+                Player.level = Player.levelenum.two;
             }
             BitmapImage bmi = new BitmapImage();
             bmi = HelperClasses.BitmapConverter.BitmapToImageSource(currentlvl.image);

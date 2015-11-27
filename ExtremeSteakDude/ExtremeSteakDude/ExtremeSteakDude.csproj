@@ -118,7 +118,6 @@
     <Compile Include="ViewModel\CollisionDetector.cs" />
     <Compile Include="ViewModel\GameController.cs" />
     <Compile Include="ViewModel\MovementController.cs" />
-    <Compile Include="ViewModel\SoundController.cs" />
     <Compile Include="ViewModel\TestWindow.xaml.cs">
       <DependentUpon>TestWindow.xaml</DependentUpon>
     </Compile>
@@ -251,19 +250,34 @@
     <Resource Include="Images\background256_1.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Meat_jumps0.wav" />
+    <None Include="Resources\backgroundjpeg.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <None Include="Resources\Meat_jumps1.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Meat_jumps2.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Meat_jumps3.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Meat_jumps4.wav" />
+    <Content Include="Sounds\Impact\Meat_impacts_0.wav" />
+    <Content Include="Sounds\Impact\Meat_impacts_1.wav" />
+    <Content Include="Sounds\Impact\Meat_impacts_2.wav" />
+    <Content Include="Sounds\Impact\Meat_impacts_3.wav" />
+    <Content Include="Sounds\Impact\Meat_impacts_4.wav" />
+    <Content Include="Sounds\Impact\Meat_impacts_5.wav" />
+    <Content Include="Sounds\Impact\Meat_impacts_6.wav" />
+    <Content Include="Sounds\Impact\Meat_impacts_7.wav" />
+    <Content Include="Sounds\Impact\Meat_impacts_8.wav" />
+    <Content Include="Sounds\death.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\Jump\Meat_jumps0.wav" />
+    <Content Include="Sounds\Jump\Meat_jumps1.wav" />
+    <Content Include="Sounds\Jump\Meat_jumps2.wav" />
+    <Content Include="Sounds\Jump\Meat_jumps3.wav" />
+    <Content Include="Sounds\Jump\Meat_jumps4.wav" />
+    <Content Include="Sounds\Meat_Landing0.wav" />
+    <Content Include="Sounds\Meat_Landing1.wav" />
+    <Content Include="Sounds\Move\Meat_feet_fast0.wav" />
+    <Content Include="Sounds\Move\Meat_feet_fast1.wav" />
+    <Content Include="Sounds\Move\Meat_feet_fast2.wav" />
+    <Content Include="Sounds\Move\Meat_feet_fast3.wav" />
+    <Content Include="Sounds\Retro_respawn 02.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

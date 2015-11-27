@@ -26,7 +26,7 @@ namespace ExtremeSteakDude.Levels
             this.startY = Const.MAPHEIGHT-Const.PLAYERHEIGHT-Const.BORDER_THICKNESS;
             gr = Graphics.FromImage(image);
             Rectangle backGround = new Rectangle(0, 0, Const.MAPWIDTH, Const.MAPHEIGHT);
-            System.Drawing.Image bg = System.Drawing.Image.FromFile("ExtremeSteakDude.Images.backgroundjpeg.jpg");
+            Bitmap bg = (ExtremeSteakDude.Properties.Resources.backgroundjpeg);
             gr.DrawImage(bg, backGround);
 
             //SolidBrush backgroundColor = new SolidBrush(Color.LavenderBlush);
