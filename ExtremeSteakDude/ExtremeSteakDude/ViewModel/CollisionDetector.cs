@@ -81,13 +81,13 @@ namespace ExtremeSteakDude.ViewModel
             foreach (Rectangle r in map.objectorinos)
             {
                 // checking if players corners are in objects
-                if (r.Contains(playerRec.Left, playerRec.Top))
-                    topleft = true;
-                if (r.Contains(playerRec.Right, playerRec.Top))
-                    topright = true;
                 if (r.Contains(playerRec.Left, playerRec.Bottom))
-                    botleft = true;
+                    topleft = true;
                 if (r.Contains(playerRec.Right, playerRec.Bottom))
+                    topright = true;
+                if (r.Contains(playerRec.Left, playerRec.Top))
+                    botleft = true;
+                if (r.Contains(playerRec.Right, playerRec.Top))//switched top and bot on all
                     botright = true;
             }
             //Setting players parameters accordingly
