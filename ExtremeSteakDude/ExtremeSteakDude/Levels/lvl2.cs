@@ -8,6 +8,7 @@ using System.Drawing.Drawing2D;
 using ExtremeSteakDude.Constants;
 using System.Windows.Controls;
 using System.Windows;
+using System.Windows.Media.Imaging;
 
 namespace ExtremeSteakDude.Levels
 {
@@ -17,14 +18,19 @@ namespace ExtremeSteakDude.Levels
 
         public lvl2()
         {
+            // Getting the background image
+            
+
             Bitmap image = new Bitmap(Const.MAPWIDTH, Const.MAPHEIGHT);
             this.startX = Const.BORDER_THICKNESS+100;
             this.startY = Const.MAPHEIGHT-Const.PLAYERHEIGHT-Const.BORDER_THICKNESS;
             gr = Graphics.FromImage(image);
             Rectangle backGround = new Rectangle(0, 0, Const.MAPWIDTH, Const.MAPHEIGHT);
+            System.Drawing.Image bg = System.Drawing.Image.FromFile("ExtremeSteakDude.Images.backgroundjpeg.jpg");
+            gr.DrawImage(bg, backGround);
 
-            SolidBrush backgroundColor = new SolidBrush(Color.LavenderBlush);
-            gr.FillRectangle(backgroundColor, backGround);
+            //SolidBrush backgroundColor = new SolidBrush(Color.LavenderBlush);
+            //gr.FillRectangle(backgroundColor, backGround);
 
 
             Rectangle ground = new Rectangle(Const.BORDER_THICKNESS, Const.MAPHEIGHT - 50 - Const.BORDER_THICKNESS, 475, 50);

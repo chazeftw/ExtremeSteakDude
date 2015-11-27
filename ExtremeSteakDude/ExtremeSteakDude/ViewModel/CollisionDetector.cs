@@ -99,6 +99,8 @@ namespace ExtremeSteakDude.ViewModel
                 mc.p.onWallLeft = true;
             if (topright && botright)
                 mc.p.hitRoof = true;
+            if (!(botleft && botright))
+                mc.p.inAir = true;
 
             GC.Collect();
         }
