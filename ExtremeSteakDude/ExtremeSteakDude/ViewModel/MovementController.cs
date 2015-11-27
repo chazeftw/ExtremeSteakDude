@@ -27,7 +27,7 @@ namespace ExtremeSteakDude.ViewModel
         private int moveacc = 2;
         private int fallspeed = 5;
         private int gravity = 2;
-        private int jumpheight = 7;
+        private int jumpheight = 20;
         private int tick = 5;
 
         private MapNew currentlvl;
@@ -75,10 +75,13 @@ namespace ExtremeSteakDude.ViewModel
                 }
             }else
             {
-                coll.CheckForCollision();
+                
 
-                if (timer.IsRunning == false) timer.Start();
-
+                if (timer.IsRunning == false)
+                {
+                    offset = p.timeSpan;
+                    timer.Restart();
+                }
 
 
                 if(moveLeft && !moveRight && !p.onWallLeft)
@@ -106,7 +109,21 @@ namespace ExtremeSteakDude.ViewModel
                         p.vx = 0;
                     }
                 }
-                if (p.inAir)
+                if(p.inAir && (p.onWallLeft || p.onWallRight ))
+                {
+                    p.vx = 0;
+                    if (p.vy < fallspeed/2)
+                    {
+                        if (15 - p.vy >= gravity/2)
+                        {
+                            p.vy = p.vy + gravity/2;
+                        }
+                        else
+                        {
+                            p.vy = fallspeed/2;
+                        }
+                    }
+                }else if (p.inAir)
                 {
                     if(p.vy < fallspeed)
                     {
@@ -118,29 +135,28 @@ namespace ExtremeSteakDude.ViewModel
                             p.vy = fallspeed;
                         }
                     }
-                }else if (p.vy != 0)
-                {
-                        Land();
                 }else if (jump)
                 {
                     Jump();
                     jump = false;
+                }else
+                {
+                    p.vy = 0;   
                 }
                 urc.AddAndExecute(new MomentumCommand(p,p.vx,p.vy,timer.Elapsed+offset));
+                coll.CheckForCollision();
             }
           }
 
         private void Jump()
         {
-            if (p.inAir)
-            {
-                // do nothing
-            }else if (p.onWallRight)
+
+            if (p.onWallRight && p.inAir)
             {
                 p.vx = -jumpheight;
                 p.vy = -jumpheight;
                 p.onWallRight = false;
-            }else if (p.onWallLeft)
+            }else if (p.onWallLeft && p.inAir)
             {
                 p.vx = jumpheight;
                 p.vy = -jumpheight;
@@ -180,28 +196,6 @@ namespace ExtremeSteakDude.ViewModel
                 }
             }
         }
-
-        private void WallSlide(bool orientation)
-        {
-            if (orientation)
-            {
-                p.onWallRight = true;
-            }
-            else
-            {
-                p.onWallLeft = true;
-            }
-            p.vx = 0;
-        }
-
-        private void Land()
-        {
-            p.inAir = false;
-            p.onWallRight = false;
-            p.onWallLeft = false;
-            p.vy = 0;
-        }
-
         public void Dispose()
         {
             moveTimer.Dispose();
