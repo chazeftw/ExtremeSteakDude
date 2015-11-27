@@ -93,6 +93,7 @@ namespace ExtremeSteakDude.ViewModel
                 if(moveLeft && !moveRight && !p.onWallLeft)
                 {
                     MoveLeft();
+                    
                 }
                 else if(moveRight && !moveLeft && !p.onWallRight)
                 {
@@ -179,8 +180,7 @@ namespace ExtremeSteakDude.ViewModel
 
         private void MoveRight()
         {
-            
-             if(p.vx < movespeed)
+            if (p.vx < movespeed)
             {
                 if(10 - p.vx <= moveacc)
                 {
