@@ -253,13 +253,24 @@
   <ItemGroup>
     <None Include="Resources\backgroundjpeg.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Meat_Feet_slow0.wav" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Meat_jumps0.wav" />
     <None Include="Resources\Meat_jumps1.wav" />
     <None Include="Resources\Meat_jumps2.wav" />
     <None Include="Resources\Meat_jumps3.wav" />
     <None Include="Resources\Meat_jumps4.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Meat_Feet_slow1.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Meat_Feet_slow2.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Meat_Feet_slow3.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

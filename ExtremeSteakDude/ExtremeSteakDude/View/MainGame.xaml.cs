@@ -28,12 +28,14 @@ namespace ExtremeSteakDude.View
         {
             if(level == Player.levelenum.one)
             {
-                currentlvl = new lvl1();
+                Console.WriteLine("LEVEL ONE");
+                currentlvl = new lvl2();
                 Player.level = Player.levelenum.one;
             }
 
             if(level == Player.levelenum.two)
             {
+                Console.WriteLine("LEVEL TWO");
                 currentlvl = new lvl2();
                 Player.level = Player.levelenum.two;
             }

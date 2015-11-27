@@ -73,6 +73,42 @@ namespace ExtremeSteakDude.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Meat_Feet_slow0 {
+            get {
+                return ResourceManager.GetStream("Meat_Feet_slow0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Meat_Feet_slow1 {
+            get {
+                return ResourceManager.GetStream("Meat_Feet_slow1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Meat_Feet_slow2 {
+            get {
+                return ResourceManager.GetStream("Meat_Feet_slow2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Meat_Feet_slow3 {
+            get {
+                return ResourceManager.GetStream("Meat_Feet_slow3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
         internal static System.IO.UnmanagedMemoryStream Meat_jumps0 {
             get {
                 return ResourceManager.GetStream("Meat_jumps0", resourceCulture);

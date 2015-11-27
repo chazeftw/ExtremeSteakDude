@@ -43,11 +43,13 @@ namespace ExtremeSteakDude.ViewModel
             if (Player.level == Player.levelenum.one)
             {
                 currentlvl = new lvl1();
+                Console.WriteLine("LEVEL ONE IN MC");
             }
 
             if (Player.level == Player.levelenum.two)
             {
                 currentlvl = new lvl2();
+                Console.WriteLine("LEVEL TWO IN MC");
             }
 
 
@@ -91,7 +93,8 @@ namespace ExtremeSteakDude.ViewModel
                 if(moveLeft && !moveRight && !p.onWallLeft)
                 {
                     MoveLeft();
-                }else if(moveRight && !moveLeft && !p.onWallRight)
+                }
+                else if(moveRight && !moveLeft && !p.onWallRight)
                 {
                     MoveRight();
                 }else
@@ -176,6 +179,7 @@ namespace ExtremeSteakDude.ViewModel
 
         private void MoveRight()
         {
+            
              if(p.vx < movespeed)
             {
                 if(10 - p.vx <= moveacc)

@@ -13,6 +13,7 @@ namespace ExtremeSteakDude.ViewModel
         // List for jump sounds to get a random one for each jump
         Random r = new Random();
         private List<System.IO.Stream> jumpSounds;
+        private List<System.IO.Stream> movingSounds;
         private int decider;
 
         public SoundController()
@@ -24,12 +25,27 @@ namespace ExtremeSteakDude.ViewModel
             jumpSounds.Add(ExtremeSteakDude.Properties.Resources.Meat_jumps2);
             jumpSounds.Add(ExtremeSteakDude.Properties.Resources.Meat_jumps3);
             jumpSounds.Add(ExtremeSteakDude.Properties.Resources.Meat_jumps4);
+
+
+            movingSounds = new List<System.IO.Stream>();
+            movingSounds.Add(ExtremeSteakDude.Properties.Resources.Meat_Feet_slow0);
+            movingSounds.Add(ExtremeSteakDude.Properties.Resources.Meat_Feet_slow1);
+            movingSounds.Add(ExtremeSteakDude.Properties.Resources.Meat_Feet_slow2);
+            movingSounds.Add(ExtremeSteakDude.Properties.Resources.Meat_Feet_slow3);
         }
 
         public void playJumpSound()
         {
             decider = r.Next(0, 5);
             SoundPlayer simpleSound = new SoundPlayer(jumpSounds[decider]);
+            simpleSound.Play();
+            simpleSound.Stream.Position = 0;
+        }
+
+        public void playMovingSound()
+        {
+            decider = r.Next(0, 4);
+            SoundPlayer simpleSound = new SoundPlayer(movingSounds[decider]);
             simpleSound.Play();
             simpleSound.Stream.Position = 0;
         }
