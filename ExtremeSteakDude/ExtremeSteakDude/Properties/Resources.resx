@@ -121,4 +121,19 @@
   <data name="backgroundjpeg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\backgroundjpeg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Meat_jumps0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Meat_jumps0.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Meat_jumps1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Meat_jumps1.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Meat_jumps2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Meat_jumps2.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Meat_jumps3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Meat_jumps3.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Meat_jumps4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Meat_jumps4.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>
