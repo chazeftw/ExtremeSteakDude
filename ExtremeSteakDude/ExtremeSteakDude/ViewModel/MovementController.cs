@@ -23,12 +23,13 @@ namespace ExtremeSteakDude.ViewModel
         private UndoRedoController urc;
         private System.Diagnostics.Stopwatch timer;
 
-        private int movespeed = 20;
-        private int moveacc = 8;
-        private int fallspeed = 20;
-        private int gravity = 5;
-        private int jumpheight = 35;
-        private int tick = 25;
+        private int movespeed = 5;
+        private int moveacc = 2;
+        private int fallspeed = 5;
+        private int gravity = 2;
+        private int jumpheight = 7;
+        private int tick = 5;
+
         private MapNew currentlvl;
         private CollisionDetector coll;
         private TimeSpan offset;
