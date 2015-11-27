@@ -115,6 +115,7 @@
     <Compile Include="Constants\Const.cs" />
     <Compile Include="Serialization\SerializerXML.cs" />
     <Compile Include="Serialization\XML.cs" />
+    <Compile Include="ViewModel\CDC.cs" />
     <Compile Include="ViewModel\CollisionDetector.cs" />
     <Compile Include="ViewModel\GameController.cs" />
     <Compile Include="ViewModel\MovementController.cs" />
@@ -200,7 +201,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -241,13 +242,16 @@
     <Resource Include="Images\testbg.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Levels\level_1_1.bmp" />
+    <CodeAnalysisDictionary Include="Levels\level_1_1.bmp" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\backgroundjpeg.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\background256_1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Levels\level_1_1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -42,7 +42,8 @@ namespace ExtremeSteakDude.Commands
         {
             if (!redos.Any())
             {
-                throw new InvalidOperationException();
+                // throw new InvalidOperationException();
+                return;
             }    
             var command = redos.Pop();
             undos.Push(command);

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,10 +11,11 @@ namespace ExtremeSteakDude.Model
     public class Player : INotifyPropertyChanged
     {
         private int _x = 500;
-        private int _y = 300;
+        private int _y = 100;
         public String stringTime { get; set; }
         private TimeSpan _timeSpan;
         private string _meatboyImage = "pack://application:,,,/Images/meatboy.jpg";
+        private string _map = "pack://application:,,,/Levels/level_1_1.bmp";
         public enum levelenum { one, two };
         public static levelenum level { get; set; }
 
@@ -111,5 +113,18 @@ namespace ExtremeSteakDude.Model
         public bool alive { get; set; } = true;
         public bool won { get; set; } = false;
 
+        public string Map
+        {
+            get
+            {
+                return _map;
+            }
+
+            set
+            {
+                _map = value;
+                OnPropertyChanged("map");
+            }
+        }
     }
 }

@@ -23,22 +23,23 @@ namespace ExtremeSteakDude.ViewModel
         private UndoRedoController urc;
         private System.Diagnostics.Stopwatch timer;
 
-        private int movespeed = 5;
-        private int moveacc = 2;
-        private int fallspeed = 5;
-        private int gravity = 2;
-        private int jumpheight = 20;
-        private int tick = 5;
+        private int movespeed = 7;
+        private int moveacc = 3;
+        private int fallspeed = 7;
+        private int gravity = 3;
+        private int jumpheight = 25;
+        private int tick = 10;
 
         private MapNew currentlvl;
         private CollisionDetector coll;
         private TimeSpan offset;
+        private CDC cdc;
 
         public MovementController(Player p)
         {
             if (Player.level == Player.levelenum.one)
             {
-                currentlvl = new lvl1();
+                currentlvl = new lvl2();
             }
 
             if (Player.level == Player.levelenum.two)
@@ -51,13 +52,15 @@ namespace ExtremeSteakDude.ViewModel
             urc = new UndoRedoController();
             timer = new System.Diagnostics.Stopwatch();
             moveTimer = new Timer(x => Move(), null, 0, tick);
-            coll = new CollisionDetector(this, currentlvl);
+            //coll = new CollisionDetector(this, currentlvl);
+            cdc = new CDC(this, currentlvl);
 
         }
 
         private void Move()
-        {if (first && !jump && !moveRight && !moveLeft)
         {
+            if (first && !jump && !moveRight && !moveLeft)
+            {
                 return;
             }
             first = false;
@@ -83,7 +86,6 @@ namespace ExtremeSteakDude.ViewModel
                     timer.Restart();
                 }
 
-
                 if(moveLeft && !moveRight && !p.onWallLeft)
                 {
                     MoveLeft();
@@ -94,33 +96,36 @@ namespace ExtremeSteakDude.ViewModel
                 {
                     if (p.vx > 0)
                     {
-                        if (p.vx > moveacc+1 && !p.onWallRight)
+                        if (p.onWallRight) { p.vx = 0; }
+                        else if (p.vx > moveacc + 1 && !p.onWallRight)
                         {
                             p.vx = p.vx - moveacc;
-                        }else
+                        }
+                        else
                         {
                             p.vx = 0;
                         }
-                    }else if (p.vx < -moveacc && !p.onWallLeft)
+                    }else if (p.vx < -moveacc)
                     {
-                        p.vx = p.vx + moveacc;
+                        if (p.onWallLeft) { p.vx = 0; }
+                        else { p.vx = p.vx + moveacc; }
                     }else
                     {
                         p.vx = 0;
                     }
                 }
+
                 if(p.inAir && (p.onWallLeft || p.onWallRight ))
                 {
-                    p.vx = 0;
-                    if (p.vy < fallspeed/2)
+                    if (p.vy < 2*fallspeed/3)
                     {
-                        if (15 - p.vy >= gravity/2)
+                        if (15 - p.vy >= 2*gravity/3)
                         {
-                            p.vy = p.vy + gravity/2;
+                            p.vy = p.vy + 2*gravity/3;
                         }
                         else
                         {
-                            p.vy = fallspeed/2;
+                            p.vy = 2*fallspeed/3;
                         }
                     }
                 }else if (p.inAir)
@@ -143,8 +148,9 @@ namespace ExtremeSteakDude.ViewModel
                 {
                     p.vy = 0;   
                 }
+                cdc.check();
                 urc.AddAndExecute(new MomentumCommand(p,p.vx,p.vy,timer.Elapsed+offset));
-                coll.CheckForCollision();
+               // coll.CheckForCollision();
             }
           }
 
