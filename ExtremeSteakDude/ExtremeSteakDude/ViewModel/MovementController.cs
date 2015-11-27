@@ -42,7 +42,7 @@ namespace ExtremeSteakDude.ViewModel
         {
             if (Player.level == Player.levelenum.one)
             {
-                currentlvl = new lvl1();
+                currentlvl = new lvl2();
                 Console.WriteLine("LEVEL ONE IN MC");
             }
 
