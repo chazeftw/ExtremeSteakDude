@@ -4,6 +4,7 @@ using ExtremeSteakDude.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -33,6 +34,9 @@ namespace ExtremeSteakDude.ViewModel
         private MapNew currentlvl;
         private CollisionDetector coll;
         private TimeSpan offset;
+        private SoundController sc;
+
+        
 
         public MovementController(Player p)
         {
@@ -52,7 +56,7 @@ namespace ExtremeSteakDude.ViewModel
             timer = new System.Diagnostics.Stopwatch();
             moveTimer = new Timer(x => Move(), null, 0, tick);
             coll = new CollisionDetector(this, currentlvl);
-
+            sc = new SoundController();
         }
 
         private void Move()
@@ -150,7 +154,7 @@ namespace ExtremeSteakDude.ViewModel
 
         private void Jump()
         {
-
+            sc.playJumpSound();
             if (p.onWallRight && p.inAir)
             {
                 p.vx = -jumpheight;
@@ -200,5 +204,6 @@ namespace ExtremeSteakDude.ViewModel
         {
             moveTimer.Dispose();
         }
+        
     }
 }

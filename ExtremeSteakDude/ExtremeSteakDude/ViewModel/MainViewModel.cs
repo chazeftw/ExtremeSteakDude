@@ -12,6 +12,7 @@ using ExtremeSteakDude.Levels;
 using ExtremeSteakDude.View;
 using System.Media;
 using System.Windows.Media;
+using System.Collections;
 
 namespace ExtremeSteakDude.ViewModel
 {
@@ -33,6 +34,8 @@ namespace ExtremeSteakDude.ViewModel
         public ICommand KeyDownCommand { get; }
         public ICommand KeyUpCommand { get; }
 
+        
+        
 
 
         public ICommand SaveHighscoreCommand { get; }
@@ -78,6 +81,8 @@ namespace ExtremeSteakDude.ViewModel
 
             SaveHighscoreCommand = new RelayCommand(SaveHighScore);
 
+            
+
         }
 
         private void SaveHighScore()
@@ -106,14 +111,6 @@ namespace ExtremeSteakDude.ViewModel
                     // For jump animation
                     BitmapImage bm = new BitmapImage(new Uri(player.MeatboyImageJump, UriKind.RelativeOrAbsolute));
                     player.meatboyImage = player.MeatboyImageJump;
-
-                    Uri uri = new Uri(@"pack://application:,,,/Sounds/death.wav");
-                    var sp = new MediaPlayer();
-                    sp.Open(uri);
-                    sp.Play();
-
-                    SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\Rasmus\Desktop\Super Meat Boy\meat_death1.wav");
-                    simpleSound.Play();
 
                     break;
                 case Key.Z:
