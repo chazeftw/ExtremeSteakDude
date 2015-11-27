@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Media;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ExtremeSteakDude.ViewModel
@@ -32,6 +33,8 @@ namespace ExtremeSteakDude.ViewModel
             movingSounds.Add(ExtremeSteakDude.Properties.Resources.Meat_Feet_slow1);
             movingSounds.Add(ExtremeSteakDude.Properties.Resources.Meat_Feet_slow2);
             movingSounds.Add(ExtremeSteakDude.Properties.Resources.Meat_Feet_slow3);
+
+            
         }
 
         public void playJumpSound()
