@@ -50,7 +50,8 @@ namespace ExtremeSteakDude.Levels
 
             //Goal
             this.goal = new Rectangle(Const.MAPWIDTH - 300, Const.MAPHEIGHT - 300, 50, 50);
-            SolidBrush goal = new SolidBrush(Color.Chartreuse);
+            SolidBrush goalBrush = new SolidBrush(Color.Chartreuse);
+            gr.FillRectangle(goalBrush, goal);
             this.image = image;
 
            
