@@ -11,8 +11,8 @@ namespace ExtremeSteakDude.Constants
     {
         public static readonly int MAPHEIGHT = 720;
         public static readonly int MAPWIDTH = 1280;
-        public static readonly int PLAYERHEIGHT = 48;
-        public static readonly int PLAYERWIDTH = 48;
+        public static readonly int PLAYERHEIGHT = 56;
+        public static readonly int PLAYERWIDTH = 42;
         public static readonly int[] DEF_STARTPOS = { 100, 400 };
         public static readonly int BORDER_THICKNESS = 50;
         public static readonly Map[] MAP =

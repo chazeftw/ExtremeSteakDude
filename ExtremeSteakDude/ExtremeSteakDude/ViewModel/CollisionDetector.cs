@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ExtremeSteakDude.Model;
 using System.Drawing;
-
+using ExtremeSteakDude.Constants;
 
 namespace ExtremeSteakDude.ViewModel
 {
@@ -66,6 +66,7 @@ namespace ExtremeSteakDude.ViewModel
                     topright = false;
                     botleft = false;
                     botright = false;
+
                     return;
                 }
                 topleft = false;
@@ -112,6 +113,6 @@ namespace ExtremeSteakDude.ViewModel
             GC.Collect();
         }
 
-
+        
     }
 }
