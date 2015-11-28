@@ -10,6 +10,9 @@ using GalaSoft.MvvmLight.Command;
 using System;
 using ExtremeSteakDude.Levels;
 using ExtremeSteakDude.View;
+using System.Media;
+using System.Windows.Media;
+using System.Collections;
 
 namespace ExtremeSteakDude.ViewModel
 {
@@ -30,6 +33,8 @@ namespace ExtremeSteakDude.ViewModel
         private BitmapImage map;
         public ICommand KeyDownCommand { get; }
         public ICommand KeyUpCommand { get; }
+
+
 
 
 
@@ -118,15 +123,19 @@ namespace ExtremeSteakDude.ViewModel
                     break;
                 case Key.Left:
                     mc.moveLeft = true;
+                    //BitmapImage bm1 = new BitmapImage(new Uri(player.MeatboyImageInvert, UriKind.RelativeOrAbsolute));
+                    player.meatboyImage = player.MeatboyImageLeft;
                     break;
                 case Key.Right:
                     mc.moveRight = true;
+                    player.meatboyImage = player.MeatboyImageRight;
                     break;
                 case Key.Space:
                     mc.jump = true;
                     // For jump animation
-                    BitmapImage bm = new BitmapImage(new Uri(player.MeatboyImageJump, UriKind.RelativeOrAbsolute));
+                    //BitmapImage bm = new BitmapImage(new Uri(player.MeatboyImageJump, UriKind.RelativeOrAbsolute));
                     player.meatboyImage = player.MeatboyImageJump;
+
                     break;
                 case Key.Z:
                     mc.isUndoMode = !mc.isUndoMode;
@@ -151,15 +160,16 @@ namespace ExtremeSteakDude.ViewModel
             {
                 case Key.Left:
                     mc.moveLeft = false;
+                    player.meatboyImage = player.MeatboyImageLeft;
                     break;
                 case Key.Right:
                     mc.moveRight = false;
+                    player.meatboyImage = player.MeatboyImageRight;
                     break;
                 case Key.Space:
                     mc.jump = false;
                     // For jump animation
-                    BitmapImage bm = new BitmapImage(new Uri(player.MeatboyImageJump, UriKind.RelativeOrAbsolute));
-                    player.meatboyImage = player.MeatboyImage;
+                    player.meatboyImage = player.MeatboyImageFront;
                     break;
             }
         }

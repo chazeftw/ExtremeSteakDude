@@ -19,7 +19,8 @@
         </DataTemplate>
 
         <DataTemplate DataType="{x:Type Model:Player}">
-            <Canvas>
+            <Canvas Margin="0">
+                <Image x:Name="bg" Height="680" Width="1263" Margin="0" Source="pack://application:,,,/Levels/level_1_1.jpg" Canvas.Top="0" Canvas.Left="0" />
                 <TextBlock x:Name="timer" FontSize="30"  Canvas.Left="1086" TextWrapping="Wrap" Text="{Binding stringTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Canvas.Top="106"/>
                 <Image x:Name="jesus" Height="32" Margin="0,0,0,0" Width="32" Source="{Binding meatboyImage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="{Binding x, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Canvas.Top="{Binding y, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             </Canvas>

@@ -28,16 +28,20 @@ namespace ExtremeSteakDude.View
         {
             if(level == Player.levelenum.one)
             {
+                Console.WriteLine("LEVEL ONE");
                 currentlvl = new lvl1();
+                Player.level = Player.levelenum.one;
             }
 
             if(level == Player.levelenum.two)
             {
+                Console.WriteLine("LEVEL TWO");
                 currentlvl = new lvl2();
+                Player.level = Player.levelenum.two;
             }
-            BitmapImage bmi = new BitmapImage();
-            bmi = HelperClasses.BitmapConverter.BitmapToImageSource(currentlvl.image);
-            this.Background = new ImageBrush(bmi);
+            //BitmapImage bmi = new BitmapImage();
+            //bmi = HelperClasses.BitmapConverter.BitmapToImageSource(currentlvl.image);
+            //this.Background = new ImageBrush(bmi);
             InitializeComponent();
 
 

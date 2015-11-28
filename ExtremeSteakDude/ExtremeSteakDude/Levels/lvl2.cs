@@ -18,15 +18,18 @@ namespace ExtremeSteakDude.Levels
 
         public lvl2()
         {
+            image = new Bitmap(ExtremeSteakDude.Properties.Resources.level_1_1);
+            startX = 0;
+            startY = 0;
             // Getting the background image
-            
 
+            /*
             Bitmap image = new Bitmap(Const.MAPWIDTH, Const.MAPHEIGHT);
             this.startX = Const.BORDER_THICKNESS+100;
             this.startY = Const.MAPHEIGHT-Const.PLAYERHEIGHT-Const.BORDER_THICKNESS;
             gr = Graphics.FromImage(image);
             Rectangle backGround = new Rectangle(0, 0, Const.MAPWIDTH, Const.MAPHEIGHT);
-            System.Drawing.Image bg = System.Drawing.Image.FromFile("ExtremeSteakDude.Images.backgroundjpeg.jpg");
+            Bitmap bg = (ExtremeSteakDude.Properties.Resources.backgroundjpeg);
             gr.DrawImage(bg, backGround);
 
             //SolidBrush backgroundColor = new SolidBrush(Color.LavenderBlush);
@@ -86,10 +89,10 @@ namespace ExtremeSteakDude.Levels
 
             this.image = image;
 
-
+            */
         }
 
-
+        
 
 
     }
