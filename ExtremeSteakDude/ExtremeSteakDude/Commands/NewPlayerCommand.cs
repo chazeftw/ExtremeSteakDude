@@ -21,6 +21,7 @@ namespace ExtremeSteakDude.Commands
         public void Execute()
         {
             this.players[0] = new Player();
+            Console.WriteLine("NEW PLAYER");
         }
 
         public void Undo()
