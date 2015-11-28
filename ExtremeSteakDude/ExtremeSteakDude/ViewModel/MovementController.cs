@@ -3,6 +3,7 @@ using ExtremeSteakDude.Levels;
 using ExtremeSteakDude.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Media;
 using System.Text;
@@ -19,7 +20,7 @@ namespace ExtremeSteakDude.ViewModel
         public bool isUndoMode = false;
         private bool first = true;
 
-        public Player p;
+        public ObservableCollection<Player> p;
         private Timer moveTimer;
         private UndoRedoController urc;
         private System.Diagnostics.Stopwatch timer;
@@ -39,7 +40,7 @@ namespace ExtremeSteakDude.ViewModel
 
         
 
-        public MovementController(Player p)
+        public MovementController(ObservableCollection<Player> p)
         {
             if (Player.level == Player.levelenum.one)
             {
@@ -89,64 +90,64 @@ namespace ExtremeSteakDude.ViewModel
 
                 if (timer.IsRunning == false)
                 {
-                    offset = p.timeSpan;
+                    offset = p[0].timeSpan;
                     timer.Restart();
                 }
 
-                if(moveLeft && !moveRight && !p.onWallLeft)
+                if(moveLeft && !moveRight && !p[0].onWallLeft)
                 {
                     MoveLeft();
                     
                 }
-                else if(moveRight && !moveLeft && !p.onWallRight)
+                else if(moveRight && !moveLeft && !p[0].onWallRight)
                 {
                     MoveRight();
                 }else
                 {
-                    if (p.vx > 0)
+                    if (p[0].vx > 0)
                     {
-                        if (p.onWallRight) { p.vx = 0; }
-                        else if (p.vx > moveacc + 1 && !p.onWallRight)
+                        if (p[0].onWallRight) { p[0].vx = 0; }
+                        else if (p[0].vx > moveacc + 1 && !p[0].onWallRight)
                         {
-                            p.vx = p.vx - moveacc;
+                            p[0].vx = p[0].vx - moveacc;
                         }
                         else
                         {
-                            p.vx = 0;
+                            p[0].vx = 0;
                         }
-                    }else if (p.vx < -moveacc)
+                    }else if (p[0].vx < -moveacc)
                     {
-                        if (p.onWallLeft) { p.vx = 0; }
-                        else { p.vx = p.vx + moveacc; }
+                        if (p[0].onWallLeft) { p[0].vx = 0; }
+                        else { p[0].vx = p[0].vx + moveacc; }
                     }else
                     {
-                        p.vx = 0;
+                        p[0].vx = 0;
                     }
                 }
 
-                if(p.inAir && (p.onWallLeft || p.onWallRight ))
+                if(p[0].inAir && (p[0].onWallLeft || p[0].onWallRight ))
                 {
-                    if (p.vy < 2*fallspeed/3)
+                    if (p[0].vy < 2*fallspeed/3)
                     {
-                        if (15 - p.vy >= 2*gravity/3)
+                        if (15 - p[0].vy >= 2*gravity/3)
                         {
-                            p.vy = p.vy + 2*gravity/3;
+                            p[0].vy = p[0].vy + 2*gravity/3;
                         }
                         else
                         {
-                            p.vy = 2*fallspeed/3;
+                            p[0].vy = 2*fallspeed/3;
                         }
                     }
-                }else if (p.inAir)
+                }else if (p[0].inAir)
                 {
-                    if(p.vy < fallspeed)
+                    if(p[0].vy < fallspeed)
                     {
-                        if (15 - p.vy >= gravity)
+                        if (15 - p[0].vy >= gravity)
                         {
-                            p.vy = p.vy +gravity ;
+                            p[0].vy = p[0].vy +gravity ;
                         }else
                         {
-                            p.vy = fallspeed;
+                            p[0].vy = fallspeed;
                         }
                     }
                 }else if (jump)
@@ -155,10 +156,10 @@ namespace ExtremeSteakDude.ViewModel
                     jump = false;
                 }else
                 {
-                    p.vy = 0;   
+                    p[0].vy = 0;   
                 }
                 cdc.check();
-                urc.AddAndExecute(new MomentumCommand(p,p.vx,p.vy,timer.Elapsed+offset));
+                urc.AddAndExecute(new MomentumCommand(p,p[0].vx,p[0].vy,timer.Elapsed+offset));
                // coll.CheckForCollision();
             }
           }
@@ -166,20 +167,20 @@ namespace ExtremeSteakDude.ViewModel
         private void Jump()
         {
             sc.playJumpSound();
-            if (p.onWallRight && p.inAir)
+            if (p[0].onWallRight && p[0].inAir)
             {
-                p.vx = -jumpheight;
-                p.vy = -jumpheight;
-                p.onWallRight = false;
-            }else if (p.onWallLeft && p.inAir)
+                p[0].vx = -jumpheight;
+                p[0].vy = -jumpheight;
+                p[0].onWallRight = false;
+            }else if (p[0].onWallLeft && p[0].inAir)
             {
-                p.vx = jumpheight;
-                p.vy = -jumpheight;
-                p.onWallLeft = false;
+                p[0].vx = jumpheight;
+                p[0].vy = -jumpheight;
+                p[0].onWallLeft = false;
             }else
             {
-                p.vy = -jumpheight;
-                p.inAir = true;
+                p[0].vy = -jumpheight;
+                p[0].inAir = true;
             }
 
 
@@ -187,27 +188,27 @@ namespace ExtremeSteakDude.ViewModel
 
         private void MoveRight()
         {
-            if (p.vx < movespeed)
+            if (p[0].vx < movespeed)
             {
-                if(10 - p.vx <= moveacc)
+                if(10 - p[0].vx <= moveacc)
                 {
-                    p.vx = p.vx + moveacc;
+                    p[0].vx = p[0].vx + moveacc;
                 }else
                 {
-                    p.vx = movespeed;
+                    p[0].vx = movespeed;
                 }
             }
         }private void MoveLeft()
         {
-            if (p.vx > -movespeed)
+            if (p[0].vx > -movespeed)
             {
-                if (-10 - p.vx >= -moveacc)
+                if (-10 - p[0].vx >= -moveacc)
                 {
-                    p.vx = p.vx - moveacc;
+                    p[0].vx = p[0].vx - moveacc;
                 }
                 else
                 {
-                    p.vx = -movespeed;
+                    p[0].vx = -movespeed;
                 }
             }
         }
