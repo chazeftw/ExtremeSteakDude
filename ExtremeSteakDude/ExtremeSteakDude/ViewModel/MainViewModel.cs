@@ -34,6 +34,11 @@ namespace ExtremeSteakDude.ViewModel
 
 
         public ICommand SaveHighscoreCommand { get; }
+        public ICommand SavePlayerCommand { get; }
+
+        public ICommand NewPlayerCommand { get; }
+        public ICommand LoadPlayerCommand { get; }
+
         private string _welcomeTitle = string.Empty;
         public string name {get; set;}
 
@@ -59,28 +64,46 @@ namespace ExtremeSteakDude.ViewModel
         }
 
         public MainViewModel() {
-            System.Console.WriteLine("HEY");
             name = "Erir";
+
+            XML xml = new XML();
             players = new ObservableCollection<Player>();
-            player = new Player();
+            player = xml.Player;
             players.Add(player);
-            mc = new MovementController(player);
+            mc = new MovementController(players);
             
             KeyDownCommand = new RelayCommand<KeyEventArgs>(KeyDown);
             KeyUpCommand = new RelayCommand<KeyEventArgs>(KeyUp);
 
-            XML xml = new XML();
+            
             highScores = new ObservableCollection<Model.HighScores>();
             highScores.Add(xml.HighScores);
 
 
             SaveHighscoreCommand = new RelayCommand(SaveHighScore);
+            SavePlayerCommand = new RelayCommand(SavePlayer);
+            NewPlayerCommand = new RelayCommand(NewPlayer);
+            LoadPlayerCommand = new RelayCommand(LoadPlayer);
+        }
 
+        private void LoadPlayer()
+        {
+            LoadPlayerCommand Command = new LoadPlayerCommand(players, new XML());
+            Command.Execute();
+        }
+        private void NewPlayer()
+        {
+            NewPlayerCommand Command = new NewPlayerCommand(players);
+            Command.Execute();
+        }
+        private void SavePlayer()
+        {
+            SavePlayerCommand Command = new SavePlayerCommand(players, new XML());
+            Command.Execute();
         }
 
         private void SaveHighScore()
         {
-            Console.WriteLine("HEYsa");
             SaveHighScoreCommand Command = new SaveHighScoreCommand(highScores, new XML(), name, 0);
             Command.Execute();
         }
@@ -111,7 +134,7 @@ namespace ExtremeSteakDude.ViewModel
                 case Key.Escape:
                     // Save the game
                     // Save player position, timer, level, momemtum
-                    
+                    SavePlayer();
 
                     // Go to main menu
                     //mc.isUndoMode = true;
