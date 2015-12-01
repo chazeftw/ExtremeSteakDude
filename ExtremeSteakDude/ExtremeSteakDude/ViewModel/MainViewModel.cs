@@ -36,12 +36,13 @@ namespace ExtremeSteakDude.ViewModel
 
 
 
-
+        public ICommand ExitCommand { get; }
 
         public ICommand SaveHighscoreCommand { get; }
         public ICommand SavePlayerCommand { get; }
 
-        public ICommand NewPlayerCommand { get; }
+        public ICommand NewPlayerCommandLVL1 { get; }
+        public ICommand NewPlayerCommandLVL2 { get; }
         public ICommand LoadPlayerCommand { get; }
 
         private string _welcomeTitle = string.Empty;
@@ -84,11 +85,18 @@ namespace ExtremeSteakDude.ViewModel
             highScores = new ObservableCollection<Model.HighScores>();
             highScores.Add(xml.HighScores);
 
-
+            ExitCommand = new RelayCommand(Exit);
             SaveHighscoreCommand = new RelayCommand(SaveHighScore);
             SavePlayerCommand = new RelayCommand(SavePlayer);
-            NewPlayerCommand = new RelayCommand(NewPlayer);
+            NewPlayerCommandLVL1 = new RelayCommand(NewPlayerLVL1);
+            NewPlayerCommandLVL2 = new RelayCommand(NewPlayerLVL2);
             LoadPlayerCommand = new RelayCommand(LoadPlayer);
+        }
+
+        private void Exit()
+        {
+            ExitCommand Command = new ExitCommand();
+            Command.Execute();
         }
 
         private void LoadPlayer()
@@ -96,9 +104,15 @@ namespace ExtremeSteakDude.ViewModel
             LoadPlayerCommand Command = new LoadPlayerCommand(players, new XML());
             Command.Execute();
         }
-        private void NewPlayer()
+        private void NewPlayerLVL1()
         {
-            NewPlayerCommand Command = new NewPlayerCommand(players);
+            NewPlayerCommandLVL1 Command = new NewPlayerCommandLVL1(players);
+            Command.Execute();
+        }
+
+        private void NewPlayerLVL2()
+        {
+            NewPlayerCommandLVL2 Command = new NewPlayerCommandLVL2(players);
             Command.Execute();
         }
         private void SavePlayer()
