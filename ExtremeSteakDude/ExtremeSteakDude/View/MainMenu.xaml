@@ -10,7 +10,7 @@
         <Button x:Name="NewGame" Content="NewGame" Margin="354,160,0,0" Command="{Binding NewPlayerCommand}" Click="NewGame_Click" />
         <Button x:Name="Continue" Content="Continue" Margin="354,290,0,0" Click="Continue_Click"/>
         <Button x:Name="HighScore" Content="HighScore" Margin="354,420,0,0" Click="HighScore_Click" />
-        <Button x:Name="Exit" Content="Exit" Margin="354,550,0,0" Click="Exit_Click"/>
+        <Button x:Name="Exit" Content="Exit" Margin="354,550,0,0" Command="{Binding ExitCommand}"/>
         <Button x:Name="Test" Content="Test" Margin="69,372,0,0" Click="Test_Click" Width="195" Height="89"/>
 
     </Grid>

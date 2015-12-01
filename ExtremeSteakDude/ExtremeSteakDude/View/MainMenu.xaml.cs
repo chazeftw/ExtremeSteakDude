@@ -35,11 +35,6 @@ namespace ExtremeSteakDude.View
             e.Handled = true;
         }
 
-        private void Exit_Click(object sender, RoutedEventArgs e)
-        {
-            System.Environment.Exit(0);
-        }
-
         private void NewGame_Click(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
