@@ -25,12 +25,12 @@ namespace ExtremeSteakDude.ViewModel
         private UndoRedoController urc;
         private System.Diagnostics.Stopwatch timer;
 
-        private int movespeed = 7;
+        private int movespeed = 5;
         private int moveacc = 2;
-        private int fallspeed = 7;
+        private int fallspeed = 5;
         private int gravity = 1;
         private int jumpheight = 15;
-        private int tick = 10;
+        private int tick = 12;
 
         private MapNew currentlvl;
         private CollisionDetector coll;
@@ -100,12 +100,12 @@ namespace ExtremeSteakDude.ViewModel
                     timer.Restart();
                 }
 
-                if (moveLeft && !moveRight && !p[0].onWallLeft)
+                if (moveLeft && !moveRight && !p[0].onWallLeft && !( p[0].onWallRight && p[0].inAir))
                 {
                     MoveLeft();
 
                 }
-                else if (moveRight && !moveLeft && !p[0].onWallRight)
+                else if (moveRight && !moveLeft && !p[0].onWallRight && !(p[0].onWallLeft && p[0].inAir))
                 {
                     MoveRight();
                 }

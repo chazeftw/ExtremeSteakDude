@@ -48,6 +48,8 @@ namespace ExtremeSteakDude.ViewModel
         public ICommand LoadPlayerCommand { get; }
 
         private string _welcomeTitle = string.Empty;
+        private bool canJump = true;
+
         public string name {get; set;}
 
         /// <summary>
@@ -160,11 +162,15 @@ namespace ExtremeSteakDude.ViewModel
                     players[0].meatboyImage = player.MeatboyImageRight;
                     break;
                 case Key.Space:
-                    mc.jump = true;
+                    if (canJump)
+                    {
+                        mc.jump = true;
+                        canJump = false;
+                    }
+                    
                     // For jump animation
                     //BitmapImage bm = new BitmapImage(new Uri(player.MeatboyImageJump, UriKind.RelativeOrAbsolute));
                     players[0].meatboyImage = player.MeatboyImageJump;
-
                     break;
                 case Key.Z:
                     mc.isUndoMode = !mc.isUndoMode;
@@ -197,6 +203,7 @@ namespace ExtremeSteakDude.ViewModel
                     break;
                 case Key.Space:
                     mc.jump = false;
+                    canJump = true;
                     // For jump animation
                     players[0].meatboyImage = player.MeatboyImageFront;
                     break;
