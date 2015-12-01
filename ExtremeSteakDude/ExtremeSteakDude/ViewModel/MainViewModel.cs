@@ -34,8 +34,9 @@ namespace ExtremeSteakDude.ViewModel
         public ICommand KeyDownCommand { get; }
         public ICommand KeyUpCommand { get; }
 
+        public ICommand ContinueCommand { get; }
 
-
+        public ICommand HighScoreCommand { get; }
         public ICommand ExitCommand { get; }
 
         public ICommand SaveHighscoreCommand { get; }
@@ -84,11 +85,25 @@ namespace ExtremeSteakDude.ViewModel
             highScores = new ObservableCollection<Model.HighScores>();
             highScores.Add(xml.HighScores);
 
+            ContinueCommand = new RelayCommand(Continue);
+            HighScoreCommand = new RelayCommand(HighScore);
             ExitCommand = new RelayCommand(Exit);
             SaveHighscoreCommand = new RelayCommand(SaveHighScore);
             SavePlayerCommand = new RelayCommand(SavePlayer);
             NewPlayerCommand = new RelayCommand(NewPlayer);
             LoadPlayerCommand = new RelayCommand(LoadPlayer);
+        }
+
+        private void Continue()
+        {
+            ContinueCommand Command = new ContinueCommand(players, xML);
+            Command.Execute();
+        }
+
+        private void HighScore()
+        {
+            HighScoreCommand Command = new HighScoreCommand();
+            Command.Execute();
         }
 
         private void Exit()
@@ -99,7 +114,7 @@ namespace ExtremeSteakDude.ViewModel
 
         private void LoadPlayer()
         {
-            LoadPlayerCommand Command = new LoadPlayerCommand(players, new XML());
+            ContinueCommand Command = new ContinueCommand(players, new XML());
             Command.Execute();
         }
         private void NewPlayer()

@@ -95,7 +95,7 @@
     <Compile Include="CommandGroup.cs" />
     <Compile Include="Commands\ExitCommand.cs" />
     <Compile Include="Commands\HighScoreCommand.cs" />
-    <Compile Include="Commands\LoadPlayerCommand.cs" />
+    <Compile Include="Commands\ContinueCommand.cs" />
     <Compile Include="Commands\NewPlayerCommand.cs" />
     <Compile Include="Commands\SaveHighScoreCommand.cs" />
     <Compile Include="Commands\IUndoRedoCommand.cs" />
@@ -211,6 +211,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="bin\Debug\ExtremeSteakDude.exe.config" />
+    <None Include="bin\Debug\ExtremeSteakDude.exe.lastcodeanalysissucceeded" />
+    <None Include="bin\Debug\ExtremeSteakDude.vshost.exe.config" />
+    <None Include="bin\Debug\ExtremeSteakDude.vshost.exe.manifest" />
+    <None Include="bin\Debug\Highscores" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -278,6 +283,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Meat_Feet_slow3.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\meatboy_invert.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\meatboy_front.jpg" />
+    <Resource Include="bin\DebugHighscores.xml" />
+    <Content Include="bin\Debug\ExtremeSteakDude.exe" />
+    <Resource Include="bin\Debug\ExtremeSteakDude.exe.CodeAnalysisLog.xml" />
+    <Content Include="bin\Debug\ExtremeSteakDude.pdb" />
+    <Content Include="bin\Debug\ExtremeSteakDude.vshost.exe" />
+    <Content Include="bin\Debug\GalaSoft.MvvmLight.dll" />
+    <Content Include="bin\Debug\GalaSoft.MvvmLight.Extras.dll" />
+    <Content Include="bin\Debug\GalaSoft.MvvmLight.Extras.pdb" />
+    <Resource Include="bin\Debug\GalaSoft.MvvmLight.Extras.xml" />
+    <Content Include="bin\Debug\GalaSoft.MvvmLight.pdb" />
+    <Content Include="bin\Debug\GalaSoft.MvvmLight.Platform.dll" />
+    <Content Include="bin\Debug\GalaSoft.MvvmLight.Platform.pdb" />
+    <Resource Include="bin\Debug\GalaSoft.MvvmLight.Platform.xml" />
+    <Resource Include="bin\Debug\GalaSoft.MvvmLight.xml" />
+    <Resource Include="bin\Debug\Highscores.xml" />
+    <Content Include="bin\Debug\Microsoft.Practices.ServiceLocation.dll" />
+    <Content Include="bin\Debug\Microsoft.Practices.ServiceLocation.pdb" />
+    <Resource Include="bin\Debug\Microsoft.Practices.ServiceLocation.xml" />
+    <Resource Include="bin\Debug\Player.xml" />
+    <Content Include="bin\Debug\System.Windows.Interactivity.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\Sounds\" />
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
