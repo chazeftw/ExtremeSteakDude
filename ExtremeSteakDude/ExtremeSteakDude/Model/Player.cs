@@ -117,7 +117,7 @@ namespace ExtremeSteakDude.Model
 
         public bool inAir { get; set; } = false;
         public bool onWallRight { get; set; } = false;
-        public bool onWallLeft { get; set; } = false;
+        public bool onWallLeft { get; set; } = false; 
         public bool hitRoof { get; set; } = false;
         public bool alive { get; set; } = true;
         public bool won { get; set; } = false;

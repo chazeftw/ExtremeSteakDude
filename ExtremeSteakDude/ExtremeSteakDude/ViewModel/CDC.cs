@@ -26,7 +26,7 @@ namespace ExtremeSteakDude.ViewModel
         {
             image = map.image;
             this.mc = mc;
-            backGround = image.GetPixel(200,200);
+            backGround = image.GetPixel(200, 200);
 
         }
 
@@ -34,7 +34,7 @@ namespace ExtremeSteakDude.ViewModel
         {
             rightFoot[0] = mc.p[0].x + 31 + mc.p[0].vx;
             rightFoot[1] = mc.p[0].y + 32 + mc.p[0].vy;
-            leftFoot[0] = mc.p[0].x  + 0 + mc.p[0].vx;
+            leftFoot[0] = mc.p[0].x + 0 + mc.p[0].vx;
             leftFoot[1] = mc.p[0].y + 32 + mc.p[0].vy;
 
             leftSideTop[0] = mc.p[0].x - 1 + mc.p[0].vx;
@@ -51,39 +51,43 @@ namespace ExtremeSteakDude.ViewModel
             rightTop[1] = mc.p[0].y - 1 + mc.p[0].vy;
             leftTop[0] = mc.p[0].x + 31 + mc.p[0].vx;
             leftTop[1] = mc.p[0].y - 1 + mc.p[0].vy;
-            
+
 
             if (image.GetPixel(rightFoot[0], rightFoot[1]) != backGround || image.GetPixel(leftFoot[0], leftFoot[1]) != backGround)
             {
                 mc.p[0].inAir = false;
-            }else
+            }
+            else
             {
                 mc.p[0].inAir = true;
             }
-            if (image.GetPixel(rightSideTop[0],rightSideTop[1]) != backGround || image.GetPixel(rightSideBot[0], rightSideBot[1]) != backGround)
+            if (image.GetPixel(rightSideTop[0], rightSideTop[1]) != backGround || image.GetPixel(rightSideBot[0], rightSideBot[1]) != backGround)
             {
                 mc.p[0].onWallRight = true;
-            }else
+            }
+            else
             {
                 mc.p[0].onWallRight = false;
             }
             if (image.GetPixel(leftSideTop[0], leftSideTop[1]) != backGround || image.GetPixel(leftSideBot[0], leftSideBot[1]) != backGround)
             {
                 mc.p[0].onWallLeft = true;
-            }else
+            }
+            else
             {
                 mc.p[0].onWallLeft = false;
             }
-            if(image.GetPixel(leftTop[0],leftTop[1]) != backGround || image.GetPixel(rightTop[0],rightTop[1]) != backGround)
+            if (image.GetPixel(leftTop[0], leftTop[1]) != backGround || image.GetPixel(rightTop[0], rightTop[1]) != backGround)
             {
                 mc.p[0].top = true;
-            }else
+            }
+            else
             {
                 mc.p[0].top = false;
             }
 
-            
-            if(mc.p[0].onWallLeft && mc.p[0].onWallRight && !mc.p[0].inAir)
+
+            if (mc.p[0].onWallLeft && mc.p[0].onWallRight && !mc.p[0].inAir)
             {
                 int i = 0;
                 while (image.GetPixel(leftSideBot[0], leftSideBot[1]) != backGround && image.GetPixel(rightSideBot[0], rightSideBot[1]) != backGround)
@@ -93,11 +97,11 @@ namespace ExtremeSteakDude.ViewModel
                     i++;
                 }
                 mc.p[0].vy = mc.p[0].vy - i;
-            } else if (mc.p[0].top && !mc.p[0].inAir)
+            }
+            else if (mc.p[0].top && !mc.p[0].inAir)
             {
                 if (mc.p[0].onWallLeft)
                 {
-                    Console.WriteLine("Left");
                     int i = 0;
                     while (image.GetPixel(leftTop[0], leftTop[1]) != backGround || image.GetPixel(leftFoot[0], leftFoot[1]) != backGround)
                     {
@@ -106,10 +110,10 @@ namespace ExtremeSteakDude.ViewModel
                         i++;
                     }
                     mc.p[0].vx = mc.p[0].vx + i;
-                }else if (mc.p[0].onWallRight)
+                }
+                else if (mc.p[0].onWallRight)
                 {
                     int i = 0;
-                    Console.WriteLine("Right");
                     while (image.GetPixel(rightTop[0], rightTop[1]) != backGround || image.GetPixel(rightFoot[0], rightFoot[1]) != backGround)
                     {
                         rightTop[0]--;
@@ -118,7 +122,8 @@ namespace ExtremeSteakDude.ViewModel
                     }
                     mc.p[0].vx = mc.p[0].vx - i;
                 }
-            } else if (mc.p[0].top && (mc.p[0].onWallLeft || mc.p[0].onWallRight))
+            }
+            else if (mc.p[0].top && (mc.p[0].onWallLeft || mc.p[0].onWallRight))
             {
                 int i = 0;
                 while (image.GetPixel(leftSideTop[0], leftSideTop[1]) != backGround || image.GetPixel(rightSideTop[0], rightSideTop[1]) != backGround)

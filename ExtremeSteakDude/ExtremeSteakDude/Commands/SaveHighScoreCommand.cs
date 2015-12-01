@@ -14,17 +14,17 @@ namespace ExtremeSteakDude.Commands
     {
         private XML xML;
         private String name;
-        private int score;
+        private TimeSpan score;
         private ObservableCollection<HighScores> highScores;
-        private int v;
 
 
-        public SaveHighScoreCommand(ObservableCollection<HighScores> highScores, XML xML, string name, int v)
+        public SaveHighScoreCommand(ObservableCollection<HighScores> highScores, XML xML, string name, TimeSpan score)
         {
             this.highScores = highScores;
             this.xML = xML;
             this.name = name;
-            this.v = v;
+            this.score = score;
+
         }
 
         public bool CanExecute(object parameter)
