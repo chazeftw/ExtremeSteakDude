@@ -121,6 +121,7 @@ namespace ExtremeSteakDude.Model
         public bool hitRoof { get; set; } = false;
         public bool alive { get; set; } = true;
         public bool won { get; set; } = false;
+        public bool top { get; set; } = false;
 
        
     }
