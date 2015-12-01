@@ -93,7 +93,6 @@ namespace ExtremeSteakDude.ViewModel
             SavePlayerCommand = new RelayCommand(SavePlayer);
             NewPlayerCommandLVL1 = new RelayCommand(NewPlayerLVL1);
             NewPlayerCommandLVL2 = new RelayCommand(NewPlayerLVL2);
-            LoadPlayerCommand = new RelayCommand(LoadPlayer);
         }
 
         private void Continue()
@@ -114,11 +113,6 @@ namespace ExtremeSteakDude.ViewModel
             Command.Execute();
         }
 
-        private void LoadPlayer()
-        {
-            ContinueCommand Command = new ContinueCommand(players, new XML());
-            Command.Execute();
-        }
         private void NewPlayerLVL1()
         {
             NewPlayerCommandLVL1 Command = new NewPlayerCommandLVL1(players);
