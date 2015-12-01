@@ -96,6 +96,7 @@
     <Compile Include="Commands\ExitCommand.cs" />
     <Compile Include="Commands\HighScoreCommand.cs" />
     <Compile Include="Commands\ContinueCommand.cs" />
+    <Compile Include="Commands\NewGameCommand.cs" />
     <Compile Include="Commands\NewPlayerCommandLVL1.cs" />
     <Compile Include="Commands\NewPlayerCommandLVL2.cs" />
     <Compile Include="Commands\SaveHighScoreCommand.cs" />
@@ -215,8 +216,6 @@
     <None Include="bin\Debug\ExtremeSteakDude.exe.config" />
     <None Include="bin\Debug\ExtremeSteakDude.exe.lastcodeanalysissucceeded" />
     <None Include="bin\Debug\ExtremeSteakDude.vshost.exe.config" />
-    <None Include="bin\Debug\ExtremeSteakDude.vshost.exe.manifest" />
-    <None Include="bin\Debug\Highscores" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -228,6 +227,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="bin\Debug\ExtremeSteakDude.exe.CodeAnalysisLog.xml" />
+    <Resource Include="bin\Debug\GalaSoft.MvvmLight.Extras.xml" />
+    <Resource Include="bin\Debug\GalaSoft.MvvmLight.Platform.xml" />
+    <Resource Include="bin\Debug\GalaSoft.MvvmLight.xml" />
+    <Resource Include="bin\Debug\Highscores.xml" />
+    <Resource Include="bin\Debug\Microsoft.Practices.ServiceLocation.xml" />
+    <Resource Include="bin\Debug\Player.xml" />
     <Resource Include="Levels\SMB first look.bmp" />
   </ItemGroup>
   <ItemGroup>
@@ -250,9 +256,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\meatboyjump.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\testbg.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Levels\level_1_1.bmp" />
@@ -290,30 +293,25 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\meatboy_front.jpg" />
-    <Resource Include="bin\DebugHighscores.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\Sounds\" />
+    <Folder Include="bin\Release\" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="bin\Debug\ExtremeSteakDude.exe" />
-    <Resource Include="bin\Debug\ExtremeSteakDude.exe.CodeAnalysisLog.xml" />
     <Content Include="bin\Debug\ExtremeSteakDude.pdb" />
     <Content Include="bin\Debug\ExtremeSteakDude.vshost.exe" />
     <Content Include="bin\Debug\GalaSoft.MvvmLight.dll" />
     <Content Include="bin\Debug\GalaSoft.MvvmLight.Extras.dll" />
     <Content Include="bin\Debug\GalaSoft.MvvmLight.Extras.pdb" />
-    <Resource Include="bin\Debug\GalaSoft.MvvmLight.Extras.xml" />
     <Content Include="bin\Debug\GalaSoft.MvvmLight.pdb" />
     <Content Include="bin\Debug\GalaSoft.MvvmLight.Platform.dll" />
     <Content Include="bin\Debug\GalaSoft.MvvmLight.Platform.pdb" />
-    <Resource Include="bin\Debug\GalaSoft.MvvmLight.Platform.xml" />
-    <Resource Include="bin\Debug\GalaSoft.MvvmLight.xml" />
-    <Resource Include="bin\Debug\Highscores.xml" />
     <Content Include="bin\Debug\Microsoft.Practices.ServiceLocation.dll" />
     <Content Include="bin\Debug\Microsoft.Practices.ServiceLocation.pdb" />
-    <Resource Include="bin\Debug\Microsoft.Practices.ServiceLocation.xml" />
-    <Resource Include="bin\Debug\Player.xml" />
     <Content Include="bin\Debug\System.Windows.Interactivity.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="bin\Debug\Sounds\" />
-    <Folder Include="bin\Release\" />
+    <Resource Include="Levels\level_1_1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

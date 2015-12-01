@@ -34,6 +34,5 @@ namespace ExtremeSteakDude.View
             e.Handled = true;
             //
         }
-
     }
 }
