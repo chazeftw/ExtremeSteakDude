@@ -39,7 +39,7 @@ namespace ExtremeSteakDude.ViewModel
         public ICommand HighScoreCommand { get; }
         public ICommand ExitCommand { get; }
 
-        public ICommand SaveHighscoreCommand { get; }
+        public ICommand SaveHighScoreCommand { get; }
         public ICommand SavePlayerCommand { get; }
 
         public ICommand NewPlayerCommandLVL1 { get; }
@@ -89,7 +89,7 @@ namespace ExtremeSteakDude.ViewModel
             ContinueCommand = new RelayCommand(Continue);
             HighScoreCommand = new RelayCommand(HighScore);
             ExitCommand = new RelayCommand(Exit);
-            SaveHighscoreCommand = new RelayCommand(SaveHighScore);
+            SaveHighScoreCommand = new RelayCommand(SaveHighScore);
             SavePlayerCommand = new RelayCommand(SavePlayer);
             NewPlayerCommandLVL1 = new RelayCommand(NewPlayerLVL1);
             NewPlayerCommandLVL2 = new RelayCommand(NewPlayerLVL2);

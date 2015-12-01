@@ -11,7 +11,7 @@
              mc:Ignorable="d ignore">
     
     <Application.Resources>
-
+        
         <DataTemplate DataType="{x:Type Model:HighScores}">
             <Canvas>
                 <View:HighScores/>
