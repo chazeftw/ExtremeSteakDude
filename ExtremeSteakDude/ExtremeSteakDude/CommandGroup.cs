@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace ExtremeSteakDude
-{
+{ 
     class CommandGroup
     {
         private ObservableCollection<ICommand> _commands;
