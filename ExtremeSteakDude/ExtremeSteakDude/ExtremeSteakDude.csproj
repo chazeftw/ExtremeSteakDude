@@ -292,8 +292,22 @@
     <Resource Include="Images\meatboy_front.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="bin\Debug\Sounds\" />
-    <Folder Include="bin\Release\" />
+    <Resource Include="Levels\level_1_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\meat_death0.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\meat_death1.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\meat_death2.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\meat_death3.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\meat_death4.wav" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Levels\level_1_1.jpg" />
@@ -310,6 +324,13 @@
     <Content Include="bin\Debug\Microsoft.Practices.ServiceLocation.dll" />
     <Content Include="bin\Debug\Microsoft.Practices.ServiceLocation.pdb" />
     <Content Include="bin\Debug\System.Windows.Interactivity.dll" />
+    <None Include="Resources\meat_death5.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\meat_death6.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\meat_death7.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
