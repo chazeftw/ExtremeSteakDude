@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace ExtremeSteakDude.ViewModel
 {
     class MovementController : IDisposable
-    { 
+    {
         public bool moveRight = false;
         public bool moveLeft = false;
         public bool jump = false;
@@ -25,12 +25,13 @@ namespace ExtremeSteakDude.ViewModel
         private UndoRedoController urc;
         private System.Diagnostics.Stopwatch timer;
 
-        private int movespeed = 7;
+        private int movespeed = 5;
         private int moveacc = 2;
-        private int fallspeed = 7;
+        private int fallspeed = 5;
         private int gravity = 1;
         private int jumpheight = 15;
-        private int tick = 10;
+        private int tick = 12;
+
         private MapNew currentlvl;
         private CollisionDetector coll;
         private TimeSpan offset;
@@ -74,15 +75,15 @@ namespace ExtremeSteakDude.ViewModel
             {
                 offset.Subtract(offset);
                 timer.Restart();
-            first = false;
+                first = false;
             }
             if (isUndoMode)
             {
                 timer.Stop();
                 if (moveLeft)
                 {
-                    urc.Undo();  
-                    
+                    urc.Undo();
+
                 }
                 else if (moveRight)
                 {
@@ -91,7 +92,7 @@ namespace ExtremeSteakDude.ViewModel
             }
             else
             {
-                
+
 
                 if (timer.IsRunning == false)
                 {
@@ -99,12 +100,12 @@ namespace ExtremeSteakDude.ViewModel
                     timer.Restart();
                 }
 
-                if (moveLeft && !moveRight && !p[0].onWallLeft)
+                if (moveLeft && !moveRight && !p[0].onWallLeft && !( p[0].onWallRight && p[0].inAir))
                 {
                     MoveLeft();
-                    
+
                 }
-                else if (moveRight && !moveLeft && !p[0].onWallRight)
+                else if (moveRight && !moveLeft && !p[0].onWallRight && !(p[0].onWallLeft && p[0].inAir))
                 {
                     MoveRight();
                 }
@@ -144,7 +145,7 @@ namespace ExtremeSteakDude.ViewModel
                         Jump();
                     }
                     else if (p[0].vy < fallspeed / 3)
-                        {
+                    {
                         if (15 - p[0].vy >= gravity)
                         {
                             p[0].vy = p[0].vy + gravity;
@@ -153,8 +154,8 @@ namespace ExtremeSteakDude.ViewModel
                         {
                             p[0].vy = fallspeed / 3;
                         }
-                        }
                     }
+                }
                 else if (p[0].inAir)
                 {
                     if (p[0].vy < fallspeed)
@@ -175,14 +176,14 @@ namespace ExtremeSteakDude.ViewModel
                 }
                 else
                 {
-                    p[0].vy = 0;   
+                    p[0].vy = 0;
                 }
                 cdc.check();
                 CheckWinDeath();
                 urc.AddAndExecute(new MomentumCommand(p, p[0].vx, p[0].vy, timer.Elapsed + offset));
-               // coll.CheckForCollision();
+                // coll.CheckForCollision();
             }
-          }
+        }
         private void Jump()
         {
             sc.playJumpSound();
@@ -262,6 +263,6 @@ namespace ExtremeSteakDude.ViewModel
         {
             moveTimer.Dispose();
         }
-        
+
     }
 }

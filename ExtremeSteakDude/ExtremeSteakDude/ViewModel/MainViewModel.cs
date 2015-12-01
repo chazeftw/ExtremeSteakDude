@@ -44,11 +44,15 @@ namespace ExtremeSteakDude.ViewModel
         public ICommand SaveHighScoreCommand { get; }
         public ICommand SavePlayerCommand { get; }
 
+        public ICommand MainMenuCommand { get; }
+
         public ICommand NewPlayerCommandLVL1 { get; }
         public ICommand NewPlayerCommandLVL2 { get; }
         public ICommand LoadPlayerCommand { get; }
 
         private string _welcomeTitle = string.Empty;
+        private bool canJump = true;
+
         public string name {get; set;}
 
         /// <summary>
@@ -92,12 +96,18 @@ namespace ExtremeSteakDude.ViewModel
             ContinueCommand = new RelayCommand(Continue);
             HighScoreCommand = new RelayCommand(HighScore);
             ExitCommand = new RelayCommand(Exit);
-            SaveHighScoreCommand = new RelayCommand(SaveHighScore);
+            SaveHighScoreCommand = new RelayCommand<String>(SaveHighScore);
+            MainMenuCommand = new RelayCommand(MainMenuC);
             SavePlayerCommand = new RelayCommand(SavePlayer);
             NewPlayerCommandLVL1 = new RelayCommand(NewPlayerLVL1);
             NewPlayerCommandLVL2 = new RelayCommand(NewPlayerLVL2);
         }
+        private void MainMenuC()
+        {
+            MainMenuCommand Command = new MainMenuCommand();
+            Command.Execute();
 
+        }
         private void NewGame()
         {
             NewGameCommand Command = new NewGameCommand();
@@ -139,10 +149,11 @@ namespace ExtremeSteakDude.ViewModel
             Command.Execute();
         }
 
-        private void SaveHighScore()
+        private void SaveHighScore(string obj)
         {
-            SaveHighScoreCommand Command = new SaveHighScoreCommand(highScores, new XML(), "", new TimeSpan());
+            SaveHighScoreCommand Command = new SaveHighScoreCommand(highScores, new XML(), obj, highScores[0].Score);
             Command.Execute();
+            NewGame();
         }
 
         private void KeyDown(KeyEventArgs e)
@@ -160,11 +171,15 @@ namespace ExtremeSteakDude.ViewModel
                     players[0].meatboyImage = player.MeatboyImageRight;
                     break;
                 case Key.Space:
-                    mc.jump = true;
+                    if (canJump)
+                    {
+                        mc.jump = true;
+                        canJump = false;
+                    }
+                    
                     // For jump animation
                     //BitmapImage bm = new BitmapImage(new Uri(player.MeatboyImageJump, UriKind.RelativeOrAbsolute));
                     players[0].meatboyImage = player.MeatboyImageJump;
-
                     break;
                 case Key.Z:
                     mc.isUndoMode = !mc.isUndoMode;
@@ -197,6 +212,7 @@ namespace ExtremeSteakDude.ViewModel
                     break;
                 case Key.Space:
                     mc.jump = false;
+                    canJump = true;
                     // For jump animation
                     players[0].meatboyImage = player.MeatboyImageFront;
                     break;

@@ -9,7 +9,7 @@
     <Grid>
         <Button x:Name="level1" Content="1" HorizontalAlignment="Left" Margin="484,354,0,0" VerticalAlignment="Top" Width="75" Command="{Binding NewPlayerCommandLVL1}"/>
         <Button x:Name="level2" Content="2" HorizontalAlignment="Left" Margin="724,354,0,0" VerticalAlignment="Top" Width="75" Command="{Binding NewPlayerCommandLVL2}"/>
-        <Button x:Name="Back" Content="Back" HorizontalAlignment="Left" Margin="533,580,0,0" VerticalAlignment="Top" Width="219" Command="{Binding LoadPlayerCommand}"/>
+        <Button x:Name="Back" Content="Back" HorizontalAlignment="Left" Margin="533,580,0,0" VerticalAlignment="Top" Width="219" Command="{Binding MainMenuCommand}"/>
         <TextBlock x:Name="textBlock" FontSize="52"  HorizontalAlignment="Left" Margin="470,200,0,0" TextWrapping="Wrap" Text="Level Selection" VerticalAlignment="Top" Height="80" Width="343"/>
 
     </Grid>
