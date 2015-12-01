@@ -31,7 +31,6 @@ namespace ExtremeSteakDude.ViewModel
         private int gravity = 1;
         private int jumpheight = 15;
         private int tick = 10;
-
         private MapNew currentlvl;
         private CollisionDetector coll;
         private TimeSpan offset;
@@ -76,17 +75,17 @@ namespace ExtremeSteakDude.ViewModel
             if (isUndoMode)
             {
                 timer.Stop();
-                if(moveLeft)
+                if (moveLeft)
                 {
-                    urc.Undo();  
-                    
-                }else if(moveRight)
+                    urc.Undo();
+
+                } else if (moveRight)
                 {
                     urc.Redo();
                 }
-            }else
+            } else
             {
-                
+
 
                 if (timer.IsRunning == false)
                 {
@@ -94,15 +93,15 @@ namespace ExtremeSteakDude.ViewModel
                     timer.Restart();
                 }
 
-                if(moveLeft && !moveRight && !p[0].onWallLeft)
+                if (moveLeft && !moveRight && !p[0].onWallLeft)
                 {
                     MoveLeft();
-                    
+
                 }
-                else if(moveRight && !moveLeft && !p[0].onWallRight)
+                else if (moveRight && !moveLeft && !p[0].onWallRight)
                 {
                     MoveRight();
-                }else
+                } else
                 {
                     if (p[0].vx > 0)
                     {
@@ -115,61 +114,61 @@ namespace ExtremeSteakDude.ViewModel
                         {
                             p[0].vx = 0;
                         }
-                    }else if (p[0].vx < -moveacc)
+                    } else if (p[0].vx < -moveacc)
                     {
                         if (p[0].onWallLeft) { p[0].vx = 0; }
                         else { p[0].vx = p[0].vx + moveacc; }
-                    }else
+                    } else
                     {
                         p[0].vx = 0;
                     }
                 }
-                if(p[0].top)
+                if (p[0].top)
                 {
                     if (p[0].vy > 0)
                         p[0].vy = 0;
                 }
-                if(p[0].inAir && (p[0].onWallLeft || p[0].onWallRight) && !jump )
+                if (p[0].inAir && (p[0].onWallLeft || p[0].onWallRight) && !jump)
                 {
-                    
-                        
-                    if (p[0].vy < 2*fallspeed/3)
+
+
+                    if (p[0].vy < 2 * fallspeed / 3)
                     {
-                        if (15 - p[0].vy >= 2*gravity/3)
+                        if (15 - p[0].vy >= 2 * gravity / 3)
                         {
-                            p[0].vy = p[0].vy + 2*gravity/3;
+                            p[0].vy = p[0].vy + 2 * gravity / 3;
                         }
                         else
                         {
-                            p[0].vy = 2*fallspeed/3;
+                            p[0].vy = 2 * fallspeed / 3;
                         }
                     }
-                }else if (p[0].inAir)
+                } else if (p[0].inAir)
                 {
-                    if(p[0].vy < fallspeed)
+                    if (p[0].vy < fallspeed)
                     {
                         if (15 - p[0].vy >= gravity)
                         {
-                            p[0].vy = p[0].vy +gravity ;
-                        }else
+                            p[0].vy = p[0].vy + gravity;
+                        } else
                         {
                             p[0].vy = fallspeed;
                         }
                     }
-                }else if (jump)
+                } else if (jump)
                 {
                     Jump();
                     jump = false;
-                }else
+                } else
                 {
-                    p[0].vy = 0;   
+                    p[0].vy = 0;
                 }
                 cdc.check();
+                CheckWinDeath();
                 urc.AddAndExecute(new MomentumCommand(p,p[0].vx,p[0].vy,timer.Elapsed+offset));
                // coll.CheckForCollision();
             }
           }
-
         private void Jump()
         {
             sc.playJumpSound();
@@ -217,6 +216,23 @@ namespace ExtremeSteakDude.ViewModel
                     p[0].vx = -movespeed;
                 }
             }
+        }
+
+        //check for death/win. Set new window accordingly
+        public void CheckWinDeath()
+        {
+            
+            if (p[0].won)
+            {
+            }
+            if (!p[0].alive)
+            {
+
+            }
+
+            var main = App.Current.MainWindow as MainWindow;
+            View.LevelSelect ls = new View.LevelSelect();
+            main.Content = ls;
         }
         public void Dispose()
         {
