@@ -91,7 +91,7 @@ namespace ExtremeSteakDude.ViewModel
             
             highScores = new ObservableCollection<Model.HighScores>();
             highScores.Add(xml.HighScores);
-            mc = new MovementController(players);
+            mc = new MovementController(players, highScores);
             NewGameCommand = new RelayCommand(NewGame);
             ContinueCommand = new RelayCommand(Continue);
             HighScoreCommand = new RelayCommand(HighScore);
