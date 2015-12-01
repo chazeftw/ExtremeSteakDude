@@ -178,6 +178,7 @@ namespace ExtremeSteakDude.ViewModel
                     p[0].vy = 0;   
                 }
                 cdc.check();
+                CheckWinDeath();
                 urc.AddAndExecute(new MomentumCommand(p, p[0].vx, p[0].vy, timer.Elapsed + offset));
                // coll.CheckForCollision();
             }
