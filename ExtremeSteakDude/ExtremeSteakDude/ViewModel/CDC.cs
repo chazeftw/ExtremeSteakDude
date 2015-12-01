@@ -18,6 +18,8 @@ namespace ExtremeSteakDude.ViewModel
         private int[] leftSideBot = new int[2];
         private int[] rightSideTop = new int[2];
         private int[] rightSideBot = new int[2];
+        private int[] rightTop = new int[2];
+        private int[] leftTop = new int[2];
         private Color backGround;
 
         public CDC(MovementController mc, MapNew map)
@@ -45,6 +47,12 @@ namespace ExtremeSteakDude.ViewModel
             rightSideBot[0] = mc.p.x + 32 + mc.p.vx;
             rightSideBot[1] = mc.p.y + 30 + mc.p.vy;
 
+            rightTop[0] = mc.p.x + mc.p.vx;
+            rightTop[1] = mc.p.y - 1 + mc.p.vy;
+            leftTop[0] = mc.p.x + 32 + mc.p.vx;
+            leftTop[1] = mc.p.y - 1 + mc.p.vy;
+
+
             if (image.GetPixel(rightFoot[0], rightFoot[1]) != backGround || image.GetPixel(leftFoot[0], leftFoot[1]) != backGround)
             {
                 mc.p.inAir = false;
@@ -66,21 +74,60 @@ namespace ExtremeSteakDude.ViewModel
             {
                 mc.p.onWallLeft = false;
             }
+            if(image.GetPixel(leftTop[0],leftTop[1]) != backGround || image.GetPixel(rightTop[0],rightTop[1]) != backGround)
+            {
+                mc.p.top = true;
+            }else
+            {
+                mc.p.top = false;
+            }
 
-            
-            if(mc.p.onWallLeft && mc.p.onWallRight)
+            if (mc.p.onWallLeft && mc.p.onWallRight)
             {
                 int i = 0;
-                while(image.GetPixel(leftSideBot[0], leftSideBot[1]) != backGround && image.GetPixel(rightSideBot[0], rightSideBot[1]) != backGround)
+                while (image.GetPixel(leftSideBot[0], leftSideBot[1]) != backGround && image.GetPixel(rightSideBot[0], rightSideBot[1]) != backGround)
                 {
                     leftSideBot[1]--;
                     rightSideBot[1]--;
                     i++;
                 }
                 mc.p.vy = mc.p.vy - i;
-            }
-            
+            } else if (mc.p.top && !mc.p.inAir)
+            {
+                if (mc.p.onWallLeft)
+                {
+                    int i = 0;
+                    while (image.GetPixel(leftTop[0], leftTop[1]) != backGround && image.GetPixel(leftFoot[0], leftFoot[1]) != backGround)
+                    {
+                        leftTop[0]++;
+                        leftFoot[0]++;
+                        i++;
+                    }
+                    mc.p.vx = mc.p.vx + i;
+                }
+                else if (mc.p.onWallRight)
+                {
+                    int i = 0;
+                    while (image.GetPixel(leftTop[0], leftTop[1]) != backGround && image.GetPixel(leftFoot[0], leftFoot[1]) != backGround)
+                    {
+                        rightTop[0]--;
+                        rightFoot[0]--;
+                        i--;
+                    }
+                    mc.p.vx = mc.p.vx - i;
+                }
 
+            } else if (image.GetPixel(leftSideTop[0], leftSideTop[1]) != backGround || image.GetPixel(rightSideTop[0], rightSideTop[1]) != backGround)
+            {
+                int i = 0;
+                while (image.GetPixel(leftSideTop[0], leftSideTop[1]) != backGround && image.GetPixel(rightSideTop[0], rightSideTop[1]) != backGround)
+                {
+                    leftSideTop[1]++;
+                    rightSideTop[1]++;
+                    i++;
+                }
+                mc.p.vy = mc.p.vy + i;
+            }
         }
     }
 }
