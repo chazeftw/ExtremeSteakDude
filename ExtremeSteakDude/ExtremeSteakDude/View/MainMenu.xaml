@@ -7,11 +7,15 @@
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280">
     <Grid>
-        <Button x:Name="NewGame" Content="NewGame" Margin="354,160,0,0" Command="{Binding NewPlayerCommand}" Click="NewGame_Click" />
-        <Button x:Name="Continue" Content="Continue" Margin="354,290,0,0" Click="Continue_Click"/>
-        <Button x:Name="HighScore" Content="HighScore" Margin="354,420,0,0" Click="HighScore_Click" />
-        <Button x:Name="Exit" Content="Exit" Margin="354,550,0,0" Click="Exit_Click"/>
-        <Button x:Name="Test" Content="Test" Margin="69,372,0,0" Click="Test_Click" Width="195" Height="89"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="13*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="NewGame" Content="NewGame" Margin="354,160,0,0"  Click="NewGame_Click" />
+        <Button x:Name="Continue" Content="Continue" Margin="354,38.134,0,0" Click="Continue_Click" Grid.Row="1"/>
+        <Button x:Name="HighScore" Content="HighScore" Margin="354,168.134,0,0" Click="HighScore_Click" Grid.Row="1" />
+        <Button x:Name="Exit" Content="Exit" Margin="354,298.134,0,0" Click="Exit_Click" Grid.Row="1"/>
+        <Button x:Name="Test" Content="Test" Margin="69,120.134,0,0" Click="Test_Click" Width="195" Height="89" Grid.Row="1"/>
 
     </Grid>
 </UserControl>

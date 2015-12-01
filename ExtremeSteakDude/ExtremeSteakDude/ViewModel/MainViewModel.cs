@@ -41,7 +41,8 @@ namespace ExtremeSteakDude.ViewModel
         public ICommand SaveHighscoreCommand { get; }
         public ICommand SavePlayerCommand { get; }
 
-        public ICommand NewPlayerCommand { get; }
+        public ICommand NewPlayerCommandLVL1 { get; }
+        public ICommand NewPlayerCommandLVL2 { get; }
         public ICommand LoadPlayerCommand { get; }
 
         private string _welcomeTitle = string.Empty;
@@ -87,7 +88,8 @@ namespace ExtremeSteakDude.ViewModel
 
             SaveHighscoreCommand = new RelayCommand(SaveHighScore);
             SavePlayerCommand = new RelayCommand(SavePlayer);
-            NewPlayerCommand = new RelayCommand(NewPlayer);
+            NewPlayerCommandLVL1 = new RelayCommand(NewPlayerLVL1);
+            NewPlayerCommandLVL2 = new RelayCommand(NewPlayerLVL2);
             LoadPlayerCommand = new RelayCommand(LoadPlayer);
         }
 
@@ -96,9 +98,15 @@ namespace ExtremeSteakDude.ViewModel
             LoadPlayerCommand Command = new LoadPlayerCommand(players, new XML());
             Command.Execute();
         }
-        private void NewPlayer()
+        private void NewPlayerLVL1()
         {
-            NewPlayerCommand Command = new NewPlayerCommand(players);
+            NewPlayerCommandLVL1 Command = new NewPlayerCommandLVL1(players);
+            Command.Execute();
+        }
+
+        private void NewPlayerLVL2()
+        {
+            NewPlayerCommandLVL2 Command = new NewPlayerCommandLVL2(players);
             Command.Execute();
         }
         private void SavePlayer()
@@ -118,9 +126,6 @@ namespace ExtremeSteakDude.ViewModel
             
             switch (e.Key)
             {
-                case Key.Enter:
-                    player = new Player();
-                    break;
                 case Key.Left:
                     mc.moveLeft = true;
                     //BitmapImage bm1 = new BitmapImage(new Uri(player.MeatboyImageInvert, UriKind.RelativeOrAbsolute));
