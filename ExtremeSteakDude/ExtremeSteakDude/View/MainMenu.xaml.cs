@@ -27,21 +27,6 @@ namespace ExtremeSteakDude.View
             InitializeComponent();
         }
 
-        /*private void HighScore_Click(object sender, RoutedEventArgs e)
-        {
-            // Show highscores
-            XML xML = new XML();
-            this.Content = new View.HighScores();
-            e.Handled = true;
-        }*/
-
-        private void NewGame_Click(object sender, RoutedEventArgs e)
-        {
-            
-            this.Content = new LevelSelect();
-            e.Handled = true;
-            
-        }
         private void Test_Click(object sender, RoutedEventArgs e)
         {
             //Show Enter highscore screen
