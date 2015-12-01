@@ -132,6 +132,7 @@ namespace ExtremeSteakDude.ViewModel
 
         private void SaveHighScore()
         {
+            Console.WriteLine("Diller");
             SaveHighScoreCommand Command = new SaveHighScoreCommand(highScores, new XML(), name, 0);
             Command.Execute();
         }

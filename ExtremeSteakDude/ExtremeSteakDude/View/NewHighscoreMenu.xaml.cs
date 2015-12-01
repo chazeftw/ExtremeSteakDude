@@ -34,23 +34,6 @@ namespace ExtremeSteakDude.View
             e.Handled = true;
             //
         }
-        private void Submit_Click(object sender, RoutedEventArgs e)
-        {
 
-
-            XML xML = new XML();
-
-            SubmitHighscoreButton.Visibility = Visibility.Hidden;
-            HighscoreNameInput.Visibility = Visibility.Hidden;
-            EnterName.Visibility = Visibility.Hidden;
-            NewHighscoreText.Visibility = Visibility.Hidden;
-            DisplayHighscore.Visibility = Visibility.Hidden;
-            SkipButton.Visibility = Visibility.Hidden;
-
-            //Show main menu screen
-            this.Content = new MainMenu();
-            e.Handled = true;
-            //
-        }
     }
 }
