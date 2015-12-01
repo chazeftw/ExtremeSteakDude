@@ -21,15 +21,5 @@ namespace ExtremeSteakDude.View
         {
             InitializeComponent();
         }
-
-        private void level1_Click(object sender, RoutedEventArgs e)
-        {
-            this.Content = new MainGame(Player.levelenum.one);
-        }
-
-        private void level2_Click(object sender, RoutedEventArgs e)
-        {
-            this.Content = new MainGame(Player.levelenum.two);
-        }
     }
 }

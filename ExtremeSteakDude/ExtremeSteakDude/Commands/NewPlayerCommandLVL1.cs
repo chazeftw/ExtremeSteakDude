@@ -23,6 +23,10 @@ namespace ExtremeSteakDude.Commands
         {
             this.players[0] = new Player();
             Console.WriteLine("NEW PLAYER");
+
+            var main = App.Current.MainWindow as MainWindow;
+            View.MainGame mg = new View.MainGame(Player.levelenum.one);
+            main.Content = mg;
         }
 
         public void Undo()
