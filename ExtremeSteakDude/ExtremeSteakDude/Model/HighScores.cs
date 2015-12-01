@@ -70,12 +70,10 @@ namespace ExtremeSteakDude.Model
                     case Player.levelenum.one:
                         {
                             return _Score1;
-                            break;
                         }
                     case Player.levelenum.two:
                         {
                             return _Score2;
-                            break;
                         }
                     default:
                         return defaultTS;
@@ -108,19 +106,16 @@ namespace ExtremeSteakDude.Model
         public  TimeSpan Score1 { get { return _Score2; } set { _Score1 = value; NotifyPropertyChanged(); } }
         public  TimeSpan Score2 { get { return _Score2; } set { _Score2 = value; NotifyPropertyChanged(); } }
        
-        public TimeSpan checkHighScore()
+        public TimeSpan getCurrentLvlHs()
         {
             switch (Player.level)
             {
                 case Player.levelenum.one:
                     return Score1;
-                    break;
                 case Player.levelenum.two:
                     return Score2;
-                    break;
                 default:
                     return defaultTS;
-                    break;
             }
         }
         

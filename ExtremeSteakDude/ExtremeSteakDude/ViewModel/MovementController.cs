@@ -36,10 +36,10 @@ namespace ExtremeSteakDude.ViewModel
         private TimeSpan offset;
         private CDC cdc;
         private SoundController sc;
+        private ObservableCollection<Model.HighScores> highScores;
 
-        
 
-        public MovementController(ObservableCollection<Player> p)
+        public MovementController(ObservableCollection<Player> p, ObservableCollection<Model.HighScores> highScores)
         {
             if (Player.level == Player.levelenum.one)
             {
@@ -61,7 +61,7 @@ namespace ExtremeSteakDude.ViewModel
             sc = new SoundController();
             //coll = new CollisionDetector(this, currentlvl);
             cdc = new CDC(this, currentlvl);
-
+            this.highScores = highScores;
         }
 
         private void Move()
@@ -238,10 +238,18 @@ namespace ExtremeSteakDude.ViewModel
             
             if (p[0].won)
             {
+                if(TimeSpan.Compare(timer.Elapsed, highScores[0].getCurrentLvlHs()) == -1)
+                {
+                    var hswin = App.Current.MainWindow as MainWindow;
+                    View.NewHighscore newhs = new View.NewHighscore();
+                    hswin.Content = newhs;
+                }
             }
             if (!p[0].alive)
             {
-
+                var gow = App.Current.MainWindow as MainWindow;
+                View.GameOverScreen gameover = new View.GameOverScreen();
+                gow.Content = gameover;
             }
 
             var main = App.Current.MainWindow as MainWindow;
