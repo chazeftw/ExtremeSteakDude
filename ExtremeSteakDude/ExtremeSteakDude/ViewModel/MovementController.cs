@@ -258,6 +258,7 @@ namespace ExtremeSteakDude.ViewModel
             var main = App.Current.MainWindow as MainWindow;
             View.LevelSelect ls = new View.LevelSelect();
             main.Content = ls;
+            // MAYBE DO A COMMAND HERE
         }
         public void Dispose()
         {
