@@ -39,7 +39,6 @@ namespace ExtremeSteakDude.View
         {
             var btn = sender as Button;
             btn.Command.Execute(btn.CommandParameter);
-            
             this.Content = new LevelSelect();
             e.Handled = true;
             

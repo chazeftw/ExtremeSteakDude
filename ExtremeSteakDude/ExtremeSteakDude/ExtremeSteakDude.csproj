@@ -97,6 +97,9 @@
     <Compile Include="Commands\HighScoreCommand.cs" />
     <Compile Include="Commands\ContinueCommand.cs" />
     <Compile Include="Commands\NewPlayerCommand.cs" />
+    <Compile Include="Commands\LoadPlayerCommand.cs" />
+    <Compile Include="Commands\NewPlayerCommandLVL1.cs" />
+    <Compile Include="Commands\NewPlayerCommandLVL2.cs" />
     <Compile Include="Commands\SaveHighScoreCommand.cs" />
     <Compile Include="Commands\IUndoRedoCommand.cs" />
     <Compile Include="Commands\JumpCommand.cs" />

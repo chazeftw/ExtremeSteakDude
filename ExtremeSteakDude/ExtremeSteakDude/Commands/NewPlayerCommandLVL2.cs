@@ -5,17 +5,19 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ExtremeSteakDude.Model;
 
 namespace ExtremeSteakDude.Commands
 {
-    class NewPlayerCommand : IUndoRedoCommand
-    { 
+    class NewPlayerCommandLVL2 : IUndoRedoCommand
+    {
         private ObservableCollection<Player> players;
 
 
-        public NewPlayerCommand(ObservableCollection<Player> players)
+        public NewPlayerCommandLVL2(ObservableCollection<Player> players)
         {
             this.players = players;
+            Player.level = Player.levelenum.two;
         }
 
         public void Execute()
