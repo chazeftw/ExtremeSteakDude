@@ -37,8 +37,6 @@ namespace ExtremeSteakDude.View
 
         private void NewGame_Click(object sender, RoutedEventArgs e)
         {
-            var btn = sender as Button;
-            btn.Command.Execute(btn.CommandParameter);
             
             this.Content = new LevelSelect();
             e.Handled = true;
