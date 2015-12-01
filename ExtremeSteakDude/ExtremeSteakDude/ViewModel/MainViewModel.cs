@@ -13,6 +13,7 @@ using ExtremeSteakDude.View;
 using System.Media;
 using System.Windows.Media;
 using System.Collections;
+using System.Windows.Controls;
 
 namespace ExtremeSteakDude.ViewModel
 {
@@ -80,7 +81,7 @@ namespace ExtremeSteakDude.ViewModel
             players = new ObservableCollection<Player>();
             player = xml.Player;
             players.Add(player);
-            mc = new MovementController(players);
+            
             
             KeyDownCommand = new RelayCommand<KeyEventArgs>(KeyDown);
             KeyUpCommand = new RelayCommand<KeyEventArgs>(KeyUp);
@@ -88,7 +89,7 @@ namespace ExtremeSteakDude.ViewModel
             
             highScores = new ObservableCollection<Model.HighScores>();
             highScores.Add(xml.HighScores);
-
+            mc = new MovementController(players, highScores);
             NewGameCommand = new RelayCommand(NewGame);
             ContinueCommand = new RelayCommand(Continue);
             HighScoreCommand = new RelayCommand(HighScore);
@@ -142,8 +143,7 @@ namespace ExtremeSteakDude.ViewModel
 
         private void SaveHighScore()
         {
-            Console.WriteLine("Diller");
-            SaveHighScoreCommand Command = new SaveHighScoreCommand(highScores, new XML(), name, 0);
+            SaveHighScoreCommand Command = new SaveHighScoreCommand(highScores, new XML(), "", new TimeSpan());
             Command.Execute();
         }
 

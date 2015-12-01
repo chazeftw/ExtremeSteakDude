@@ -15,6 +15,7 @@ namespace ExtremeSteakDude.ViewModel
         Random r = new Random();
         private List<System.IO.Stream> jumpSounds;
         private List<System.IO.Stream> movingSounds;
+        private List<System.IO.Stream> deathSounds;
         private int decider;
 
         public SoundController()
@@ -34,8 +35,19 @@ namespace ExtremeSteakDude.ViewModel
             movingSounds.Add(ExtremeSteakDude.Properties.Resources.Meat_Feet_slow2);
             movingSounds.Add(ExtremeSteakDude.Properties.Resources.Meat_Feet_slow3);
 
-            
+            deathSounds = new List<System.IO.Stream>();
+            deathSounds.Add(ExtremeSteakDude.Properties.Resources.meat_death0);
+            deathSounds.Add(ExtremeSteakDude.Properties.Resources.meat_death1);
+            deathSounds.Add(ExtremeSteakDude.Properties.Resources.meat_death2);
+            deathSounds.Add(ExtremeSteakDude.Properties.Resources.meat_death3);
+            deathSounds.Add(ExtremeSteakDude.Properties.Resources.meat_death4);
+            deathSounds.Add(ExtremeSteakDude.Properties.Resources.meat_death5);
+            deathSounds.Add(ExtremeSteakDude.Properties.Resources.meat_death6);
+            deathSounds.Add(ExtremeSteakDude.Properties.Resources.meat_death7);
+
         }
+
+        // Functions for playing sounds
 
         public void playJumpSound()
         {
@@ -53,5 +65,13 @@ namespace ExtremeSteakDude.ViewModel
             simpleSound.Stream.Position = 0;
         }
         
+        public void playDeathSound()
+        {
+            decider = r.Next(0, 8);
+            SoundPlayer simpleSound = new SoundPlayer(deathSounds[decider]);
+            simpleSound.Play();
+            simpleSound.Stream.Position = 0;
+        }
+
     }
 }

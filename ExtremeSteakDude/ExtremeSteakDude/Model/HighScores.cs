@@ -16,9 +16,11 @@ namespace ExtremeSteakDude.Model
 
 
         private  String _Name1="Dankmeister";
-        private  int _Score1 = 3; 
+        private  TimeSpan _Score1; 
         private  String _Name2 = "Eirik";
-        private  int _Score2 = 2;
+        private  TimeSpan _Score2;
+        private TimeSpan defaultTS = new TimeSpan(1, 0, 0);
+        
 
 
         public string Name
@@ -59,7 +61,7 @@ namespace ExtremeSteakDude.Model
                 NotifyPropertyChanged();
             }
         }
-        public int Score
+        public TimeSpan Score
         {
             get
             {
@@ -73,9 +75,10 @@ namespace ExtremeSteakDude.Model
                         {
                             return _Score2;
                         }
-
+                    default:
+                        return defaultTS;
                 }
-                return 0;
+                
             }
             set
             {
@@ -100,8 +103,24 @@ namespace ExtremeSteakDude.Model
         }
         public  String Name1 { get { return _Name1; } set { _Name1 = value; NotifyPropertyChanged(); } }
         public  String Name2 {get { return _Name2; }set { _Name2 = value; NotifyPropertyChanged(); } }
-        public  int Score1 { get { return _Score2; } set { _Score1 = value; NotifyPropertyChanged(); } }
-        public  int Score2 { get { return _Score2; } set { _Score2 = value; NotifyPropertyChanged(); } }
+        public  TimeSpan Score1 { get { return _Score2; } set { _Score1 = value; NotifyPropertyChanged(); } }
+        public  TimeSpan Score2 { get { return _Score2; } set { _Score2 = value; NotifyPropertyChanged(); } }
+       
+        public TimeSpan getCurrentLvlHs()
+        {
+            switch (Player.level)
+            {
+                case Player.levelenum.one:
+                    return Score1;
+                case Player.levelenum.two:
+                    return Score2;
+                default:
+                    return defaultTS;
+            }
+        }
+        
+        
+        
         /*
         private XmlSerializer ser = new XmlSerializer(typeof(DataSet));
         

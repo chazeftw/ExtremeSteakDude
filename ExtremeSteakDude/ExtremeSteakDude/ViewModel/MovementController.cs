@@ -37,10 +37,10 @@ namespace ExtremeSteakDude.ViewModel
         private TimeSpan offset;
         private CDC cdc;
         private SoundController sc;
+        private ObservableCollection<Model.HighScores> highScores;
 
 
-
-        public MovementController(ObservableCollection<Player> p)
+        public MovementController(ObservableCollection<Player> p, ObservableCollection<Model.HighScores> highScores)
         {
             if (Player.level == Player.levelenum.one)
             {
@@ -62,7 +62,7 @@ namespace ExtremeSteakDude.ViewModel
             sc = new SoundController();
             //coll = new CollisionDetector(this, currentlvl);
             cdc = new CDC(this, currentlvl);
-
+            this.highScores = highScores;
         }
 
         private void Move()
@@ -179,11 +179,11 @@ namespace ExtremeSteakDude.ViewModel
                     p[0].vy = 0;
                 }
                 cdc.check();
+                CheckWinDeath();
                 urc.AddAndExecute(new MomentumCommand(p, p[0].vx, p[0].vy, timer.Elapsed + offset));
                 // coll.CheckForCollision();
             }
         }
-
         private void Jump()
         {
             sc.playJumpSound();
@@ -232,6 +232,31 @@ namespace ExtremeSteakDude.ViewModel
                     p[0].vx = -movespeed;
                 }
             }
+        }
+
+        //check for death/win. Set new window accordingly
+        public void CheckWinDeath()
+        {
+            
+            if (p[0].won)
+            {
+                if(TimeSpan.Compare(timer.Elapsed, highScores[0].getCurrentLvlHs()) == -1)
+                {
+                    var hswin = App.Current.MainWindow as MainWindow;
+                    View.NewHighscore newhs = new View.NewHighscore();
+                    hswin.Content = newhs;
+                }
+            }
+            if (!p[0].alive)
+            {
+                var gow = App.Current.MainWindow as MainWindow;
+                View.GameOverScreen gameover = new View.GameOverScreen();
+                gow.Content = gameover;
+            }
+
+            var main = App.Current.MainWindow as MainWindow;
+            View.LevelSelect ls = new View.LevelSelect();
+            main.Content = ls;
         }
         public void Dispose()
         {
