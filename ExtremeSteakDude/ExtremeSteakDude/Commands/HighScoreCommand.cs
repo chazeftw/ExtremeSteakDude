@@ -23,13 +23,9 @@ namespace ExtremeSteakDude.Commands
         public void Execute()
         {
             // Show highscores
-
-            XML xML = new XML();
-            foreach (Window window in Application.Current.Windows)
-            {
-                window.Content = new View.HighScores();
-            }
-            
+            var main = App.Current.MainWindow as MainWindow;
+            View.HighScores hs = new View.HighScores();
+            main.Content = hs;
         }
 
         public void Undo()

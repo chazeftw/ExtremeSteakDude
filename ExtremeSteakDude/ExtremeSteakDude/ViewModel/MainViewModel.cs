@@ -34,8 +34,9 @@ namespace ExtremeSteakDude.ViewModel
         public ICommand KeyDownCommand { get; }
         public ICommand KeyUpCommand { get; }
 
+        public ICommand ContinueCommand { get; }
 
-
+        public ICommand HighScoreCommand { get; }
         public ICommand ExitCommand { get; }
 
         public ICommand SaveHighscoreCommand { get; }
@@ -85,12 +86,26 @@ namespace ExtremeSteakDude.ViewModel
             highScores = new ObservableCollection<Model.HighScores>();
             highScores.Add(xml.HighScores);
 
+            ContinueCommand = new RelayCommand(Continue);
+            HighScoreCommand = new RelayCommand(HighScore);
             ExitCommand = new RelayCommand(Exit);
             SaveHighscoreCommand = new RelayCommand(SaveHighScore);
             SavePlayerCommand = new RelayCommand(SavePlayer);
             NewPlayerCommandLVL1 = new RelayCommand(NewPlayerLVL1);
             NewPlayerCommandLVL2 = new RelayCommand(NewPlayerLVL2);
             LoadPlayerCommand = new RelayCommand(LoadPlayer);
+        }
+
+        private void Continue()
+        {
+            ContinueCommand Command = new ContinueCommand(players, xML);
+            Command.Execute();
+        }
+
+        private void HighScore()
+        {
+            HighScoreCommand Command = new HighScoreCommand();
+            Command.Execute();
         }
 
         private void Exit()
@@ -101,7 +116,7 @@ namespace ExtremeSteakDude.ViewModel
 
         private void LoadPlayer()
         {
-            LoadPlayerCommand Command = new LoadPlayerCommand(players, new XML());
+            ContinueCommand Command = new ContinueCommand(players, new XML());
             Command.Execute();
         }
         private void NewPlayerLVL1()
@@ -135,17 +150,17 @@ namespace ExtremeSteakDude.ViewModel
                 case Key.Left:
                     mc.moveLeft = true;
                     //BitmapImage bm1 = new BitmapImage(new Uri(player.MeatboyImageInvert, UriKind.RelativeOrAbsolute));
-                    player.meatboyImage = player.MeatboyImageLeft;
+                    players[0].meatboyImage = player.MeatboyImageLeft;
                     break;
                 case Key.Right:
                     mc.moveRight = true;
-                    player.meatboyImage = player.MeatboyImageRight;
+                    players[0].meatboyImage = player.MeatboyImageRight;
                     break;
                 case Key.Space:
                     mc.jump = true;
                     // For jump animation
                     //BitmapImage bm = new BitmapImage(new Uri(player.MeatboyImageJump, UriKind.RelativeOrAbsolute));
-                    player.meatboyImage = player.MeatboyImageJump;
+                    players[0].meatboyImage = player.MeatboyImageJump;
 
                     break;
                 case Key.Z:
@@ -171,16 +186,16 @@ namespace ExtremeSteakDude.ViewModel
             {
                 case Key.Left:
                     mc.moveLeft = false;
-                    player.meatboyImage = player.MeatboyImageLeft;
+                    players[0].meatboyImage = player.MeatboyImageLeft;
                     break;
                 case Key.Right:
                     mc.moveRight = false;
-                    player.meatboyImage = player.MeatboyImageRight;
+                    players[0].meatboyImage = player.MeatboyImageRight;
                     break;
                 case Key.Space:
                     mc.jump = false;
                     // For jump animation
-                    player.meatboyImage = player.MeatboyImageFront;
+                    players[0].meatboyImage = player.MeatboyImageFront;
                     break;
             }
         }

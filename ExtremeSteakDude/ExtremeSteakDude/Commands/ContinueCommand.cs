@@ -9,21 +9,30 @@ using System.Threading.Tasks;
 
 namespace ExtremeSteakDude.Commands
 {
-    class LoadPlayerCommand : IUndoRedoCommand
+    class ContinueCommand : IUndoRedoCommand
     {
         private XML xML;
         private ObservableCollection<Player> players;
 
 
-        public LoadPlayerCommand(ObservableCollection<Player> players, XML xML)
+        public ContinueCommand(ObservableCollection<Player> players, XML xML)
         {
             this.players = players;
             this.xML = xML;
         }
 
+        public ContinueCommand()
+        {
+        }
+
         public void Execute()
         {
             players[0] = xML.Player;
+
+            var main = App.Current.MainWindow as MainWindow;
+            View.MainGame mg = new View.MainGame(Player.level);
+            main.Content = mg;
+            
         }
 
         public void Undo()

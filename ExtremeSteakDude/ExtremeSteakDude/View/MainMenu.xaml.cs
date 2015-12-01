@@ -27,13 +27,13 @@ namespace ExtremeSteakDude.View
             InitializeComponent();
         }
 
-        private void HighScore_Click(object sender, RoutedEventArgs e)
+        /*private void HighScore_Click(object sender, RoutedEventArgs e)
         {
             // Show highscores
             XML xML = new XML();
             this.Content = new View.HighScores();
             e.Handled = true;
-        }
+        }*/
 
         private void NewGame_Click(object sender, RoutedEventArgs e)
         {
@@ -48,11 +48,6 @@ namespace ExtremeSteakDude.View
             this.Content = new NewHighscore();
             e.Handled = true;
             //
-        }
-
-        private void Continue_Click(object sender, RoutedEventArgs e)
-        {
-            this.Content = new MainGame(Player.level);
         }
     }
 }
