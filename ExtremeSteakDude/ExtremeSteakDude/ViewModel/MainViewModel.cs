@@ -118,23 +118,20 @@ namespace ExtremeSteakDude.ViewModel
             
             switch (e.Key)
             {
-                case Key.Enter:
-                    player = new Player();
-                    break;
                 case Key.Left:
                     mc.moveLeft = true;
                     //BitmapImage bm1 = new BitmapImage(new Uri(player.MeatboyImageInvert, UriKind.RelativeOrAbsolute));
-                    player.meatboyImage = player.MeatboyImageLeft;
+                    players[0].meatboyImage = player.MeatboyImageLeft;
                     break;
                 case Key.Right:
                     mc.moveRight = true;
-                    player.meatboyImage = player.MeatboyImageRight;
+                    players[0].meatboyImage = player.MeatboyImageRight;
                     break;
                 case Key.Space:
                     mc.jump = true;
                     // For jump animation
                     //BitmapImage bm = new BitmapImage(new Uri(player.MeatboyImageJump, UriKind.RelativeOrAbsolute));
-                    player.meatboyImage = player.MeatboyImageJump;
+                    players[0].meatboyImage = player.MeatboyImageJump;
 
                     break;
                 case Key.Z:
@@ -160,16 +157,16 @@ namespace ExtremeSteakDude.ViewModel
             {
                 case Key.Left:
                     mc.moveLeft = false;
-                    player.meatboyImage = player.MeatboyImageLeft;
+                    players[0].meatboyImage = player.MeatboyImageLeft;
                     break;
                 case Key.Right:
                     mc.moveRight = false;
-                    player.meatboyImage = player.MeatboyImageRight;
+                    players[0].meatboyImage = player.MeatboyImageRight;
                     break;
                 case Key.Space:
                     mc.jump = false;
                     // For jump animation
-                    player.meatboyImage = player.MeatboyImageFront;
+                    players[0].meatboyImage = player.MeatboyImageFront;
                     break;
             }
         }
