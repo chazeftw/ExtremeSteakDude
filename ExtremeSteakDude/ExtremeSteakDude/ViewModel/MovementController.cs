@@ -26,10 +26,10 @@ namespace ExtremeSteakDude.ViewModel
         private System.Diagnostics.Stopwatch timer;
 
         private int movespeed = 7;
-        private int moveacc = 3;
+        private int moveacc = 1;
         private int fallspeed = 7;
-        private int gravity = 3;
-        private int jumpheight = 25;
+        private int gravity = 1;
+        private int jumpheight = 15;
         private int tick = 10;
 
         private MapNew currentlvl;
