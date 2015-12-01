@@ -35,7 +35,7 @@ namespace ExtremeSteakDude.ViewModel
         private MapNew currentlvl;
         private CollisionDetector coll;
         private TimeSpan offset;
-        private CDC cdc;
+        //private CDC cdc;
         private SoundController sc;
 
         
@@ -61,7 +61,7 @@ namespace ExtremeSteakDude.ViewModel
             moveTimer = new Timer(x => Move(), null, 0, tick);
             sc = new SoundController();
             //coll = new CollisionDetector(this, currentlvl);
-            cdc = new CDC(this, currentlvl);
+            //cdc = new CDC(this, currentlvl);
 
         }
 
@@ -158,7 +158,7 @@ namespace ExtremeSteakDude.ViewModel
                 {
                     p[0].vy = 0;   
                 }
-                cdc.check();
+                //cdc.check();
                 urc.AddAndExecute(new MomentumCommand(p,p[0].vx,p[0].vy,timer.Elapsed+offset));
                // coll.CheckForCollision();
             }

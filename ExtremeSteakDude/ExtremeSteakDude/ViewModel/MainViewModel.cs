@@ -36,7 +36,7 @@ namespace ExtremeSteakDude.ViewModel
 
 
 
-
+        public ICommand ExitCommand { get; }
 
         public ICommand SaveHighscoreCommand { get; }
         public ICommand SavePlayerCommand { get; }
@@ -85,12 +85,18 @@ namespace ExtremeSteakDude.ViewModel
             highScores = new ObservableCollection<Model.HighScores>();
             highScores.Add(xml.HighScores);
 
-
+            ExitCommand = new RelayCommand(Exit);
             SaveHighscoreCommand = new RelayCommand(SaveHighScore);
             SavePlayerCommand = new RelayCommand(SavePlayer);
             NewPlayerCommandLVL1 = new RelayCommand(NewPlayerLVL1);
             NewPlayerCommandLVL2 = new RelayCommand(NewPlayerLVL2);
             LoadPlayerCommand = new RelayCommand(LoadPlayer);
+        }
+
+        private void Exit()
+        {
+            ExitCommand Command = new ExitCommand();
+            Command.Execute();
         }
 
         private void LoadPlayer()
