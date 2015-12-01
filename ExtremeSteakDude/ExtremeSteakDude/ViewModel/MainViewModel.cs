@@ -98,7 +98,7 @@ namespace ExtremeSteakDude.ViewModel
 
         private void Continue()
         {
-            ContinueCommand Command = new ContinueCommand(players, xML);
+            ContinueCommand Command = new ContinueCommand(players, new XML());
             Command.Execute();
         }
 
