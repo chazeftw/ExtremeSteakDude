@@ -248,11 +248,12 @@ namespace ExtremeSteakDude.ViewModel
             }
             if (!p[0].alive)
             {
+                sc.playDeathSound();
                 var gow = App.Current.MainWindow as MainWindow;
                 View.GameOverScreen gameover = new View.GameOverScreen();
                 gow.Content = gameover;
             }
-
+            
             var main = App.Current.MainWindow as MainWindow;
             View.LevelSelect ls = new View.LevelSelect();
             main.Content = ls;
