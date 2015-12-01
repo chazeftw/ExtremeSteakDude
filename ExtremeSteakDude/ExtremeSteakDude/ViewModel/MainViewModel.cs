@@ -44,6 +44,8 @@ namespace ExtremeSteakDude.ViewModel
         public ICommand SaveHighScoreCommand { get; }
         public ICommand SavePlayerCommand { get; }
 
+        public ICommand MainMenuCommand { get; }
+
         public ICommand NewPlayerCommandLVL1 { get; }
         public ICommand NewPlayerCommandLVL2 { get; }
         public ICommand LoadPlayerCommand { get; }
@@ -87,17 +89,23 @@ namespace ExtremeSteakDude.ViewModel
             
             highScores = new ObservableCollection<Model.HighScores>();
             highScores.Add(xml.HighScores);
-            mc = new MovementController(players, highScores);
+            mc = new MovementController(players);
             NewGameCommand = new RelayCommand(NewGame);
             ContinueCommand = new RelayCommand(Continue);
             HighScoreCommand = new RelayCommand(HighScore);
             ExitCommand = new RelayCommand(Exit);
-            SaveHighScoreCommand = new RelayCommand(SaveHighScore);
+            SaveHighScoreCommand = new RelayCommand<String>(SaveHighScore);
+            MainMenuCommand = new RelayCommand(MainMenuC);
             SavePlayerCommand = new RelayCommand(SavePlayer);
             NewPlayerCommandLVL1 = new RelayCommand(NewPlayerLVL1);
             NewPlayerCommandLVL2 = new RelayCommand(NewPlayerLVL2);
         }
+        private void MainMenuC()
+        {
+            MainMenuCommand Command = new MainMenuCommand();
+            Command.Execute();
 
+        }
         private void NewGame()
         {
             NewGameCommand Command = new NewGameCommand();
@@ -139,10 +147,11 @@ namespace ExtremeSteakDude.ViewModel
             Command.Execute();
         }
 
-        private void SaveHighScore()
+        private void SaveHighScore(string obj)
         {
-            SaveHighScoreCommand Command = new SaveHighScoreCommand(highScores, new XML(), "", new TimeSpan());
+            SaveHighScoreCommand Command = new SaveHighScoreCommand(highScores, new XML(), obj, highScores[0].Score);
             Command.Execute();
+            NewGame();
         }
 
         private void KeyDown(KeyEventArgs e)

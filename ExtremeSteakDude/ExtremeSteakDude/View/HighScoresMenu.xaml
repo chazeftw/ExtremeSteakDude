@@ -9,7 +9,7 @@
 
     
     <Grid>
-        <Button x:Name="Back" Content="Back" HorizontalAlignment="Left" Margin="354,581,0,0" VerticalAlignment="Top" Width="517"/>
+        <Button x:Name="Back" Content="Back" HorizontalAlignment="Left" Margin="354,581,0,0" VerticalAlignment="Top" Width="517" Command="{Binding MainMenuCommand}"/>
         <TextBlock x:Name="Level1" Text="Level1" FontSize="40" HorizontalAlignment="Left" Margin="213,138,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="Level2" Text="Level 2" FontSize="40" HorizontalAlignment="Left" Margin="874,138,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="Time1" Text="{Binding highScores[0].Score1}" FontSize="35" HorizontalAlignment="Left" Margin="118,206,0,0" VerticalAlignment="Top"/>

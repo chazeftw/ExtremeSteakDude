@@ -70,12 +70,10 @@ namespace ExtremeSteakDude.Model
                     case Player.levelenum.one:
                         {
                             return _Score1;
-                            break;
                         }
                     case Player.levelenum.two:
                         {
                             return _Score2;
-                            break;
                         }
                     default:
                         return defaultTS;
@@ -114,13 +112,10 @@ namespace ExtremeSteakDude.Model
             {
                 case Player.levelenum.one:
                     return Score1;
-                    break;
                 case Player.levelenum.two:
                     return Score2;
-                    break;
                 default:
                     return defaultTS;
-                    break;
             }
         }
         
