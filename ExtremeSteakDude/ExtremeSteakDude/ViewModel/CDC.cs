@@ -52,10 +52,10 @@ namespace ExtremeSteakDude.ViewModel
             leftTop[0] = mc.p[0].x + 31 + mc.p[0].vx;
             leftTop[1] = mc.p[0].y - 1 + mc.p[0].vy;
 
-
             if (image.GetPixel(rightFoot[0], rightFoot[1]) != backGround || image.GetPixel(leftFoot[0], leftFoot[1]) != backGround)
             {
                 mc.p[0].inAir = false;
+                Console.WriteLine(mc.p[0].onWallRight);
             }
             else
             {
@@ -87,7 +87,7 @@ namespace ExtremeSteakDude.ViewModel
             }
 
 
-            if (mc.p[0].onWallLeft && mc.p[0].onWallRight && !mc.p[0].inAir)
+            if (mc.p[0].onWallLeft & mc.p[0].onWallRight && !mc.p[0].inAir)
             {
                 int i = 0;
                 while (image.GetPixel(leftSideBot[0], leftSideBot[1]) != backGround && image.GetPixel(rightSideBot[0], rightSideBot[1]) != backGround)
@@ -122,8 +122,7 @@ namespace ExtremeSteakDude.ViewModel
                     }
                     mc.p[0].vx = mc.p[0].vx - i;
                 }
-            }
-            else if (mc.p[0].top && (mc.p[0].onWallLeft || mc.p[0].onWallRight))
+            }else if (mc.p[0].top && (mc.p[0].onWallLeft || mc.p[0].onWallRight))
             {
                 int i = 0;
                 while (image.GetPixel(leftSideTop[0], leftSideTop[1]) != backGround || image.GetPixel(rightSideTop[0], rightSideTop[1]) != backGround)
@@ -133,7 +132,15 @@ namespace ExtremeSteakDude.ViewModel
                     i++;
                 }
                 mc.p[0].vy = mc.p[0].vy + i;
-            }
+            }/*else if(!mc.p[0].inAir)
+            {
+                int i = 0;
+                while(image.GetPixel(mc.p[0].x,mc.p[0].y+31-i) != backGround || image.GetPixel(mc.p[0].x+31,mc.p[0].y+31-i) != backGround)
+                {
+                    i++;
+                }
+                mc.p[0].vy = mc.p[0].vy + i;
+            }*/
         }
     }
 }

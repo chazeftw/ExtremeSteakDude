@@ -106,7 +106,7 @@ namespace ExtremeSteakDude.Model
         public  TimeSpan Score1 { get { return _Score2; } set { _Score1 = value; NotifyPropertyChanged(); } }
         public  TimeSpan Score2 { get { return _Score2; } set { _Score2 = value; NotifyPropertyChanged(); } }
        
-        public TimeSpan checkHighScore()
+        public TimeSpan getCurrentLvlHs()
         {
             switch (Player.level)
             {

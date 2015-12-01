@@ -22,7 +22,7 @@ namespace ExtremeSteakDude.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resources {
+    internal class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace ExtremeSteakDude.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ExtremeSteakDude.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace ExtremeSteakDude.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace ExtremeSteakDude.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap backgroundjpeg {
+        internal static System.Drawing.Bitmap backgroundjpeg {
             get {
                 object obj = ResourceManager.GetObject("backgroundjpeg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -73,7 +73,7 @@ namespace ExtremeSteakDude.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap level_1_1 {
+        internal static System.Drawing.Bitmap level_1_1 {
             get {
                 object obj = ResourceManager.GetObject("level_1_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -83,7 +83,7 @@ namespace ExtremeSteakDude.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap lossbg {
+        internal static System.Drawing.Bitmap lossbg {
             get {
                 object obj = ResourceManager.GetObject("lossbg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -93,7 +93,79 @@ namespace ExtremeSteakDude.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        public static System.IO.UnmanagedMemoryStream Meat_Feet_slow0 {
+        internal static System.IO.UnmanagedMemoryStream meat_death0 {
+            get {
+                return ResourceManager.GetStream("meat_death0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream meat_death1 {
+            get {
+                return ResourceManager.GetStream("meat_death1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream meat_death2 {
+            get {
+                return ResourceManager.GetStream("meat_death2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream meat_death3 {
+            get {
+                return ResourceManager.GetStream("meat_death3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream meat_death4 {
+            get {
+                return ResourceManager.GetStream("meat_death4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream meat_death5 {
+            get {
+                return ResourceManager.GetStream("meat_death5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream meat_death6 {
+            get {
+                return ResourceManager.GetStream("meat_death6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream meat_death7 {
+            get {
+                return ResourceManager.GetStream("meat_death7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Meat_Feet_slow0 {
             get {
                 return ResourceManager.GetStream("Meat_Feet_slow0", resourceCulture);
             }
@@ -102,7 +174,7 @@ namespace ExtremeSteakDude.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        public static System.IO.UnmanagedMemoryStream Meat_Feet_slow1 {
+        internal static System.IO.UnmanagedMemoryStream Meat_Feet_slow1 {
             get {
                 return ResourceManager.GetStream("Meat_Feet_slow1", resourceCulture);
             }
@@ -111,7 +183,7 @@ namespace ExtremeSteakDude.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        public static System.IO.UnmanagedMemoryStream Meat_Feet_slow2 {
+        internal static System.IO.UnmanagedMemoryStream Meat_Feet_slow2 {
             get {
                 return ResourceManager.GetStream("Meat_Feet_slow2", resourceCulture);
             }
@@ -120,7 +192,7 @@ namespace ExtremeSteakDude.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        public static System.IO.UnmanagedMemoryStream Meat_Feet_slow3 {
+        internal static System.IO.UnmanagedMemoryStream Meat_Feet_slow3 {
             get {
                 return ResourceManager.GetStream("Meat_Feet_slow3", resourceCulture);
             }
@@ -129,7 +201,7 @@ namespace ExtremeSteakDude.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        public static System.IO.UnmanagedMemoryStream Meat_jumps0 {
+        internal static System.IO.UnmanagedMemoryStream Meat_jumps0 {
             get {
                 return ResourceManager.GetStream("Meat_jumps0", resourceCulture);
             }
@@ -138,7 +210,7 @@ namespace ExtremeSteakDude.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        public static System.IO.UnmanagedMemoryStream Meat_jumps1 {
+        internal static System.IO.UnmanagedMemoryStream Meat_jumps1 {
             get {
                 return ResourceManager.GetStream("Meat_jumps1", resourceCulture);
             }
@@ -147,7 +219,7 @@ namespace ExtremeSteakDude.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        public static System.IO.UnmanagedMemoryStream Meat_jumps2 {
+        internal static System.IO.UnmanagedMemoryStream Meat_jumps2 {
             get {
                 return ResourceManager.GetStream("Meat_jumps2", resourceCulture);
             }
@@ -156,7 +228,7 @@ namespace ExtremeSteakDude.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        public static System.IO.UnmanagedMemoryStream Meat_jumps3 {
+        internal static System.IO.UnmanagedMemoryStream Meat_jumps3 {
             get {
                 return ResourceManager.GetStream("Meat_jumps3", resourceCulture);
             }
@@ -165,7 +237,7 @@ namespace ExtremeSteakDude.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        public static System.IO.UnmanagedMemoryStream Meat_jumps4 {
+        internal static System.IO.UnmanagedMemoryStream Meat_jumps4 {
             get {
                 return ResourceManager.GetStream("Meat_jumps4", resourceCulture);
             }
