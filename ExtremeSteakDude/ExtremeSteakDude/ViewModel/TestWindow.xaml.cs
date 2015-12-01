@@ -26,7 +26,7 @@ namespace ExtremeSteakDude.ViewModel
         public TestWindow()
         {
             test.Add(new Player());
-            mc = new MovementController(test);
+            mc = new MovementController(test, highScores);
             InitializeComponent();
 
             DataContext = Player = new Player();
@@ -34,6 +34,7 @@ namespace ExtremeSteakDude.ViewModel
         ObservableCollection<Player> test = new ObservableCollection<Player>();
         
         MovementController mc;
+        private ObservableCollection<HighScores> highScores;
 
         private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
         {
