@@ -213,9 +213,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="bin\Debug\ExtremeSteakDude.exe.config" />
-    <None Include="bin\Debug\ExtremeSteakDude.exe.lastcodeanalysissucceeded" />
-    <None Include="bin\Debug\ExtremeSteakDude.vshost.exe.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -227,13 +224,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\Debug\ExtremeSteakDude.exe.CodeAnalysisLog.xml" />
-    <Resource Include="bin\Debug\GalaSoft.MvvmLight.Extras.xml" />
-    <Resource Include="bin\Debug\GalaSoft.MvvmLight.Platform.xml" />
-    <Resource Include="bin\Debug\GalaSoft.MvvmLight.xml" />
-    <Resource Include="bin\Debug\Highscores.xml" />
-    <Resource Include="bin\Debug\Microsoft.Practices.ServiceLocation.xml" />
-    <Resource Include="bin\Debug\Player.xml" />
     <Resource Include="Levels\SMB first look.bmp" />
   </ItemGroup>
   <ItemGroup>
@@ -295,23 +285,31 @@
     <Resource Include="Images\meatboy_front.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="bin\Debug\Sounds\" />
-    <Folder Include="bin\Release\" />
+    <Resource Include="Levels\level_1_1.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\Debug\ExtremeSteakDude.exe" />
-    <Content Include="bin\Debug\ExtremeSteakDude.pdb" />
-    <Content Include="bin\Debug\ExtremeSteakDude.vshost.exe" />
-    <Content Include="bin\Debug\GalaSoft.MvvmLight.dll" />
-    <Content Include="bin\Debug\GalaSoft.MvvmLight.Extras.dll" />
-    <Content Include="bin\Debug\GalaSoft.MvvmLight.Extras.pdb" />
-    <Content Include="bin\Debug\GalaSoft.MvvmLight.pdb" />
-    <Content Include="bin\Debug\GalaSoft.MvvmLight.Platform.dll" />
-    <Content Include="bin\Debug\GalaSoft.MvvmLight.Platform.pdb" />
-    <Content Include="bin\Debug\Microsoft.Practices.ServiceLocation.dll" />
-    <Content Include="bin\Debug\Microsoft.Practices.ServiceLocation.pdb" />
-    <Content Include="bin\Debug\System.Windows.Interactivity.dll" />
-    <Resource Include="Levels\level_1_1.jpg" />
+    <None Include="Resources\meat_death0.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\meat_death1.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\meat_death2.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\meat_death3.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\meat_death4.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\meat_death5.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\meat_death6.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\meat_death7.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
