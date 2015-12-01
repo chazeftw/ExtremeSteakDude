@@ -26,7 +26,7 @@ namespace ExtremeSteakDude.ViewModel
         private System.Diagnostics.Stopwatch timer;
 
         private int movespeed = 7;
-        private int moveacc = 1;
+        private int moveacc = 2;
         private int fallspeed = 7;
         private int gravity = 1;
         private int jumpheight = 15;
@@ -70,22 +70,28 @@ namespace ExtremeSteakDude.ViewModel
             {
                 return;
             }
+            if (first)
+            {
+                offset.Subtract(offset);
+                timer.Restart();
             first = false;
-
+            }
             if (isUndoMode)
             {
                 timer.Stop();
                 if (moveLeft)
                 {
-                    urc.Undo();
-
-                } else if (moveRight)
+                    urc.Undo();  
+                    
+                }
+                else if (moveRight)
                 {
                     urc.Redo();
                 }
-            } else
+            }
+            else
             {
-
+                
 
                 if (timer.IsRunning == false)
                 {
@@ -96,12 +102,13 @@ namespace ExtremeSteakDude.ViewModel
                 if (moveLeft && !moveRight && !p[0].onWallLeft)
                 {
                     MoveLeft();
-
+                    
                 }
                 else if (moveRight && !moveLeft && !p[0].onWallRight)
                 {
                     MoveRight();
-                } else
+                }
+                else
                 {
                     if (p[0].vx > 0)
                     {
@@ -114,11 +121,13 @@ namespace ExtremeSteakDude.ViewModel
                         {
                             p[0].vx = 0;
                         }
-                    } else if (p[0].vx < -moveacc)
+                    }
+                    else if (p[0].vx < -moveacc)
                     {
                         if (p[0].onWallLeft) { p[0].vx = 0; }
                         else { p[0].vx = p[0].vx + moveacc; }
-                    } else
+                    }
+                    else
                     {
                         p[0].vx = 0;
                     }
@@ -128,66 +137,69 @@ namespace ExtremeSteakDude.ViewModel
                     if (p[0].vy > 0)
                         p[0].vy = 0;
                 }
-                if (p[0].inAir && (p[0].onWallLeft || p[0].onWallRight) && !jump)
+                if (p[0].inAir && (p[0].onWallLeft || p[0].onWallRight))
                 {
-
-
-                    if (p[0].vy < 2 * fallspeed / 3)
+                    if (jump)
                     {
-                        if (15 - p[0].vy >= 2 * gravity / 3)
+                        Jump();
+                    }
+                    else if (p[0].vy < fallspeed / 3)
                         {
-                            p[0].vy = p[0].vy + 2 * gravity / 3;
+                        if (15 - p[0].vy >= gravity)
+                        {
+                            p[0].vy = p[0].vy + gravity;
                         }
                         else
                         {
-                            p[0].vy = 2 * fallspeed / 3;
+                            p[0].vy = fallspeed / 3;
+                        }
                         }
                     }
-                } else if (p[0].inAir)
+                else if (p[0].inAir)
                 {
                     if (p[0].vy < fallspeed)
                     {
                         if (15 - p[0].vy >= gravity)
                         {
                             p[0].vy = p[0].vy + gravity;
-                        } else
+                        }
+                        else
                         {
                             p[0].vy = fallspeed;
                         }
                     }
-                } else if (jump)
+                }
+                else if (jump)
                 {
                     Jump();
-                    jump = false;
-                } else
+                }
+                else
                 {
-                    p[0].vy = 0;
+                    p[0].vy = 0;   
                 }
                 cdc.check();
-                CheckWinDeath();
-                urc.AddAndExecute(new MomentumCommand(p,p[0].vx,p[0].vy,timer.Elapsed+offset));
+                urc.AddAndExecute(new MomentumCommand(p, p[0].vx, p[0].vy, timer.Elapsed + offset));
                // coll.CheckForCollision();
             }
           }
         private void Jump()
         {
             sc.playJumpSound();
-            if (p[0].onWallRight && p[0].inAir)
+            if (p[0].onWallRight)
             {
                 p[0].vx = -jumpheight;
                 p[0].vy = -jumpheight;
-                p[0].onWallRight = false;
-            }else if (p[0].onWallLeft && p[0].inAir)
+            }
+            else if (p[0].onWallLeft)
             {
                 p[0].vx = jumpheight;
                 p[0].vy = -jumpheight;
-                p[0].onWallLeft = false;
-            }else
+            }
+            else
             {
                 p[0].vy = -jumpheight;
-                p[0].inAir = true;
             }
-
+            jump = false;
 
         }
 
@@ -195,15 +207,17 @@ namespace ExtremeSteakDude.ViewModel
         {
             if (p[0].vx < movespeed)
             {
-                if(10 - p[0].vx <= moveacc)
+                if (10 - p[0].vx <= moveacc)
                 {
                     p[0].vx = p[0].vx + moveacc;
-                }else
+                }
+                else
                 {
                     p[0].vx = movespeed;
                 }
             }
-        }private void MoveLeft()
+        }
+        private void MoveLeft()
         {
             if (p[0].vx > -movespeed)
             {

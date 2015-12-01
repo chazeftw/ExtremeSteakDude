@@ -14,11 +14,11 @@ namespace ExtremeSteakDude.Commands
     {
         private XML xML;
         private String name;
-        private int score;
+        private TimeSpan score;
         private ObservableCollection<HighScores> highScores;
 
 
-        public SaveHighScoreCommand(ObservableCollection<HighScores> highScores, XML xML, string name, int score)
+        public SaveHighScoreCommand(ObservableCollection<HighScores> highScores, XML xML, string name, TimeSpan score)
         {
             this.highScores = highScores;
             this.xML = xML;
@@ -37,9 +37,6 @@ namespace ExtremeSteakDude.Commands
             highScores[0].Name = name;
             highScores[0].Score = score;
             xML.HighScores = highScores[0];
-            Console.WriteLine("SAVED HIGHSCORE");
-
-
         }
 
         public void Undo()
