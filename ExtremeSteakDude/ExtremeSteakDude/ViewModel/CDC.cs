@@ -32,26 +32,26 @@ namespace ExtremeSteakDude.ViewModel
 
         public void check()
         {
-            rightFoot[0] = mc.p[0].x + 30 + mc.p[0].vx;
+            rightFoot[0] = mc.p[0].x + 31 + mc.p[0].vx;
             rightFoot[1] = mc.p[0].y + 32 + mc.p[0].vy;
-            leftFoot[0] = mc.p[0].x + 1 + mc.p[0].vx;
+            leftFoot[0] = mc.p[0].x  + 0 + mc.p[0].vx;
             leftFoot[1] = mc.p[0].y + 32 + mc.p[0].vy;
 
             leftSideTop[0] = mc.p[0].x - 1 + mc.p[0].vx;
-            leftSideTop[1] = mc.p[0].y + 1 + mc.p[0].vy;
+            leftSideTop[1] = mc.p[0].y + 0 + mc.p[0].vy;
             leftSideBot[0] = mc.p[0].x - 1 + mc.p[0].vx;
-            leftSideBot[1] = mc.p[0].y + 30 + mc.p[0].vy;
+            leftSideBot[1] = mc.p[0].y + 31 + mc.p[0].vy;
 
             rightSideTop[0] = mc.p[0].x + 32 + mc.p[0].vx;
-            rightSideTop[1] = mc.p[0].y + 1 + mc.p[0].vy;
+            rightSideTop[1] = mc.p[0].y + 0 + mc.p[0].vy;
             rightSideBot[0] = mc.p[0].x + 32 + mc.p[0].vx;
-            rightSideBot[1] = mc.p[0].y + 30 + mc.p[0].vy;
+            rightSideBot[1] = mc.p[0].y + 31 + mc.p[0].vy;
 
             rightTop[0] = mc.p[0].x + mc.p[0].vx;
             rightTop[1] = mc.p[0].y - 1 + mc.p[0].vy;
-            leftTop[0] = mc.p[0].x + 32 + mc.p[0].vx;
+            leftTop[0] = mc.p[0].x + 31 + mc.p[0].vx;
             leftTop[1] = mc.p[0].y - 1 + mc.p[0].vy;
-
+            
 
             if (image.GetPixel(rightFoot[0], rightFoot[1]) != backGround || image.GetPixel(leftFoot[0], leftFoot[1]) != backGround)
             {
@@ -83,7 +83,7 @@ namespace ExtremeSteakDude.ViewModel
             }
 
             
-            if(mc.p[0].onWallLeft && mc.p[0].onWallRight)
+            if(mc.p[0].onWallLeft && mc.p[0].onWallRight && !mc.p[0].inAir)
             {
                 int i = 0;
                 while (image.GetPixel(leftSideBot[0], leftSideBot[1]) != backGround && image.GetPixel(rightSideBot[0], rightSideBot[1]) != backGround)
@@ -97,31 +97,31 @@ namespace ExtremeSteakDude.ViewModel
             {
                 if (mc.p[0].onWallLeft)
                 {
+                    Console.WriteLine("Left");
                     int i = 0;
-                    while (image.GetPixel(leftTop[0], leftTop[1]) != backGround && image.GetPixel(leftFoot[0], leftFoot[1]) != backGround)
+                    while (image.GetPixel(leftTop[0], leftTop[1]) != backGround || image.GetPixel(leftFoot[0], leftFoot[1]) != backGround)
                     {
                         leftTop[0]++;
                         leftFoot[0]++;
                         i++;
                     }
                     mc.p[0].vx = mc.p[0].vx + i;
-                }
-                else if (mc.p[0].onWallRight)
+                }else if (mc.p[0].onWallRight)
                 {
                     int i = 0;
-                    while (image.GetPixel(leftTop[0], leftTop[1]) != backGround && image.GetPixel(leftFoot[0], leftFoot[1]) != backGround)
+                    Console.WriteLine("Right");
+                    while (image.GetPixel(rightTop[0], rightTop[1]) != backGround || image.GetPixel(rightFoot[0], rightFoot[1]) != backGround)
                     {
                         rightTop[0]--;
                         rightFoot[0]--;
                         i++;
                     }
                     mc.p[0].vx = mc.p[0].vx - i;
-            }
-            
-            } else if (image.GetPixel(leftSideTop[0], leftSideTop[1]) != backGround || image.GetPixel(rightSideTop[0], rightSideTop[1]) != backGround)
+                }
+            } else if (mc.p[0].top && (mc.p[0].onWallLeft || mc.p[0].onWallRight))
             {
                 int i = 0;
-                while (image.GetPixel(leftSideTop[0], leftSideTop[1]) != backGround && image.GetPixel(rightSideTop[0], rightSideTop[1]) != backGround)
+                while (image.GetPixel(leftSideTop[0], leftSideTop[1]) != backGround || image.GetPixel(rightSideTop[0], rightSideTop[1]) != backGround)
                 {
                     leftSideTop[1]++;
                     rightSideTop[1]++;
