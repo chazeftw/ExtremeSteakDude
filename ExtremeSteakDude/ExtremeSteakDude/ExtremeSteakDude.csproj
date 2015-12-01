@@ -92,12 +92,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CommandGroup.cs" />
+    <Compile Include="Commands\LoadPlayerCommand.cs" />
+    <Compile Include="Commands\NewPlayerCommand.cs" />
     <Compile Include="Commands\SaveHighScoreCommand.cs" />
     <Compile Include="Commands\IUndoRedoCommand.cs" />
     <Compile Include="Commands\JumpCommand.cs" />
     <Compile Include="Commands\MomentumCommand.cs" />
     <Compile Include="Commands\MoveLeftCommand.cs" />
     <Compile Include="Commands\MoveRightCommand.cs" />
+    <Compile Include="Commands\SavePlayerCommand.cs" />
     <Compile Include="Commands\UndoRedoController.cs" />
     <Compile Include="Design\DesignDataService.cs" />
     <Compile Include="GlobalSuppressions.cs" />
@@ -115,7 +119,6 @@
     <Compile Include="Constants\Const.cs" />
     <Compile Include="Serialization\SerializerXML.cs" />
     <Compile Include="Serialization\XML.cs" />
-    <Compile Include="ViewModel\CDC.cs" />
     <Compile Include="ViewModel\CollisionDetector.cs" />
     <Compile Include="ViewModel\GameController.cs" />
     <Compile Include="ViewModel\MovementController.cs" />
@@ -202,7 +205,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
+      <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -243,7 +246,7 @@
     <Resource Include="Images\testbg.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <CodeAnalysisDictionary Include="Levels\level_1_1.bmp" />
+    <Resource Include="Levels\level_1_1.bmp" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\backgroundjpeg.jpg" />
@@ -272,18 +275,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Meat_Feet_slow3.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\meatboy_invert.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\meatboy_front.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lossbg.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Levels\level_1_1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

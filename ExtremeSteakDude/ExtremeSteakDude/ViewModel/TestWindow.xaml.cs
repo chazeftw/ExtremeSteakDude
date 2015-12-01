@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ExtremeSteakDude.Model;
+using System.Collections.ObjectModel;
 
 namespace ExtremeSteakDude.ViewModel
 {
@@ -24,12 +25,15 @@ namespace ExtremeSteakDude.ViewModel
 
         public TestWindow()
         {
+            test.Add(new Player());
+            mc = new MovementController(test);
             InitializeComponent();
 
             DataContext = Player = new Player();
         }
-
-        MovementController mc = new MovementController(new Player());
+        ObservableCollection<Player> test = new ObservableCollection<Player>();
+        
+        MovementController mc;
 
         private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
         {

@@ -28,7 +28,6 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-    <ItemsControl ItemsSource="{Binding Lines}"/>
 
 
 
