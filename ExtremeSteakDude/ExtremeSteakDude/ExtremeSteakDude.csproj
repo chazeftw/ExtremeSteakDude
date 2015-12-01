@@ -258,9 +258,6 @@
     <Resource Include="Images\meatboyjump.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\testbg.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Levels\level_1_1.bmp" />
   </ItemGroup>
   <ItemGroup>
