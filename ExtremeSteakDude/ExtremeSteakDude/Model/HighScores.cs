@@ -16,9 +16,9 @@ namespace ExtremeSteakDude.Model
 
 
         private  String _Name1="Dankmeister";
-        private  int _Score1=2; 
-        private  String _Name2;
-        private  int _Score2;
+        private  int _Score1 = 3; 
+        private  String _Name2 = "Eirik";
+        private  int _Score2 = 2;
 
 
         public string Name

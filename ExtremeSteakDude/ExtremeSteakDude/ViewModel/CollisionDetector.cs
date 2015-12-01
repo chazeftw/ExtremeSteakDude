@@ -20,8 +20,8 @@ namespace ExtremeSteakDude.ViewModel
         {
             this.map = map;
             this.mc = mc;
-            playerRec.X = mc.p.x ;
-            playerRec.Y = mc.p.y;
+            playerRec.X = mc.p[0].x ;
+            playerRec.Y = mc.p[0].y;
         }
 
     
@@ -32,14 +32,14 @@ namespace ExtremeSteakDude.ViewModel
             
 
             // Creating a rectangle representation of the player, to check for collision with other rectangle objects
-            playerRec.X = mc.p.x;
-            playerRec.Y = mc.p.y;
+            playerRec.X = mc.p[0].x;
+            playerRec.Y = mc.p[0].y;
             playerRec.Height = Constants.Const.PLAYERHEIGHT;
             playerRec.Width = Constants.Const.PLAYERWIDTH;
 
             if (map.goal.IntersectsWith(playerRec))
             {
-                mc.p.won = true;
+                mc.p[0].won = true;
                 return;
             }
 
@@ -61,7 +61,7 @@ namespace ExtremeSteakDude.ViewModel
                     botright = true;
                 if(topleft || topright || botleft || botright)
                 {
-                    mc.p.alive = false;
+                    mc.p[0].alive = false;
                     topleft = false;
                     topright = false;
                     botleft = false;
@@ -76,8 +76,8 @@ namespace ExtremeSteakDude.ViewModel
             }
 
             // adding players vectors to squared coordinate, to check for the next frame, so that player doesn't end up stuck in an object
-            playerRec.X += mc.p.vx;
-            playerRec.Y += mc.p.vy;
+            playerRec.X += mc.p[0].vx;
+            playerRec.Y += mc.p[0].vy;
 
             foreach (Rectangle r in map.objectorinos)
             {
@@ -94,21 +94,21 @@ namespace ExtremeSteakDude.ViewModel
             }
             //Setting players parameters accordingly
             if (botright && botleft)
-                mc.p.inAir = false;
+                mc.p[0].inAir = false;
             else
-                mc.p.inAir = true;
+                mc.p[0].inAir = true;
             if (botright && topright)
-                mc.p.onWallRight = true;
+                mc.p[0].onWallRight = true;
             else
-                mc.p.onWallRight = false;
+                mc.p[0].onWallRight = false;
             if (botleft && topleft)
-                mc.p.onWallLeft = true;
+                mc.p[0].onWallLeft = true;
             else
-                mc.p.onWallLeft = false;
+                mc.p[0].onWallLeft = false;
             if (topright && botright)
-                mc.p.hitRoof = true;
+                mc.p[0].hitRoof = true;
             else
-                mc.p.hitRoof = false;
+                mc.p[0].hitRoof = false;
 
             GC.Collect();
         }

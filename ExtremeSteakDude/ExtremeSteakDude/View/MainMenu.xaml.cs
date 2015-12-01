@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ExtremeSteakDude.Serialization;
+using ExtremeSteakDude.Model;
 
 namespace ExtremeSteakDude.View
 {
@@ -41,17 +42,24 @@ namespace ExtremeSteakDude.View
 
         private void NewGame_Click(object sender, RoutedEventArgs e)
         {
+            var btn = sender as Button;
+            btn.Command.Execute(btn.CommandParameter);
+            
             this.Content = new LevelSelect();
+            e.Handled = true;
+            
+        }
+        private void Test_Click(object sender, RoutedEventArgs e)
+        {
+            //Show Enter highscore screen
+            this.Content = new NewHighscore();
             e.Handled = true;
             //
         }
 
         private void Continue_Click(object sender, RoutedEventArgs e)
         {
-            //Show Enter highscore screen
-            this.Content = new NewHighscore();
-            e.Handled = true;
-            //
+            this.Content = new MainGame(Player.level);
         }
     }
 }

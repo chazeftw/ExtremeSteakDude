@@ -30,45 +30,45 @@ namespace ExtremeSteakDude.ViewModel
 
         public void check()
         {
-            rightFoot[0] = mc.p.x + 30 + mc.p.vx;
-            rightFoot[1] = mc.p.y + 32 + mc.p.vy;
-            leftFoot[0] = mc.p.x + 1 + mc.p.vx;
-            leftFoot[1] = mc.p.y + 32 + mc.p.vy;
+            rightFoot[0] = mc.p[0].x + 30 + mc.p[0].vx;
+            rightFoot[1] = mc.p[0].y + 32 + mc.p[0].vy;
+            leftFoot[0] = mc.p[0].x + 1 + mc.p[0].vx;
+            leftFoot[1] = mc.p[0].y + 32 + mc.p[0].vy;
 
-            leftSideTop[0] = mc.p.x - 1 + mc.p.vx;
-            leftSideTop[1] = mc.p.y + 1 + mc.p.vy;
-            leftSideBot[0] = mc.p.x - 1 + mc.p.vx;
-            leftSideBot[1] = mc.p.y + 30 + mc.p.vy;
+            leftSideTop[0] = mc.p[0].x - 1 + mc.p[0].vx;
+            leftSideTop[1] = mc.p[0].y + 1 + mc.p[0].vy;
+            leftSideBot[0] = mc.p[0].x - 1 + mc.p[0].vx;
+            leftSideBot[1] = mc.p[0].y + 30 + mc.p[0].vy;
 
-            rightSideTop[0] = mc.p.x + 32 + mc.p.vx;
-            rightSideTop[1] = mc.p.y + 1 + mc.p.vy;
-            rightSideBot[0] = mc.p.x + 32 + mc.p.vx;
-            rightSideBot[1] = mc.p.y + 30 + mc.p.vy;
+            rightSideTop[0] = mc.p[0].x + 32 + mc.p[0].vx;
+            rightSideTop[1] = mc.p[0].y + 1 + mc.p[0].vy;
+            rightSideBot[0] = mc.p[0].x + 32 + mc.p[0].vx;
+            rightSideBot[1] = mc.p[0].y + 30 + mc.p[0].vy;
 
             if (image.GetPixel(rightFoot[0], rightFoot[1]) != backGround || image.GetPixel(leftFoot[0], leftFoot[1]) != backGround)
             {
-                mc.p.inAir = false;
+                mc.p[0].inAir = false;
             }else
             {
-                mc.p.inAir = true;
+                mc.p[0].inAir = true;
             }
             if (image.GetPixel(rightSideTop[0],rightSideTop[1]) != backGround || image.GetPixel(rightSideBot[0], rightSideBot[1]) != backGround)
             {
-                mc.p.onWallRight = true;
+                mc.p[0].onWallRight = true;
             }else
             {
-                mc.p.onWallRight = false;
+                mc.p[0].onWallRight = false;
             }
             if (image.GetPixel(leftSideTop[0], leftSideTop[1]) != backGround || image.GetPixel(leftSideBot[0], leftSideBot[1]) != backGround)
             {
-                mc.p.onWallLeft = true;
+                mc.p[0].onWallLeft = true;
             }else
             {
-                mc.p.onWallLeft = false;
+                mc.p[0].onWallLeft = false;
             }
 
             
-            if(mc.p.onWallLeft && mc.p.onWallRight)
+            if(mc.p[0].onWallLeft && mc.p[0].onWallRight)
             {
                 int i = 0;
                 while(image.GetPixel(leftSideBot[0], leftSideBot[1]) != backGround && image.GetPixel(rightSideBot[0], rightSideBot[1]) != backGround)
@@ -77,7 +77,7 @@ namespace ExtremeSteakDude.ViewModel
                     rightSideBot[1]--;
                     i++;
                 }
-                mc.p.vy = mc.p.vy - i;
+                mc.p[0].vy = mc.p[0].vy - i;
             }
             
 

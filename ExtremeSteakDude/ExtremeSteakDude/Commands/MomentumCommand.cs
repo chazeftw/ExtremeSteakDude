@@ -1,6 +1,7 @@
 ﻿using ExtremeSteakDude.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,9 +10,9 @@ namespace ExtremeSteakDude.Commands
 {
     class MomentumCommand : IUndoRedoCommand
     {
-        int x; int y; Player p; TimeSpan time;
+        int x; int y; ObservableCollection<Player> p; TimeSpan time;
 
-        public MomentumCommand(Player p, int x,int y,TimeSpan time)
+        public MomentumCommand(ObservableCollection<Player> p, int x,int y,TimeSpan time)
         {
             this.time = time;
             this.y = y;
@@ -21,16 +22,16 @@ namespace ExtremeSteakDude.Commands
 
         public void Execute()
         {
-            p.x = p.x + x;
-            p.y = p.y + y;
-            p.setTimeElapsed(time);
+            p[0].x = p[0].x + x;
+            p[0].y = p[0].y + y;
+            p[0].setTimeElapsed(time);
         }
 
         public void Undo()
         {
-            p.x = p.x - x;
-            p.y = p.y - y;
-            p.setTimeElapsed(time);
+            p[0].x = p[0].x - x;
+            p[0].y = p[0].y - y;
+            p[0].setTimeElapsed(time);
         }
     }
 }
