@@ -21,12 +21,16 @@ namespace ExtremeSteakDude.ViewModel
         private int[] rightTop = new int[2];
         private int[] leftTop = new int[2];
         private Color backGround;
+        private Color deathColor;
 
         public CDC(MovementController mc, MapNew map)
         {
             image = map.image;
             this.mc = mc;
-            backGround = image.GetPixel(200, 200);
+            backGround = image.GetPixel(300, 100);
+            deathColor = image.GetPixel(350, 675);
+            Console.WriteLine(backGround);
+            Console.WriteLine(deathColor);
 
         }
 
@@ -55,6 +59,11 @@ namespace ExtremeSteakDude.ViewModel
             rightTop[1] = mc.p[0].y - 1 + mc.p[0].vy;
             leftTop[0] = mc.p[0].x + 31 + mc.p[0].vx;
             leftTop[1] = mc.p[0].y - 1 + mc.p[0].vy;
+
+            if(image.GetPixel(rightFoot[0],rightFoot[1]) == deathColor || image.GetPixel(leftFoot[0], leftFoot[1]) == deathColor)
+            {
+                mc.p[0].alive = false;
+            }
 
             if (image.GetPixel(rightFoot[0], rightFoot[1]) != backGround || image.GetPixel(leftFoot[0], leftFoot[1]) != backGround)
             {

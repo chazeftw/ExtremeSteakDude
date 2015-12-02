@@ -93,9 +93,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CommandGroup.cs" />
+    <Compile Include="Commands\DeathCommand.cs" />
     <Compile Include="Commands\ExitCommand.cs" />
     <Compile Include="Commands\HighScoreCommand.cs" />
     <Compile Include="Commands\ContinueCommand.cs" />
+    <Compile Include="Commands\LevelSelectCommand.cs" />
     <Compile Include="Commands\MainMenuCommand.cs" />
     <Compile Include="Commands\NewGameCommand.cs" />
     <Compile Include="Commands\NewPlayerCommandLVL1.cs" />
@@ -108,6 +110,7 @@
     <Compile Include="Commands\MoveRightCommand.cs" />
     <Compile Include="Commands\SavePlayerCommand.cs" />
     <Compile Include="Commands\UndoRedoController.cs" />
+    <Compile Include="Commands\WinCommand.cs" />
     <Compile Include="Design\DesignDataService.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="HelperClasses\BitmapConverter.cs" />
@@ -315,6 +318,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\meat_death7.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Levels\level_1_2.bmp" />
+    <Resource Include="Levels\level_1_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level_1_2.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
