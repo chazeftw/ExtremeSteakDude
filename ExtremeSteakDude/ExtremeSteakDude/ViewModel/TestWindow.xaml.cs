@@ -26,7 +26,7 @@ namespace ExtremeSteakDude.ViewModel
         public TestWindow()
         {
             test.Add(new Player());
-            mc = new MovementController(test, highScores);
+           // mc = new MovementController(test, highScores, new ());
             InitializeComponent();
 
             DataContext = Player = new Player();

@@ -21,6 +21,7 @@ namespace ExtremeSteakDude.ViewModel
         public bool isUndoMode { get; set; }
         public bool pause { get; set; }
         public bool first { get; set; } = true;
+        public bool unpause { get; set; }
 
         public ObservableCollection<Player> p;
         private Timer moveTimer;
@@ -98,6 +99,10 @@ namespace ExtremeSteakDude.ViewModel
             else if(pause)
             {
                 timer.Stop();
+                if (unpause)
+                {
+                    timer.Start();
+                }
             }
             else
             {
@@ -216,7 +221,11 @@ namespace ExtremeSteakDude.ViewModel
 
         private void MoveRight()
         {
-                if (10 - p[0].vx <= moveacc)
+            if ((!p[0].inAir) && (!p[0].onWallLeft) && (!p[0].onWallRight))
+            {
+                //sc.playMovingSound();
+            }
+            if (10 - p[0].vx <= moveacc)
                 {
                     p[0].vx = p[0].vx + moveacc;
                 }
