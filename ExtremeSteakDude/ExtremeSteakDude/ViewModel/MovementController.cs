@@ -251,7 +251,6 @@ namespace ExtremeSteakDude.ViewModel
         //check for death/win. Set new window accordingly
         public void CheckWinDeath()
         {
-            /* Toggle Code (Rasmus/Martin ask before you do dumb things)
             if (p[0].won)
             {
                 if(TimeSpan.Compare(timer.Elapsed, highScores[0].getCurrentLvlHs()) == -1)
@@ -260,7 +259,7 @@ namespace ExtremeSteakDude.ViewModel
                     //mwm.Win();
                     /*var hswin = App.Current.MainWindow as MainWindow;
                     View.NewHighscore newhs = new View.NewHighscore();
-                    hswin.Content = newhs;
+                    hswin.Content = newhs;*/
                 }
             }
             if (!p[0].alive)
@@ -271,11 +270,9 @@ namespace ExtremeSteakDude.ViewModel
                 //mwm.Death();
             }
             
-            var main = App.Current.MainWindow as MainWindow;
-            View.LevelSelect ls = new View.LevelSelect();
-            main.Content = ls;
+            
             // MAYBE DO A COMMAND HERE
-            */
+            
         }
         public void Dispose()
         {

@@ -28,7 +28,7 @@ namespace ExtremeSteakDude.ViewModel
             image = map.image;
             this.mc = mc;
             backGround = image.GetPixel(300, 100);
-            deathColor = image.GetPixel(350, 675);
+            deathColor = image.GetPixel(569, 675);
             Console.WriteLine(backGround);
             Console.WriteLine(deathColor);
 
@@ -59,7 +59,8 @@ namespace ExtremeSteakDude.ViewModel
             rightTop[1] = mc.p[0].y - 1 + mc.p[0].vy;
             leftTop[0] = mc.p[0].x + 31 + mc.p[0].vx;
             leftTop[1] = mc.p[0].y - 1 + mc.p[0].vy;
-
+            
+            // This if is made by onionman
             if(image.GetPixel(rightFoot[0],rightFoot[1]) == deathColor || image.GetPixel(leftFoot[0], leftFoot[1]) == deathColor)
             {
                 mc.p[0].alive = false;
