@@ -13,7 +13,7 @@ namespace ExtremeSteakDude.Model
         private int _x = 500;
         private int _y = 100;
         public String stringTime { get; set; }
-        private TimeSpan _timeSpan;
+        private TimeSpan _timeSpan = TimeSpan.FromMilliseconds(22);
         private string _meatboyImage = "pack://application:,,,/Images/meatboy_front.jpg";
 
         public enum levelenum { one, two };
