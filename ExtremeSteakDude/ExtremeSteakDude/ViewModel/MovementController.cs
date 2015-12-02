@@ -266,6 +266,7 @@ namespace ExtremeSteakDude.ViewModel
             {
                 sc.playDeathSound();
                 Console.WriteLine("DEAD DEAD DEAD DEAD DEAD DEAD");
+                // End the game here
                 p[0].alive = true;
                 //mwm.Death();
             }
