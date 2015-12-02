@@ -20,6 +20,7 @@ namespace ExtremeSteakDude.ViewModel
         public bool jump { get; set; }
         public bool isUndoMode { get; set; }
         public bool pause { get; set; }
+        public bool unpause { get; set; }
         public bool first { get; set; } = true;
 
         public ObservableCollection<Player> p;
@@ -40,9 +41,9 @@ namespace ExtremeSteakDude.ViewModel
         private CDC cdc;
         private SoundController sc;
         private ObservableCollection<Model.HighScores> highScores;
-
-        private MainViewModel mwm;
         
+        private MainViewModel mwm;
+
 
         public MovementController(ObservableCollection<Player> p, ObservableCollection<Model.HighScores> highScores, MainViewModel main)
         {
@@ -60,6 +61,8 @@ namespace ExtremeSteakDude.ViewModel
 
 
             this.p = p;
+            p[0].alive = true;
+            p[0].won = false;
             urc = new UndoRedoController();
             timer = new System.Diagnostics.Stopwatch();
             moveTimer = new Timer(x => Move(), null, 0, tick);
@@ -98,7 +101,15 @@ namespace ExtremeSteakDude.ViewModel
             else if(pause)
             {
                 timer.Stop();
+                if (unpause)
+                {
+                    pause = false;
+                    unpause = false;
+                    timer.Start();
             }
+
+            }
+
             else
             {
 
@@ -240,8 +251,8 @@ namespace ExtremeSteakDude.ViewModel
         //check for death/win. Set new window accordingly
         public void CheckWinDeath()
         {
-            // DUMB THINGS HAVE BEEN MADE
-            /*if (p[0].won)
+            /* Toggle Code (Rasmus/Martin ask before you do dumb things)
+            if (p[0].won)
             {
                 if(TimeSpan.Compare(timer.Elapsed, highScores[0].getCurrentLvlHs()) == -1)
                 {
@@ -259,13 +270,12 @@ namespace ExtremeSteakDude.ViewModel
                 p[0].alive = true;
                 //mwm.Death();
             }
-
-            //mwm.LevelSelectC();
-            /*var main = App.Current.MainWindow as MainWindow;
+            
+            var main = App.Current.MainWindow as MainWindow;
             View.LevelSelect ls = new View.LevelSelect();
             main.Content = ls;
             // MAYBE DO A COMMAND HERE
-            //*/
+            */
         }
         public void Dispose()
         {
