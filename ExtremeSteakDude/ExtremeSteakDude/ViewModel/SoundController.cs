@@ -51,26 +51,49 @@ namespace ExtremeSteakDude.ViewModel
 
         public void playJumpSound()
         {
-            decider = r.Next(0, 5);
-            SoundPlayer simpleSound = new SoundPlayer(jumpSounds[decider]);
-            simpleSound.Play();
-            simpleSound.Stream.Position = 0;
+            try
+            {
+                decider = r.Next(0, 5);
+                SoundPlayer simpleSound = new SoundPlayer(jumpSounds[decider]);
+                simpleSound.Play();
+                simpleSound.Stream.Position = 0;
+            }
+            catch(Exception e)
+            {
+
+            }
+            
         }
 
         public void playMovingSound()
         {
-            decider = r.Next(0, 4);
-            SoundPlayer simpleSound = new SoundPlayer(movingSounds[decider]);
-            simpleSound.Play();
-            simpleSound.Stream.Position = 0;
+            try
+            {
+                decider = r.Next(0, 4);
+                SoundPlayer simpleSound = new SoundPlayer(movingSounds[decider]);
+                simpleSound.Play();
+                simpleSound.Stream.Position = 0;
+            }
+            catch(Exception e)
+            {
+
+            }
         }
         
         public void playDeathSound()
         {
-            decider = r.Next(0, 8);
-            SoundPlayer simpleSound = new SoundPlayer(deathSounds[decider]);
-            simpleSound.Play();
-            simpleSound.Stream.Position = 0;
+            try
+            {
+                decider = r.Next(0, 8);
+                SoundPlayer simpleSound = new SoundPlayer(deathSounds[decider]);
+                simpleSound.Play();
+                simpleSound.Stream.Position = 0;
+            }
+            catch(Exception e)
+            {
+
+            }
+            
         }
 
     }
