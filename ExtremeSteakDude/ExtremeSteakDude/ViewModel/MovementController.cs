@@ -19,6 +19,7 @@ namespace ExtremeSteakDude.ViewModel
         public bool jump { get; set; }
         public bool isUndoMode { get; set; }
         public bool pause { get; set; }
+        public bool unpause { get; set; }
         public bool first { get; set; } = true;
 
         public ObservableCollection<Player> p;
@@ -94,7 +95,15 @@ namespace ExtremeSteakDude.ViewModel
             else if(pause)
             {
                 timer.Stop();
+                if (unpause)
+                {
+                    pause = false;
+                    unpause = false;
+                    timer.Start();
+                }
+
             }
+
             else
             {
 
