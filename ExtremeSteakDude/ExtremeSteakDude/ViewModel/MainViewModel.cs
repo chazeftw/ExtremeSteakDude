@@ -139,8 +139,10 @@ namespace ExtremeSteakDude.ViewModel
 
         private void Continue()
         {
+            mc.unpause = true;
             ContinueCommand Command = new ContinueCommand(players, new XML());
             Command.Execute();
+           
         }
 
         private void HighScore()
@@ -157,14 +159,20 @@ namespace ExtremeSteakDude.ViewModel
 
         private void NewPlayerLVL1()
         {
+            mc.pause = false;
+            mc.unpause = false;
             NewPlayerCommandLVL1 Command = new NewPlayerCommandLVL1(players);
             Command.Execute();
+
         }
 
         private void NewPlayerLVL2()
         {
+            mc.pause = false;
+            mc.unpause = false;
             NewPlayerCommandLVL2 Command = new NewPlayerCommandLVL2(players);
             Command.Execute();
+  
         }
         private void SavePlayer()
         {
@@ -174,7 +182,7 @@ namespace ExtremeSteakDude.ViewModel
 
         private void SaveHighScore(string obj)
         {
-            SaveHighScoreCommand Command = new SaveHighScoreCommand(highScores, new XML(), obj, highScores[0].Score);
+            SaveHighScoreCommand Command = new SaveHighScoreCommand(highScores, new XML(), obj, players[0].timeSpan);
             Command.Execute();
             NewGame();
         }
@@ -214,6 +222,7 @@ namespace ExtremeSteakDude.ViewModel
 
                     // Go to main menu
                     //mc.isUndoMode = true;
+                    mc.pause = true;
                     var main = App.Current.MainWindow as MainWindow;
                     MainMenu mm = new MainMenu();
                     main.Content = mm;

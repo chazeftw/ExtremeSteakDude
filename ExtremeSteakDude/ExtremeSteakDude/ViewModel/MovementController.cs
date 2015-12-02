@@ -241,7 +241,7 @@ namespace ExtremeSteakDude.ViewModel
         public void CheckWinDeath()
         {
             // DUMB THINGS HAVE BEEN MADE
-            if (p[0].won)
+            /*if (p[0].won)
             {
                 if(TimeSpan.Compare(timer.Elapsed, highScores[0].getCurrentLvlHs()) == -1)
                 {
@@ -249,7 +249,7 @@ namespace ExtremeSteakDude.ViewModel
                     //mwm.Win();
                     /*var hswin = App.Current.MainWindow as MainWindow;
                     View.NewHighscore newhs = new View.NewHighscore();
-                    hswin.Content = newhs;*/
+                    hswin.Content = newhs;
                 }
             }
             if (!p[0].alive)
