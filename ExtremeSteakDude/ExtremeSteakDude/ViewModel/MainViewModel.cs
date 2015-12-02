@@ -216,6 +216,13 @@ namespace ExtremeSteakDude.ViewModel
                     // For jump animation
                     players[0].meatboyImage = player.MeatboyImageFront;
                     break;
+                case Key.D:
+                    Console.WriteLine("is inAir: " + mc.p[0].inAir);
+                    Console.WriteLine("is leftWall: " + mc.p[0].onWallLeft);
+                    Console.WriteLine("is rightWall: " + mc.p[0].onWallRight);
+                    Console.WriteLine("is top " + mc.p[0].top);
+                    break;
+                
             }
         }
         

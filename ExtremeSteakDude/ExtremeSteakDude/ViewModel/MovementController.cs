@@ -237,7 +237,7 @@ namespace ExtremeSteakDude.ViewModel
         //check for death/win. Set new window accordingly
         public void CheckWinDeath()
         {
-            
+            /* Toggle Code
             if (p[0].won)
             {
                 if(TimeSpan.Compare(timer.Elapsed, highScores[0].getCurrentLvlHs()) == -1)
@@ -259,6 +259,7 @@ namespace ExtremeSteakDude.ViewModel
             View.LevelSelect ls = new View.LevelSelect();
             main.Content = ls;
             // MAYBE DO A COMMAND HERE
+            //*/
         }
         public void Dispose()
         {
