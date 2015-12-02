@@ -27,6 +27,8 @@ namespace ExtremeSteakDude.ViewModel
         {
             image = map.image;
             this.mc = mc;
+            // Maybe also give this overloaded constructor a variable that says what level we are in and then hardcore
+            // the colors to the according level
             backGround = image.GetPixel(300, 100);
             deathColor = image.GetPixel(569, 675);
             Console.WriteLine(backGround);
