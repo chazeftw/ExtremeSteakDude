@@ -90,6 +90,10 @@ namespace ExtremeSteakDude.ViewModel
                     urc.Redo();
                 }
             }
+            else if(!p[0].pause)
+            {
+                timer.Stop();
+            }
             else
             {
 

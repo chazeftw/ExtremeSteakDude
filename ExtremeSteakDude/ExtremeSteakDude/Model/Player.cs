@@ -15,6 +15,8 @@ namespace ExtremeSteakDude.Model
         public String stringTime { get; set; }
         private TimeSpan _timeSpan;
         private string _meatboyImage = "pack://application:,,,/Images/meatboy_front.jpg";
+        internal bool pause;
+
         public enum levelenum { one, two };
         public static levelenum level { get; set; }
 
