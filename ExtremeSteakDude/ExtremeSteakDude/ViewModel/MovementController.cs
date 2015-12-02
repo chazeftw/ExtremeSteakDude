@@ -14,11 +14,12 @@ namespace ExtremeSteakDude.ViewModel
 {
     class MovementController : IDisposable
     {
-        public bool moveRight = false;
-        public bool moveLeft = false;
-        public bool jump = false;
-        public bool isUndoMode = false;
-        private bool first = true;
+        public bool moveRight { get; set; }
+        public bool moveLeft { get; set; }
+        public bool jump { get; set; }
+        public bool isUndoMode { get; set; }
+        public bool pause { get; set; }
+        public bool first { get; set; } = true;
 
         public ObservableCollection<Player> p;
         private Timer moveTimer;
@@ -29,7 +30,7 @@ namespace ExtremeSteakDude.ViewModel
         private int moveacc = 2;
         private int fallspeed = 5;
         private int gravity = 1;
-        private int jumpheight = 15;
+        private int jumpheight = 17;
         private int tick = 12;
 
         private MapNew currentlvl;
@@ -38,7 +39,7 @@ namespace ExtremeSteakDude.ViewModel
         private CDC cdc;
         private SoundController sc;
         private ObservableCollection<Model.HighScores> highScores;
-
+        
 
         public MovementController(ObservableCollection<Player> p, ObservableCollection<Model.HighScores> highScores)
         {
@@ -90,7 +91,7 @@ namespace ExtremeSteakDude.ViewModel
                     urc.Redo();
                 }
             }
-            else if(p[0].pause)
+            else if(pause)
             {
                 timer.Stop();
             }
@@ -104,12 +105,12 @@ namespace ExtremeSteakDude.ViewModel
                     timer.Restart();
                 }
 
-                if (moveLeft && !moveRight && !p[0].onWallLeft && !( p[0].onWallRight && p[0].inAir))
+                if (moveLeft && !moveRight && !p[0].onWallLeft && !( p[0].onWallRight && p[0].inAir) && p[0].vx > -movespeed)
                 {
                     MoveLeft();
 
                 }
-                else if (moveRight && !moveLeft && !p[0].onWallRight && !(p[0].onWallLeft && p[0].inAir))
+                else if (moveRight && !moveLeft && !p[0].onWallRight && !( p[0].onWallLeft && p[0].inAir) && p[0].vx < movespeed)
                 {
                     MoveRight();
                 }
@@ -211,8 +212,6 @@ namespace ExtremeSteakDude.ViewModel
 
         private void MoveRight()
         {
-            if (p[0].vx < movespeed)
-            {
                 if (10 - p[0].vx <= moveacc)
                 {
                     p[0].vx = p[0].vx + moveacc;
@@ -221,12 +220,9 @@ namespace ExtremeSteakDude.ViewModel
                 {
                     p[0].vx = movespeed;
                 }
-            }
         }
         private void MoveLeft()
         {
-            if (p[0].vx > -movespeed)
-            {
                 if (-10 - p[0].vx >= -moveacc)
                 {
                     p[0].vx = p[0].vx - moveacc;
@@ -235,7 +231,6 @@ namespace ExtremeSteakDude.ViewModel
                 {
                     p[0].vx = -movespeed;
                 }
-            }
         }
 
         //check for death/win. Set new window accordingly
