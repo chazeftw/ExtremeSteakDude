@@ -18,7 +18,11 @@
                 <View:HighScores/>
             </Canvas>
         </DataTemplate>
-
+        <DataTemplate DataType="{x:Type ViewModel:MainViewModel}">
+            <Canvas>
+                <View:NewHighscore/>
+            </Canvas>
+        </DataTemplate>
 
         <DataTemplate DataType="{x:Type Model:Player}">
             <Canvas Margin="0">
