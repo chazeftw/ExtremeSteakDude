@@ -50,6 +50,10 @@ namespace ExtremeSteakDude.ViewModel
         public ICommand NewPlayerCommandLVL2 { get; }
         public ICommand LoadPlayerCommand { get; }
 
+        public ICommand DeathCommand { get; }
+        public ICommand WinCommand { get; }
+        public ICommand LevelSelectCommand { get; }
+
         private string _welcomeTitle = string.Empty;
         private bool canJump = true;
 
@@ -91,7 +95,7 @@ namespace ExtremeSteakDude.ViewModel
             
             highScores = new ObservableCollection<Model.HighScores>();
             highScores.Add(xml.HighScores);
-            mc = new MovementController(players, highScores);
+            mc = new MovementController(players, highScores, this);
             NewGameCommand = new RelayCommand(NewGame);
             ContinueCommand = new RelayCommand(Continue);
             HighScoreCommand = new RelayCommand(HighScore);
@@ -101,6 +105,25 @@ namespace ExtremeSteakDude.ViewModel
             SavePlayerCommand = new RelayCommand(SavePlayer);
             NewPlayerCommandLVL1 = new RelayCommand(NewPlayerLVL1);
             NewPlayerCommandLVL2 = new RelayCommand(NewPlayerLVL2);
+            DeathCommand = new RelayCommand(Death);
+            WinCommand = new RelayCommand(Win);
+            LevelSelectCommand = new RelayCommand(LevelSelectC);
+        }
+
+        public void Win()
+        {
+            WinCommand Command = new WinCommand();
+            Command.Execute();
+        }
+        public void Death()
+        {
+            DeathCommand Command = new DeathCommand();
+            Command.Execute();
+        }
+        public void LevelSelectC()
+        {
+            LevelSelectCommand Command = new LevelSelectCommand();
+            Command.Execute();
         }
         private void MainMenuC()
         {

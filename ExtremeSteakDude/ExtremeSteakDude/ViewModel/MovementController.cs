@@ -9,6 +9,7 @@ using System.Media;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Threading;
 
 namespace ExtremeSteakDude.ViewModel
 {
@@ -39,9 +40,11 @@ namespace ExtremeSteakDude.ViewModel
         private CDC cdc;
         private SoundController sc;
         private ObservableCollection<Model.HighScores> highScores;
+
+        private MainViewModel mwm;
         
 
-        public MovementController(ObservableCollection<Player> p, ObservableCollection<Model.HighScores> highScores)
+        public MovementController(ObservableCollection<Player> p, ObservableCollection<Model.HighScores> highScores, MainViewModel main)
         {
             if (Player.level == Player.levelenum.one)
             {
@@ -63,6 +66,7 @@ namespace ExtremeSteakDude.ViewModel
             sc = new SoundController();
             //coll = new CollisionDetector(this, currentlvl);
             cdc = new CDC(this, currentlvl);
+            mwm = main;
             this.highScores = highScores;
         }
 
@@ -236,25 +240,28 @@ namespace ExtremeSteakDude.ViewModel
         //check for death/win. Set new window accordingly
         public void CheckWinDeath()
         {
-            /* Toggle Code (Rasmus/Martin ask before you do dumb things)
+            // DUMB THINGS HAVE BEEN MADE
             if (p[0].won)
             {
                 if(TimeSpan.Compare(timer.Elapsed, highScores[0].getCurrentLvlHs()) == -1)
                 {
-                    var hswin = App.Current.MainWindow as MainWindow;
+                    
+                    //mwm.Win();
+                    /*var hswin = App.Current.MainWindow as MainWindow;
                     View.NewHighscore newhs = new View.NewHighscore();
-                    hswin.Content = newhs;
+                    hswin.Content = newhs;*/
                 }
             }
             if (!p[0].alive)
             {
                 sc.playDeathSound();
-                var gow = App.Current.MainWindow as MainWindow;
-                View.GameOverScreen gameover = new View.GameOverScreen();
-                gow.Content = gameover;
+                Console.WriteLine("DEAD DEAD DEAD DEAD DEAD DEAD");
+                p[0].alive = true;
+                //mwm.Death();
             }
-            
-            var main = App.Current.MainWindow as MainWindow;
+
+            //mwm.LevelSelectC();
+            /*var main = App.Current.MainWindow as MainWindow;
             View.LevelSelect ls = new View.LevelSelect();
             main.Content = ls;
             // MAYBE DO A COMMAND HERE
