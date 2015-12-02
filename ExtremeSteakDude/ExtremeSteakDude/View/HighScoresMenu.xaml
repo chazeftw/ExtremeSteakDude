@@ -7,15 +7,15 @@
              d:DesignHeight="720" d:DesignWidth="1280">
 
 
-    
+
     <Grid>
         <Button x:Name="Back" Content="Back" HorizontalAlignment="Left" Margin="354,581,0,0" VerticalAlignment="Top" Width="517" Command="{Binding MainMenuCommand}"/>
-        <TextBlock x:Name="Level1" Text="Level1" FontSize="40" HorizontalAlignment="Left" Margin="213,138,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Level1" Text="Level1" FontSize="40" HorizontalAlignment="Left" Margin="261,138,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="Level2" Text="Level 2" FontSize="40" HorizontalAlignment="Left" Margin="874,138,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="Time1" Text="{Binding highScores[0].Score1}" FontSize="35" HorizontalAlignment="Left" Margin="118,206,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="Name1" Text="{Binding highScores[0].Name1}" HorizontalAlignment="Left" Height="54" Margin="156,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="96"/>
-        <TextBlock x:Name="Time2" Text="{Binding highScores[0].Score2}" HorizontalAlignment="Left" Height="25" Margin="849,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62"/>
-        <TextBlock x:Name="Name2" Text="{Binding highScores[0].Name2}" HorizontalAlignment="Left" Height="25" Margin="927,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="69"/>
+        <TextBlock x:Name="Time1" Text="{Binding highScores[0].Score1}" FontSize="35" HorizontalAlignment="Left" Margin="240,211,0,0" VerticalAlignment="Top" Height="42" Width="217" RenderTransformOrigin="1.528,0.505"/>
+        <TextBlock x:Name="Name1" Text="{Binding highScores[0].Name1}" HorizontalAlignment="Left" FontSize="35" Height="54" Margin="213,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="96"/>
+        <TextBlock x:Name="Time2" Text="{Binding highScores[0].Score2}" HorizontalAlignment="Left" FontSize="35" Height="54" Margin="874,211,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
+        <TextBlock x:Name="Name2" Text="{Binding highScores[0].Name2}" HorizontalAlignment="Left" FontSize="35" Height="54" Margin="849,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147"/>
 
     </Grid>
 </UserControl>

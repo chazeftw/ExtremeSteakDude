@@ -32,6 +32,10 @@ namespace ExtremeSteakDude.ViewModel
 
         public void check()
         {
+            try
+            {
+
+            
             rightFoot[0] = mc.p[0].x + 31 + mc.p[0].vx;
             rightFoot[1] = mc.p[0].y + 32 + mc.p[0].vy;
             leftFoot[0] = mc.p[0].x + 0 + mc.p[0].vx;
@@ -144,6 +148,13 @@ namespace ExtremeSteakDude.ViewModel
                     }
                     mc.p[0].vy = mc.p[0].vy - i;
                 //}
+            }
+            }catch(InvalidOperationException)
+            {
+
+            }catch(ArgumentOutOfRangeException)
+            {
+                mc.p[0].alive = false;
             }
         }
     }
