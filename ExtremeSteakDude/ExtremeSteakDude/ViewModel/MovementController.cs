@@ -264,7 +264,8 @@ namespace ExtremeSteakDude.ViewModel
             }
             if (!p[0].alive)
             {
-                sc.playDeathSound();
+                // If jumping out of the screen it goes there, reason unknown
+                //sc.playDeathSound();
                 Console.WriteLine("DEAD DEAD DEAD DEAD DEAD DEAD");
                 // End the game here
                 p[0].alive = true;

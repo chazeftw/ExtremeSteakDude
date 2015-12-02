@@ -60,7 +60,7 @@ namespace ExtremeSteakDude.ViewModel
             leftTop[0] = mc.p[0].x + 31 + mc.p[0].vx;
             leftTop[1] = mc.p[0].y - 1 + mc.p[0].vy;
             
-            // This if is made by onionman
+            // If to check if the players is on the deathcolor (red)
             if(image.GetPixel(rightFoot[0],rightFoot[1]) == deathColor || image.GetPixel(leftFoot[0], leftFoot[1]) == deathColor)
             {
                 mc.p[0].alive = false;
@@ -164,7 +164,10 @@ namespace ExtremeSteakDude.ViewModel
 
             }catch(ArgumentOutOfRangeException)
             {
-                mc.p[0].alive = false;
+                // If meatboy jumps out of the screen the following will trigger
+                // Commented the following so we can jump out of the screen without issues even though players then
+                // can bug the shit out the game probably. To be considered
+                //mc.p[0].alive = false;
             }
         }
     }
