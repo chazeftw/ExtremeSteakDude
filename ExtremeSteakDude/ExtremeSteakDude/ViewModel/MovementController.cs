@@ -253,6 +253,8 @@ namespace ExtremeSteakDude.ViewModel
         {
             if (p[0].won)
             {
+                Console.WriteLine("WIN WIN WIN WIN WIN WIN WIN!");
+                p[0].won = false; // Just for testing purposes
                 if(TimeSpan.Compare(timer.Elapsed, highScores[0].getCurrentLvlHs()) == -1)
                 {
                     
@@ -268,7 +270,7 @@ namespace ExtremeSteakDude.ViewModel
                 //sc.playDeathSound();
                 Console.WriteLine("DEAD DEAD DEAD DEAD DEAD DEAD");
                 // End the game here
-                p[0].alive = true;
+                p[0].alive = true; // Just for testing purposes
                 //mwm.Death();
             }
             
