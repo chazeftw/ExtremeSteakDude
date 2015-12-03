@@ -83,6 +83,7 @@ namespace ExtremeSteakDude.ViewModel
             }
             if (first)
             {
+                
                 cdc = new CDC(this, currentlvl);
                 offset.Subtract(offset);
                 timer.Restart();

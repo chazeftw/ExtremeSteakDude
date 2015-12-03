@@ -108,7 +108,6 @@
     <Compile Include="Commands\NewPlayerCommandLVL2.cs" />
     <Compile Include="Commands\SaveHighScoreCommand.cs" />
     <Compile Include="Commands\IUndoRedoCommand.cs" />
-    <Compile Include="Commands\JumpCommand.cs" />
     <Compile Include="Commands\MomentumCommand.cs" />
     <Compile Include="Commands\MoveLeftCommand.cs" />
     <Compile Include="Commands\MoveRightCommand.cs" />
