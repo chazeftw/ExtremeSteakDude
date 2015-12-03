@@ -119,7 +119,7 @@ namespace ExtremeSteakDude.ViewModel
 
                 if (timer.IsRunning == false)
                 {
-                    offset = p[0].timeSpan;
+                    offset = (new TimeSpan(p[0].timeSpan));
                     timer.Restart();
                 }
 

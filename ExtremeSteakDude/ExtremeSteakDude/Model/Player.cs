@@ -13,7 +13,7 @@ namespace ExtremeSteakDude.Model
         private int _x = 0;
         private int _y = 0;
         public String stringTime { get; set; }
-        private TimeSpan _timeSpan = TimeSpan.FromMilliseconds(22);
+        private long _timeSpan;
         private string _meatboyImage = "pack://application:,,,/Images/meatboy_front.jpg";
         private levelenum _level = levelenum.one;
         private string _currentLevel;
@@ -88,7 +88,7 @@ namespace ExtremeSteakDude.Model
             OnPropertyChanged(new PropertyChangedEventArgs(propertyName));
         }
 
-        public TimeSpan timeSpan
+        public long timeSpan
         {
             get { return _timeSpan; }
             set
@@ -96,7 +96,7 @@ namespace ExtremeSteakDude.Model
                 if(value !=  _timeSpan)
                 {
                     _timeSpan = value;
-                    stringTime = ("" + _timeSpan.Minutes + ":" + _timeSpan.Seconds + ":" + _timeSpan.Milliseconds);
+                    stringTime = ("" + (new TimeSpan(_timeSpan)).Minutes + ":" + (new TimeSpan(_timeSpan)).Seconds + ":" + (new TimeSpan(_timeSpan)).Milliseconds);
                     OnPropertyChanged("stringTime");
                 }
             }
@@ -127,11 +127,11 @@ namespace ExtremeSteakDude.Model
                 }
             }
         }
-        public void setTimeElapsed(TimeSpan time)
+        public void setTimeElapsed(long time)
         {
             _timeSpan = time;
            // stringTime = ("" + time.Minutes+":"+time.Seconds+":"+time.Milliseconds);
-            stringTime = ("" + time.Duration().ToString(@"mm\:ss\:ff"));
+            stringTime = ("" + (new TimeSpan(time)).Duration().ToString(@"mm\:ss\:ff"));
             OnPropertyChanged("stringTime");
         }
 
