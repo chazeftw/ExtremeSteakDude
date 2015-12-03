@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Threading;
 using SoundController;
 
+
 namespace ExtremeSteakDude.ViewModel
 {
     class MovementController : IDisposable
@@ -41,7 +42,7 @@ namespace ExtremeSteakDude.ViewModel
         private CollisionDetector coll;
         private TimeSpan offset;
         private CDC cdc;
-        private SoundController sc;
+        private Sounds sc;
         private ObservableCollection<Model.HighScores> highScores;
         
         private MainViewModel mwm;
@@ -55,6 +56,7 @@ namespace ExtremeSteakDude.ViewModel
             {
                 currentlvl = new lvl1();
                 Console.WriteLine("LEVEL ONE IN MC");
+                
             }
 
             if (p[0].level == Player.levelenum.two)
@@ -69,7 +71,7 @@ namespace ExtremeSteakDude.ViewModel
             urc = new UndoRedoController();
             timer = new System.Diagnostics.Stopwatch();
             moveTimer = new Timer(x => Move(), null, 0, tick);
-            sc = new SoundController();
+            sc = new Sounds();
             //coll = new CollisionDetector(this, currentlvl);
             Console.WriteLine(currentlvl.startX+"    ugggggggggggg");
             cdc = new CDC(this, currentlvl);
@@ -216,8 +218,7 @@ namespace ExtremeSteakDude.ViewModel
         }
         private void Jump()
         {
-            Sounds Jes = new Sounds();
-            Jes.playJumpSound();
+            sc.playJumpSound();
             if (p[0].onWallRight)
             {
                 p[0].vx = -jumpheight;
