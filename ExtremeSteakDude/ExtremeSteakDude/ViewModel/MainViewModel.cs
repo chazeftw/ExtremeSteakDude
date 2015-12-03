@@ -30,10 +30,7 @@ namespace ExtremeSteakDude.ViewModel
 
         private MovementController mc;
         public ObservableCollection<Player> players { get {
-                if(_players.Count == 0)
-                {
-                    _players.Add( new Player() );
-                }
+
                 return _players; } set { _players = value; } }
         public Player player;
         private BitmapImage map;
@@ -41,6 +38,7 @@ namespace ExtremeSteakDude.ViewModel
         public ICommand KeyUpCommand { get; }
 
         public ICommand ContinueCommand { get; }
+        public ICommand NewHighScoreCommand { get; }
         public ICommand NewGameCommand { get; }
 
         public ICommand HighScoreCommand { get; }
@@ -88,13 +86,13 @@ namespace ExtremeSteakDude.ViewModel
 
         public MainViewModel() {
 
-            
-            players = new ObservableCollection<Player>();
-            XML xml = new XML(players);
+          
+            XML xml = new XML();
             player = xml.Player;
             players.Add(player);
             highScores = new ObservableCollection<Model.HighScores>();
             highScores.Add(xml.HighScores);
+            highScores[0].players = players;
             mc = new MovementController(players, highScores, this);
 
             KeyDownCommand = new RelayCommand<KeyEventArgs>(KeyDown);
@@ -143,7 +141,7 @@ namespace ExtremeSteakDude.ViewModel
         private void Continue()
         {
             mc.unpause = true;
-            ContinueCommand Command = new ContinueCommand(players, new XML(players));
+            ContinueCommand Command = new ContinueCommand(players, new XML());
             Command.Execute();
            
         }
@@ -179,13 +177,13 @@ namespace ExtremeSteakDude.ViewModel
         }
         private void SavePlayer()
         {
-            SavePlayerCommand Command = new SavePlayerCommand(players, new XML(players));
+            SavePlayerCommand Command = new SavePlayerCommand(players, new XML());
             Command.Execute();
         }
 
         private void SaveHighScore(string obj)
         {
-            SaveHighScoreCommand Command = new SaveHighScoreCommand(highScores, new XML(players), obj, players[0].timeSpan);
+            SaveHighScoreCommand Command = new SaveHighScoreCommand(highScores, new XML(), obj, players[0].timeSpan);
             Command.Execute();
             NewGame();
         }
