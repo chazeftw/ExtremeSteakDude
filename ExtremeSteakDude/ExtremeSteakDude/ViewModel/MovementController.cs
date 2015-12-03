@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Threading;
+using SoundController;
 
 namespace ExtremeSteakDude.ViewModel
 {
@@ -45,6 +46,8 @@ namespace ExtremeSteakDude.ViewModel
         
         private MainViewModel mwm;
 
+        public delegate void Del();
+
 
         public MovementController(ObservableCollection<Player> p, ObservableCollection<Model.HighScores> highScores, MainViewModel main)
         {
@@ -68,6 +71,7 @@ namespace ExtremeSteakDude.ViewModel
             moveTimer = new Timer(x => Move(), null, 0, tick);
             sc = new SoundController();
             //coll = new CollisionDetector(this, currentlvl);
+            Console.WriteLine(currentlvl.startX+"    ugggggggggggg");
             cdc = new CDC(this, currentlvl);
             mwm = main;
             this.highScores = highScores;
@@ -86,6 +90,7 @@ namespace ExtremeSteakDude.ViewModel
             {
                 p[0].x = currentlvl.startX;
                 p[0].y = currentlvl.startY;
+                cdc = new CDC(this, currentlvl);
                 offset.Subtract(offset);
                 timer.Restart();
                 first = false;
@@ -211,7 +216,8 @@ namespace ExtremeSteakDude.ViewModel
         }
         private void Jump()
         {
-            sc.playJumpSound();
+            Sounds Jes = new Sounds();
+            Jes.playJumpSound();
             if (p[0].onWallRight)
             {
                 p[0].vx = -jumpheight;
@@ -262,15 +268,24 @@ namespace ExtremeSteakDude.ViewModel
         {
             if (p[0].won)
             {
+                
+                //Thread t = new Thread(ThreadStart)
+
                 Console.WriteLine("WIN WIN WIN WIN WIN WIN WIN!");
                 p[0].won = false; // Just for testing purposes
                 if(TimeSpan.Compare(timer.Elapsed, highScores[0].getCurrentLvlHs()) == -1)
                 {
+
                     
                     //mwm.Win();
                     /*var hswin = App.Current.MainWindow as MainWindow;
                     View.NewHighscore newhs = new View.NewHighscore();
                     hswin.Content = newhs;*/
+                }
+                else
+                {
+             //       Del d = DelegateWin;
+             //       d.Invoke();
                 }
             }
             if (!p[0].alive)
@@ -280,6 +295,8 @@ namespace ExtremeSteakDude.ViewModel
                 Console.WriteLine("DEAD DEAD DEAD DEAD DEAD DEAD");
                 // End the game here
                 p[0].alive = true; // Just for testing purposes
+              //  Del d = DelegateLoss;
+              //  d.Invoke();
                 //mwm.Death();
             }
             
@@ -287,6 +304,20 @@ namespace ExtremeSteakDude.ViewModel
             // MAYBE DO A COMMAND HERE
             
         }
+
+       public static void DelegateWin()
+        {
+            WinCommand winh = new WinCommand();
+            winh.Execute();
+        }
+        
+        public static void DelegateLoss()
+        {
+            DeathCommand death = new DeathCommand();
+            death.Execute();
+        }
+
+
         public void Dispose()
         {
             moveTimer.Dispose();

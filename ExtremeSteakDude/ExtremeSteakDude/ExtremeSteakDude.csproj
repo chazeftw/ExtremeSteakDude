@@ -329,6 +329,12 @@
   <ItemGroup>
     <Resource Include="Resources\level_1_1.bmp" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SoundController\SoundController.csproj">
+      <Project>{3881560c-a1d9-40f8-9ff0-ece05dcf6b3e}</Project>
+      <Name>SoundController</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -17,10 +17,10 @@ namespace ExtremeSteakDude.Levels
 
         public lvl1()
         {
-            Bitmap image = new Bitmap(Const.MAPWIDTH, Const.MAPHEIGHT);
+            image = new Bitmap(ExtremeSteakDude.Properties.Resources.level_1_1);
             this.startX = 50;
             this.startY = 570;
-            gr = Graphics.FromImage(image);
+            /*gr = Graphics.FromImage(image);
             Rectangle backGround = new Rectangle(0,0,Const.MAPWIDTH,Const.MAPHEIGHT);
             SolidBrush aliceBrush = new SolidBrush(Color.AliceBlue);
             gr.FillRectangle(aliceBrush, backGround);
@@ -52,7 +52,7 @@ namespace ExtremeSteakDude.Levels
             this.goal = new Rectangle(Const.MAPWIDTH - 300, Const.MAPHEIGHT - 300, 50, 50);
             SolidBrush goalBrush = new SolidBrush(Color.Chartreuse);
             gr.FillRectangle(goalBrush, goal);
-            this.image = image;
+            this.image = image;*/
 
            
         }

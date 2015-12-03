@@ -171,7 +171,8 @@ namespace ExtremeSteakDude.ViewModel
             mc.unpause = false;
             NewPlayerCommandLVL1 Command = new NewPlayerCommandLVL1(players);
             Command.Execute();
-
+            mc.Dispose();
+            mc = new MovementController(players, highScores, this);
         }
 
         private void NewPlayerLVL2()
@@ -180,6 +181,8 @@ namespace ExtremeSteakDude.ViewModel
             mc.unpause = false;
             NewPlayerCommandLVL2 Command = new NewPlayerCommandLVL2(players);
             Command.Execute();
+            mc.Dispose();
+            mc = new MovementController(players, highScores, this);
   
         }
         private void SavePlayer()
