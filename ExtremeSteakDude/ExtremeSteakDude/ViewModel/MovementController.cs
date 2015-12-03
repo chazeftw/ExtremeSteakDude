@@ -144,6 +144,10 @@ namespace ExtremeSteakDude.ViewModel
                 }
                 else
                 {
+                    if (!p[0].onWallLeft && (!p[0].onWallRight) && (!p[0].inAir)&&p[0].vx!=0)
+                    {
+                        sc.playMovingSound();
+                    }
                     if (p[0].vx > 0)
                     {
                         if (p[0].onWallRight) { p[0].vx = 0; }
@@ -242,7 +246,7 @@ namespace ExtremeSteakDude.ViewModel
         {
             if (!p[0].onWallLeft && (!p[0].onWallRight) && (!p[0].inAir))
             {
-                // sc.playMovingSound();
+                sc.playMovingSound();
             }
             if (10 - p[0].vx <= moveacc)
                 {
@@ -255,7 +259,11 @@ namespace ExtremeSteakDude.ViewModel
         }
         private void MoveLeft()
         {
-                if (-10 - p[0].vx >= -moveacc)
+            if (!p[0].onWallLeft && (!p[0].onWallRight) && (!p[0].inAir))
+            {
+                sc.playMovingSound();
+            }
+            if (-10 - p[0].vx >= -moveacc)
                 {
                     p[0].vx = p[0].vx - moveacc;
                 }
@@ -270,14 +278,14 @@ namespace ExtremeSteakDude.ViewModel
         {   
             if (p[0].won)
             {
-
+                timer.Stop();
                 //Thread t = new Thread(ThreadStart)
-                OnWin(EventArgs.Empty);
+                onWin(EventArgs.Empty);
+                Console.WriteLine("WIN WIN WIN WIN WIN WIN WIN!");
                 p[0].won = false; // Just for testing purposes
                 if(TimeSpan.Compare(timer.Elapsed, highScores[0].getCurrentLvlHs()) == -1)
                 {
 
-                    
                     //mwm.Win();
                     /*var hswin = App.Current.MainWindow as MainWindow;
                     View.NewHighscore newhs = new View.NewHighscore();
@@ -305,17 +313,18 @@ namespace ExtremeSteakDude.ViewModel
             // MAYBE DO A COMMAND HERE
             
         }
-
-        protected virtual void OnWin(EventArgs args)
+        protected virtual void onWin(EventArgs args)
         {
             EventHandler handler = Win;
-            if (handler != null)
+            if(handler != null)
             {
                 handler(this, args);
             }
-        }
-        public event EventHandler Win;
-        public delegate void MyEventHandler(string foo);
+        } 
+            
+
+        public EventHandler Win;
+
         public static void DelegateWin()
         {
             WinCommand winh = new WinCommand();
