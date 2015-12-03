@@ -330,9 +330,6 @@
     <None Include="Resources\level_1_2.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\level_1_1.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\SoundController\SoundController.csproj">
       <Project>{3881560c-a1d9-40f8-9ff0-ece05dcf6b3e}</Project>
       <Name>SoundController</Name>
