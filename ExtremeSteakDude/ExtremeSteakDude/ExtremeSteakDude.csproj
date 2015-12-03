@@ -106,6 +106,7 @@
     <Compile Include="Commands\NewHighscoreCommand.cs" />
     <Compile Include="Commands\NewPlayerCommandLVL1.cs" />
     <Compile Include="Commands\NewPlayerCommandLVL2.cs" />
+    <Compile Include="Commands\PlayAgainCommand.cs" />
     <Compile Include="Commands\SaveHighScoreCommand.cs" />
     <Compile Include="Commands\IUndoRedoCommand.cs" />
     <Compile Include="Commands\JumpCommand.cs" />
