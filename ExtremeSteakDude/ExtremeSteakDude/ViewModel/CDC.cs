@@ -105,104 +105,63 @@ namespace ExtremeSteakDude.ViewModel
                 }
                 else if (!mc.p[0].inAir && (mc.p[0].onWallRight || mc.p[0].onWallLeft))
                 {
-                    if(mc.p[0].vy >= 0)
+                    if (mc.p[0].vy >= 0)
                     {
-                        if(mc.p[0].vx >= 0)
+                        if (image.GetPixel(rightSideBot[0], rightSideBot[1]) != backGround && image.GetPixel(rightFoot[0], rightFoot[1]) != backGround)
                         {
                             int i = 0;
-                            int j;
-                            if(mc.p[0].vx > mc.p[0].vy){ j = 0; } else { j = 1; }
-                            while(image.GetPixel(rightSideBot[0],rightSideBot[1]) != backGround && image.GetPixel(rightFoot[0],rightFoot[1]) != backGround)
+                            while (image.GetPixel(rightSideBot[0], rightSideBot[1]) != backGround && image.GetPixel(rightFoot[0], rightFoot[1]) != backGround)
                             {
-                                rightSideBot[j]--;
-                                rightFoot[j]--;
+                                rightSideBot[1]--;
+                                rightFoot[1]--;
                                 i++;
                             }
-                            if (j == 0)
-                            {
-                                mc.p[0].vx = mc.p[0].vx - i;
-                            }else
-                            {
-                                mc.p[0].vy = mc.p[0].vy - i;
-                            }
-                            CheckInAir();
-                            CheckOnWallLeft();
-                            CheckOnTop();
+                            mc.p[0].vy = mc.p[0].vy - i;
                         }
-                        else if(mc.p[0].vx < 0)
+                        else if (image.GetPixel(leftSideBot[0], leftSideBot[1]) != backGround && image.GetPixel(leftFoot[0], leftFoot[1]) != backGround)
                         {
                             int i = 0;
-                            int j;
-                            if (-mc.p[0].vx > mc.p[0].vy) { j = 0; } else { j = 1; }
                             while (image.GetPixel(leftSideBot[0], leftSideBot[1]) != backGround && image.GetPixel(leftFoot[0], leftFoot[1]) != backGround)
                             {
-                                leftSideBot[j] = leftSideBot[j] + ( -(j * 2) + 1);
-                                leftFoot[j] = leftFoot[j] + ( -(j * 2) + 1);
+                                leftSideBot[1]--;
+                                leftFoot[1]--;
                                 i++;
                             }
-                            if (j == 0)
-                            {
-                                mc.p[0].vx = mc.p[0].vx + i;
-                            }
-                            else
-                            {
-                                mc.p[0].vy = mc.p[0].vy - i;
-                            }
-                            CheckInAir();
-                            CheckOnWallLeft();
-                            CheckOnTop();
+                            mc.p[0].vy = mc.p[0].vy - i;
                         }
+                        CheckInAir();
+                        CheckOnWallRight();
+                        CheckOnWallLeft();
+                        CheckOnTop();
                     }
-                    else if (mc.p[0].vy < 0)
+                    else if (mc.p[0].vy <= 0)
                     {
-                        if (mc.p[0].vx >= 0)
+                        if (image.GetPixel(rightSideTop[0], rightSideTop[1]) != backGround && image.GetPixel(rightTop[0], rightTop[1]) != backGround)
                         {
                             int i = 0;
-                            int j;
-                            if (mc.p[0].vx > -mc.p[0].vy) { j = 0; } else { j = 1; }
                             while (image.GetPixel(rightSideTop[0], rightSideTop[1]) != backGround && image.GetPixel(rightTop[0], rightTop[1]) != backGround)
                             {
-                                rightSideTop[j] = rightSideTop[j] + (j * 2) -1;
-                                rightTop[j] = rightTop[j] + (j * 2) - 1;
+                                rightSideTop[1]++;
+                                rightTop[1]++;
                                 i++;
                             }
-                            if (j == 0)
-                            {
-                                mc.p[0].vx = mc.p[0].vx - i;
-
-                            }
-                            else
-                            {
-                                mc.p[0].vy = mc.p[0].vy + i;
-                            }
-                            CheckOnTop();
-                            CheckInAir();
-                            CheckOnWallRight();
+                            mc.p[0].vy = mc.p[0].vy + i;
                         }
-                        else if (mc.p[0].vx < 0)
+                        else if (image.GetPixel(leftSideTop[0], leftSideTop[1]) != backGround && image.GetPixel(leftTop[0], leftTop[1]) != backGround)
                         {
                             int i = 0;
-                            int j;
-                            if (-mc.p[0].vx > -mc.p[0].vy) { j = 0; } else { j = 1; }
                             while (image.GetPixel(leftSideTop[0], leftSideTop[1]) != backGround && image.GetPixel(leftTop[0], leftTop[1]) != backGround)
                             {
-                                leftSideTop[j]++;
-                                leftTop[j]++;
+                                leftSideTop[1]++;
+                                leftTop[1]++;
                                 i++;
                             }
-                            if (j == 0)
-                            {
-                                mc.p[0].vx = mc.p[0].vx + i;
-                            }
-                            else
-                            {
-                                mc.p[0].vy = mc.p[0].vy + i;
-                            }
-                            CheckOnWallLeft();
-                            CheckInAir();
-                            CheckOnTop();
+                            mc.p[0].vy = mc.p[0].vy + i;
                         }
-
+                        CheckOnWallLeft();
+                        CheckOnWallRight();
+                        CheckInAir();
+                        CheckOnTop();
                     }
                 }
             }
