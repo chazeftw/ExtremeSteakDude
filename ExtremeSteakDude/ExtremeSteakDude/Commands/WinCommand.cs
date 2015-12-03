@@ -8,6 +8,8 @@ namespace ExtremeSteakDude.Commands
 {
     class WinCommand : IUndoRedoCommand
     {
+        
+
         public void Execute()
         {
             var hswin = App.Current.MainWindow as MainWindow;
