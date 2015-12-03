@@ -58,7 +58,7 @@ namespace ExtremeSteakDude.ViewModel
                 simpleSound.Play();
                 simpleSound.Stream.Position = 0;
             }
-            catch(Exception e)
+            catch(Exception)
             {
 
             }
@@ -74,7 +74,7 @@ namespace ExtremeSteakDude.ViewModel
                 simpleSound.Play();
                 simpleSound.Stream.Position = 0;
             }
-            catch(Exception e)
+            catch(Exception)
             {
 
             }
@@ -89,7 +89,7 @@ namespace ExtremeSteakDude.ViewModel
                 simpleSound.Play();
                 simpleSound.Stream.Position = 0;
             }
-            catch(Exception e)
+            catch(Exception)
             {
 
             }

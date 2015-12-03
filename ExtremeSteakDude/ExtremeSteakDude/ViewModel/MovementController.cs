@@ -227,7 +227,11 @@ namespace ExtremeSteakDude.ViewModel
 
         private void MoveRight()
         {
-                if (10 - p[0].vx <= moveacc)
+            if (!p[0].onWallLeft && (!p[0].onWallRight) && (!p[0].inAir))
+            {
+                // sc.playMovingSound();
+            }
+            if (10 - p[0].vx <= moveacc)
                 {
                     p[0].vx = p[0].vx + moveacc;
                 }
