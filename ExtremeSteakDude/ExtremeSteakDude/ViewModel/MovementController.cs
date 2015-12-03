@@ -83,6 +83,7 @@ namespace ExtremeSteakDude.ViewModel
             }
             if (first)
             {
+                
                 cdc = new CDC(this, currentlvl);
                 offset.Subtract(offset);
                 timer.Restart();
@@ -272,7 +273,8 @@ namespace ExtremeSteakDude.ViewModel
                 sc.playVictorySound();
                 timer.Stop();
                 //Thread t = new Thread(ThreadStart)
-                p[0].finalTime = "  " + p[0].timeSpan.ToString(@"mm\:ss\:ff");
+                TimeSpan temp = new TimeSpan(p[0].timeSpan);
+                p[0].finalTime = "  " + (temp).ToString(@"mm\:ss\:ff");
                 p[0].won = false; // Just for testing purposes
                 
                 onWin(EventArgs.Empty);
