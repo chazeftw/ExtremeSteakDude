@@ -98,7 +98,7 @@ namespace ExtremeSteakDude.ViewModel
             highScores = new ObservableCollection<Model.HighScores>();
             highScores.Add(xml.HighScores);
             highScores[0].players = players;
-            mc = new MovementController(players, highScores, this);
+            mc = new MovementController(players, highScores);
             mc.Win += mc_Win;
             NewHighScoreCommand = new RelayCommand(NewHighScore);
             KeyDownCommand = new RelayCommand<KeyEventArgs>(KeyDown);
@@ -191,7 +191,7 @@ namespace ExtremeSteakDude.ViewModel
             NewPlayerCommandLVL1 Command = new NewPlayerCommandLVL1(players);
             Command.Execute();
             mc.Dispose();
-            mc = new MovementController(players, highScores, this);
+            mc = new MovementController(players, highScores);
             mc.Win += mc_Win;
         }
 
@@ -202,7 +202,7 @@ namespace ExtremeSteakDude.ViewModel
             NewPlayerCommandLVL2 Command = new NewPlayerCommandLVL2(players);
             Command.Execute();
             mc.Dispose();
-            mc = new MovementController(players, highScores, this);
+            mc = new MovementController(players, highScores);
             mc.Win += mc_Win;
 
         }
