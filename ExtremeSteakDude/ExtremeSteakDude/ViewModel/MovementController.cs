@@ -45,6 +45,8 @@ namespace ExtremeSteakDude.ViewModel
         
         private MainViewModel mwm;
 
+        public delegate void Del();
+
 
         public MovementController(ObservableCollection<Player> p, ObservableCollection<Model.HighScores> highScores, MainViewModel main)
         {
@@ -262,15 +264,24 @@ namespace ExtremeSteakDude.ViewModel
         {
             if (p[0].won)
             {
+                
+                //Thread t = new Thread(ThreadStart)
+
                 Console.WriteLine("WIN WIN WIN WIN WIN WIN WIN!");
                 p[0].won = false; // Just for testing purposes
                 if(TimeSpan.Compare(timer.Elapsed, highScores[0].getCurrentLvlHs()) == -1)
                 {
+
                     
                     //mwm.Win();
                     /*var hswin = App.Current.MainWindow as MainWindow;
                     View.NewHighscore newhs = new View.NewHighscore();
                     hswin.Content = newhs;*/
+                }
+                else
+                {
+                    Del d = DelegateWin;
+                    d.Invoke();
                 }
             }
             if (!p[0].alive)
@@ -280,6 +291,8 @@ namespace ExtremeSteakDude.ViewModel
                 Console.WriteLine("DEAD DEAD DEAD DEAD DEAD DEAD");
                 // End the game here
                 p[0].alive = true; // Just for testing purposes
+                Del d = DelegateLoss;
+                d.Invoke();
                 //mwm.Death();
             }
             
@@ -287,6 +300,20 @@ namespace ExtremeSteakDude.ViewModel
             // MAYBE DO A COMMAND HERE
             
         }
+
+       public static void DelegateWin()
+        {
+            WinCommand winh = new WinCommand();
+            winh.Execute();
+        }
+        
+        public static void DelegateLoss()
+        {
+            DeathCommand death = new DeathCommand();
+            death.Execute();
+        }
+
+
         public void Dispose()
         {
             moveTimer.Dispose();
