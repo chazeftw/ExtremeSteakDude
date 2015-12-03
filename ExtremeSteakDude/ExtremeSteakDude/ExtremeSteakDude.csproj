@@ -110,8 +110,6 @@
     <Compile Include="Commands\SaveHighScoreCommand.cs" />
     <Compile Include="Commands\IUndoRedoCommand.cs" />
     <Compile Include="Commands\MomentumCommand.cs" />
-    <Compile Include="Commands\MoveLeftCommand.cs" />
-    <Compile Include="Commands\MoveRightCommand.cs" />
     <Compile Include="Commands\SavePlayerCommand.cs" />
     <Compile Include="Commands\UndoRedoController.cs" />
     <Compile Include="Commands\WinCommand.cs" />

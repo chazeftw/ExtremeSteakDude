@@ -12,6 +12,8 @@ namespace ExtremeSteakDude.Model
     {
         private int _x = 0;
         private int _y = 0;
+        public int startx;
+        public int starty;
         public String stringTime { get; set; }
         private long _timeSpan;
         private string _meatboyImage = "pack://application:,,,/Images/meatboy_front.jpg";

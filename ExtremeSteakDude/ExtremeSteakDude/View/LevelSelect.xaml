@@ -5,7 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ExtremeSteakDude.View"
              mc:Ignorable="d" 
-             d:DesignHeight="720" d:DesignWidth="1280">
+             d:DesignHeight="720" d:DesignWidth="1280"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
+             >
+
     <Grid>
         <Button x:Name="level1" Content="1" HorizontalAlignment="Left" Margin="484,354,0,0" VerticalAlignment="Top" Width="75" Command="{Binding NewPlayerCommandLVL1}"/>
         <Button x:Name="level2" Content="2" HorizontalAlignment="Left" Margin="724,354,0,0" VerticalAlignment="Top" Width="75" Command="{Binding NewPlayerCommandLVL2}"/>
@@ -13,4 +17,10 @@
         <TextBlock x:Name="textBlock" FontSize="52"  HorizontalAlignment="Left" Margin="470,200,0,0" TextWrapping="Wrap" Text="Level Selection" VerticalAlignment="Top" Height="80" Width="343"/>
 
     </Grid>
+    
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="KeyDown">
+            <cmd:EventToCommand Command="{Binding DataContext.PlayAgainCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
 </UserControl>
