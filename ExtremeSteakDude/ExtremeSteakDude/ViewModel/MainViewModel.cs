@@ -64,10 +64,6 @@ namespace ExtremeSteakDude.ViewModel
         public string name {get; set;}
 
 
-
-
-
-
         /// <summary>
         /// Gets the WelcomeTitle property.
         /// Changes to that property's value raise the PropertyChanged event. 
@@ -91,7 +87,6 @@ namespace ExtremeSteakDude.ViewModel
 
         public MainViewModel() {
 
-          
             XML xml = new XML();
             player = xml.Player;
             players.Add(player);

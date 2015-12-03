@@ -63,6 +63,15 @@ namespace SoundController.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
+        internal static System.IO.UnmanagedMemoryStream ingame_music {
+            get {
+                return ResourceManager.GetStream("ingame_music", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
         internal static System.IO.UnmanagedMemoryStream meat_death0 {
             get {
                 return ResourceManager.GetStream("meat_death0", resourceCulture);
@@ -210,6 +219,15 @@ namespace SoundController.Properties {
         internal static System.IO.UnmanagedMemoryStream Meat_jumps4 {
             get {
                 return ResourceManager.GetStream("Meat_jumps4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream victory {
+            get {
+                return ResourceManager.GetStream("victory", resourceCulture);
             }
         }
     }

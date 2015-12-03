@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace SoundController
 {
     public class Sounds
-    {
+    {//
         // Sound members
         // List for jump sounds to get a random one for each jump
         Random r = new Random();
@@ -116,6 +116,53 @@ namespace SoundController
             {
 
             }
+        }
+
+        public void playIngSound()
+        {
+            try
+            {
+                decider = r.Next(0, 3);
+                _soundFile = SoundController.Properties.Resources.ingame_music;
+                Play();
+                //SoundPlayer simpleSound = new SoundPlayer(movingSounds[decider]);
+                //simpleSound.Play();
+                //simpleSound.Stream.Position = 0;
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        public void playIngameMusic()
+        {
+            try
+            {
+                SoundPlayer simpleSound = new SoundPlayer(SoundController.Properties.Resources.ingame_music);
+                simpleSound.PlayLooping();
+                simpleSound.Stream.Position = 0;
+            }
+            catch (Exception)
+            {
+
+            }
+
+        }
+
+        public void playVictorySound()
+        {
+            try
+            {
+                SoundPlayer simpleSound = new SoundPlayer(SoundController.Properties.Resources.victory);
+                simpleSound.Play();
+                simpleSound.Stream.Position = 0;
+            }
+            catch (Exception)
+            {
+
+            }
+
         }
 
         public void playDeathSound()
