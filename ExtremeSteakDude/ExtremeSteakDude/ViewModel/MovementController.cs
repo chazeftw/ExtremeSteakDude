@@ -332,6 +332,7 @@ namespace ExtremeSteakDude.ViewModel
 
         public void Dispose()
         {
+            pause = true;
             moveTimer.Dispose();
             timer.Stop();
         }
