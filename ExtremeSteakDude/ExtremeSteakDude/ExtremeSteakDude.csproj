@@ -135,9 +135,6 @@
     <Compile Include="ViewModel\CollisionDetector.cs" />
     <Compile Include="ViewModel\MovementController.cs" />
     <Compile Include="ViewModel\SoundController.cs" />
-    <Compile Include="ViewModel\TestWindow.xaml.cs">
-      <DependentUpon>TestWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Page Include="View\GameOverScreen.xaml">
       <SubType>Designer</SubType>
@@ -196,10 +193,6 @@
     <Page Include="Skins\MainSkin.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="ViewModel\TestWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
