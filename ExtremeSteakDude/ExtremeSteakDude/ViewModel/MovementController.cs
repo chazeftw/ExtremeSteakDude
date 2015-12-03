@@ -72,9 +72,7 @@ namespace ExtremeSteakDude.ViewModel
             //coll = new CollisionDetector(this, currentlvl);
             cdc = new CDC(this, currentlvl);
             this.highScores = highScores;
-
-            p[0].x = currentlvl.startX;
-            p[0].y = currentlvl.startY;
+            
         }
 
         private void Move()
@@ -85,8 +83,6 @@ namespace ExtremeSteakDude.ViewModel
             }
             if (first)
             {
-                p[0].x = currentlvl.startX;
-                p[0].y = currentlvl.startY;
                 cdc = new CDC(this, currentlvl);
                 offset.Subtract(offset);
                 timer.Restart();

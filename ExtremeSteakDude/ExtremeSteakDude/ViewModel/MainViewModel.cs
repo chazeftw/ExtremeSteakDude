@@ -295,6 +295,9 @@ namespace ExtremeSteakDude.ViewModel
                     Console.WriteLine("is leftWall: " + mc.p[0].onWallLeft);
                     Console.WriteLine("is rightWall: " + mc.p[0].onWallRight);
                     Console.WriteLine("is top " + mc.p[0].top);
+                    Console.WriteLine("X: " + mc.p[0].x);
+                    Console.WriteLine("Y " + mc.p[0].y);
+
                     break;
                 
             }
