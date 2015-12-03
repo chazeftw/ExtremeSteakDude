@@ -31,9 +31,9 @@ namespace ExtremeSteakDude.ViewModel
 
             // Maybe also give this overloaded constructor a variable that says what level we are in and then hardcore
             // the colors to the according level
-            backGround = image.GetPixel(300, 100);
-            deathColor = image.GetPixel(569, 675);
-            winColor = image.GetPixel(1121, 394);
+            backGround = image.GetPixel(0, 0);
+            deathColor = image.GetPixel(2, 0);
+            winColor = image.GetPixel(3,0);
             Console.WriteLine(backGround);
             Console.WriteLine(deathColor);
             Console.WriteLine(winColor);
