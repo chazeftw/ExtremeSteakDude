@@ -1,6 +1,7 @@
 ﻿using ExtremeSteakDude.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,13 @@ namespace ExtremeSteakDude.Serialization
      private XmlSerializer serH = new XmlSerializer(typeof(HighScores));
      private XmlSerializer serP = new XmlSerializer(typeof(Player));
 
+
+        public XML(ObservableCollection<Player> players)
+        {
+            this.players = players;
+        }
+
+        ObservableCollection<Player> players;
 
         public HighScores HighScores {
          get { return DeserializeH(); }

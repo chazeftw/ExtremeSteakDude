@@ -83,8 +83,9 @@ namespace ExtremeSteakDude.ViewModel
         public MainViewModel() {
             name = "Erir";
 
-            XML xml = new XML();
+            
             players = new ObservableCollection<Player>();
+            XML xml = new XML(players);
             player = xml.Player;
             players.Add(player);
             
@@ -140,7 +141,7 @@ namespace ExtremeSteakDude.ViewModel
         private void Continue()
         {
             mc.unpause = true;
-            ContinueCommand Command = new ContinueCommand(players, new XML());
+            ContinueCommand Command = new ContinueCommand(players, new XML(players));
             Command.Execute();
            
         }
@@ -176,13 +177,13 @@ namespace ExtremeSteakDude.ViewModel
         }
         private void SavePlayer()
         {
-            SavePlayerCommand Command = new SavePlayerCommand(players, new XML());
+            SavePlayerCommand Command = new SavePlayerCommand(players, new XML(players));
             Command.Execute();
         }
 
         private void SaveHighScore(string obj)
         {
-            SaveHighScoreCommand Command = new SaveHighScoreCommand(highScores, new XML(), obj, players[0].timeSpan);
+            SaveHighScoreCommand Command = new SaveHighScoreCommand(highScores, new XML(players), obj, players[0].timeSpan);
             Command.Execute();
             NewGame();
         }
