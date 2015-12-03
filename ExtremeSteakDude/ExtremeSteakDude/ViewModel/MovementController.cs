@@ -45,7 +45,7 @@ namespace ExtremeSteakDude.ViewModel
         private CDC cdc;
         private Sounds sc;
         private ObservableCollection<Model.HighScores> highScores;
-        
+
         private MainViewModel mwm;
 
         public delegate void Del();
@@ -282,16 +282,13 @@ namespace ExtremeSteakDude.ViewModel
                 if(TimeSpan.Compare(timer.Elapsed, highScores[0].getCurrentLvlHs()) == -1)
                 {
 
-                    //mwm.Win();
-                    /*var hswin = App.Current.MainWindow as MainWindow;
-                    View.NewHighscore newhs = new View.NewHighscore();
-                    hswin.Content = newhs;*/
                 }
                 else
                 {
              //       Del d = DelegateWin;
              //       d.Invoke();
                 }
+                onWin(EventArgs.Empty);
             }
             if (!p[0].alive)
             {
@@ -336,6 +333,7 @@ namespace ExtremeSteakDude.ViewModel
         public void Dispose()
         {
             moveTimer.Dispose();
+            timer.Stop();
         }
 
     }

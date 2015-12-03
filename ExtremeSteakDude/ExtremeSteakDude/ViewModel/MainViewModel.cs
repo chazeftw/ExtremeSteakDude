@@ -126,8 +126,8 @@ namespace ExtremeSteakDude.ViewModel
                 View.NewHighscore newhs = new View.NewHighscore();
                 hswin.Content = newhs;
             }));
-            
-            
+            players[0] = mc.p[0];
+            mc.Dispose();
         }
 
 
@@ -289,9 +289,5 @@ namespace ExtremeSteakDude.ViewModel
                 
             }
         }
-        
-
-
-
     }
 }
