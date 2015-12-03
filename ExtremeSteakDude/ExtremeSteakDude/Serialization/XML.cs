@@ -1,6 +1,7 @@
 ﻿using ExtremeSteakDude.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,6 @@ namespace ExtremeSteakDude.Serialization
     {
      private XmlSerializer serH = new XmlSerializer(typeof(HighScores));
      private XmlSerializer serP = new XmlSerializer(typeof(Player));
-
 
         public HighScores HighScores {
          get { return DeserializeH(); }
@@ -45,6 +45,7 @@ namespace ExtremeSteakDude.Serialization
          XmlSerializer mySerializer = new XmlSerializer(typeof(HighScores));
             // To read the file, create a FileStream.
             try {
+                Console.WriteLine("WE TRIED");
                 FileStream myFileStream =
                 new FileStream(Directory.GetCurrentDirectory().ToString() + "\\Highscores.xml", FileMode.Open);
 

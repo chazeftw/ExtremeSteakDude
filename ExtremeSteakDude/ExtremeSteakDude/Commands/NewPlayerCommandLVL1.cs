@@ -16,13 +16,14 @@ namespace ExtremeSteakDude.Commands
         public NewPlayerCommandLVL1(ObservableCollection<Player> players)
         {
             this.players = players;
-            Player.level = Player.levelenum.one;
+            players[0].level = Player.levelenum.one;
         }
-
         public void Execute()
         {
             this.players[0] = new Player();
-            Console.WriteLine("NEW PLAYER");
+            players[0].level = Player.levelenum.one;
+            Console.WriteLine("NEW PLAYER 1");
+
 
             var main = App.Current.MainWindow as MainWindow;
             View.MainGame mg = new View.MainGame(Player.levelenum.one);

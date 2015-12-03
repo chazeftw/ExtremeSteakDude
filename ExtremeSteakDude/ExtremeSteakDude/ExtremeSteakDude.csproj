@@ -100,6 +100,7 @@
     <Compile Include="Commands\LevelSelectCommand.cs" />
     <Compile Include="Commands\MainMenuCommand.cs" />
     <Compile Include="Commands\NewGameCommand.cs" />
+    <Compile Include="Commands\NewHighscoreCommand.cs" />
     <Compile Include="Commands\NewPlayerCommandLVL1.cs" />
     <Compile Include="Commands\NewPlayerCommandLVL2.cs" />
     <Compile Include="Commands\SaveHighScoreCommand.cs" />
@@ -324,6 +325,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\level_1_2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\level_1_1.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

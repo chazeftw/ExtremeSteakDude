@@ -11,15 +11,36 @@ namespace ExtremeSteakDude.Model
     public class Player : INotifyPropertyChanged
     {
         private int _x = 500;
-        private int _y = 100;
+        private int _y = 50;
         public String stringTime { get; set; }
         private TimeSpan _timeSpan = TimeSpan.FromMilliseconds(22);
         private string _meatboyImage = "pack://application:,,,/Images/meatboy_front.jpg";
+        private levelenum _level = levelenum.one;
+        private string _currentLevel;
 
         public enum levelenum { one, two };
-        public static levelenum level { get; set; }
+        public levelenum level { get { return _level; } set { _level = value; OnPropertyChanged("currentLevel"); } }
 
-        public string meatboyImage
+
+        public string currentLevel
+        {
+            get
+            {
+                if (level == levelenum.one)
+                {
+                    return "pack://application:,,,/Levels/level_1_1.jpg";
+                }
+                else
+                {
+                    return "pack://application:,,,/Levels/level_1_2.jpg";
+                }
+            }
+            set
+            {
+                _currentLevel = value;
+            }
+        }
+            public string meatboyImage
         {
             get { return _meatboyImage; }
             set

@@ -29,13 +29,16 @@ namespace ExtremeSteakDude.ViewModel
         public ObservableCollection<Model.HighScores> highScores { get; set; }
 
         private MovementController mc;
-        public ObservableCollection<Player> players { get; set; }
+        public ObservableCollection<Player> players { get {
+
+                return _players; } set { _players = value; } }
         public Player player;
         private BitmapImage map;
         public ICommand KeyDownCommand { get; }
         public ICommand KeyUpCommand { get; }
 
         public ICommand ContinueCommand { get; }
+        public ICommand NewHighScoreCommand { get; }
         public ICommand NewGameCommand { get; }
 
         public ICommand HighScoreCommand { get; }
@@ -56,6 +59,7 @@ namespace ExtremeSteakDude.ViewModel
 
         private string _welcomeTitle = string.Empty;
         private bool canJump = true;
+        private ObservableCollection<Player> _players = new ObservableCollection<Player>();
 
         public string name {get; set;}
 
@@ -81,21 +85,19 @@ namespace ExtremeSteakDude.ViewModel
         }
 
         public MainViewModel() {
-            name = "Erir";
 
+          
             XML xml = new XML();
-            players = new ObservableCollection<Player>();
             player = xml.Player;
             players.Add(player);
-            
-            
-            KeyDownCommand = new RelayCommand<KeyEventArgs>(KeyDown);
-            KeyUpCommand = new RelayCommand<KeyEventArgs>(KeyUp);
-
-            
             highScores = new ObservableCollection<Model.HighScores>();
             highScores.Add(xml.HighScores);
+            highScores[0].players = players;
             mc = new MovementController(players, highScores, this);
+
+            NewHighScoreCommand = new RelayCommand(NewHighScore);
+            KeyDownCommand = new RelayCommand<KeyEventArgs>(KeyDown);
+            KeyUpCommand = new RelayCommand<KeyEventArgs>(KeyUp);
             NewGameCommand = new RelayCommand(NewGame);
             ContinueCommand = new RelayCommand(Continue);
             HighScoreCommand = new RelayCommand(HighScore);
@@ -108,6 +110,12 @@ namespace ExtremeSteakDude.ViewModel
             DeathCommand = new RelayCommand(Death);
             WinCommand = new RelayCommand(Win);
             LevelSelectCommand = new RelayCommand(LevelSelectC);
+        }
+
+        private void NewHighScore()
+        {
+            NewHighScoreCommand Command = new NewHighScoreCommand();
+            Command.Execute();
         }
 
         public void Win()

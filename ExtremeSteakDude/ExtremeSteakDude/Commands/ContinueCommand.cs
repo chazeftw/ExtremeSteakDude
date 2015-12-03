@@ -30,7 +30,7 @@ namespace ExtremeSteakDude.Commands
             players[0] = xML.Player;
 
             var main = App.Current.MainWindow as MainWindow;
-            View.MainGame mg = new View.MainGame(Player.level);
+            View.MainGame mg = new View.MainGame(players[0].level);
             main.Content = mg;
             
         }
