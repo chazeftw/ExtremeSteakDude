@@ -122,7 +122,6 @@ namespace ExtremeSteakDude.ViewModel
 
             App.Current.Dispatcher.Invoke((Action)(() =>
             {
-                Console.WriteLine("the game has been won");
                 var hswin = App.Current.MainWindow as MainWindow;
                 View.NewHighscore newhs = new View.NewHighscore();
                 hswin.Content = newhs;
