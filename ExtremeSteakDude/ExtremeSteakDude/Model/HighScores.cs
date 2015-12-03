@@ -17,10 +17,11 @@ namespace ExtremeSteakDude.Model
 
         public ObservableCollection<Player> players;
         private  String _Name1="Dankmeister";
-        private  TimeSpan _Score1; 
+        private  long _Score1; 
         private  String _Name2 = "Eirik";
-        private  TimeSpan _Score2;
+        private  long _Score2;
         private TimeSpan defaultTS = new TimeSpan(1, 0, 0);
+        
         public HighScores()
         {
             players = new ObservableCollection<Player>();
@@ -51,6 +52,7 @@ namespace ExtremeSteakDude.Model
                 {
                     case Player.levelenum.one:
                         {
+                            Console.WriteLine(value);
                             _Name1 = value;
                             NotifyPropertyChanged(() => Name2);
                             break;
@@ -74,11 +76,11 @@ namespace ExtremeSteakDude.Model
                 {
                     case Player.levelenum.one:
                         {
-                            return _Score1;
+                            return new TimeSpan(_Score1);
                         }
                     case Player.levelenum.two:
                         {
-                            return _Score2;
+                            return new TimeSpan(_Score2);
                         }
                     default:
                         return defaultTS;
@@ -91,14 +93,13 @@ namespace ExtremeSteakDude.Model
                 {
                     case Player.levelenum.one:
                         {
-                            Console.WriteLine(value);
-                            _Score1 = value;
+                            _Score1 = value.Ticks;
                             NotifyPropertyChanged(() => Score1);
                             break;
                         }
                     case Player.levelenum.two:
                         {
-                            _Score2 = value;
+                            _Score2 = value.Ticks;
                             NotifyPropertyChanged(() => Score2);
                             break;
                         }
@@ -109,8 +110,8 @@ namespace ExtremeSteakDude.Model
         }
         public  String Name1 { get { return _Name1; } set { _Name1 = value; NotifyPropertyChanged(); } }
         public  String Name2 {get { return _Name2; }set { _Name2 = value; NotifyPropertyChanged(); } }
-        public  TimeSpan Score1 { get { return _Score2; } set { _Score1 = value; NotifyPropertyChanged();  } }
-        public  TimeSpan Score2 { get { return _Score2; } set { _Score2 = value; NotifyPropertyChanged(); } }
+        public  TimeSpan Score1 { get { return new TimeSpan(_Score1); } set { _Score1 = value.Ticks; NotifyPropertyChanged();  } }
+        public  TimeSpan Score2 { get { return new TimeSpan(_Score2); } set { _Score2 = value.Ticks; NotifyPropertyChanged(); } }
        
         public TimeSpan getCurrentLvlHs()
         {
@@ -124,44 +125,5 @@ namespace ExtremeSteakDude.Model
                     return defaultTS;
             }
         }
-        
-        
-        
-        /*
-        private XmlSerializer ser = new XmlSerializer(typeof(DataSet));
-        
-        public HighScoreController()
-        {
-            // Creates a DataSet; adds a table, two columns, and two rows.
-
-            TextWriter writer = new StreamWriter("Highscores");
-           // ser.Serialize(writer, ds);
-            writer.Close();
-        }
-
-        public DataSet lv1 {
-            get { return Deserialize(); }
-            set { Serialize(value); }
-        }
-        private void Serialize(DataSet value)
-        {
-            TextWriter writer = new StreamWriter("Highscores.xml");
-            ser.Serialize(writer, value);
-            writer.Close();
-        }
-
-        private DataSet Deserialize()
-        {
-            // Construct an instance of the XmlSerializer with the type
-            // of object that is being deserialized.
-            XmlSerializer mySerializer =
-            new XmlSerializer(typeof(DataSet));
-            // To read the file, create a FileStream.
-            FileStream myFileStream =
-            new FileStream("Highscores.xml", FileMode.Open);
-            // Call the Deserialize method and cast to the object type.
-            return (DataSet)mySerializer.Deserialize(myFileStream);
-        }
-        */
     }
 }

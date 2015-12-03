@@ -60,6 +60,7 @@ namespace ExtremeSteakDude.ViewModel
         private string _welcomeTitle = string.Empty;
         private bool canJump = true;
         private ObservableCollection<Player> _players = new ObservableCollection<Player>();
+        private TimeSpan times;
 
         public string name {get; set;}
 
@@ -119,14 +120,15 @@ namespace ExtremeSteakDude.ViewModel
 
         public void mc_Win(object sender, EventArgs args)
         {
-
+            Console.WriteLine("ONLY ONCE");
             App.Current.Dispatcher.Invoke((Action)(() =>
             {
+                times = mc.p[0].timeSpan;
+                Console.WriteLine(times);
                 var hswin = App.Current.MainWindow as MainWindow;
                 View.NewHighscore newhs = new View.NewHighscore();
                 hswin.Content = newhs;
             }));
-            //players[0] = mc.p[0];
             mc.Dispose();
         }
 
@@ -138,7 +140,7 @@ namespace ExtremeSteakDude.ViewModel
         }
 
         public void Win()
-        {
+        {  
             WinCommand Command = new WinCommand();
             Command.Execute();
         }
@@ -204,6 +206,7 @@ namespace ExtremeSteakDude.ViewModel
             mc.Dispose();
             mc = new MovementController(players, highScores);
             mc.Win += mc_Win;
+            
 
         }
         private void SavePlayer()
@@ -213,11 +216,11 @@ namespace ExtremeSteakDude.ViewModel
         }
 
         private void SaveHighScore(string obj)
-        {
-            Console.WriteLine(players[0].timeSpan);
-            SaveHighScoreCommand Command = new SaveHighScoreCommand(highScores, new XML(), obj, players[0].timeSpan);
+        {   
+            SaveHighScoreCommand Command = new SaveHighScoreCommand(highScores, new XML(), obj, times);
+            Console.WriteLine( times);
             Command.Execute();
-            highScores[0] = (new XML()).HighScores;
+            Console.WriteLine((new XML().HighScores.Score));
             NewGame();
         }
 
