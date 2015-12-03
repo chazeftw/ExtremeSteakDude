@@ -24,8 +24,7 @@ namespace ExtremeSteakDude.Commands
             this.players[0].x = 50;
             this.players[0].y = 483;
             players[0].level = Player.levelenum.one;
-
-
+           
             var main = App.Current.MainWindow as MainWindow;
             View.MainGame mg = new View.MainGame(Player.levelenum.one);
             main.Content = mg;

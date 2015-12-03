@@ -72,7 +72,7 @@ namespace ExtremeSteakDude.ViewModel
             //coll = new CollisionDetector(this, currentlvl);
             cdc = new CDC(this, currentlvl);
             this.highScores = highScores;
-            
+
         }
 
         private void Move()
