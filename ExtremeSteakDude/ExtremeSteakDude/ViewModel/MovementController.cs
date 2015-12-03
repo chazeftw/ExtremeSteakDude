@@ -275,23 +275,18 @@ namespace ExtremeSteakDude.ViewModel
         {   
             if (p[0].won)
             {
-                timer.Stop();
-                onWin(EventArgs.Empty);
-                Console.WriteLine("WIN WIN WIN WIN WIN WIN WIN!");
+                
                 p[0].won = false; // Just for testing purposes
                 if(TimeSpan.Compare(timer.Elapsed, highScores[0].getCurrentLvlHs()) == -1)
                 {
 
-                    //mwm.Win();
-                    /*var hswin = App.Current.MainWindow as MainWindow;
-                    View.NewHighscore newhs = new View.NewHighscore();
-                    hswin.Content = newhs;*/
                 }
                 else
                 {
              //       Del d = DelegateWin;
              //       d.Invoke();
                 }
+                onWin(EventArgs.Empty);
             }
             if (!p[0].alive)
             {
