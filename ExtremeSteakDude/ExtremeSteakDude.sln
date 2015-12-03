@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtremeSteakDude", "ExtremeSteakDude\ExtremeSteakDude.csproj", "{2FCA9C4C-10AB-4496-94DE-7295CB247818}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundController", "SoundController\SoundController.csproj", "{3881560C-A1D9-40F8-9FF0-ECE05DCF6B3E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2FCA9C4C-10AB-4496-94DE-7295CB247818}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FCA9C4C-10AB-4496-94DE-7295CB247818}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FCA9C4C-10AB-4496-94DE-7295CB247818}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3881560C-A1D9-40F8-9FF0-ECE05DCF6B3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3881560C-A1D9-40F8-9FF0-ECE05DCF6B3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3881560C-A1D9-40F8-9FF0-ECE05DCF6B3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3881560C-A1D9-40F8-9FF0-ECE05DCF6B3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
