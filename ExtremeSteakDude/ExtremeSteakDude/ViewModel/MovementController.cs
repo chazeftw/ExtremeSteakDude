@@ -30,6 +30,7 @@ namespace ExtremeSteakDude.ViewModel
 
         private int movespeed = 5;
         private int moveacc = 2;
+        private int movedacc = 1;
         private int fallspeed = 5;
         private int gravity = 1;
         private int jumpheight = 17;
@@ -134,16 +135,16 @@ namespace ExtremeSteakDude.ViewModel
                     if (p[0].vx > 0)
                     {
                         if (p[0].onWallRight) { p[0].vx = 0; }
-                        else if (p[0].vx > moveacc + 1 && !p[0].onWallRight)
+                        else if (p[0].vx > movedacc + 1 && !p[0].onWallRight)
                         {
-                            p[0].vx = p[0].vx - moveacc;
+                            p[0].vx = p[0].vx - movedacc;
                         }
                         else
                         {
                             p[0].vx = 0;
                         }
                     }
-                    else if (p[0].vx < -moveacc)
+                    else if (p[0].vx < -movedacc)
                     {
                         if (p[0].onWallLeft) { p[0].vx = 0; }
                         else { p[0].vx = p[0].vx + moveacc; }

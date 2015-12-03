@@ -176,6 +176,8 @@ namespace ExtremeSteakDude.ViewModel
 
             }catch(ArgumentOutOfRangeException)
             {
+                mc.p[0].vy = 0;
+                mc.p[0].vx = 0;
                 // If meatboy jumps out of the screen the following will trigger
                 // Commented the following so we can jump out of the screen without issues even though players then
                 // can bug the shit out the game probably. To be considered
