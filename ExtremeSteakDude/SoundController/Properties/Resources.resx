@@ -169,4 +169,10 @@
   <data name="Meat_jumps4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Meat_jumps4.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="ingame_music" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ingame_music.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="victory" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\victory.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>
