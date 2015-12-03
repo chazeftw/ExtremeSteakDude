@@ -95,6 +95,7 @@ namespace ExtremeSteakDude.ViewModel
             highScores[0].players = players;
             mc = new MovementController(players, highScores, this);
 
+            NewHighScoreCommand = new RelayCommand(NewHighScore);
             KeyDownCommand = new RelayCommand<KeyEventArgs>(KeyDown);
             KeyUpCommand = new RelayCommand<KeyEventArgs>(KeyUp);
             NewGameCommand = new RelayCommand(NewGame);
@@ -109,6 +110,12 @@ namespace ExtremeSteakDude.ViewModel
             DeathCommand = new RelayCommand(Death);
             WinCommand = new RelayCommand(Win);
             LevelSelectCommand = new RelayCommand(LevelSelectC);
+        }
+
+        private void NewHighScore()
+        {
+            NewHighScoreCommand Command = new NewHighScoreCommand();
+            Command.Execute();
         }
 
         public void Win()
