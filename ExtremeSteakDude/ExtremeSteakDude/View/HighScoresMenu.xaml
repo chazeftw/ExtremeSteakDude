@@ -12,10 +12,10 @@
         <Button x:Name="Back" Content="Back" HorizontalAlignment="Left" Margin="354,581,0,0" VerticalAlignment="Top" Width="517" Command="{Binding MainMenuCommand}"/>
         <TextBlock x:Name="Level1" Text="Level1" FontSize="40" HorizontalAlignment="Left" Margin="354,182,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="Level2" Text="Level 2" FontSize="40" HorizontalAlignment="Left" Margin="745,182,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="Time1" Text="{Binding highScores[0].Score1}" FontSize="35" HorizontalAlignment="Left" Margin="333,255,0,0" VerticalAlignment="Top" Height="42" Width="217" RenderTransformOrigin="1.528,0.505"/>
-        <TextBlock x:Name="Name1" Text="{Binding highScores[0].Name1}" HorizontalAlignment="Left" FontSize="35" Height="54" Margin="354,302,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="96" RenderTransformOrigin="1.288,0.748"/>
-        <TextBlock x:Name="Time2" Text="{Binding highScores[0].Score2}" HorizontalAlignment="Left" FontSize="35" Height="54" Margin="745,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
-        <TextBlock x:Name="Name2" Text="{Binding highScores[0].Name2}" HorizontalAlignment="Left" FontSize="35" Height="54" Margin="745,302,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147"/>
+        <TextBlock x:Name="Time1" Text="{Binding highScores[0].Score1}" FontSize="35" HorizontalAlignment="Left" Margin="333,255,0,0" VerticalAlignment="Top" Height="42" Width="258" RenderTransformOrigin="1.528,0.505"/>
+        <TextBlock x:Name="Name1" Text="{Binding highScores[0].Name1}" HorizontalAlignment="Left" FontSize="35" Height="54" Margin="354,302,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" RenderTransformOrigin="1.288,0.748"/>
+        <TextBlock x:Name="Time2" Text="{Binding highScores[0].Score2}" HorizontalAlignment="Left" FontSize="35" Height="54" Margin="745,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="221"/>
+        <TextBlock x:Name="Name2" Text="{Binding highScores[0].Name2}" HorizontalAlignment="Left" FontSize="35" Height="54" Margin="745,302,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="221"/>
 
     </Grid>
 </UserControl>

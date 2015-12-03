@@ -17,9 +17,9 @@ namespace ExtremeSteakDude.Model
 
         public ObservableCollection<Player> players;
         private  String _Name1="Dankmeister";
-        private  long _Score1; 
+        private  long _Score1 = long.MaxValue; 
         private  String _Name2 = "Eirik";
-        private  long _Score2;
+        private  long _Score2 = long.MaxValue;
         private TimeSpan defaultTS = new TimeSpan(1, 0, 0);
         
         public HighScores()
@@ -52,7 +52,6 @@ namespace ExtremeSteakDude.Model
                 {
                     case Player.levelenum.one:
                         {
-                            Console.WriteLine(value);
                             _Name1 = value;
                             NotifyPropertyChanged(() => Name2);
                             break;
@@ -68,7 +67,7 @@ namespace ExtremeSteakDude.Model
                 NotifyPropertyChanged();
             }
         }
-        public TimeSpan Score
+        public long Score
         {
             get
             {
@@ -76,14 +75,14 @@ namespace ExtremeSteakDude.Model
                 {
                     case Player.levelenum.one:
                         {
-                            return new TimeSpan(_Score1);
+                            return _Score1;
                         }
                     case Player.levelenum.two:
                         {
-                            return new TimeSpan(_Score2);
+                            return _Score2;
                         }
                     default:
-                        return defaultTS;
+                        return long.MaxValue;
                 }
                 
             }
@@ -93,13 +92,13 @@ namespace ExtremeSteakDude.Model
                 {
                     case Player.levelenum.one:
                         {
-                            _Score1 = value.Ticks;
+                            _Score1 = value;
                             NotifyPropertyChanged(() => Score1);
                             break;
                         }
                     case Player.levelenum.two:
                         {
-                            _Score2 = value.Ticks;
+                            _Score2 = value;
                             NotifyPropertyChanged(() => Score2);
                             break;
                         }
