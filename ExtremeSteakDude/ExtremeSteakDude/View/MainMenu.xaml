@@ -11,7 +11,7 @@
         <Button x:Name="Continue" Content="Continue" Margin="354,290,0,0" Command="{Binding ContinueCommand}"/>
         <Button x:Name="HighScore" Content="HighScore" Margin="354,420,0,0" Command="{Binding HighScoreCommand}"/>
         <Button x:Name="Exit" Content="Exit" Margin="354,550,0,0" Command="{Binding ExitCommand}"/>
-        <Button x:Name="Test" Content="Test" Margin="69,372,0,0" Command="{Binding NewHighScoreCommand}"  Width="195" Height="89"/>
-
+       <!-->     <Button x:Name="Test" Content="Test" Margin="69,372,0,0" Command="{Binding NewHighScoreCommand}"  Width="195" Height="89"/>
+<-->
     </Grid>
 </UserControl>

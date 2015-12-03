@@ -276,7 +276,6 @@ namespace ExtremeSteakDude.ViewModel
             {
                 timer.Stop();
                 //Thread t = new Thread(ThreadStart)
-                onWin(EventArgs.Empty);
                 p[0].won = false; // Just for testing purposes
                 if(TimeSpan.Compare(timer.Elapsed, highScores[0].getCurrentLvlHs()) == -1)
                 {
@@ -287,7 +286,9 @@ namespace ExtremeSteakDude.ViewModel
              //       Del d = DelegateWin;
              //       d.Invoke();
                 }
+                
                 onWin(EventArgs.Empty);
+                moveTimer.Dispose();
             }
             if (!p[0].alive)
             {
