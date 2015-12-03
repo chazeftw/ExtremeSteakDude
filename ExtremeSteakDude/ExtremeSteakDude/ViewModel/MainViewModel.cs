@@ -94,7 +94,7 @@ namespace ExtremeSteakDude.ViewModel
             highScores.Add(xml.HighScores);
             highScores[0].players = players;
             mc = new MovementController(players, highScores, this);
-
+            mc.Win += mc_Win;
             NewHighScoreCommand = new RelayCommand(NewHighScore);
             KeyDownCommand = new RelayCommand<KeyEventArgs>(KeyDown);
             KeyUpCommand = new RelayCommand<KeyEventArgs>(KeyUp);
@@ -111,6 +111,12 @@ namespace ExtremeSteakDude.ViewModel
             WinCommand = new RelayCommand(Win);
             LevelSelectCommand = new RelayCommand(LevelSelectC);
         }
+
+        public void mc_Win(object sender, EventArgs args)
+        {
+            Console.WriteLine("the game has been won");
+        }
+
 
         private void NewHighScore()
         {
@@ -173,6 +179,7 @@ namespace ExtremeSteakDude.ViewModel
             Command.Execute();
             mc.Dispose();
             mc = new MovementController(players, highScores, this);
+            mc.Win += mc_Win;
         }
 
         private void NewPlayerLVL2()
@@ -183,7 +190,8 @@ namespace ExtremeSteakDude.ViewModel
             Command.Execute();
             mc.Dispose();
             mc = new MovementController(players, highScores, this);
-  
+            mc.Win += mc_Win;
+
         }
         private void SavePlayer()
         {
