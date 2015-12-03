@@ -8,13 +8,14 @@ using System.Xml.Serialization;
 using System.IO;
 
 using System.Windows.Media;
+using System.Collections.ObjectModel;
 
 namespace ExtremeSteakDude.Model
 {
     public class HighScores : NotifyBase
     {
 
-
+        private ObservableCollection<Player> players;
         private  String _Name1="Dankmeister";
         private  TimeSpan _Score1; 
         private  String _Name2 = "Eirik";
@@ -26,7 +27,7 @@ namespace ExtremeSteakDude.Model
         public string Name
         {
             get {
-                switch (Player.level)
+                switch (players[0].level)
                 {
                     case Player.levelenum.one:
                         {
@@ -42,7 +43,7 @@ namespace ExtremeSteakDude.Model
             }
             set
             {
-                switch (Player.level)
+                switch (players[0].level)
                 {
                     case Player.levelenum.one:
                         {
@@ -65,7 +66,7 @@ namespace ExtremeSteakDude.Model
         {
             get
             {
-                switch (Player.level)
+                switch (players[0].level)
                 {
                     case Player.levelenum.one:
                         {
@@ -82,7 +83,7 @@ namespace ExtremeSteakDude.Model
             }
             set
             {
-                switch (Player.level)
+                switch (players[0].level)
                 {
                     case Player.levelenum.one:
                         {
@@ -108,7 +109,7 @@ namespace ExtremeSteakDude.Model
        
         public TimeSpan getCurrentLvlHs()
         {
-            switch (Player.level)
+            switch (players[0].level)
             {
                 case Player.levelenum.one:
                     return Score1;
