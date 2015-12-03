@@ -15,14 +15,6 @@ namespace ExtremeSteakDude.Serialization
      private XmlSerializer serH = new XmlSerializer(typeof(HighScores));
      private XmlSerializer serP = new XmlSerializer(typeof(Player));
 
-
-        public XML(ObservableCollection<Player> players)
-        {
-            this.players = players;
-        }
-
-        public ObservableCollection<Player> players;
-
         public HighScores HighScores {
          get { return DeserializeH(); }
          set { SerializeH(value); }

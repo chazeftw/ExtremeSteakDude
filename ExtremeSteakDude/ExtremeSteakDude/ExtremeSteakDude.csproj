@@ -100,6 +100,7 @@
     <Compile Include="Commands\LevelSelectCommand.cs" />
     <Compile Include="Commands\MainMenuCommand.cs" />
     <Compile Include="Commands\NewGameCommand.cs" />
+    <Compile Include="Commands\NewHighscoreCommand.cs" />
     <Compile Include="Commands\NewPlayerCommandLVL1.cs" />
     <Compile Include="Commands\NewPlayerCommandLVL2.cs" />
     <Compile Include="Commands\SaveHighScoreCommand.cs" />

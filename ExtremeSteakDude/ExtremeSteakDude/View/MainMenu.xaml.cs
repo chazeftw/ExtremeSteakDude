@@ -25,14 +25,6 @@ namespace ExtremeSteakDude.View
         public MainMenu()
         {
             InitializeComponent();
-        }
-
-        private void Test_Click(object sender, RoutedEventArgs e)
-        {
-            //Show Enter highscore screen
-            this.Content = new NewHighscore();
-            e.Handled = true;
-            //
-        }
+        }   
     }
 }
