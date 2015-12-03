@@ -280,8 +280,8 @@ namespace ExtremeSteakDude.ViewModel
                 }
                 else
                 {
-                    Del d = DelegateWin;
-                    d.Invoke();
+             //       Del d = DelegateWin;
+             //       d.Invoke();
                 }
             }
             if (!p[0].alive)
@@ -291,8 +291,8 @@ namespace ExtremeSteakDude.ViewModel
                 Console.WriteLine("DEAD DEAD DEAD DEAD DEAD DEAD");
                 // End the game here
                 p[0].alive = true; // Just for testing purposes
-                Del d = DelegateLoss;
-                d.Invoke();
+              //  Del d = DelegateLoss;
+              //  d.Invoke();
                 //mwm.Death();
             }
             
