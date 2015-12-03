@@ -63,6 +63,11 @@ namespace ExtremeSteakDude.ViewModel
 
         public string name {get; set;}
 
+
+
+
+
+
         /// <summary>
         /// Gets the WelcomeTitle property.
         /// Changes to that property's value raise the PropertyChanged event. 
@@ -94,7 +99,7 @@ namespace ExtremeSteakDude.ViewModel
             highScores.Add(xml.HighScores);
             highScores[0].players = players;
             mc = new MovementController(players, highScores, this);
-
+            mc.Win += mc_Win;
             NewHighScoreCommand = new RelayCommand(NewHighScore);
             KeyDownCommand = new RelayCommand<KeyEventArgs>(KeyDown);
             KeyUpCommand = new RelayCommand<KeyEventArgs>(KeyUp);
@@ -111,6 +116,21 @@ namespace ExtremeSteakDude.ViewModel
             WinCommand = new RelayCommand(Win);
             LevelSelectCommand = new RelayCommand(LevelSelectC);
         }
+
+        public void mc_Win(object sender, EventArgs args)
+        {
+
+            App.Current.Dispatcher.Invoke((Action)(() =>
+            {
+                Console.WriteLine("the game has been won");
+                var hswin = App.Current.MainWindow as MainWindow;
+                View.NewHighscore newhs = new View.NewHighscore();
+                hswin.Content = newhs;
+            }));
+            
+            
+        }
+
 
         private void NewHighScore()
         {
@@ -173,6 +193,7 @@ namespace ExtremeSteakDude.ViewModel
             Command.Execute();
             mc.Dispose();
             mc = new MovementController(players, highScores, this);
+            mc.Win += mc_Win;
         }
 
         private void NewPlayerLVL2()
@@ -183,7 +204,8 @@ namespace ExtremeSteakDude.ViewModel
             Command.Execute();
             mc.Dispose();
             mc = new MovementController(players, highScores, this);
-  
+            mc.Win += mc_Win;
+
         }
         private void SavePlayer()
         {

@@ -1,6 +1,7 @@
 ﻿using ExtremeSteakDude.Commands;
 using ExtremeSteakDude.Levels;
 using ExtremeSteakDude.Model;
+using ExtremeSteakDude.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -274,10 +275,10 @@ namespace ExtremeSteakDude.ViewModel
 
         //check for death/win. Set new window accordingly
         public void CheckWinDeath()
-        {
+        {   
             if (p[0].won)
             {
-                
+                timer.Stop();
                 //Thread t = new Thread(ThreadStart)
 
                 Console.WriteLine("WIN WIN WIN WIN WIN WIN WIN!");
@@ -285,7 +286,6 @@ namespace ExtremeSteakDude.ViewModel
                 if(TimeSpan.Compare(timer.Elapsed, highScores[0].getCurrentLvlHs()) == -1)
                 {
 
-                    
                     //mwm.Win();
                     /*var hswin = App.Current.MainWindow as MainWindow;
                     View.NewHighscore newhs = new View.NewHighscore();
