@@ -120,7 +120,7 @@ namespace ExtremeSteakDude.ViewModel
                 times = mc.p[0].timeSpan;
                 Console.WriteLine(times);
                 // If player got the best time go to new highscore screen
-                if (TimeSpan.Compare(times, highScores[0].getCurrentLvlHs()) == -1)
+                if (TimeSpan.Compare(times, new TimeSpan(highScores[0].getCurrentLvlHs())) == -1)
                 {
                 var hswin = App.Current.MainWindow as MainWindow;
                 View.NewHighscore newhs = new View.NewHighscore();

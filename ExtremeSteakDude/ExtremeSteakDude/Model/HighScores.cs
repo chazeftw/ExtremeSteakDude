@@ -109,10 +109,10 @@ namespace ExtremeSteakDude.Model
         }
         public  String Name1 { get { return _Name1; } set { _Name1 = value; NotifyPropertyChanged(); } }
         public  String Name2 {get { return _Name2; }set { _Name2 = value; NotifyPropertyChanged(); } }
-        public  TimeSpan Score1 { get { return new TimeSpan(_Score1); } set { _Score1 = value.Ticks; NotifyPropertyChanged();  } }
-        public  TimeSpan Score2 { get { return new TimeSpan(_Score2); } set { _Score2 = value.Ticks; NotifyPropertyChanged(); } }
+        public  long Score1 { get { return _Score1; } set { _Score1 = value; NotifyPropertyChanged();  } }
+        public long Score2 { get { return _Score2; } set { _Score2 = value; NotifyPropertyChanged(); } }
        
-        public TimeSpan getCurrentLvlHs()
+        public long getCurrentLvlHs()
         {
             switch (players[0].level)
             {
@@ -121,7 +121,7 @@ namespace ExtremeSteakDude.Model
                 case Player.levelenum.two:
                     return Score2;
                 default:
-                    return defaultTS;
+                    return long.MaxValue;
             }
         }
     }
