@@ -22,7 +22,7 @@ namespace ExtremeSteakDude.Commands
         public void Execute()
         {
             this.players[0] = new Player();
-            this.players[0].x = 50;
+            this.players[0].x = 34;
             this.players[0].y = 590;
             players[0].level = Player.levelenum.two;
 
