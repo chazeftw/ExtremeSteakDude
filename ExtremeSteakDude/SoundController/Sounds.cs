@@ -47,8 +47,42 @@ namespace SoundController
             deathSounds.Add(SoundController.Properties.Resources.meat_death7);
 
         }
+        System.IO.Stream _soundFile;
+        Thread _soundThread;
+        bool _isStopped = true;
 
-        // Functions for playing sounds
+        public bool IsFinished { get { return _isStopped; } }
+
+        public void SoundEffect(System.IO.Stream soundFile)
+        {
+            _soundFile = soundFile;
+        }
+
+        public void Play()
+        {
+            if (!_isStopped)
+                return;
+
+            _soundThread = new Thread(PlayThread);
+            _soundThread.Start();
+        }
+
+        private void PlayThread()
+        {
+            _isStopped = false;
+            try
+            {
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer(_soundFile);
+            
+                player.PlaySync();
+            }
+            catch
+            {
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer(_soundFile);
+            }
+            _isStopped = true;
+        }
+        // Functions for playing sounds6301
 
         public void playJumpSound()
         {
@@ -70,10 +104,12 @@ namespace SoundController
         {
             try
             {
-                decider = r.Next(0, 4);
-                SoundPlayer simpleSound = new SoundPlayer(movingSounds[decider]);
-                simpleSound.Play();
-                simpleSound.Stream.Position = 0;
+                decider = r.Next(0, 3);
+                _soundFile = movingSounds[decider];
+                Play();
+                //SoundPlayer simpleSound = new SoundPlayer(movingSounds[decider]);
+                //simpleSound.Play();
+                //simpleSound.Stream.Position = 0;
             }
             catch (Exception)
             {
