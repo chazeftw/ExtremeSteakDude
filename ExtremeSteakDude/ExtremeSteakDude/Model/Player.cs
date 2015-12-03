@@ -10,8 +10,8 @@ namespace ExtremeSteakDude.Model
 {
     public class Player : INotifyPropertyChanged
     {
-        private int _x = 500;
-        private int _y = 50;
+        private int _x = 0;
+        private int _y = 0;
         public String stringTime { get; set; }
         private TimeSpan _timeSpan = TimeSpan.FromMilliseconds(22);
         private string _meatboyImage = "pack://application:,,,/Images/meatboy_front.jpg";
