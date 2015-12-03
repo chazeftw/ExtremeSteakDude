@@ -68,6 +68,7 @@ namespace ExtremeSteakDude.ViewModel
             moveTimer = new Timer(x => Move(), null, 0, tick);
             sc = new SoundController();
             //coll = new CollisionDetector(this, currentlvl);
+            Console.WriteLine(currentlvl.startX+"    ugggggggggggg");
             cdc = new CDC(this, currentlvl);
             mwm = main;
             this.highScores = highScores;
@@ -86,6 +87,7 @@ namespace ExtremeSteakDude.ViewModel
             {
                 p[0].x = currentlvl.startX;
                 p[0].y = currentlvl.startY;
+                cdc = new CDC(this, currentlvl);
                 offset.Subtract(offset);
                 timer.Restart();
                 first = false;
