@@ -73,6 +73,7 @@ namespace ExtremeSteakDude.ViewModel
             cdc = new CDC(this, currentlvl);
             this.highScores = highScores;
 
+            
         }
 
         private void Move()
