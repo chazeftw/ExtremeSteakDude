@@ -33,7 +33,7 @@ namespace ExtremeSteakDude.ViewModel
         }
         ObservableCollection<Player> test = new ObservableCollection<Player>();
         
-        //MovementController mc;
+        MovementController mc;
         //private ObservableCollection<HighScores> highScores;
 
         private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
