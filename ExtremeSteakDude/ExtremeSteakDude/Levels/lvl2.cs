@@ -19,8 +19,8 @@ namespace ExtremeSteakDude.Levels
         public lvl2()
         {
             image = new Bitmap(ExtremeSteakDude.Properties.Resources.level_1_2);
-            this.startX = 50;
-            this.startY = 570;
+            this.startX = 40;
+            this.startY = 589;
             // Getting the background image
 
             /*

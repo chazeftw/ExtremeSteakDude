@@ -35,7 +35,7 @@ namespace ExtremeSteakDude.Commands
         public void Execute()
         {
             highScores[0].Name = name;
-            highScores[0].Score = score;
+            highScores[0].Score = score.Ticks;
             xML.HighScores = highScores[0];
         }
 
