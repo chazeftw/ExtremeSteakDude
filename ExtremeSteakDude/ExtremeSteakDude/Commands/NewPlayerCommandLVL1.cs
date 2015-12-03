@@ -18,11 +18,12 @@ namespace ExtremeSteakDude.Commands
             this.players = players;
             players[0].level = Player.levelenum.one;
         }
-
         public void Execute()
         {
             this.players[0] = new Player();
-            Console.WriteLine("NEW PLAYER");
+            players[0].level = Player.levelenum.one;
+            Console.WriteLine("NEW PLAYER 1");
+
 
             var main = App.Current.MainWindow as MainWindow;
             View.MainGame mg = new View.MainGame(Player.levelenum.one);
