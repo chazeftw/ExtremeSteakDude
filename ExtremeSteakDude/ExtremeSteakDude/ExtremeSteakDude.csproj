@@ -134,7 +134,6 @@
     <Compile Include="ViewModel\CDC.cs" />
     <Compile Include="ViewModel\CollisionDetector.cs" />
     <Compile Include="ViewModel\MovementController.cs" />
-    <Compile Include="ViewModel\SoundController.cs" />
     <Compile Include="ViewModel\TestWindow.xaml.cs">
       <DependentUpon>TestWindow.xaml</DependentUpon>
     </Compile>
