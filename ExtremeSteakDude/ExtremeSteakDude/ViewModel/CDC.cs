@@ -105,9 +105,9 @@ namespace ExtremeSteakDude.ViewModel
                 }
                 else if (!mc.p[0].inAir && (mc.p[0].onWallRight || mc.p[0].onWallLeft))
                 {
-                    if(mc.p[0].vy > 0)
+                    if(mc.p[0].vy >= 0)
                     {
-                        if(mc.p[0].vx > 0)
+                        if(mc.p[0].vx >= 0)
                         {
                             int i = 0;
                             int j;
@@ -155,7 +155,7 @@ namespace ExtremeSteakDude.ViewModel
                     }
                     else if (mc.p[0].vy < 0)
                     {
-                        if (mc.p[0].vx > 0)
+                        if (mc.p[0].vx >= 0)
                         {
                             int i = 0;
                             int j;
@@ -223,7 +223,14 @@ namespace ExtremeSteakDude.ViewModel
         private void CheckWinLossState()
         {
             // If player is on the deathcolor (red)
-            if (image.GetPixel(rightFoot[0], rightFoot[1]) == deathColor || image.GetPixel(leftFoot[0], leftFoot[1]) == deathColor)
+            if (image.GetPixel(rightFoot[0], rightFoot[1]) == deathColor 
+                || image.GetPixel(leftFoot[0], leftFoot[1]) == deathColor 
+                || image.GetPixel(leftSideBot[0], leftSideBot[1]) == deathColor 
+                || image.GetPixel(leftSideTop[0], leftSideTop[1]) == deathColor 
+                || image.GetPixel(rightSideBot[0],rightSideBot[1]) == deathColor
+                || image.GetPixel(rightSideTop[0], rightSideTop[1]) == deathColor
+                || image.GetPixel(rightTop[0], rightTop[1]) == deathColor
+                || image.GetPixel(leftTop[0], leftTop[1]) == deathColor)
             {
                 mc.p[0].alive = false;
                 mc.first = true;

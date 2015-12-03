@@ -17,9 +17,9 @@ namespace ExtremeSteakDude.Model
 
         public ObservableCollection<Player> players;
         private  String _Name1="Dankmeister";
-        private  TimeSpan _Score1; 
+        private  long _Score1 = long.MaxValue; 
         private  String _Name2 = "Eirik";
-        private  TimeSpan _Score2;
+        private  long _Score2 = long.MaxValue;
         private TimeSpan defaultTS = new TimeSpan(1, 0, 0);
         public HighScores()
         {
@@ -66,7 +66,7 @@ namespace ExtremeSteakDude.Model
                 NotifyPropertyChanged();
             }
         }
-        public TimeSpan Score
+        public long Score
         {
             get
             {
@@ -81,7 +81,7 @@ namespace ExtremeSteakDude.Model
                             return _Score2;
                         }
                     default:
-                        return defaultTS;
+                        return long.MaxValue;
                 }
                 
             }
@@ -108,10 +108,13 @@ namespace ExtremeSteakDude.Model
         }
         public  String Name1 { get { return _Name1; } set { _Name1 = value; NotifyPropertyChanged(); } }
         public  String Name2 {get { return _Name2; }set { _Name2 = value; NotifyPropertyChanged(); } }
-        public  TimeSpan Score1 { get { return _Score2; } set { _Score1 = value; NotifyPropertyChanged(); } }
-        public  TimeSpan Score2 { get { return _Score2; } set { _Score2 = value; NotifyPropertyChanged(); } }
-       
-        public TimeSpan getCurrentLvlHs()
+        public  long Score1 { get { return _Score1; } set { _Score1 = value; NotifyPropertyChanged();  } }
+        public long Score2 { get { return _Score2; } set { _Score2 = value; NotifyPropertyChanged(); } }
+
+        public String nice1 { get { return ("" + (new TimeSpan(_Score1)).Duration().ToString(@"mm\:ss\:ff")); } }
+        public String nice2 { get { return ("" + (new TimeSpan(_Score2)).Duration().ToString(@"mm\:ss\:ff")); } }
+
+        public long getCurrentLvlHs()
         {
             switch (players[0].level)
             {
@@ -120,7 +123,7 @@ namespace ExtremeSteakDude.Model
                 case Player.levelenum.two:
                     return Score2;
                 default:
-                    return defaultTS;
+                    return long.MaxValue;
             }
         }
         

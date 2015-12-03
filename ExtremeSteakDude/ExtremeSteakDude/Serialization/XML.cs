@@ -14,6 +14,7 @@ namespace ExtremeSteakDude.Serialization
     {
      private XmlSerializer serH = new XmlSerializer(typeof(HighScores));
      private XmlSerializer serP = new XmlSerializer(typeof(Player));
+        private bool dank;
 
         public HighScores HighScores {
          get { return DeserializeH(); }
@@ -25,7 +26,15 @@ namespace ExtremeSteakDude.Serialization
             set { SerializeP(value); } }
 
         private void SerializeH(HighScores value)
-     {
+        {
+            Console.WriteLine(value.Score);
+            if (dank)
+            { Console.WriteLine("This was avoided " + value.Score);
+                dank = false;
+                return;
+            }
+            dank = true;
+            Console.WriteLine(value.Score);
          TextWriter writer = new StreamWriter(Directory.GetCurrentDirectory().ToString() + "\\Highscores.xml");
          serH.Serialize(writer, value);
          writer.Close();
@@ -55,7 +64,7 @@ namespace ExtremeSteakDude.Serialization
                 return hs;
             }
             catch(FileNotFoundException)
-            {   
+            {
                 var myFile = File.Create(Directory.GetCurrentDirectory().ToString() + "\\Highscores.xml");
                 myFile.Close();
                 SerializeH(new HighScores());
