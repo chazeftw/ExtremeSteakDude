@@ -48,8 +48,6 @@ namespace ExtremeSteakDude.ViewModel
 
         //private MainViewModel mwm;
 
-        public delegate void Del();
-
 
         public MovementController(ObservableCollection<Player> p, ObservableCollection<Model.HighScores> highScores)
         {
@@ -280,17 +278,9 @@ namespace ExtremeSteakDude.ViewModel
                 //Thread t = new Thread(ThreadStart)
                 p[0].finalTime = "  " + p[0].timeSpan.ToString(@"mm\:ss\:ff");
                 p[0].won = false; // Just for testing purposes
-                if(TimeSpan.Compare(timer.Elapsed, highScores[0].getCurrentLvlHs()) == -1)
-                {
-
-                }
-                else
-                {
-             //       Del d = DelegateWin;
-             //       d.Invoke();
-                }
                 
                 onWin(EventArgs.Empty);
+
                 moveTimer.Dispose();
             }
             if (!p[0].alive)
@@ -319,17 +309,7 @@ namespace ExtremeSteakDude.ViewModel
 
         public EventHandler Win;
 
-        public static void DelegateWin()
-        {
-            WinCommand winh = new WinCommand();
-            winh.Execute();
-        }
-        
-        public static void DelegateLoss()
-        {
-            DeathCommand death = new DeathCommand();
-            death.Execute();
-        }
+    
 
 
         public void Dispose()
