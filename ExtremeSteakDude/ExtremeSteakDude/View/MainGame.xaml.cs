@@ -18,7 +18,7 @@ namespace ExtremeSteakDude.View
     /// </summary>
     public partial class MainGame : UserControl
     {
-        MapNew currentlvl;
+        //MapNew currentlvl;
 
         public MainGame()
         {

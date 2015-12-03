@@ -40,13 +40,13 @@ namespace ExtremeSteakDude.ViewModel
         private int tick = 12;
 
         private MapNew currentlvl;
-        private CollisionDetector coll;
+        //private CollisionDetector coll;
         private TimeSpan offset;
         private CDC cdc;
         private Sounds sc;
         private ObservableCollection<Model.HighScores> highScores;
 
-        private MainViewModel mwm;
+        //private MainViewModel mwm;
 
         public delegate void Del();
 

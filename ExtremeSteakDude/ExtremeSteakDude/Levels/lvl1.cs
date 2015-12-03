@@ -13,7 +13,7 @@ namespace ExtremeSteakDude.Levels
 {
     class lvl1:Model.MapNew
     {
-        Graphics gr;
+        //Graphics gr;
 
         public lvl1()
         {

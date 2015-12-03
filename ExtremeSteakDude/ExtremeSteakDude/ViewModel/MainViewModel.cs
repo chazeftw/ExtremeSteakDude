@@ -33,7 +33,7 @@ namespace ExtremeSteakDude.ViewModel
 
                 return _players; } set { _players = value; } }
         public Player player;
-        private BitmapImage map;
+       //private BitmapImage map;
         public ICommand KeyDownCommand { get; }
         public ICommand KeyUpCommand { get; }
 
