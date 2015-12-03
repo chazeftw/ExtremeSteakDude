@@ -311,7 +311,6 @@ namespace ExtremeSteakDude.ViewModel
             EventHandler handler = Win;
             if (handler != null)
             {
-                Console.WriteLine("EVENTddddddE");
                 handler(this, args);
             }
         }
