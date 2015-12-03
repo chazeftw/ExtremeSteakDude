@@ -272,7 +272,7 @@ namespace ExtremeSteakDude.ViewModel
                 sc.playVictorySound();
                 timer.Stop();
                 //Thread t = new Thread(ThreadStart)
-                p[0].finalTime = "  " + p[0].timeSpan.ToString(@"mm\:ss\:ff");
+                p[0].finalTime = "  " + (new TimeSpan(p[0].timeSpan)).ToString(@"mm\:ss\:ff");
                 p[0].won = false; // Just for testing purposes
                 
                 onWin(EventArgs.Empty);
