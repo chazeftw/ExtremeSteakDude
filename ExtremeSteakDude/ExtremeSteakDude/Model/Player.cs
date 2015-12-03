@@ -15,9 +15,10 @@ namespace ExtremeSteakDude.Model
         public String stringTime { get; set; }
         private TimeSpan _timeSpan = TimeSpan.FromMilliseconds(22);
         private string _meatboyImage = "pack://application:,,,/Images/meatboy_front.jpg";
-        
+        private levelenum _level = levelenum.one;
+
         public enum levelenum { one, two };
-        public levelenum level { get { return level; } set { level = value; OnPropertyChanged("currentLevel"); } }
+        public levelenum level { get { return _level; } set { _level = value; OnPropertyChanged("currentLevel"); } }
 
 
         public string currentLevel

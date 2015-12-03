@@ -21,7 +21,7 @@ namespace ExtremeSteakDude.Serialization
             this.players = players;
         }
 
-        ObservableCollection<Player> players;
+        public ObservableCollection<Player> players;
 
         public HighScores HighScores {
          get { return DeserializeH(); }
@@ -53,6 +53,7 @@ namespace ExtremeSteakDude.Serialization
          XmlSerializer mySerializer = new XmlSerializer(typeof(HighScores));
             // To read the file, create a FileStream.
             try {
+                Console.WriteLine("WE TRIED");
                 FileStream myFileStream =
                 new FileStream(Directory.GetCurrentDirectory().ToString() + "\\Highscores.xml", FileMode.Open);
 

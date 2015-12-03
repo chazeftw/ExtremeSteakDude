@@ -29,7 +29,12 @@ namespace ExtremeSteakDude.ViewModel
         public ObservableCollection<Model.HighScores> highScores { get; set; }
 
         private MovementController mc;
-        public ObservableCollection<Player> players { get; set; }
+        public ObservableCollection<Player> players { get {
+                if(_players.Count == 0)
+                {
+                    _players.Add( new Player() );
+                }
+                return _players; } set { _players = value; } }
         public Player player;
         private BitmapImage map;
         public ICommand KeyDownCommand { get; }
@@ -56,6 +61,7 @@ namespace ExtremeSteakDude.ViewModel
 
         private string _welcomeTitle = string.Empty;
         private bool canJump = true;
+        private ObservableCollection<Player> _players = new ObservableCollection<Player>();
 
         public string name {get; set;}
 
@@ -81,22 +87,18 @@ namespace ExtremeSteakDude.ViewModel
         }
 
         public MainViewModel() {
-            name = "Erir";
 
             
             players = new ObservableCollection<Player>();
             XML xml = new XML(players);
             player = xml.Player;
             players.Add(player);
-            
-            
-            KeyDownCommand = new RelayCommand<KeyEventArgs>(KeyDown);
-            KeyUpCommand = new RelayCommand<KeyEventArgs>(KeyUp);
-
-            
             highScores = new ObservableCollection<Model.HighScores>();
             highScores.Add(xml.HighScores);
             mc = new MovementController(players, highScores, this);
+
+            KeyDownCommand = new RelayCommand<KeyEventArgs>(KeyDown);
+            KeyUpCommand = new RelayCommand<KeyEventArgs>(KeyUp);
             NewGameCommand = new RelayCommand(NewGame);
             ContinueCommand = new RelayCommand(Continue);
             HighScoreCommand = new RelayCommand(HighScore);

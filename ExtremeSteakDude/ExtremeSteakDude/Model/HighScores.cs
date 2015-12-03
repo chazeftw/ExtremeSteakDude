@@ -15,13 +15,17 @@ namespace ExtremeSteakDude.Model
     public class HighScores : NotifyBase
     {
 
-        private ObservableCollection<Player> players;
+        public ObservableCollection<Player> players;
         private  String _Name1="Dankmeister";
         private  TimeSpan _Score1; 
         private  String _Name2 = "Eirik";
         private  TimeSpan _Score2;
         private TimeSpan defaultTS = new TimeSpan(1, 0, 0);
-        
+        public HighScores()
+        {
+            players = new ObservableCollection<Player>();
+            players.Add(new Player());
+        }
 
 
         public string Name
