@@ -274,8 +274,11 @@ namespace ExtremeSteakDude.ViewModel
         {   
             if (p[0].won)
             {
+                
+                sc.playVictorySound();
                 timer.Stop();
                 //Thread t = new Thread(ThreadStart)
+                p[0].finalTime = "  " + p[0].timeSpan.ToString(@"mm\:ss\:ff");
                 p[0].won = false; // Just for testing purposes
                 if(TimeSpan.Compare(timer.Elapsed, highScores[0].getCurrentLvlHs()) == -1)
                 {
@@ -292,8 +295,7 @@ namespace ExtremeSteakDude.ViewModel
             }
             if (!p[0].alive)
             {
-                // If jumping out of the screen it goes there, reason unknown
-                //sc.playDeathSound();
+                sc.playDeathSound();
                 // End the game here
                 p[0].alive = true; // Just for testing purposes
               //  Del d = DelegateLoss;

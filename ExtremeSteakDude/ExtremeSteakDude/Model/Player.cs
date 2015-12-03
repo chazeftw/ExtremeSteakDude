@@ -17,6 +17,7 @@ namespace ExtremeSteakDude.Model
         private string _meatboyImage = "pack://application:,,,/Images/meatboy_front.jpg";
         private levelenum _level = levelenum.one;
         private string _currentLevel;
+        public String finalTime { get; set; } = "N/A";
 
         public enum levelenum { one, two };
         public levelenum level { get { return _level; } set { _level = value; OnPropertyChanged("currentLevel"); } }
@@ -129,7 +130,8 @@ namespace ExtremeSteakDude.Model
         public void setTimeElapsed(TimeSpan time)
         {
             _timeSpan = time;
-            stringTime = ("" + time.Minutes+":"+time.Seconds+":"+time.Milliseconds);
+           // stringTime = ("" + time.Minutes+":"+time.Seconds+":"+time.Milliseconds);
+            stringTime = ("" + time.Duration().ToString(@"mm\:ss\:ff"));
             OnPropertyChanged("stringTime");
         }
 
