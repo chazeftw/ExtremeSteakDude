@@ -45,7 +45,6 @@ namespace ExtremeSteakDude.Serialization
          XmlSerializer mySerializer = new XmlSerializer(typeof(HighScores));
             // To read the file, create a FileStream.
             try {
-                Console.WriteLine("WE TRIED");
                 FileStream myFileStream =
                 new FileStream(Directory.GetCurrentDirectory().ToString() + "\\Highscores.xml", FileMode.Open);
 

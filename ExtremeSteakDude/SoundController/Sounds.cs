@@ -75,6 +75,7 @@ namespace SoundController
                 System.Media.SoundPlayer player = new System.Media.SoundPlayer(_soundFile);
             
                 player.PlaySync();
+                player.Stream.Position = 0;
             }
             catch
             {

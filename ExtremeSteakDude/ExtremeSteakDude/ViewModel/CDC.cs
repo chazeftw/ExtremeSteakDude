@@ -34,9 +34,6 @@ namespace ExtremeSteakDude.ViewModel
             backGround = image.GetPixel(0, 0);
             deathColor = image.GetPixel(2, 0);
             winColor = image.GetPixel(3,0);
-            Console.WriteLine(backGround);
-            Console.WriteLine(deathColor);
-            Console.WriteLine(winColor);
 
         }
 
@@ -95,7 +92,6 @@ namespace ExtremeSteakDude.ViewModel
                 }
                 else if (mc.p[0].top && (mc.p[0].onWallLeft || mc.p[0].onWallRight))
                 {
-                    Console.WriteLine("inCeiling");
                     int i = 0;
                     while (image.GetPixel(leftSideTop[0], leftSideTop[1]) != backGround || image.GetPixel(rightSideTop[0], rightSideTop[1]) != backGround)
                     {
@@ -113,7 +109,6 @@ namespace ExtremeSteakDude.ViewModel
                     {
                         if(mc.p[0].vx > 0)
                         {
-                            Console.WriteLine("x > 0 and y > 0");
                             int i = 0;
                             int j;
                             if(mc.p[0].vx > mc.p[0].vy){ j = 0; } else { j = 1; }
@@ -136,7 +131,6 @@ namespace ExtremeSteakDude.ViewModel
                         }
                         else if(mc.p[0].vx < 0)
                         {
-                            Console.WriteLine("x < 0 and y > 0");
                             int i = 0;
                             int j;
                             if (-mc.p[0].vx > mc.p[0].vy) { j = 0; } else { j = 1; }
@@ -163,7 +157,6 @@ namespace ExtremeSteakDude.ViewModel
                     {
                         if (mc.p[0].vx > 0)
                         {
-                            Console.WriteLine("x > 0 and y < 0");
                             int i = 0;
                             int j;
                             if (mc.p[0].vx > -mc.p[0].vy) { j = 0; } else { j = 1; }
@@ -188,7 +181,6 @@ namespace ExtremeSteakDude.ViewModel
                         }
                         else if (mc.p[0].vx < 0)
                         {
-                            Console.WriteLine("x < 0 and y < 0");
                             int i = 0;
                             int j;
                             if (-mc.p[0].vx > -mc.p[0].vy) { j = 0; } else { j = 1; }

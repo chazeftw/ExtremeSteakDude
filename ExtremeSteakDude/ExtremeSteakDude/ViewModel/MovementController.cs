@@ -54,14 +54,12 @@ namespace ExtremeSteakDude.ViewModel
             if (p[0].level == Player.levelenum.one)
             {
                 currentlvl = new lvl1();
-                Console.WriteLine("LEVEL ONE IN MC");
                 
             }
 
             if (p[0].level == Player.levelenum.two)
             {
                 currentlvl = new lvl2();
-                Console.WriteLine("LEVEL TWO IN MC");
             }
             
             this.p = p;
@@ -72,7 +70,6 @@ namespace ExtremeSteakDude.ViewModel
             moveTimer = new Timer(x => Move(), null, 0, tick);
             sc = new Sounds();
             //coll = new CollisionDetector(this, currentlvl);
-            Console.WriteLine(currentlvl.startX+"    ugggggggggggg");
             cdc = new CDC(this, currentlvl);
             this.highScores = highScores;
 
@@ -292,7 +289,6 @@ namespace ExtremeSteakDude.ViewModel
             {
                 // If jumping out of the screen it goes there, reason unknown
                 //sc.playDeathSound();
-                Console.WriteLine("DEAD DEAD DEAD DEAD DEAD DEAD");
                 // End the game here
                 p[0].alive = true; // Just for testing purposes
               //  Del d = DelegateLoss;
@@ -332,6 +328,7 @@ namespace ExtremeSteakDude.ViewModel
         public void Dispose()
         {
             moveTimer.Dispose();
+            timer.Stop();
         }
 
     }

@@ -22,7 +22,6 @@ namespace ExtremeSteakDude.Commands
         {
             this.players[0] = new Player();
             players[0].level = Player.levelenum.one;
-            Console.WriteLine("NEW PLAYER 1");
 
 
             var main = App.Current.MainWindow as MainWindow;
