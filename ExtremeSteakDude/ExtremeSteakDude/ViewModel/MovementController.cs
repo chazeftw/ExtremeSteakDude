@@ -48,13 +48,13 @@ namespace ExtremeSteakDude.ViewModel
 
         public MovementController(ObservableCollection<Player> p, ObservableCollection<Model.HighScores> highScores, MainViewModel main)
         {
-            if (Player.level == Player.levelenum.one)
+            if (p[0].level == Player.levelenum.one)
             {
-                currentlvl = new lvl2();
+                currentlvl = new lvl1();
                 Console.WriteLine("LEVEL ONE IN MC");
             }
 
-            if (Player.level == Player.levelenum.two)
+            if (p[0].level == Player.levelenum.two)
             {
                 currentlvl = new lvl2();
                 Console.WriteLine("LEVEL TWO IN MC");

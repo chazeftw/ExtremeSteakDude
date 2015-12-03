@@ -16,7 +16,7 @@ namespace ExtremeSteakDude.Commands
         public NewPlayerCommandLVL1(ObservableCollection<Player> players)
         {
             this.players = players;
-            Player.level = Player.levelenum.one;
+            players[0].level = Player.levelenum.one;
         }
 
         public void Execute()
