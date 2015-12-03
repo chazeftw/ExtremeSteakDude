@@ -270,9 +270,10 @@ namespace ExtremeSteakDude.ViewModel
         {   
             if (p[0].won)
             {
-
+                timer.Stop();
                 //Thread t = new Thread(ThreadStart)
-                OnWin(EventArgs.Empty);
+
+                Console.WriteLine("WIN WIN WIN WIN WIN WIN WIN!");
                 p[0].won = false; // Just for testing purposes
                 if(TimeSpan.Compare(timer.Elapsed, highScores[0].getCurrentLvlHs()) == -1)
                 {
@@ -306,18 +307,7 @@ namespace ExtremeSteakDude.ViewModel
             
         }
 
-        protected virtual void OnWin(EventArgs args)
-        {
-            EventHandler handler = Win;
-            if (handler != null)
-            {
-                Console.WriteLine("EVENTddddddE");
-                handler(this, args);
-            }
-        }
-        public event EventHandler Win;
-        public delegate void MyEventHandler(string foo);
-        public static void DelegateWin()
+       public static void DelegateWin()
         {
             WinCommand winh = new WinCommand();
             winh.Execute();
