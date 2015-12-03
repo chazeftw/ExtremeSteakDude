@@ -105,9 +105,9 @@ namespace ExtremeSteakDude.ViewModel
                 }
                 else if (!mc.p[0].inAir && (mc.p[0].onWallRight || mc.p[0].onWallLeft))
                 {
-                    if(mc.p[0].vy > 0)
+                    if(mc.p[0].vy >= 0)
                     {
-                        if(mc.p[0].vx > 0)
+                        if(mc.p[0].vx >= 0)
                         {
                             int i = 0;
                             int j;
@@ -155,7 +155,7 @@ namespace ExtremeSteakDude.ViewModel
                     }
                     else if (mc.p[0].vy < 0)
                     {
-                        if (mc.p[0].vx > 0)
+                        if (mc.p[0].vx >= 0)
                         {
                             int i = 0;
                             int j;
