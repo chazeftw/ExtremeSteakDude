@@ -91,6 +91,7 @@ namespace ExtremeSteakDude.Model
                 {
                     case Player.levelenum.one:
                         {
+                            Console.WriteLine(value);
                             _Score1 = value;
                             NotifyPropertyChanged(() => Score1);
                             break;
@@ -108,7 +109,7 @@ namespace ExtremeSteakDude.Model
         }
         public  String Name1 { get { return _Name1; } set { _Name1 = value; NotifyPropertyChanged(); } }
         public  String Name2 {get { return _Name2; }set { _Name2 = value; NotifyPropertyChanged(); } }
-        public  TimeSpan Score1 { get { return _Score2; } set { _Score1 = value; NotifyPropertyChanged(); } }
+        public  TimeSpan Score1 { get { return _Score2; } set { _Score1 = value; NotifyPropertyChanged();  } }
         public  TimeSpan Score2 { get { return _Score2; } set { _Score2 = value; NotifyPropertyChanged(); } }
        
         public TimeSpan getCurrentLvlHs()

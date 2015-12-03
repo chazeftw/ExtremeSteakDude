@@ -126,7 +126,7 @@ namespace ExtremeSteakDude.ViewModel
                 View.NewHighscore newhs = new View.NewHighscore();
                 hswin.Content = newhs;
             }));
-            players[0] = mc.p[0];
+            //players[0] = mc.p[0];
             mc.Dispose();
         }
 
@@ -214,8 +214,10 @@ namespace ExtremeSteakDude.ViewModel
 
         private void SaveHighScore(string obj)
         {
+            Console.WriteLine(players[0].timeSpan);
             SaveHighScoreCommand Command = new SaveHighScoreCommand(highScores, new XML(), obj, players[0].timeSpan);
             Command.Execute();
+            highScores[0] = (new XML()).HighScores;
             NewGame();
         }
 
