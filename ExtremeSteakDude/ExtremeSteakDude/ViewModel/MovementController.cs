@@ -1,6 +1,7 @@
 ﻿using ExtremeSteakDude.Commands;
 using ExtremeSteakDude.Levels;
 using ExtremeSteakDude.Model;
+using ExtremeSteakDude.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,6 +11,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Threading;
+using SoundController;
+
 
 namespace ExtremeSteakDude.ViewModel
 {
@@ -40,7 +43,7 @@ namespace ExtremeSteakDude.ViewModel
         private CollisionDetector coll;
         private TimeSpan offset;
         private CDC cdc;
-        private SoundController sc;
+        private Sounds sc;
         private ObservableCollection<Model.HighScores> highScores;
         
         private MainViewModel mwm;
@@ -54,6 +57,7 @@ namespace ExtremeSteakDude.ViewModel
             {
                 currentlvl = new lvl1();
                 Console.WriteLine("LEVEL ONE IN MC");
+                
             }
 
             if (p[0].level == Player.levelenum.two)
@@ -68,7 +72,7 @@ namespace ExtremeSteakDude.ViewModel
             urc = new UndoRedoController();
             timer = new System.Diagnostics.Stopwatch();
             moveTimer = new Timer(x => Move(), null, 0, tick);
-            sc = new SoundController();
+            sc = new Sounds();
             //coll = new CollisionDetector(this, currentlvl);
             Console.WriteLine(currentlvl.startX+"    ugggggggggggg");
             cdc = new CDC(this, currentlvl);
@@ -263,7 +267,7 @@ namespace ExtremeSteakDude.ViewModel
 
         //check for death/win. Set new window accordingly
         public void CheckWinDeath()
-        {
+        {   
             if (p[0].won)
             {
 
