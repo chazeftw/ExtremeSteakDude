@@ -37,6 +37,8 @@ namespace ExtremeSteakDude.ViewModel
             playerRec.Height = Constants.Const.PLAYERHEIGHT;
             playerRec.Width = Constants.Const.PLAYERWIDTH;
 
+            
+
             if (map.goal.IntersectsWith(playerRec))
             {
                 mc.p[0].won = true;

@@ -1,6 +1,7 @@
 ﻿using ExtremeSteakDude.Commands;
 using ExtremeSteakDude.Levels;
 using ExtremeSteakDude.Model;
+using ExtremeSteakDude.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -266,7 +267,7 @@ namespace ExtremeSteakDude.ViewModel
 
         //check for death/win. Set new window accordingly
         public void CheckWinDeath()
-        {
+        {   
             if (p[0].won)
             {
                 
