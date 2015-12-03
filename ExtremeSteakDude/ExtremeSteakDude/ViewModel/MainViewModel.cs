@@ -18,7 +18,7 @@ using System.Windows.Controls;
 namespace ExtremeSteakDude.ViewModel
 {
 
-    public class MainViewModel : ViewModelBase
+    public class MainViewModel : ViewModelBase , IDisposable
     {
 
         /// <summary>
@@ -302,6 +302,11 @@ namespace ExtremeSteakDude.ViewModel
                     break;
                 
             }
+        }
+
+        public void Dispose()
+        {
+            mc.Dispose();
         }
     }
 }
