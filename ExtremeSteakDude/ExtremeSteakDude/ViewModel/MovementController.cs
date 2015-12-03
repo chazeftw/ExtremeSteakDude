@@ -45,13 +45,11 @@ namespace ExtremeSteakDude.ViewModel
         private CDC cdc;
         private Sounds sc;
         private ObservableCollection<Model.HighScores> highScores;
-        
-        private MainViewModel mwm;
 
         public delegate void Del();
 
 
-        public MovementController(ObservableCollection<Player> p, ObservableCollection<Model.HighScores> highScores, MainViewModel main)
+        public MovementController(ObservableCollection<Player> p, ObservableCollection<Model.HighScores> highScores)
         {
             if (p[0].level == Player.levelenum.one)
             {
@@ -76,7 +74,6 @@ namespace ExtremeSteakDude.ViewModel
             //coll = new CollisionDetector(this, currentlvl);
             Console.WriteLine(currentlvl.startX+"    ugggggggggggg");
             cdc = new CDC(this, currentlvl);
-            mwm = main;
             this.highScores = highScores;
 
             p[0].x = currentlvl.startX;
@@ -279,7 +276,6 @@ namespace ExtremeSteakDude.ViewModel
             if (p[0].won)
             {
                 timer.Stop();
-                //Thread t = new Thread(ThreadStart)
                 onWin(EventArgs.Empty);
                 Console.WriteLine("WIN WIN WIN WIN WIN WIN WIN!");
                 p[0].won = false; // Just for testing purposes
