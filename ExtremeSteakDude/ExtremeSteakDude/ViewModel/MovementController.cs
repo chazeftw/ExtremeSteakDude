@@ -271,12 +271,12 @@ namespace ExtremeSteakDude.ViewModel
 
         //check for death/win. Set new window accordingly
         public void CheckWinDeath()
-        {   
+        {
             if (p[0].won)
             {
                 timer.Stop();
                 //Thread t = new Thread(ThreadStart)
-                onWin(EventArgs.Empty);
+                p[0].finalTime = "" + p[0].timeSpan.ToString(@"mm\:ss\:ff");
                 p[0].won = false; // Just for testing purposes
                 if(TimeSpan.Compare(timer.Elapsed, highScores[0].getCurrentLvlHs()) == -1)
                 {
