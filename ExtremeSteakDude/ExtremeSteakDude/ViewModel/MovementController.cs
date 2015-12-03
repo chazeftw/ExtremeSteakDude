@@ -59,8 +59,7 @@ namespace ExtremeSteakDude.ViewModel
                 currentlvl = new lvl2();
                 Console.WriteLine("LEVEL TWO IN MC");
             }
-
-
+            
             this.p = p;
             p[0].alive = true;
             p[0].won = false;
@@ -72,6 +71,9 @@ namespace ExtremeSteakDude.ViewModel
             cdc = new CDC(this, currentlvl);
             mwm = main;
             this.highScores = highScores;
+
+            p[0].x = currentlvl.startX;
+            p[0].y = currentlvl.startY;
         }
 
         private void Move()
@@ -82,6 +84,8 @@ namespace ExtremeSteakDude.ViewModel
             }
             if (first)
             {
+                p[0].x = currentlvl.startX;
+                p[0].y = currentlvl.startY;
                 offset.Subtract(offset);
                 timer.Restart();
                 first = false;
