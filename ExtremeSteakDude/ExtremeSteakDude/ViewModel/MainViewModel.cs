@@ -230,6 +230,15 @@ namespace ExtremeSteakDude.ViewModel
             NewGame();
         }
 
+        private void SpacePlayAgain(KeyEventArgs e)
+        {
+            if(e.Key == Key.Space)
+            {
+                new PlayAgainCommand(players).Execute();
+            }
+
+        }
+
         private void KeyDown(KeyEventArgs e)
         {
             
