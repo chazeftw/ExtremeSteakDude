@@ -18,8 +18,7 @@ namespace ExtremeSteakDude.Levels
         public lvl1()
         {
             image = new Bitmap(ExtremeSteakDude.Properties.Resources.level_1_1);
-            this.startX = 40;
-            this.startY = 482;
+
             /*gr = Graphics.FromImage(image);
             Rectangle backGround = new Rectangle(0,0,Const.MAPWIDTH,Const.MAPHEIGHT);
             SolidBrush aliceBrush = new SolidBrush(Color.AliceBlue);

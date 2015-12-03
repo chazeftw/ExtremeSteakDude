@@ -21,6 +21,8 @@ namespace ExtremeSteakDude.Commands
         public void Execute()
         {
             this.players[0] = new Player();
+            this.players[0].x = 50;
+            this.players[0].y = 483;
             players[0].level = Player.levelenum.one;
            
             var main = App.Current.MainWindow as MainWindow;

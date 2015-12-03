@@ -10,9 +10,7 @@ namespace ExtremeSteakDude.Model
     abstract class MapNew
     {
         
-        public int startX { get; set; }
 
-        public int startY { get; set; }
 
         public Bitmap image { get; set; }
 

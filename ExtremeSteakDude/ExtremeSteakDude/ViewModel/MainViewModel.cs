@@ -117,7 +117,7 @@ namespace ExtremeSteakDude.ViewModel
         {
             App.Current.Dispatcher.Invoke((Action)(() =>
             {
-                times = mc.p[0].timeSpan;
+                times = (new TimeSpan(mc.p[0].timeSpan));
                 Console.WriteLine(times);
                 // If player got the best time go to new highscore screen
                 if (TimeSpan.Compare(times, new TimeSpan(highScores[0].getCurrentLvlHs())) == -1)
@@ -176,6 +176,7 @@ namespace ExtremeSteakDude.ViewModel
         private void Continue()
         {
             mc.unpause = true;
+            mc.first = false;
             ContinueCommand Command = new ContinueCommand(players, new XML());
             Command.Execute();
            
@@ -295,6 +296,9 @@ namespace ExtremeSteakDude.ViewModel
                     Console.WriteLine("is leftWall: " + mc.p[0].onWallLeft);
                     Console.WriteLine("is rightWall: " + mc.p[0].onWallRight);
                     Console.WriteLine("is top " + mc.p[0].top);
+                    Console.WriteLine("X: " + mc.p[0].x);
+                    Console.WriteLine("Y " + mc.p[0].y);
+
                     break;
                 
             }

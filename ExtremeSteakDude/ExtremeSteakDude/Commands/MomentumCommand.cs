@@ -24,14 +24,14 @@ namespace ExtremeSteakDude.Commands
         {
             p[0].x = p[0].x + x;
             p[0].y = p[0].y + y;
-            p[0].setTimeElapsed(time);
+            p[0].setTimeElapsed(time.Ticks);
         }
 
         public void Undo()
         {
             p[0].x = p[0].x - x;
             p[0].y = p[0].y - y;
-            p[0].setTimeElapsed(time);
+            p[0].setTimeElapsed(time.Ticks);
         }
     }
 }

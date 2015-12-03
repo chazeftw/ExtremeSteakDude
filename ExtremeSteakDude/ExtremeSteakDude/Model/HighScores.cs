@@ -27,7 +27,7 @@ namespace ExtremeSteakDude.Model
             players.Add(new Player());
         }
 
-
+       
         public string Name
         {
             get {
