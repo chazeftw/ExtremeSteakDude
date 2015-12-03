@@ -30,6 +30,7 @@ namespace ExtremeSteakDude.ViewModel
 
         private int movespeed = 5;
         private int moveacc = 2;
+        private int movedacc = 1;
         private int fallspeed = 5;
         private int gravity = 1;
         private int jumpheight = 17;
@@ -47,19 +48,18 @@ namespace ExtremeSteakDude.ViewModel
 
         public MovementController(ObservableCollection<Player> p, ObservableCollection<Model.HighScores> highScores, MainViewModel main)
         {
-            if (Player.level == Player.levelenum.one)
+            if (p[0].level == Player.levelenum.one)
             {
-                currentlvl = new lvl2();
+                currentlvl = new lvl1();
                 Console.WriteLine("LEVEL ONE IN MC");
             }
 
-            if (Player.level == Player.levelenum.two)
+            if (p[0].level == Player.levelenum.two)
             {
                 currentlvl = new lvl2();
                 Console.WriteLine("LEVEL TWO IN MC");
             }
-
-
+            
             this.p = p;
             p[0].alive = true;
             p[0].won = false;
@@ -71,6 +71,9 @@ namespace ExtremeSteakDude.ViewModel
             cdc = new CDC(this, currentlvl);
             mwm = main;
             this.highScores = highScores;
+
+            p[0].x = currentlvl.startX;
+            p[0].y = currentlvl.startY;
         }
 
         private void Move()
@@ -81,6 +84,8 @@ namespace ExtremeSteakDude.ViewModel
             }
             if (first)
             {
+                p[0].x = currentlvl.startX;
+                p[0].y = currentlvl.startY;
                 offset.Subtract(offset);
                 timer.Restart();
                 first = false;
@@ -134,16 +139,16 @@ namespace ExtremeSteakDude.ViewModel
                     if (p[0].vx > 0)
                     {
                         if (p[0].onWallRight) { p[0].vx = 0; }
-                        else if (p[0].vx > moveacc + 1 && !p[0].onWallRight)
+                        else if (p[0].vx > movedacc + 1 && !p[0].onWallRight)
                         {
-                            p[0].vx = p[0].vx - moveacc;
+                            p[0].vx = p[0].vx - movedacc;
                         }
                         else
                         {
                             p[0].vx = 0;
                         }
                     }
-                    else if (p[0].vx < -moveacc)
+                    else if (p[0].vx < -movedacc)
                     {
                         if (p[0].onWallLeft) { p[0].vx = 0; }
                         else { p[0].vx = p[0].vx + moveacc; }
@@ -255,31 +260,32 @@ namespace ExtremeSteakDude.ViewModel
         //check for death/win. Set new window accordingly
         public void CheckWinDeath()
         {
-            /* Toggle Code (Rasmus/Martin ask before you do dumb things)
             if (p[0].won)
             {
+                Console.WriteLine("WIN WIN WIN WIN WIN WIN WIN!");
+                p[0].won = false; // Just for testing purposes
                 if(TimeSpan.Compare(timer.Elapsed, highScores[0].getCurrentLvlHs()) == -1)
                 {
                     
                     //mwm.Win();
                     /*var hswin = App.Current.MainWindow as MainWindow;
                     View.NewHighscore newhs = new View.NewHighscore();
-                    hswin.Content = newhs;
+                    hswin.Content = newhs;*/
                 }
             }
             if (!p[0].alive)
             {
-                sc.playDeathSound();
+                // If jumping out of the screen it goes there, reason unknown
+                //sc.playDeathSound();
                 Console.WriteLine("DEAD DEAD DEAD DEAD DEAD DEAD");
-                p[0].alive = true;
+                // End the game here
+                p[0].alive = true; // Just for testing purposes
                 //mwm.Death();
             }
             
-            var main = App.Current.MainWindow as MainWindow;
-            View.LevelSelect ls = new View.LevelSelect();
-            main.Content = ls;
+            
             // MAYBE DO A COMMAND HERE
-            */
+            
         }
         public void Dispose()
         {

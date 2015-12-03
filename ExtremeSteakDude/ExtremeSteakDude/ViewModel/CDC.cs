@@ -22,15 +22,21 @@ namespace ExtremeSteakDude.ViewModel
         private int[] leftTop = new int[2];
         private Color backGround;
         private Color deathColor;
+        private Color winColor;
 
         public CDC(MovementController mc, MapNew map)
         {
             image = map.image;
             this.mc = mc;
+
+            // Maybe also give this overloaded constructor a variable that says what level we are in and then hardcore
+            // the colors to the according level
             backGround = image.GetPixel(300, 100);
-            deathColor = image.GetPixel(350, 675);
+            deathColor = image.GetPixel(569, 675);
+            winColor = image.GetPixel(1121, 394);
             Console.WriteLine(backGround);
             Console.WriteLine(deathColor);
+            Console.WriteLine(winColor);
 
         }
 
@@ -59,13 +65,20 @@ namespace ExtremeSteakDude.ViewModel
             rightTop[1] = mc.p[0].y - 1 + mc.p[0].vy;
             leftTop[0] = mc.p[0].x + 31 + mc.p[0].vx;
             leftTop[1] = mc.p[0].y - 1 + mc.p[0].vy;
-
+            
+            // If player is on the deathcolor (red)
             if(image.GetPixel(rightFoot[0],rightFoot[1]) == deathColor || image.GetPixel(leftFoot[0], leftFoot[1]) == deathColor)
             {
                 mc.p[0].alive = false;
             }
 
-            if (image.GetPixel(rightFoot[0], rightFoot[1]) != backGround || image.GetPixel(leftFoot[0], leftFoot[1]) != backGround)
+            // If player is on the winning color (yellow ish)
+            if (image.GetPixel(rightFoot[0], rightFoot[1]) == winColor || image.GetPixel(leftFoot[0], leftFoot[1]) == winColor)
+            {
+                mc.p[0].won = true;
+            }
+
+                if (image.GetPixel(rightFoot[0], rightFoot[1]) != backGround || image.GetPixel(leftFoot[0], leftFoot[1]) != backGround)
             {
                 mc.p[0].inAir = false;
             }
@@ -163,7 +176,12 @@ namespace ExtremeSteakDude.ViewModel
 
             }catch(ArgumentOutOfRangeException)
             {
-                mc.p[0].alive = false;
+                mc.p[0].vy = 0;
+                mc.p[0].vx = 0;
+                // If meatboy jumps out of the screen the following will trigger
+                // Commented the following so we can jump out of the screen without issues even though players then
+                // can bug the shit out the game probably. To be considered
+                //mc.p[0].alive = false;
             }
         }
     }
