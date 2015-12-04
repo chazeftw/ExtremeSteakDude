@@ -72,24 +72,25 @@ namespace ExtremeSteakDude.ViewModel
             //coll = new CollisionDetector(this, currentlvl);
             cdc = new CDC(this, currentlvl);
             this.highScores = highScores;
+            p[0].x = p[0].startx;
+            p[0].y = p[0].starty;
 
-            
+
         }
 
         private void Move()
         {
-            if (first && !jump && !moveRight && !moveLeft)
-            {
-                return;
-            }
+
             if (first)
             {
                 p[0].x = p[0].startx;
                 p[0].y = p[0].starty;
+                p[0].alive = true;
                 cdc = new CDC(this, currentlvl);
-                offset.Subtract(offset);
-                timer.Restart();
                 first = false;
+                urc = new UndoRedoController();
+                timer.Restart();
+                offset = TimeSpan.Zero;
             }
             if (isUndoMode)
             {
@@ -156,7 +157,7 @@ namespace ExtremeSteakDude.ViewModel
                     else if (p[0].vx < -movedacc)
                     {
                         if (p[0].onWallLeft) { p[0].vx = 0; }
-                        else { p[0].vx = p[0].vx + moveacc; }
+                        else { p[0].vx = p[0].vx + movedacc; }
                     }
                     else
                     {
