@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtremeSteakDude", "Extreme
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundController", "SoundController\SoundController.csproj", "{3881560C-A1D9-40F8-9FF0-ECE05DCF6B3E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject", "UnitTestProject\UnitTestProject.csproj", "{C8BADC27-2E3A-4564-9B07-917CA82BACE4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3881560C-A1D9-40F8-9FF0-ECE05DCF6B3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3881560C-A1D9-40F8-9FF0-ECE05DCF6B3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3881560C-A1D9-40F8-9FF0-ECE05DCF6B3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8BADC27-2E3A-4564-9B07-917CA82BACE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8BADC27-2E3A-4564-9B07-917CA82BACE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8BADC27-2E3A-4564-9B07-917CA82BACE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8BADC27-2E3A-4564-9B07-917CA82BACE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

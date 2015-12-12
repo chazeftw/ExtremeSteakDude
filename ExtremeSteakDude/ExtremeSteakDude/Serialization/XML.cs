@@ -10,7 +10,7 @@ using System.Xml.Serialization;
 
 namespace ExtremeSteakDude.Serialization
 {
-    class XML
+    public class XML
     {
      private XmlSerializer serH = new XmlSerializer(typeof(HighScores));
      private XmlSerializer serP = new XmlSerializer(typeof(Player));
